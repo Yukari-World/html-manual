@@ -1,0 +1,8 @@
+mixin menuSidebar(href, name)
+	li: a(href=href, title=name)= name
+
+ul
+	+menuSidebar('#', '[WIP] CSS')
+	+menuSidebar('language-pug.html', 'Pug')
+	+menuSidebar('language-sass.html', 'Sass')
+	+menuSidebar('#', '[WIP] Scss')

@@ -1,0 +1,7 @@
+mixin menuSidebar(href, name)
+	li: a(href=href, title=name)= name
+
+ul
+	+menuSidebar('#', '[WIP] Fetch API')
+	+menuSidebar('#', '[WIP] Promise')
+	+menuSidebar('#', '[WIP] XMLHttpRequest')

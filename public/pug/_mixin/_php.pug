@@ -1,0 +1,8 @@
+mixin menuSidebar(href, name)
+	li: a(href=href, title=name)= name
+
+ul
+	+menuSidebar('php-pdo.html', 'PDO(PHP Data Objects)')
+	+menuSidebar('php-bind.html', 'バインドを利用したSQLの実行')
+	+menuSidebar('php-date.html', '日付時間 date()')
+	+menuSidebar('php-fileProcessLock.html', 'ファイルを利用した二重起動防止')

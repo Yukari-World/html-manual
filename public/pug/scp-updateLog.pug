@@ -1,0 +1,129 @@
+extends ./_includes/_layout
+block title
+	- var title = 'マニュアル更新履歴';
+	title #{title}
+block headTitle
+	h1 #{title}
+block content
+	dl
+		dt: h2 2018/09/03
+		dd
+			ul
+				li サンプルデータの追加
+		dt: h2 2018/08/31
+		dd
+			ul
+				li 一部のソースコードを外部に置くようにした
+				li 導入マニュアル『Browsersync導入マニュアル』を更新
+				li 技術マニュアル『Pug』を更新
+		dt: h2 2018/08/30
+		dd
+			ul
+				li ページ数の増加に伴いPug→Htmlへの変換処理を変更
+				li 技術マニュアル『Pug』を更新
+		dt: h2 2018/08/29
+		dd
+			ul
+				li 技術マニュアル『Pug』を追加
+				li 技術マニュアル『Sass』を更新
+		dt: h2 2018/08/28
+		dd
+			ul
+				li Javascriptの配列のとり方を変更
+				li 技術マニュアル『Sass』を更新
+		dt: h2 2018/08/27
+		dd
+			ul
+				li Javascriptの配列のとり方を変更
+				li 技術マニュアル『Sass』を追加
+		dt: h2 2018/08/24
+		dd
+			ul
+				li Xorshiftの乱数シード取得方法と処理方法を更新
+				li 技術マニュアル『TRANSACTION ROLLBACK』を『TRANSACTION』に変更
+		dt: h2 2018/08/22
+		dd
+			ul
+				li 技術マニュアル『TRUNCATE(テーブルを空にする)』を更新
+		dt: h2 2018/08/20
+		dd
+			ul
+				li リンクの問題を修正。Browsersyncを使用すると普通にリンクに繋がるから全く気づかなかった
+				li ページデザインを更新しスクロールを独立化
+				li Java Script処理手順の更新し、乱数にXorshiftを使用するようにし、同じ時間(同じ秒数)に開いた場合、乱数結果が常に同じになるようになった
+				li 今回のミスを元に技術マニュアル『[Deprecated] httpの省略』を追加
+				li 技術マニュアル『backgroundを重ねる』を更新
+		dt: h2 2018/08/17
+		dd
+			ul
+				li 更新履歴のページを追加
+				li 技術マニュアル『backgroundを重ねる』を更新
+				li 技術マニュアル『JOIN』を追加
+				li 技術マニュアル『[MySQL] INT(11) の意味』を追加
+		dt: h2 2018/08/16
+		dd
+			ul
+				li Java Script処理手順の更新
+				li 更新履歴のページを追加
+				li 技術マニュアル『backgroundを重ねる』を更新
+				li 技術マニュアル『[MySQL] INT(11) の意味』を追加
+		dt: h2 2018/08/15
+		dd
+			ul
+				li トップページを更新
+				li メインテンプレートレイアウトを更新し、headタグに要素を追加できるように変更
+				li 導入マニュアル『Browsersync導入マニュアル』を追加
+				li 技術マニュアル『backgroundを重ねる』を更新
+				li 技術マニュアル『グラデーション』を更新
+				li 技術マニュアル『背景画像スクロールの固定』を更新
+		dt: h2 2018/08/14
+		dd
+			ul
+				li トップページを更新
+				li Otherの項目を追加
+				li Java Script処理手順の更新
+				li マニュアルデザインとレスポンシブデザインの更新
+				li レスポンシブデザインの不備を修正
+				li 技術マニュアル『INSERT SELECT』を追加
+				li 技術マニュアル『TRANSACTION ROLLBACK』を追加
+				li 技術マニュアル『TRUNCATE(テーブルを空にする)』を追加
+				li 技術マニュアル『[MySQL] INSERT WHERE EXISTS』を追加
+		dt: h2 2018/08/10
+		dd
+			ul
+				li トップページを更新
+				li JavaScript処理手順の更新
+				li レスポンシブデザインに対応
+		dt: h2 2018/08/09
+		dd
+			ul
+				li トップページを更新
+				li 技術マニュアル『バインドを利用したSQLの実行』を追加
+				li 技術マニュアル『brタグによる改行を無効化』を追加
+		dt: h2 2018/08/08
+		dd
+			ul
+				li トップページを更新
+				li HTMLの項目を追加
+				li Node.jsの項目を追加
+				li SQLの項目を追加
+				li 技術マニュアル『backgroundを重ねる』を追加
+				li 技術マニュアル『brタグによる改行を無効化』を追加
+				li 技術マニュアル『背景画像スクロールの固定』を追加
+		dt: h2 2018/08/07
+		dd
+			ul
+				li トップページを更新
+				li Java Scriptの項目を追加
+				li PHPの項目を追加
+				li メインテンプレートレイアウトを更新し、footerより下にJavaScriptを埋め込むことができるように変更
+				li マニュアルデザインの更新
+				li 技術マニュアル『PDO(PHP Data Objects)』を更新
+				li 技術マニュアル『日付時間 date()』を追加
+				li 技術マニュアル『ファイルを利用した二重起動防止』を追加
+		dt: h2 2018/08/06
+		dd
+			ul
+				li マニュアル作成開始
+				li CSSの項目を追加
+				li 技術マニュアル『グラデーション』を追加

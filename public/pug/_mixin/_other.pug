@@ -1,0 +1,8 @@
+mixin menuSidebar(href, name)
+	li: a(href=href, title=name)= name
+
+ul
+	+menuSidebar('#', '[Atom/WIP] Atom 導入マニュアル')
+	+menuSidebar('#', '[Atom/WIP] apm Command')
+	+menuSidebar('#', '[Unix/WIP] Console Command')
+	+menuSidebar('#', '[XAMPP/WIP] ローカルネットワーク接続')

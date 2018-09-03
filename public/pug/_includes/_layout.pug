@@ -1,0 +1,28 @@
+doctype html
+html(lang='ja')
+	head
+		meta(charset='utf-8')
+		block title
+			title HTML Manual
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(href='css/prism.css', rel='stylesheet', type='text/css')
+		link(href='css/style.css', rel='stylesheet', type='text/css')
+		block headSpace
+	body
+		header.md-show(role='banner')
+			block headTitle
+				include ./_header
+			p#menuBtn Menu
+		nav#menu.sidebar
+			include ../_mixin/_sideList
+		.content
+			header.md-hide(role='banner')
+				block headTitle
+					include ./_header
+			main(role='main')
+				block content
+			footer(role='contentinfo')
+				include ./_footer
+		script(type='application/javascript', src='js/prism.js')
+		script(type='application/javascript', src='js/Main.js')
+		block jsContent

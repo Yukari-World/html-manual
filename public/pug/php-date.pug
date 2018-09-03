@@ -1,0 +1,82 @@
+extends ./_includes/_layout
+block title
+	- var title = '日付時間 date()';
+	title #{title}
+block headTitle
+	h1 #{title}
+block content
+	section
+		h2 説明
+		p 日付の表示は非常にややこしいものが多い。これはMySQLのDATE_FORMAT()にも言えることなのだが、今回はよく使用されるPHPの処理のみをピックアップする。
+
+	section
+		h2 使用方法と解説
+		p シングルクォーテーションを使用しているが、ダブルクォーテーションでも問題ない。
+
+		h3 年月日を表示する
+		pre.language-php.line-numbers: code.
+			date('Y-m-d')
+		p
+		| 結果:&nbsp;
+		time#date1
+		br
+		| `Y`を小文字にした場合、年の下2桁が出力される。
+
+		pre.language-php.line-numbers: code.
+			date('y-m-d')
+		| 結果:&nbsp;
+		time#date2
+
+		h3 時間を表示する
+		pre.language-php.line-numbers: code.
+			date('H:i:s')
+		| 結果:&nbsp;
+		time#date3
+		br
+		| 注意すべき点として分は`m`ではなく`i`であることである。`m`を使用した場合、月が出力されるため、注意が必要。
+
+		h3 年月日を連結して表示する
+		pre.language-php.line-numbers: code.
+			date('Ymd')
+		| 結果:&nbsp;
+		time#date4
+
+		h3 日時を表示する
+		pre.language-php.line-numbers: code.
+			date('Y-m-d H:i:s')
+		| 結果:&nbsp;
+		time#date5
+		br
+		| MySQLのDATETIMEフォーマットの形である。
+
+	section
+		h2 使用上の注意
+		ul
+			li
+				| php.iniのタイムゾーン設定がない場合、標準時間(UTC+0)を元に出力される。PHPソースでこれを解決する場合、
+				pre.language-php.line-numbers: code.
+					date_default_timezone_set('Asia/Tokyo');
+				| を入力することで解決できる。
+
+	section
+		h2 参考リンク
+		p
+			a(href='http://php.net/manual/ja/function.date.php', target='_blank') PHP.net
+
+block jsContent
+	script.
+		document.addEventListener('DOMContentLoaded', function () {
+			let dToday = new Date();
+			let year = dToday.getFullYear();
+			let month = ('0' + (dToday.getMonth() + 1)).slice(-2);
+			let day = ('0' + dToday.getDate()).slice(-2);
+			let hour = ('0' + dToday.getHours()).slice(-2);
+			let minute = ('0' + dToday.getMinutes()).slice(-2);
+			let second = ('0' + dToday.getSeconds()).slice(-2);
+
+			document.getElementById('date1').textContent = year + '-' + month + '-' + day;
+			document.getElementById('date2').textContent = year.toString().substr(2, 2) + '-' + month + '-' + day;
+			document.getElementById('date3').textContent = hour + ':' + minute + ':' + second;
+			document.getElementById('date4').textContent = year + month + day;
+			document.getElementById('date5').textContent = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+		});

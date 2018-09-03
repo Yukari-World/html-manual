@@ -1,0 +1,123 @@
+extends ./_includes/_layout
+block title
+	title Index
+
+block content
+	section
+		p
+			| 左のメニューより選択してください。
+			br
+			| このページのコードの表示には
+			a(href='http://mix-mplus-ipa.osdn.jp/migu/', title='Miguフォント : M+とIPAの合成フォント', target='_blank') Migu 1M
+			| フォントの導入を推奨しています。
+			br
+			| また、このフォントはプログラムコーディングにおいても優秀なため、導入を推奨します。
+			br
+			| 各ページのコードのハイライトには
+			a(href='https://prismjs.com/', title='Prism', target='_blank') Prism
+			| が使用されています。
+
+	section
+		h2 Prismハイライトの例
+		p
+			| 右上のメニューからコードをコピーすることができます。
+			br
+			| カラーコードはマウスオーバーで色を表示することができます。
+		h3 CSS
+		pre.language-css.line-numbers: code.
+			* {
+				margin: 0;
+				padding: 0;
+				line-height: 1.4;
+			}
+
+			header {
+				position: fixed;
+				width: 100%;
+				background-color: #175397;
+			}
+
+			header h1 {
+				padding: 5px 0;
+				text-align: center;
+				font-size: 32px;
+				color: #FFFFFF;
+			}
+
+		h3 Pug
+		pre.language-pug.line-numbers: code.
+			doctype html
+			html(lang='ja')
+				head
+					meta(charset='utf-8')
+					title Debug Checker
+					script(type='application/javascript', src='js/prism.js')
+					link(href='css/prism.css', rel='stylesheet', type='text/css')
+				body
+					header(role='banner')
+						h1 Title
+					main(role='main')
+						h2 Easy?
+					footer(role='contentinfo')
+
+		h3 SCSS
+		pre.language-scss.line-numbers: code.
+			header {
+				position: fixed;
+				width: 100%;
+				background-color: #175397;
+
+				h1 {
+					padding: 5px 0;
+					text-align: center;
+					font-size: 32px;
+					color: #FFFFFF;
+				}
+			}
+
+	section
+		h2 マニュアル作成について
+		p このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは同マニュアルのディレクトリに置いていますので参考にしてください。
+		h3 開発言語
+		ul
+			li Java Script(ECMAScript 2017)
+			li: a(href='https://pugjs.org/', title='Pug: Getting Started', target='_blank') Pug(Jade)
+			li: a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank') Sass(Syntactically Awesome Style Sheets)(Scss)
+		h3 画像
+		ul
+			li: a(href='https://unsplash.com/', title='Unsplash: Beautiful Free Images & Pictures', target='_blank') Unsplash
+		h3 テキストエディタ
+		ul
+			li: a(href='https://atom.io/', title='Atom', target='_blank') Atom
+			li: a(href='https://notepad-plus-plus.org/', title='Notepad++ Home', target='_blank') Notepad++
+			li: a(href='https://code.visualstudio.com/', title='Visual Studio Code - Code Editing. Redefined', target='_blank') Visual Stdio Code
+		h3 ツール
+		ul
+			li: a(href='https://nodejs.org/ja/', title='Node.js', target='_blank') Node.js
+			li: a(href='http://nilposoft.info/index.html', title='Nilposoft', target='_blank') Ralpha Image Resizer
+		h3 ライブラリ
+		dl
+			dt Java Script
+			dd
+				ul
+					li: a(href='https://prismjs.com/', title='Prism', target='_blank') Prism
+			dt Node.js(関連パッケージは省略)
+			dd
+				ul
+					li: a(href='http://babeljs.io/', title='Babel · The compiler for next generation JavaScript', target='_blank') Babel
+					li: a(href='https://browsersync.io/', title='Browsersync - Time-saving synchronised browser testing', target='_blank') Browsersync
+					li: a(href='http://csscomb.com/', title='CSScomb: Makes your code beautiful', target='_blank') CSScomb
+					li: a(href='https://eslint.org/', title='ESLint - Pluggable JavaScript linter', target='_blank') ESLint
+					li: a(href='https://gulpjs.com/', title='gulp.js', target='_blank') gulp.js
+					li: a(href='https://postcss.org/', title='PostCSS - a tool for transforming CSS with JavaScript', target='_blank') PostCSS
+
+	section
+		h2 リクエストについて
+		p マニュアル及び解説のリクエストはSlackもしくは本人に直接お願いします。一通り動作を検証した後マニュアル化を行います。
+
+	section
+		h2 フッターにある取り消し線の内容は何?
+		p
+			| 全て元ネタがあります。わからない場合、調べてみましょう。尚、内容は秒が10の倍数毎に切り替わるようになっています。現在
+			span#countRandom 0
+			| 個の候補があります。表示内容は擬似乱数Xorshiftのランダムであり、表示結果が重複することがあります。

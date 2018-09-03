@@ -1,0 +1,44 @@
+extends ./_includes/_layout
+block title
+	- var title = 'ランダムワード集';
+	title #{title}
+block headTitle
+	h1 #{title}
+block append headSpace
+	style(type='text/css').		
+		dt:not(:first-child) {
+			margin-top: 20px;
+		}
+
+		h3, h4 {
+			font-family: "メイリオ", "Meiryo", sans-serif;
+			font-weight: 400;
+		}
+
+		dt h4 {
+			padding: 0 10px;
+			font-size: 10px;
+		}
+
+		dd h3 {
+			padding: 0;
+		}
+
+		#randomOutput p {
+			padding: 0;
+		}
+
+		#randomOutput p:nth-child(1n+3) {
+			margin-top: 1em;
+		}
+
+		#randomOutput h4 {
+			margin: 0;
+		}
+
+block content
+	section
+		h2 ランダムワードピックアップ
+
+	section#randomOutput
+		p このページはJava Scriptで出力しています。Java Scriptが有効ではない場合、このページは利用できません。予めご了承ください。

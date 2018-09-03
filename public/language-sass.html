@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<title>Sass</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/prism.css" rel="stylesheet" type="text/css">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<header class="md-show" role="banner">
+		<h1>Sass</h1>
+		<p id="menuBtn">Menu</p>
+	</header>
+	<nav class="sidebar" id="menu">
+		<h2>HTML Manual Menu</h2>
+		<ul>
+			<li>
+				<h3><a href="index.html" title="TOP Page">TOP</a></h3>
+				<ul>
+					<li><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
+					<li><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
+					<li><a href="scp-randomWord.html" title="ランダムデータマニア">???</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><a href="#" title="CSS">CSS</a></h3>
+				<ul>
+					<li><a href="css-backgroundLayer.html">backgroundを重ねる</a></li>
+					<li><a href="css-disablebrTag.html">brタグによる改行を無効化</a></li>
+					<li><a href="css-beforeAfter.html">疑似要素 :before / :after</a></li>
+					<li><a href="css-gradation.html">グラデーション</a></li>
+					<li><a href="css-backgroundScrollLock.html">背景画像スクロールの固定</a></li>
+					<li><a href="css-textShadow.html">文字装飾による可読性の向上</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><a href="#" title="HTML">HTML</a></h3>
+				<ul>
+					<li><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
+					<li><a href="#" title="[WIP] ファイルダウンロード">[WIP] ファイルダウンロード</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><a href="#" title="Java Script">Java Script</a></h3>
+				<ul>
+					<li><a href="#" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
+					<li><a href="#" title="[WIP] Promise">[WIP] Promise</a></li>
+					<li><a href="#" title="[WIP] XMLHttpRequest">[WIP] XMLHttpRequest</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><a href="#" title="Language">Language</a></h3>
+				<ul>
+					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
+					<li><a href="language-pug.html" title="Pug">Pug</a></li>
+					<li><a href="language-sass.html" title="Sass">Sass</a></li>
+					<li><a href="#" title="[WIP] Scss">[WIP] Scss</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><a href="#" title="Node.js">Node.js</a></h3>
+				<ul>
+					<li><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
+					<li><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
+					<li><a href="#" title="[WIP] npm コマンド">[WIP] npm コマンド</a></li>
+					<li><a href="#" title="[Gulp/WIP] Gulp導入マニュアル">[Gulp/WIP] Gulp導入マニュアル</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><a href="#" title="PHP">PHP</a></h3>
+				<ul>
+					<li><a href="php-pdo.html" title="PDO(PHP Data Objects)">PDO(PHP Data Objects)</a></li>
+					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
+					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
+					<li><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><a href="#" title="SQL">SQL</a></h3>
+				<ul>
+					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
+					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
+					<li><a href="#" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
+					<li><a href="sql-transaction.html" title="TRANSACTION(トランザクション)">TRANSACTION(トランザクション)</a></li>
+					<li><a href="sql-truncate.html" title="TRUNCATE(テーブルを空にする)">TRUNCATE(テーブルを空にする)</a></li>
+					<li><a href="#" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
+					<li><a href="sql-MySQLinsertWhereExists.html" title="[MySQL] INSERT WHERE EXISTS">[MySQL] INSERT WHERE EXISTS</a></li>
+					<li><a href="sql-MySQLint.html" title="[MySQL] INT(11) の意味">[MySQL] INT(11) の意味</a></li>
+					<li><a href="sql-MySQLupdateSelect.html" title="[MySQL] UPDATE SELECT">[MySQL] UPDATE SELECT</a></li>
+					<li><a href="#" title="[MySQL/WIP] UTF-8のあれこれ">[MySQL/WIP] UTF-8のあれこれ</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><a href="#" title="Other">Other</a></h3>
+				<ul>
+					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
+					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
+					<li><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
+					<li><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div class="content">
+		<header class="md-hide" role="banner">
+			<h1>Sass</h1></header>
+		<main role="main">
+			<section>
+				<h2>Sassとは</h2></section>
+			<section>
+				<h2>記述方法</h2>
+				<p>記述方法はRubyスタイルに近い。タブで階層を示し、セミコロンと括弧は必要としない。</p>
+				<h4>Sass</h4><pre class="language-sass line-numbers"><code>h1, h2, h3, h4, h5, h6
+	font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+
+ul
+	list-style: none
+
+	li
+		&amp;:not(:first-child)
+			margin-top: 5px
+
+	ul
+		margin-left: 2em
+
+@keyframes flashString
+	0%
+		color: #FFFFFF
+		text-shadow: unset
+
+	90%
+		color: #FFFFFF
+		text-shadow: 0 0 10px rgba(255, 255, 255, 0)
+
+	95%
+		color: #FFFF66
+		text-shadow: 0 0 10px #FFFF66
+
+	100%
+		color: #FFFFFF
+		text-shadow: 0 0 10px rgba(255, 255, 255, 0)
+</code></pre>
+				<p>これを出力した場合、以下のように出力される。尚、Gulpコンパイル時、様々な追加処理を行っている都合上通常の結果と異なる場合がある。</p>
+				<h4>CSS</h4><pre class="language-css line-numbers"><code>h1, h2, h3, h4, h5, h6 {
+	font-family: 游ゴシック体,Yu Gothic,YuGothic,ヒラギノ角ゴシック Pro,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,Osaka,ＭＳ Ｐゴシック,MS PGothic,sans-serif;
+}
+
+ul {
+	list-style: none;
+}
+
+ul li:not(:first-child) {
+	margin-top: 5px;
+}
+
+ul ul {
+	margin-left: 2em;
+}
+
+@keyframes flashString {
+	0% {
+		color: #FFFFFF;
+		text-shadow: unset;
+	}
+
+	90% {
+		color: #FFFFFF;
+		text-shadow: 0 0 10px rgba(255, 255, 255, 0);
+	}
+
+	95% {
+		color: #FFFF66;
+		text-shadow: 0 0 10px #FFFF66;
+	}
+
+	100% {
+		color: #FFFFFF;
+		text-shadow: 0 0 10px rgba(255, 255, 255, 0);
+	}
+}
+</code></pre></section>
+			<section>
+				<h2>拡張機能</h2>
+				<h3>変数</h3>
+				<p>Sass及びScssでは変数を使用することができる。また、変数を演算に使用することができる。</p>
+				<h4>Sass</h4><pre class="language-sass line-numbers"><code>$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+$background-color: #000011
+$footer-line: 5px
+
+body
+	display: flex
+	justify-content: space-between
+	align-items: flex-start
+	font-family: "メイリオ", "Meiryo", sans-serif
+	font-size: 14px
+	color: #FFFFFF
+	background-color: $background-color
+
+footer
+	display: flex
+	justify-content: space-between
+	align-items: center
+	margin-top: 3px
+	padding-top: 5px
+	padding-bottom: 5px
+	border-width: 0
+	border-style: solid
+	border-top-width: $footer-line
+	border-bottom-width: $footer-line * 3
+	// 間に式を使う場合は#{}で囲む
+	border-image: $gradation-pattern 1 / #{$footer-line} 0 #{$footer-line * 3} / 0 stretch 
+</code></pre>
+				<h4>CSS</h4><pre class="language-css line-numbers"><code>body {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	font-family: メイリオ,Meiryo,sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #000011;
+}
+
+footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 3px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-width: 5px 0 15px;
+	border-style: solid;
+	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 15px/0 stretch;
+}
+</code></pre>
+				<h3>レスポンシブ</h3>
+				<p>タグ内に<code class="language-sass"><span class="token keyword">@media</span></code>タグを記述することで簡単にレスポンシブ対応ができる。</p>
+				<h4>Sass</h4><pre class="language-sass line-numbers"><code>$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+
+footer
+	display: flex
+	justify-content: space-between
+	align-items: center
+	margin-top: 3px
+	padding-top: 5px
+	padding-bottom: 5px
+	border-width: 0
+	border-style: solid
+	border-top-width: 5px
+	border-bottom-width: 15px
+	border-image: $gradation-pattern 1/5px 0 15px/0 stretch
+
+	@media only screen and (max-width: 768px)
+		flex-direction: column-reverse
+
+	p
+		@media only screen and (max-width: 768px)
+			box-sizing: border-box
+			width: 100%
+
+
+		&amp;:first-child
+			padding: 0 0 0 10px
+
+			b
+				font-weight: 900
+
+		&amp;:last-child
+			margin-left: 2em
+			text-align: right
+			white-space: nowrap
+
+			@media only screen and (max-width: 768px)
+				margin-bottom: 15px
+				margin-left: 0
+
+			@media only screen and (max-width: 576px)
+				white-space: normal
+</code></pre>
+				<h4>CSS</h4>
+				<p>出力結果。以下の通り<code class="language-sass"><span class="token keyword">@media</span></code>タブは要素分だけ個別で出力されるため、何らかの整形ツールで纏めると見栄え等で良くなる。</p><pre class="language-css line-numbers"><code>footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 3px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-width: 5px 0 15px;
+	border-style: solid;
+	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 15px/0 stretch;
+}
+
+footer p:first-child {
+	padding: 0 0 0 10px;
+}
+
+footer p:first-child b {
+	font-weight: 900;
+}
+
+footer p:last-child {
+	margin-left: 2em;
+	text-align: right;
+	white-space: nowrap;
+}
+
+@media only screen and (max-width: 768px) {
+	footer {
+		flex-direction: column-reverse;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	footer p {
+		box-sizing: border-box;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	footer p:last-child {
+		margin-bottom: 15px;
+		margin-left: 0;
+	}
+}
+
+@media only screen and (max-width: 576px) {
+	footer p:last-child {
+		white-space: normal;
+	}
+}
+</code></pre>
+				<p>また<code class="language-sass"><span class="token keyword">@media</span></code>タブは幾つかの要素に分割することもできる。</p>
+				<h4>Sass</h4><pre class="language-sass line-numbers"><code>$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+
+footer
+	display: flex
+	justify-content: space-between
+	align-items: center
+	margin-top: 3px
+	padding-top: 5px
+	padding-bottom: 5px
+	border-width: 0
+	border-style: solid
+	border-top-width: 5px
+	border-bottom-width: 15px
+	border-image: $gradation-pattern 1/5px 0 15px/0 stretch
+
+	@media only screen
+		@media (max-width: 768px)
+			flex-direction: column-reverse
+</code></pre>
+				<h4>CSS</h4><pre class="language-css line-numbers"><code>footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 3px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-width: 5px 0 15px;
+	border-style: solid;
+	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 15px/0 stretch;
+}
+
+@media only screen and (max-width: 768px) {
+	footer {
+		flex-direction: column-reverse;
+	}
+}
+</code></pre>
+				<section>
+					<h2>最後に</h2>
+					<p>このマニュアルはScssをSassに変換したファイルを置いているので参考程度に。</p><pre class="line-numbers" data-src="sass/buildSass.sass" data-download-link></pre></section>
+			</section>
+		</main>
+		<footer role="contentinfo">
+			<p><s id="randomWord"></s></p>
+			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
+				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: Java Script,&nbsp;<a href="https://pugjs.org/"
+				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(Scss)</a></p>
+		</footer>
+	</div>
+	<script type="application/javascript" src="js/prism.js"></script>
+	<script type="application/javascript" src="js/Main.js"></script>
+</body>
+
+</html>

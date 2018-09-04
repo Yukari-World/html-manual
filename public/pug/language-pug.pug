@@ -8,14 +8,14 @@ block content
 	section
 		h2 Pugとは
 		p
-			| PugはHtmlのテンプレートエンジンである。かつてはJadeと呼ばれていたが、商標権との関係でPugと呼ばれている。Jade自体は現在でも存在し、コンパイラも存在するが、非推奨となっている。
+			| PugはHTMLのテンプレートエンジンである。かつてはJadeと呼ばれていたが、商標権との関係でPugと呼ばれている。Jade自体は現在でも存在し、コンパイラも存在するが、非推奨となっている。
 			br
 			| 尚、PugもJadeも元は同じ為記述方法自体は変わらないが、基本的には現行環境であるPugを基に記述していく。
 
 	section
 		h2 記述方法
 		h3 基本的な記述
-		p 記述方法はRubyスタイルに近い。タブで階層を示し、Htmlタグを囲む必要はない。但し、Htmlタグをそのまま記述しても特に問題はない。
+		p 記述方法はRubyスタイルに近い。タブで階層を示し、HTMLタグを囲む必要はない。但し、HTMLタグをそのまま記述しても特に問題はない。
 		h4 Pug
 		pre.language-pug.line-numbers: code.
 			doctype html
@@ -61,13 +61,34 @@ block content
 			&lt;/html&gt;
 
 		h3 プロパティ
-		p プロパティは括弧で記述する。複数プロパティがある場合はカンマで区切る。
+		p プロパティは括弧で記述する。複数プロパティがある場合はカンマで区切る。但し、こちらは必須ではない。
 		h4 Pug
 		pre.language-pug.line-numbers: code.
 			input(type='text', name='school', placeholder='学校名')
 		h4 HTML
 		pre.language-html.line-numbers: code.
 			&lt;input type="text" name="school" placeholder="学校名"&gt;
+
+		h3 複数行の記述
+		p
+			code.language-markup
+				span.token.punctuation &lt;
+				span.token.tag p
+				span.token.punctuation &gt;
+			| タグの様に内容が長くなる場合や同一タグの中に文章とHTMLタグが混在する場合、文章部分は|で始める。
+		h4 Pug
+		pre.language-pug.line-numbers: code.
+			p
+				| 参照元は
+				a(href='#', target='_blank') こちら
+		h4 HTML
+		pre.language-html.line-numbers: code.
+			&lt;p&gt;参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;&lt;/p&gt;
+		p 尚、どうしても一行で済ましたいならば以下のように記述する。
+		h4 Pug
+		pre.language-pug.line-numbers: code.
+			p 参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;
+
 		h3 IDとクラス
 		p IDとクラスはプロパティを記述する方法で記述してもよいが、以下のように記述することができる。
 		h4 Pug
@@ -86,7 +107,18 @@ block content
 				&lt;/tr&gt;
 			&lt;/table&gt;
 
-		p また、divタグにIDやクラスを記述する場合、divタグを省略して記述できる。
+		p 
+			| また、
+			code.language-markup
+				span.token.punctuation &lt;
+				span.token.tag div
+				span.token.punctuation &gt;
+			| タグにIDやクラスを記述する場合、
+			code.language-markup
+				span.token.punctuation &lt;
+				span.token.tag div
+				span.token.punctuation &gt;
+			| タグを省略して記述することができる。
 		h4 Pug
 		pre.language-pug.line-numbers: code.
 			#top.box
@@ -103,12 +135,11 @@ block content
 				&lt;p&gt;Message&lt;/p&gt;
 			&lt;/div&gt;
 
-		p 複数のクラスを指定する場合は、CSSの様に連続して記述する。
+		p 同一のHTMLタグに複数のクラスを指定する場合は、CSSの記述方法の様に連続して記述する。
 		h4 Pug
 		pre.language-pug.line-numbers: code.
 			.box.left
-				p.this.is.four.pens
-					| Test
+				p.this.is.four.pens Test
 
 		h4 HTML
 		pre.language-html.line-numbers: code.
@@ -243,7 +274,7 @@ block content
 		h2 使用上の注意
 		ul
 			li
-				| &amp;、&gt;、&lt;といった記号は、文字列として使用できるが推奨されていない。また、&lt;&gt;で囲むとHtmlタグであると認識される。それぞれ
+				| &amp;、&gt;、&lt;といった記号は、文字列として使用できるが推奨されていない。また、&lt;&gt;で囲むとHTMLタグであると認識される。それぞれ
 				code.language-html: span.token.tag &amp;amp;
 				| 、
 				code.language-html: span.token.tag &amp;gt;
@@ -251,7 +282,7 @@ block content
 				code.language-html: span.token.tag &amp;lt;
 				| といった特殊文字を使用することが推奨さている。特殊文字については以下のリンクを参照。
 				br
-				a(href='http://www.htmq.com/text/' target='_blank') 特殊文字リファレンス - HTMLクイックリファレンス
+				a(href='http://www.htmq.com/text/', target='_blank') 特殊文字リファレンス - HTMLクイックリファレンス
 
 	section
 		h2 最後に

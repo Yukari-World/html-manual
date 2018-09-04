@@ -45,7 +45,7 @@
 				</ul>
 			</li>
 			<li>
-				<h3><a href="#" title="Java Script">Java Script</a></h3>
+				<h3><a href="#" title="JavaScript">JavaScript</a></h3>
 				<ul>
 					<li><a href="#" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
 					<li><a href="#" title="[WIP] Promise">[WIP] Promise</a></li>
@@ -111,12 +111,12 @@
 		<main role="main">
 			<section>
 				<h2>Pugとは</h2>
-				<p>PugはHtmlのテンプレートエンジンである。かつてはJadeと呼ばれていたが、商標権との関係でPugと呼ばれている。Jade自体は現在でも存在し、コンパイラも存在するが、非推奨となっている。<br>尚、PugもJadeも元は同じ為記述方法自体は変わらないが、基本的には現行環境であるPugを基に記述していく。</p>
+				<p>PugはHTMLのテンプレートエンジンである。かつてはJadeと呼ばれていたが、商標権との関係でPugと呼ばれている。Jade自体は現在でも存在し、コンパイラも存在するが、非推奨となっている。<br>尚、PugもJadeも元は同じ為記述方法自体は変わらないが、基本的には現行環境であるPugを基に記述していく。</p>
 			</section>
 			<section>
 				<h2>記述方法</h2>
 				<h3>基本的な記述</h3>
-				<p>記述方法はRubyスタイルに近い。タブで階層を示し、Htmlタグを囲む必要はない。但し、Htmlタグをそのまま記述しても特に問題はない。</p>
+				<p>記述方法はRubyスタイルに近い。タブで階層を示し、HTMLタグを囲む必要はない。但し、HTMLタグをそのまま記述しても特に問題はない。</p>
 				<h4>Pug</h4><pre class="language-pug line-numbers"><code>doctype html
 html(lang='ja')
 	head
@@ -155,9 +155,19 @@ html(lang='ja')
 &lt;/html&gt;
 </code></pre>
 				<h3>プロパティ</h3>
-				<p>プロパティは括弧で記述する。複数プロパティがある場合はカンマで区切る。</p>
+				<p>プロパティは括弧で記述する。複数プロパティがある場合はカンマで区切る。但し、こちらは必須ではない。</p>
 				<h4>Pug</h4><pre class="language-pug line-numbers"><code>input(type='text', name='school', placeholder='学校名')</code></pre>
-				<h4>HTML</h4><pre class="language-html line-numbers"><code>&lt;input type="text" name="school" placeholder="学校名"&gt;</code></pre>
+				<h4>HTML</h4><pre class="language-html line-numbers"><code>&lt;input type="text" name="school" placeholder="学校名"&gt;
+</code></pre>
+				<h3>複数行の記述</h3>
+				<p><code class="language-markup"><span class="token punctuation">&lt;</span><span class="token tag">p</span><span class="token punctuation">&gt;</span></code>タグの様に内容が長くなる場合や同一タグの中に文章とHTMLタグが混在する場合、文章部分は|で始める。</p>
+				<h4>Pug</h4><pre class="language-pug line-numbers"><code>p
+	| 参照元は
+	a(href='#', target='_blank') こちら</code></pre>
+				<h4>HTML</h4><pre class="language-html line-numbers"><code>&lt;p&gt;参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;&lt;/p&gt;</code></pre>
+				<p>尚、どうしても一行で済ましたいならば以下のように記述する。</p>
+				<h4>Pug</h4><pre class="language-pug line-numbers"><code>p 参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;
+</code></pre>
 				<h3>IDとクラス</h3>
 				<p>IDとクラスはプロパティを記述する方法で記述してもよいが、以下のように記述することができる。</p>
 				<h4>Pug</h4><pre class="language-pug line-numbers"><code>table.contets
@@ -172,7 +182,7 @@ html(lang='ja')
 	&lt;/tr&gt;
 &lt;/table&gt;
 </code></pre>
-				<p>また、divタグにIDやクラスを記述する場合、divタグを省略して記述できる。</p>
+				<p> また、<code class="language-markup"><span class="token punctuation">&lt;</span><span class="token tag">div</span><span class="token punctuation">&gt;</span></code>タグにIDやクラスを記述する場合、<code class="language-markup"><span class="token punctuation">&lt;</span><span class="token tag">div</span><span class="token punctuation">&gt;</span></code>タグを省略して記述することができる。</p>
 				<h4>Pug</h4><pre class="language-pug line-numbers"><code>#top.box
 	p Message
 #bottom.box
@@ -185,10 +195,9 @@ html(lang='ja')
 	&lt;p&gt;Message&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
-				<p>複数のクラスを指定する場合は、CSSの様に連続して記述する。</p>
+				<p>同一のHTMLタグに複数のクラスを指定する場合は、CSSの記述方法の様に連続して記述する。</p>
 				<h4>Pug</h4><pre class="language-pug line-numbers"><code>.box.left
-	p.this.is.four.pens
-		| Test
+	p.this.is.four.pens Test
 </code></pre>
 				<h4>HTML</h4><pre class="language-html line-numbers"><code>&lt;div class="box left"&gt;
 	&lt;p class="this is four pens"&gt;Test&lt;/p&gt;
@@ -277,7 +286,7 @@ gulp.task('pug', function {
 			<section>
 				<h2>使用上の注意</h2>
 				<ul>
-					<li>&amp;、&gt;、&lt;といった記号は、文字列として使用できるが推奨されていない。また、&lt;&gt;で囲むとHtmlタグであると認識される。それぞれ<code class="language-html"><span class="token tag">&amp;amp;</span></code>、<code class="language-html"><span class="token tag">&amp;gt;</span></code>、<code class="language-html"><span class="token tag">&amp;lt;</span></code>といった特殊文字を使用することが推奨さている。特殊文字については以下のリンクを参照。<br>
+					<li>&amp;、&gt;、&lt;といった記号は、文字列として使用できるが推奨されていない。また、&lt;&gt;で囲むとHTMLタグであると認識される。それぞれ<code class="language-html"><span class="token tag">&amp;amp;</span></code>、<code class="language-html"><span class="token tag">&amp;gt;</span></code>、<code class="language-html"><span class="token tag">&amp;lt;</span></code>といった特殊文字を使用することが推奨さている。特殊文字については以下のリンクを参照。<br>
 						<a
 						    href="http://www.htmq.com/text/" target="_blank">特殊文字リファレンス - HTMLクイックリファレンス</a>
 					</li>
@@ -290,7 +299,7 @@ gulp.task('pug', function {
 		<footer role="contentinfo">
 			<p><s id="randomWord"></s></p>
 			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
-				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: Java Script,&nbsp;<a href="https://pugjs.org/"
+				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
 				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(Scss)</a></p>
 		</footer>
 	</div>

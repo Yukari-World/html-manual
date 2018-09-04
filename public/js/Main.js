@@ -1,5 +1,5 @@
 /**
- * @fileOverview マニュアル用Java Script
+ * @fileOverview マニュアル用JavaScript
  * @version 1.0.0
  * @since 1.0.0
  */

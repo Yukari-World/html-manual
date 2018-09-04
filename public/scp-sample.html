@@ -18,11 +18,12 @@
 		<h2>HTML Manual Menu</h2>
 		<ul>
 			<li>
-				<h3><a href="index.html" title="TOP Page">TOP</a></h3>
+				<h3><a href="#" title="Main">Main</a></h3>
 				<ul>
-					<li><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
+					<li><a href="index.html" title="TOP Page">TOP Page</a></li>
 					<li><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
-					<li><a href="scp-randomWord.html" title="ランダムデータマニア">???</a></li>
+					<li><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
+					<li><a href="scp-randomWord.html" title="???">???</a></li>
 				</ul>
 			</li>
 			<li>
@@ -65,7 +66,7 @@
 				<ul>
 					<li><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
 					<li><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
-					<li><a href="#" title="[WIP] npm コマンド">[WIP] npm コマンド</a></li>
+					<li><a href="node-npm.html" title="npm コマンド">npm コマンド</a></li>
 					<li><a href="#" title="[Gulp/WIP] Gulp導入マニュアル">[Gulp/WIP] Gulp導入マニュアル</a></li>
 				</ul>
 			</li>
@@ -111,6 +112,7 @@
 			<section>
 				<h2>サンプルデータについて</h2>
 				<p>このサンプルデータはマニュアル解説を円滑に行うために用意されたデータです。<br>サンプルデータについての利用制限等は特にありませんので煮るなり潰すなりお好きにどうぞ。</p>
+				<p>各サンプルファイルはソースコード欄右上に表示されるツールバーからコピー、ダウンロードすることができます。</p>
 			</section>
 			<section>
 				<h2>サンプルデータ</h2>
@@ -134,7 +136,7 @@ function getDateList() {
 			.then(function (json) {
 				// console.log(json);
 				// ここに処理内容を記述
-				resolve(1);
+				resolve(1); // ここを resolve(json); とすると戻り値としてJSONを指定することができる。
 			})
 			.catch(function (error) {
 				// console.errorは処理を止めるので必要に応じて変更

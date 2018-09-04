@@ -11,6 +11,8 @@ block content
 			| このサンプルデータはマニュアル解説を円滑に行うために用意されたデータです。
 			br
 			| サンプルデータについての利用制限等は特にありませんので煮るなり潰すなりお好きにどうぞ。
+		p
+			| 各サンプルファイルはソースコード欄右上に表示されるツールバーからコピー、ダウンロードすることができます。
 	section
 		h2 サンプルデータ
 		h3 Scss
@@ -43,7 +45,7 @@ block content
 						.then(function (json) {
 							// console.log(json);
 							// ここに処理内容を記述
-							resolve(1);
+							resolve(1); // ここを resolve(json); とすると戻り値としてJSONを指定することができる。
 						})
 						.catch(function (error) {
 							// console.errorは処理を止めるので必要に応じて変更

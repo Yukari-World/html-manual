@@ -18,11 +18,12 @@
 		<h2>HTML Manual Menu</h2>
 		<ul>
 			<li>
-				<h3><a href="index.html" title="TOP Page">TOP</a></h3>
+				<h3><a href="#" title="Main">Main</a></h3>
 				<ul>
-					<li><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
+					<li><a href="index.html" title="TOP Page">TOP Page</a></li>
 					<li><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
-					<li><a href="scp-randomWord.html" title="ランダムデータマニア">???</a></li>
+					<li><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
+					<li><a href="scp-randomWord.html" title="???">???</a></li>
 				</ul>
 			</li>
 			<li>
@@ -65,7 +66,7 @@
 				<ul>
 					<li><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
 					<li><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
-					<li><a href="#" title="[WIP] npm コマンド">[WIP] npm コマンド</a></li>
+					<li><a href="node-npm.html" title="npm コマンド">npm コマンド</a></li>
 					<li><a href="#" title="[Gulp/WIP] Gulp導入マニュアル">[Gulp/WIP] Gulp導入マニュアル</a></li>
 				</ul>
 			</li>
@@ -259,10 +260,10 @@ ul
 					<li>
 						<p>プロジェクトパッケージにがあるフォルダに移動し、以下のコマンドを入力を行う。</p><pre class="language-batch line-numbers"><code>npm i gulp-pug -D</code></pre></li>
 					<li>
-						<p>gulpfile.jsが存在しない場合は作成を行い、以下のように入力を行う。</p><pre class="language-javascript line-numbers" data-line="1, 5"><code>const pug = require('gulp-pug');
+						<p>gulpfile.jsが存在しない場合は作成を行い、以下のように入力を行う。ファイル行頭が_(アンダーバー)のファイルを除外することで各種テンプレートファイルを変換しなくなる。</p><pre class="language-javascript line-numbers" data-line="1, 5"><code>const pug = require('gulp-pug');
 
 gulp.task('pug', function {
-	return gulp.src('pug/*.pug')
+	return gulp.src(['pug/**/*.pug', '!pug/**/_*.pug'])
 	.pipe(pug())
 	.pipe(gulp.dest('/../'));
 });
@@ -272,6 +273,15 @@ gulp.task('pug', function {
 						<p>gulpをローカルパッケージにインストールした場合は以下のように入力を行う。</p><pre class="language-batch line-numbers"><code>npx gulp pug
 </code></pre></li>
 				</ol>
+			</section>
+			<section>
+				<h2>使用上の注意</h2>
+				<ul>
+					<li>&amp;、&gt;、&lt;といった記号は、文字列として使用できるが推奨されていない。また、&lt;&gt;で囲むとHtmlタグであると認識される。それぞれ<code class="language-html"><span class="token tag">&amp;amp;</span></code>、<code class="language-html"><span class="token tag">&amp;gt;</span></code>、<code class="language-html"><span class="token tag">&amp;lt;</span></code>といった特殊文字を使用することが推奨さている。特殊文字については以下のリンクを参照。<br>
+						<a
+						    href="http://www.htmq.com/text/" target="_blank">特殊文字リファレンス - HTMLクイックリファレンス</a>
+					</li>
+				</ul>
 			</section>
 			<section>
 				<h2>最後に</h2>

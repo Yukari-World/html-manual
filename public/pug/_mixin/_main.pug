@@ -1,0 +1,8 @@
+mixin menuSidebar(href, name)
+	li: a(href=href, title=name)= name
+
+ul
+	+menuSidebar('index.html', 'TOP Page')
+	+menuSidebar('scp-sample.html', 'サンプルデータ')
+	+menuSidebar('scp-updateLog.html', '更新履歴')
+	+menuSidebar('scp-randomWord.html', '???')

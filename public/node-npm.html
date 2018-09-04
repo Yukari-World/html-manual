@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>TRUNCATE(テーブルを空にする)</title>
+	<title>npm コマンド</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/prism.css" rel="stylesheet" type="text/css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
@@ -11,7 +11,7 @@
 
 <body>
 	<header class="md-show" role="banner">
-		<h1>TRUNCATE(テーブルを空にする)</h1>
+		<h1>npm コマンド</h1>
 		<p id="menuBtn">Menu</p>
 	</header>
 	<nav class="sidebar" id="menu">
@@ -107,35 +107,60 @@
 	</nav>
 	<div class="content">
 		<header class="md-hide" role="banner">
-			<h1>TRUNCATE(テーブルを空にする)</h1></header>
+			<h1>npm コマンド</h1></header>
 		<main role="main">
 			<section>
 				<h2>説明</h2>
-				<h3>まず最初に</h3>
-				<p>データテーブルに多大な影響を与える危険なコマンドです。悪用しないようにしてください。</p>
-				<h3>改めて説明</h3>
-				<p><code class="language-sql"><span class="token keyword keyword-TRUNCATE">TRUNCATE</span></code>はテーブルにあるデータを白紙にするコマンドです。</p>
+				<p>Node.jsのパッケージはコマンドプロンプトで操作を行う。その際によく利用されるコマンドを記述する。</p>
 			</section>
 			<section>
-				<h2>使用方法と解説</h2>
-				<p>至って単純である。</p><pre class="language-sql line-numbers"><code>TRUNCATE `table_name1`, `table_name2`, ...;
-</code></pre></section>
-			<section>
-				<h2>使用上の注意</h2>
+				<h2>コマンド</h2><pre class="language-batch line-numbers"><code>npm audit [--json]
+npm audit fix [--force|--package-lock-only|--dry-run|--production|--only=(dev|prod)]</code></pre>
+				<p>npm 6.0.0から登場したコマンド。<br>パッケージに存在する脆弱性を確認するコマンド。解決策がある場合は解決策が提示される。</p><pre class="language-batch line-numbers"><code>npm dedupe
+npm ddp</code></pre>
+				<p>パッケージ毎に存在するパッケージの依存関係を整理する。パッケージ更新直後は大量のエラーが発生することが多いため、ここで整合性を整理する。</p><pre class="language-batch line-numbers"><code>npm init [--force|-f|--yes|-y|--scope]
+npm init &li;@scope&gt; (same as `npx &li;@scope&gt;/create`)
+npm init [&li;@scope&gt;/]&lt;name&gt; (same as `npx [&li;@scope&gt;/]create-&lt;name&gt;`)</code></pre>
+				<p>package.jsonの作成を行う。作成をする際、パッケージの名前、作成者、ライセンス等幾つか尋ねられる。</p><pre class="language-batch line-numbers"><code>npm install &lt;package&gt; &lt;option&gt;
+npm i &lt;package&gt; &lt;option&gt;</code></pre>
+				<p>パッケージをインストールする。インストール済みパッケージで且バージョンが異なる場合は最新バージョンにアップデートする。<br>GithubのURL等を指定してnpmに登録されていないパッケージをインストールすることもできる。<br>npm installのみでインストールする場合、package.jsonからインストールする。</p>
+				<h3>&lt;option&gt;</h3>
 				<ul>
-					<li>コマンド使用時は必ずテーブル名を再度確認し、削除先を間違えないようにすること。また、バックアップを忘れずに。</li>
-					<li>外部参照を行っていた場合、整合性を一切確認しないためデータベースに不釣合いが起こる場合がある。実行する場合は後述するコマンドの方が好ましい場合がある。但し、データベースによっては外部参照がある場合、実行されないことがある。</li>
-					<li>似た手法に<pre class="language-sql line-numbers"><code>DELETE FROM `table_name`;</code></pre>があるが、こちらは<code class="language-sql"><span class="token keyword keyword-AUTO_INCREMENT">AUTO_INCREMENT</span></code>のカウントをリセットしない(<code class="language-sql"><span class="token keyword keyword-TRUNCATE">TRUNCATE</span></code>はカウントをリセットする)。</li>
-					<li>一部のデータベースの例外を除き<code class="language-sql"><span class="token keyword keyword-TRANSACTION">TRANSACTION</span></code>を利用してもロールバックすることができない。これは<code class="language-sql"><span class="token keyword keyword-TRUNCATE">TRUNCATE</span></code>実行後、自動的に
-						<code
-						    class="language-sql"><span class="token keyword keyword-COMMIT">COMMIT</span></code>されるためである。</li>
-					<li>非常に単純なコマンドではあるが、再度記述するがデータベースを空にする非常に危険なコマンドである。必要がない限りは使用しないこと。</li>
-					<li>悪用を防ぐために、パーミッションによりこのコマンドの使用できるユーザーを制限することができる。データベース管理者はコマンド権限の確認を忘れずに。MySQLの場合、DROP権限を無効化すると使用できなくなる。<br>特にPHP等のスクリプトを通す場合、外部からの悪質な入力対策を怠らないように。</li>
-				</ul>
+					<li>-g：グローバルパッケージとして保存する。</li>
+					<li>--save：パッケージとして保存する。</li>
+					<li>--save-dev：開発用パッケージとして保存する。</li>
+					<li>-D：開発用パッケージとして保存する。</li>
+				</ul><pre class="language-batch line-numbers"><code>npm list &lt;option&gt;
+npm ls &lt;option&gt;</code></pre>
+				<p>インストールされているパッケージとその依存関係を表示する。</p><pre class="language-batch line-numbers"><code>npm outdated</code></pre>
+				<p>パッケージリストにある更新のあるパッケージを表示する。更新は行われない。</p><pre class="language-batch line-numbers"><code>npm prune</code></pre>
+				<p>node_modulesに存在する不要なパッケージを削除する。</p><pre class="language-batch line-numbers"><code>npm run-script &lt;command&gt;
+npm run &lt;command&gt;</code></pre>
+				<p>パッケージに記述されているスクリプトを起動する。ローカルに登録されているコマンドスクリプトは基本的にここから起動する。</p><pre class="language-batch line-numbers"><code>npm substack</code></pre>
+				<p>substackの名言を表示する。所謂イースターエッグの一つ。</p><pre class="language-batch line-numbers"><code>npm update &lt;package&gt; &lt;option&gt;
+npm upgrade &lt;package&gt; &lt;option&gt;
+npm up &lt;package&gt; &lt;option&gt;</code></pre>
+				<p>パッケージの更新を行う。</p>
+				<h3>&lt;option&gt;</h3>
+				<ul>
+					<li>-g：グローバルパッケージに対して更新を行う。</li>
+					<li>-D：開発用パッケージに対して更新を行う。</li>
+				</ul><pre class="language-batch line-numbers"><code>npm uninstall &lt;package&gt;
+npm un &lt;package&gt;</code></pre>
+				<p>パッケージのアンインストールを行う。</p><pre class="language-batch line-numbers"><code>npm visnup</code></pre>
+				<p>(海外での)イジられキャラvisnupさんを生成する。所謂イースターエッグの一つ。</p><pre class="language-batch line-numbers"><code>npm xmas</code></pre>
+				<p>コマンドラインにクリスマスツリーを生成する。ツリーの飾りは生成毎に異なる。所謂イースターエッグの一つ。</p>
+			</section>
+			<section>
+				<h2>便利なコマンド</h2>
+				<p>覚えておくと便利なコマンドを記述する。</p><pre class="language-batch line-numbers"><code>npm i &lt;package&gt;@&lt;version&gt; &lt;option&gt;</code></pre>
+				<p>パッケージの特定のバージョンをインストールする。ベータ版をインストールする場合や最新版に特定の問題がある場合等に使用される。</p><pre class="language-batch line-numbers"><code>npm list -g --depth=0</code></pre>
+				<p>グローバルにインストールされている最上位階層のディレクトリを表示する。</p><pre class="language-batch line-numbers"><code>npm update npm -g</code></pre>
+				<p>npmコマンドをアップデートする。npm自体もパッケージの一つであり、時々更新されたりする。</p>
 			</section>
 			<section>
 				<h2>参考リンク</h2>
-				<p><a href="https://www.postgresql.jp/document/10/html/sql-truncate.html" target="_blank">PostgreSQL</a><br><a href="https://ja.wikipedia.org/wiki/TRUNCATE_(SQL)" target="_blank">Wikipedia</a></p>
+				<p><a href="https://www.npmjs.com/" target="_blank">npm</a></p>
 			</section>
 		</main>
 		<footer role="contentinfo">

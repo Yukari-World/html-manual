@@ -213,7 +213,6 @@ function secondsInterval(seconds = 5) {
 function randomOutput(jsonData) {
 	// Init
 	const textRandom = document.getElementById('randomOutput');
-	textRandom.innerHTML = '';
 	let dl = document.createElement('dl');
 	for (let data_t of jsonData) {
 		let dt = document.createElement('dt');
@@ -225,6 +224,7 @@ function randomOutput(jsonData) {
 		dl.appendChild(dt);
 		dl.appendChild(dd);
 	}
+	textRandom.innerHTML = '';
 	textRandom.appendChild(dl);
 }
 
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 	}
 
 	/**
-	 * 現在の個数
+	 * ランダムワードの出力位置
 	 * @const {Element}
 	 */
 	const textRandom = document.getElementById('randomOutput');

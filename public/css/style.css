@@ -51,19 +51,6 @@ body {
 	background-color: #000011;
 }
 
-code[class*="language-"], pre[class*="language-"] {
-	margin: 10px 0;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-	line-height: 1.2;
-}
-
-code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-scrollbar {
-	width: 5px;
-	height: 5px;
-}
-
 a {
 	text-decoration: none;
 	color: #9999FF;
@@ -139,6 +126,25 @@ ol li:not(:first-child) {
 
 .mintyo {
 	font-family: 游明朝,YuMincho,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Prism Overwrite
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+code[class*="language-"], pre[class*="language-"] {
+	margin: 10px 0;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	font-family: Migu\ 1M,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+	line-height: 1.2;
+}
+
+code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -516,6 +522,31 @@ footer p:last-child {
 @media only screen and (max-width: 576px) {
 	footer p:last-child {
 		white-space: normal;
+	}
+}
+
+@media print {
+	body {
+		color: #000000;
+	}
+
+	body > header {
+		display: none;
+	}
+
+	.line-highlight, .sidebar {
+		display: none;
+	}
+
+	body > .content {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	footer p:first-child {
+		-webkit-animation: unset;
+		animation: unset;
+		color: #000000;
 	}
 }
 

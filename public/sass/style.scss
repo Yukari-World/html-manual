@@ -83,6 +83,16 @@ body {
 		justify-content: unset;
 		align-items: unset;
 	}
+
+	@media print {
+		color: #000000;
+	}
+
+	 > header {
+		@media print {
+			display: none;
+		}
+	}
 }
 
 .md {
@@ -95,19 +105,6 @@ body {
 	&-show {
 		@include min-screen(md) {
 			display: none;
-		}
-	}
-}
-
-code, pre {
-	&[class*="language-"] {
-		margin: 10px 0;
-		tab-size: 4;
-		line-height: 1.2;
-
-		&::-webkit-scrollbar {
-			width: 5px;
-			height: 5px;
 		}
 	}
 }
@@ -176,6 +173,35 @@ ol {
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Prism Overwrite
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+code, pre {
+	&[class*="language-"] {
+		margin: 10px 0;
+		tab-size: 4;
+		font-family: "Migu 1M", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+		line-height: 1.2;
+
+		@media print {
+			// color: #000000;
+		}
+
+		&::-webkit-scrollbar {
+			width: 5px;
+			height: 5px;
+		}
+	}
+}
+
+.line-highlight {
+	@media print {
+		display: none;
+	}
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * サイドバー
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
@@ -204,6 +230,10 @@ ol {
 		border-bottom-width: 3px;
 		border-left-width: 3px;
 		border-image: linear-gradient(to bottom, #000011, #1164FF) 1/0 3px 5px/0 stretch;
+	}
+
+	@media print {
+		display: none;
 	}
 
 	&::-webkit-scrollbar {
@@ -291,6 +321,11 @@ body {
 		margin-left: 240px;
 
 		@include max-screen(md) {
+			width: 100%;
+			margin-left: 0;
+		}
+
+		@media print {
 			width: 100%;
 			margin-left: 0;
 		}
@@ -444,6 +479,11 @@ footer {
 		&:first-child {
 			padding: 0 0 0 10px;
 			animation: flashString 10s linear infinite;
+
+			@media print {
+				animation: unset;
+				color: #000000;
+			}
 
 			b {
 				font-weight: 900;

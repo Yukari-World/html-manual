@@ -17,13 +17,13 @@
 }
 
 ::-webkit-scrollbar-track {
-	border-radius: 10px;
-	background-color: #000011;
-	-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+	background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
+	-webkit-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;
 	border-radius: 10px;
 	background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.75)), to(rgba(255, 255, 255, 0.25)));
 	background-image: -webkit-linear-gradient(top left, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
@@ -49,19 +49,6 @@ body {
 	font-size: 14px;
 	color: #FFFFFF;
 	background-color: #000011;
-}
-
-code[class*="language-"], pre[class*="language-"] {
-	margin: 10px 0;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-	line-height: 1.2;
-}
-
-code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-scrollbar {
-	width: 5px;
-	height: 5px;
 }
 
 a {
@@ -135,6 +122,27 @@ ol li:not(:first-child) {
 		color: #FFFFFF;
 		text-shadow: 0 0 10px rgba(255, 255, 255, 0);
 	}
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Prism Overwrite
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+code[class*="language-"], pre[class*="language-"] {
+	margin: 10px 0;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	font-family: Migu\ 1M,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+	line-height: 1.2;
+
+	-webkit-overflow-scrolling: touch;
+}
+
+code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -289,11 +297,19 @@ section h2 {
 }
 
 section h3 {
-	margin-top: 5px;
 	font-size: 18px;
 }
 
-section h3, section p {
+section h3, section h4 {
+	margin-top: 5px;
+	padding: 0 10px;
+}
+
+section h4 {
+	font-size: 14px;
+}
+
+section p {
 	padding: 0 10px;
 }
 
@@ -316,6 +332,18 @@ section dl dd ul li:first-child {
 
 section dl dd ul li:last-child {
 	margin-bottom: 5px;
+}
+
+.object-safe {
+	color: #33FF33;
+}
+
+.object-euclid {
+	color: #FFFF33;
+}
+
+.object-keter {
+	color: #FF3333;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -490,6 +518,27 @@ footer p:last-child {
 @media only screen and (max-width: 576px) {
 	footer p:last-child {
 		white-space: normal;
+	}
+}
+
+@media print {
+	body {
+		color: #000000;
+	}
+
+	body, .line-highlight, .sidebar {
+		display: none;
+	}
+
+	body > .content {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	footer p:first-child {
+		-webkit-animation: unset;
+		animation: unset;
+		color: #000000;
 	}
 }
 

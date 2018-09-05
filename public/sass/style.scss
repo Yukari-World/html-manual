@@ -184,6 +184,8 @@ code, pre {
 		font-family: "Migu 1M", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 		line-height: 1.2;
 
+		-webkit-overflow-scrolling: touch;
+
 		@media print {
 			// color: #000000;
 		}
@@ -239,17 +241,17 @@ code, pre {
 	&::-webkit-scrollbar {
 		width: 5px;
 		height: 5px;
-	}
 
-	&::-webkit-scrollbar-track {
-		border-radius: 10px;
-		background-image: linear-gradient(to bottom, #000011, #1164FF);
-	}
+		&-track {
+			border-radius: 10px;
+			background-image: linear-gradient(to bottom, #000011, #1164FF);
+		}
 
-	&::-webkit-scrollbar-thumb {
-		border-radius: 10px;
-		background-image: linear-gradient(to bottom right, #CCCCCC, #888888);
-		// box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+		&-thumb {
+			border-radius: 10px;
+			background-image: linear-gradient(to bottom right, #CCCCCC, #888888);
+			// box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+		}
 	}
 
 	 > ul {

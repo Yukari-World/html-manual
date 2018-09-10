@@ -119,8 +119,8 @@ npm audit fix [--force|--package-lock-only|--dry-run|--production|--only=(dev|pr
 				<p>npm 6.0.0から登場したコマンド。<br>パッケージに存在する脆弱性を確認するコマンド。解決策がある場合は解決策が提示される。</p><pre class="language-batch line-numbers"><code>npm dedupe
 npm ddp</code></pre>
 				<p>パッケージ毎に存在するパッケージの依存関係を整理する。パッケージ更新直後は大量のエラーが発生することが多いため、ここで整合性を整理する。</p><pre class="language-batch line-numbers"><code>npm init [--force|-f|--yes|-y|--scope]
-npm init &li;@scope&gt; (same as `npx &li;@scope&gt;/create`)
-npm init [&li;@scope&gt;/]&lt;name&gt; (same as `npx [&li;@scope&gt;/]create-&lt;name&gt;`)</code></pre>
+npm init &lt;@scope&gt; (same as `npx &lt;@scope&gt;/create`)
+npm init [&lt;@scope&gt;/]&lt;name&gt; (same as `npx [&lt;@scope&gt;/]create-&lt;name&gt;`)</code></pre>
 				<p>package.jsonの作成を行う。作成をする際、パッケージの名前、作成者、ライセンス等幾つか尋ねられる。</p><pre class="language-batch line-numbers"><code>npm install &lt;package&gt; &lt;option&gt;
 npm i &lt;package&gt; &lt;option&gt;</code></pre>
 				<p>パッケージをインストールする。インストール済みパッケージで且バージョンが異なる場合は最新バージョンにアップデートする。<br>GithubのURL等を指定してnpmに登録されていないパッケージをインストールすることもできる。<br>npm installのみでインストールする場合、package.jsonからインストールする。</p>

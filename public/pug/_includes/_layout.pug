@@ -5,6 +5,7 @@ html(lang='ja')
 		block title
 			title HTML Manual
 		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='theme-color' content='#000011')
 		link(href='css/prism.css', rel='stylesheet', type='text/css')
 		link(href='css/style.css', rel='stylesheet', type='text/css')
 		block headSpace
@@ -24,5 +25,8 @@ html(lang='ja')
 			footer(role='contentinfo')
 				include ./_footer
 		script(type='application/javascript', src='js/prism.js', async)
-		script(type='application/javascript', src='js/Main.js')
+		script(type='application/javascript', src='js/index.js')
+		//- script(type='module', src='js/Main.js')
+		//- script(type='application/javascript' nomodule src='js/nomodule/ajax-response.js')
+		//- script(type='application/javascript' nomodule src='js/nomodule/Main.js')
 		block jsContent

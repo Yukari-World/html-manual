@@ -1,8 +1,18 @@
 @charset "UTF-8";
 
 // Initialize
+// Import
+@import "_calc.scss";
 // 変数の定義(Global)
 $gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
+$width-list: (
+	xs:	576,
+	sm:	768,
+	md:	992,
+	lg:	1200,
+	lx:	1400,
+	hd: 1920,
+) !default;
 
 // min-width
 // レスポンシブのブレークポイントの設定を行います
@@ -37,6 +47,11 @@ $breakpoint-down: (
 	@media #{map-get($breakpoint-down, $breakpoint)} {
 		@content;
 	}
+}
+
+/// Viewport Widthの演算
+@function calc-viewport($value: 1000, $breakpoint: md) {
+	@return round-decimal(($value / map-get($width-list, $breakpoint)) * 100, 3) + vw;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -369,8 +384,9 @@ header {
 			width: 160px;
 			height: 32px;
 			margin-right: 5px;
+			margin-bottom: 5px;
 			border-radius: 10px;
-			background-color: #1164FFFF;
+			background-color: #1164FF;
 		}
 	}
 }
@@ -481,6 +497,8 @@ footer {
 		&:first-child {
 			padding: 0 0 0 10px;
 			animation: flashString 10s linear infinite;
+			text-decoration: line-through;
+			color: #FFFFFF;
 
 			@media print {
 				animation: unset;

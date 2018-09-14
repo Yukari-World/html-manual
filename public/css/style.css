@@ -45,7 +45,7 @@ body {
 	-webkit-align-items: flex-start;
 	-ms-flex-align: start;
 	align-items: flex-start;
-	font-family: メイリオ,Meiryo,sans-serif;
+	font-family: "メイリオ","Meiryo",sans-serif;
 	font-size: 14px;
 	color: #FFFFFF;
 	background-color: #000011;
@@ -61,7 +61,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 游ゴシック体,Yu Gothic,YuGothic,ヒラギノ角ゴシック Pro,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,Osaka,ＭＳ Ｐゴシック,MS PGothic,sans-serif;
+	font-family: "游ゴシック体","Yu Gothic","YuGothic","ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ","Meiryo","Osaka","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
 }
 
 ul {
@@ -125,7 +125,7 @@ ol li:not(:first-child) {
 }
 
 .mintyo {
-	font-family: 游明朝,YuMincho,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+	font-family: "游明朝",YuMincho,"ヒラギノ明朝 ProN W3","Hiragino Mincho ProN","HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -138,7 +138,7 @@ code[class*="language-"], pre[class*="language-"] {
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
 	tab-size: 4;
-	font-family: Migu\ 1M,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+	font-family: "Migu 1M",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
 	line-height: 1.2;
 
 	-webkit-overflow-scrolling: touch;
@@ -384,6 +384,8 @@ footer p:first-child {
 	padding: 0 0 0 10px;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
+	text-decoration: line-through;
+	color: #FFFFFF;
 }
 
 footer p:first-child b {
@@ -487,8 +489,9 @@ footer p:last-child {
 		width: 160px;
 		height: 32px;
 		margin-right: 5px;
+		margin-bottom: 5px;
 		border-radius: 10px;
-		background-color: #1164FFFF;
+		background-color: #1164FF;
 	}
 }
 

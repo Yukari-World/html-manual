@@ -232,6 +232,7 @@ code, pre {
 	width: 240px;
 	min-width: 240px;
 	height: 100vh;
+	min-height: 100vh;
 	padding: 10px 0 2em;
 	border-width: 0;
 	border-style: solid;
@@ -242,6 +243,7 @@ code, pre {
 		position: static;
 		width: 100%;
 		height: auto;
+		min-height: unset;
 		margin-bottom: 20px;
 		padding-left: 2px;
 		border-bottom-width: 3px;
@@ -289,9 +291,11 @@ code, pre {
 			}
 
 			h3 {
+				display: flex;
+				align-items: center;
 				padding-top: 3px;
 				animation: flashString 10s linear infinite;
-				font-size: 16px;
+				font-size: 18px;
 				border-width: 0;
 				border-style: solid;
 				border-top-width: 3px;
@@ -323,6 +327,19 @@ code, pre {
 			}
 		}
 	}
+}
+
+.expand-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	width: 18px;
+	height: 18px;
+	margin: auto 5px auto 0;
+	cursor: pointer;
+	font-size: 12px;
+	border: 1px #FFFFFF solid;
 }
 
 dl {

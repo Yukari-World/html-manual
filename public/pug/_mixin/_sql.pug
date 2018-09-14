@@ -1,7 +1,7 @@
 mixin menuSidebar(href, name)
 	li: a(href=href, title=name)= name
 
-ul
+ul#listSQL
 	+menuSidebar('sql-insertSelect.html', 'INSERT SELECT')
 	+menuSidebar('sql-join.html', 'JOIN(テーブル結合)')
 	+menuSidebar('#', '[WIP] LIKE(あいまい検索)')

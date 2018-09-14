@@ -164,6 +164,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	width: 240px;
 	min-width: 240px;
 	height: 100vh;
+	min-height: 100vh;
 	padding: 10px 0 2em;
 	border-width: 0 3px 0 0;
 	border-style: solid;
@@ -198,10 +199,18 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 }
 
 .sidebar > ul > li h3 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 	padding-top: 3px;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
-	font-size: 16px;
+	font-size: 18px;
 	border-width: 3px 0 0;
 	border-style: solid;
 	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
@@ -232,6 +241,29 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	content: "└";
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
+}
+
+.expand-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 18px;
+	height: 18px;
+	margin: auto 5px auto 0;
+	cursor: pointer;
+	font-size: 12px;
+	border: 1px solid #FFFFFF;
 }
 
 dl dd {
@@ -438,6 +470,7 @@ footer p:last-child {
 		position: static;
 		width: 100%;
 		height: auto;
+		min-height: unset;
 		margin-bottom: 20px;
 		padding-left: 2px;
 		border-bottom-width: 3px;

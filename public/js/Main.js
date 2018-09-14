@@ -6,12 +6,24 @@
 
 // Init
 const imdWidth = 992;
+const sideList = [
+	'Main',
+	'CSS',
+	'HTML',
+	'JavaScript',
+	'Language',
+	'Node',
+	'PHP',
+	'SQL',
+	'Other',
+];
+
 let bmenuToggle = false;
 let bwordDecide = false;
+let sideToggle = [];
 
 // SendAjax関数の呼び出し
 import {SendAjax} from './ajax-response.js';
-
 /**
  * ランダムワードマニア
  * @const {string[][]}
@@ -196,14 +208,43 @@ window.onresize = function () {
  * HTMLの読み込み終了時に行われれる処理
  */
 document.addEventListener('DOMContentLoaded', async function () {
-// document.addEventListener('DOMContentLoaded', function () {
 	randomWordList = await getrandomWord();
 	xorRand = new xorShift();
 
-	if (window.innerWidth <= 992 && bmenuToggle === false) {
+	if (window.innerWidth <= imdWidth && bmenuToggle === false) {
 		document.getElementById('menu').setAttribute('style', 'display: none');
 	} else if (bmenuToggle === true) {
 		document.getElementById('menu').removeAttribute('style');
+	}
+
+	// サイドバーの処理
+	for (let sideName of sideList) {
+		let linkElement = document.getElementById('link' + sideName);
+		let listElement = document.getElementById('list' + sideName);
+		// ローカルストレージから情報を取得
+		sideToggle[sideName] = localStorage.getItem(sideName + 'Toggle');
+
+		// フラグを元に隠すかの指定
+		if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
+			listElement.setAttribute('style', 'display: none');
+		} else {
+			linkElement.textContent = '-';
+		}
+
+		// イベントの登録
+		linkElement.addEventListener('click', function () {
+			if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
+				sideToggle[sideName] = 'true';
+				localStorage.setItem(sideName + 'Toggle', 'true');
+				linkElement.textContent = '-';
+				listElement.removeAttribute('style');
+			} else {
+				sideToggle[sideName] = 'false';
+				localStorage.setItem(sideName + 'Toggle', 'false');
+				linkElement.textContent = '+';
+				listElement.setAttribute('style', 'display: none');
+			}
+		});
 	}
 
 	/**

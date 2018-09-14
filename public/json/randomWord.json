@@ -1,12 +1,16 @@
 [
 	{
+	    "title": "SCP-131 - The \"Eye Pods\"",
+	    "original": "SCP Foundation",
+	    "summary": "<h3>SCP-131 - \"アイポッド\"</h3><h4>オブジェクトクラス: <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>"
+	}, {
 		"title": "SCP-173 - The Sculpture - <b>The Original</b>",
 		"original": "SCP Foundation",
-		"summary": "<p>Please Wait...</p>"
+		"summary": "<h3>SCP-173 - 彫刻 - <b>オリジナル</b></h3><h4>オブジェクトクラス: <span class=\"object-euclid\">Euclid</span></h4><p>Please Wait...</p>"
 	}, {
 		"title": "SCP-239 - The Witch Child",
 		"original": "SCP Foundation",
-		"summary": "<p>Please Wait...</p>"
+		"summary": "<h3>SCP-239 - ちいさな魔女</h3><h4>オブジェクトクラス: <span class=\"object-keter\">Keter</span></h4><p>Please Wait...</p>"
 	}, {
 		"title": "SCP-1048 - Builder Bear",
 		"original": "SCP Foundation",
@@ -14,11 +18,15 @@
 	}, {
 		"title": "SCP-1145 - Nagasaki Teddy",
 		"original": "SCP Foundation",
-		"summary": "<p>Please Wait...</p>"
+		"summary": "<h3>SCP-1145 - ナガサキ・テディ</h3><h4>オブジェクトクラス: <span class=\"object-euclid\">Euclid</span></h4><p>Please Wait...</p>"
 	}, {
 		"title": "SCP-1264 - Resurrected Wreckage",
 		"original": "SCP Foundation",
-		"summary": "<p>Please Wait...</p>"
+		"summary": "<h3>SCP-1264 - よみがえった残骸</h3><h4>オブジェクトクラス: <span class=\"object-keter\">Keter</span></h4><p>Please Wait...</p>"
+	}, {
+		"title": "SCP-2000 - Deus Ex Machina",
+		"original": "SCP Foundation",
+		"summary": "<h3>SCP-2000 - 機械仕掛けの神</h3><h4>オブジェクトクラス: <span class=\"object-thaumiel\">Thaumiel</span></h4><p>Please Wait...</p>"
 	}, {
 		"title": "SCP-2091 - A Bear and His Granddaughter",
 		"original": "SCP Foundation",
@@ -30,15 +38,19 @@
 	}, {
 		"title": "SCP-2935 - O, Death",
 		"original": "SCP Foundation",
-		"summary": "<p>Please Wait...</p>"
+		"summary": "<h3>SCP-2935 - あゝ死よ</h3><h4>オブジェクトクラス: <span class=\"object-keter\">Keter</span></h4><p>Please Wait...</p>"
 	}, {
 		"title": "SCP-3000 - Ananteshesha",
 		"original": "SCP Foundation",
-		"summary": "<p>Please Wait...</p>"
+		"summary": "<h3>SCP - 3000 - アナンタシェーシャ</h3><h4>オブジェクトクラス: <span class=\"object-thaumiel\">Thaumiel</span></h4><p>Please Wait...</p>"
 	}, {
 		"title": "SCP-3999 - I Am At The Center of Everything That Happens To Me",
 		"original": "SCP Foundation",
-		"summary": "<p>Please Wait...</p>"
+		"summary": "<h3>SCP-3999 - 私は私に起きることすべての中心にいる</h3><h4>オブジェクトクラス: <span class=\"object-unclass\">Apollyon</span></h4><p>Please Wait...</p>"
+	}, {
+	    "title": "<span style=\"color: #008000; font-weight: 700;\">Taboo</span>",
+	    "original": "SCP Foundation",
+	    "summary": "<span style=\"color: #008000; font-weight: 700;\">Taboo</span><h4>オブジェクトクラス: <span class=\"object-keter\">Keter</span></h4><p>SCPナンバーが入っていないので分かり辛いがSCP-4000である。現在未翻訳にて内容不明。</p>"
 	}, {
 		"title": "SCP-011-JP - 俺達はスーパーボール",
 		"original": "SCP Foundation",
@@ -78,7 +90,7 @@
 	}, {
 		"title": "SCP-439-JP - ホームラン量産法",
 		"original": "SCP Foundation",
-		"summary": "<h4><b>オブジェクトクラス:</b> <s><span class=\"object-euclid\">Euclid</span></s> <span class=\"object-keter\">Keter</span></h4><p>SCP-439-JPはSCP-439-JP-a-1～SCP-439-JP-a-10からなる一連の動作である。この動作をを他の動作を挟まずに連続して行った後、ボールを打つことでSCP-439-JPが発動する。SCP-439-JP-aの中には元来から一般的に非紳士的であると見做される動作が含まれており、SCP-439-JP-aに指定される動作の多さも手伝い、野球の歴史の長さから考えるとSCP-439-JPの発生は非常に少なく抑えられている。原理上、クリケットの様に棒とボールを用いた全てのスポーツでSCP-439-JP-aの成立及びSCP-439-JPの発生は起こりえるが、SCP-439-JP-aの多さや、打者の頭部の角度が細かく指定されるなどの複雑さのため野球以外で成立することは極めて稀と考えらる。なお、SCP-439-JP-aが途中で中断された場合や空振りをした場合はSCP-439-JP-a-1からやり直さなければSCP-439-JPは発生しない。</p><p>SCP-439-JPが発生すると打者により打たれたボールは必ず、ボールの重量に比例した距離だけ飛ぶ。この時の打球の飛距離は、概ね、(ボールの重量[kg]*1000)[m]であり、打者の筋力やフォーム、投球速度、バット及びボールの材質の影響は一切受けない。ただし、SCP-439-JP-a-10は「強振すること」であり、バントやバットに当てることに集中した緩い振り方では発生しないため、調査を目的にしない「観戦」程度では強振した結果ホームランになったという極自然な現象にしか見えないが、ハイスピードカメラを用いた解析を行うと、バットとボールの当たり方から考えると物理的に不自然な飛び方をしていることが分かる。</p><p>このSCPが危険な理由は発動条件がボールではなく球体であること、バットを振った時にバットが手から離れた場合でもSCP-439-JPが有効なことである。</p>"
+		"summary": "<h4><b>オブジェクトクラス:</b> <s><span class=\"object-euclid\">Euclid</span></s> <span class=\"object-keter\">Keter</span></h4><p>SCP-439-JPはSCP-439-JP-a-1～SCP-439-JP-a-10からなる一連の動作である。この動作をを他の動作を挟まずに連続して行った後、ボールを打つことでSCP-439-JPが発動する。SCP-439-JP-aの中には元来から一般的に非紳士的であると見做される動作が含まれており、SCP-439-JP-aに指定される動作の多さも手伝い、野球の歴史の長さから考えるとSCP-439-JPの発生は非常に少なく抑えられている。原理上、クリケットの様に棒とボールを用いた全てのスポーツでSCP-439-JP-aの成立及びSCP-439-JPの発生は起こりえるが、SCP-439-JP-aの多さや、打者の頭部の角度が細かく指定されるなどの複雑さのため野球以外で成立することは極めて稀と考えらる。なお、SCP-439-JP-aが途中で中断された場合や空振りをした場合はSCP-439-JP-a-1からやり直さなければSCP-439-JPは発生しない。</p><p>SCP-439-JPが発生すると打者により打たれたボールは必ず、ボールの重量に比例した距離だけ飛ぶ。この時の打球の飛距離は、概ね、(ボールの重量[kg]*1000)[m]であり、打者の筋力やフォーム、投球速度、バット及びボールの材質の影響は一切受けない。ただし、SCP-439-JP-a-10は「強振すること」であり、バントやバットに当てることに集中した緩い振り方では発生しないため、調査を目的にしない「観戦」程度では強振した結果ホームランになったという極自然な現象にしか見えないが、ハイスピードカメラを用いた解析を行うと、バットとボールの当たり方から考えると物理的に不自然な飛び方をしていることが分かる。</p><p>このSCPが危険な理由は発動条件がボールではなく球体であること、バットを振った時にバットが手から離れた場合でもSCP-439-JPが有効なことである。そしてその球体の中で最も身近にある球体が何であるかを理解しているならば、よりその恐ろしさを実感できるだろう。</p>"
 	}, {
 		"title": "SCP-488-JP - 人<span style=\"color: #FF0000;\">狼</span>",
 		"original": "SCP Foundation",
@@ -114,7 +126,7 @@
 	}, {
 		"title": "SCP-040-JP-J - ねこですよろしくおねがいしま<b>せん</b>",
 		"original": "SCP Foundation",
-		"summary": "<h4>オブジェクトクラス: <s><span class=\"object-safe\">Safe</span></s> Thaumiel</h4><p>『SCP-040-JP - ねこですよろしくおねがいします』が元のジョークオブジェクト。</p>"
+		"summary": "<h4>オブジェクトクラス: <s><span class=\"object-safe\">Safe</span></s> <span class=\"object-thaumiel\">Thaumiel</span></h4><p>『SCP-040-JP - ねこですよろしくおねがいします』が元のジョークオブジェクト。</p>"
 	}, {
 		"title": "SCP-710-JP-J - 財団神拳",
 		"original": "SCP Foundation",
@@ -182,11 +194,11 @@
 	}, {
 		"title": "<span title=\"神崎蘭子\">???</span>「言の葉は不得手、秘めたる真意を伝える秘術はないものか……(しゃべるのは苦手です。気持ちを伝える方法はないでしょうか)」",
 		"original": "ニコニコ大百科",
-		"summary": "<p>神崎蘭子の難解な言葉の数々、出身が熊本ということもあり誰が言い始めたのか『熊本弁』と呼ばれている。当然実際の熊本弁とは全く異なる。</p><p>尚、公式公認のネタであり、作中でもそれをいじっている内容がある。</p>"
+		"summary": "<p>神崎蘭子の比喩的表現や言い回しが多く難解な言葉の数々、出身が熊本ということもあり誰が言い始めたのか『熊本弁』と呼ばれている。当然実際の熊本弁とは全く異なる。</p><p>しかし、意外なことに公式公認のネタであり、作中でもそれをいじっている内容がある。</p><p>尚、この難しい言葉の数々は本人曰く『闇の言葉』らしいが、この言葉を理解してくれる人がいるとは思ってもいなかったらしい。本人自体は『火の国より舞い降りた漆黒の堕天使』という<s>痛い</s>設定もある。</p>"
 	}, {
 		"title": "<span title=\"█████博士\">???</span>「このSCPの性質のため、多岐にわたる実験データが役に立つだろう。ギアーズ博士は研究者自身または監督者がLevel3以上の研究者であるならば、自由に非生物実験を行なう許可を与えた。全ての実験はファイル#914-E(実験記録914)に記録されている。生物実験を実施するときは05指導部に事前に許可を得る必要がある。生きていない平凡な物に対して試してみたい者は、自由にデータを集めて欲しい。」",
 		"original": "SCP Foundation",
-		"summary": "<p>だからといって死体を入れるではない。</p>"
+		"summary": "<p>だからといって死体(生肉なども立派な死体であることをお忘れなく)を入れるではない。</p>"
 	}, {
 		"title": "<span title=\"Carver博士\">???</span>「これはジョークではない。SCP-1048が持つ力の全容が解明されたわけではないのだ。いまいましいアレがこれまでどれだけ生み出されたのか、だれがわかるんだ?」",
 		"original": "SCP Foundation",
@@ -202,7 +214,7 @@
 	}, {
 		"title": "<span title=\"森久保乃々\">???</span>「そんなのー…むーりぃー…」",
 		"original": "アイドルマスター シンデレラガールズ スターライトステージ",
-		"summary": "<p>Please Wait...</p>"
+		"summary": "<p>乃々はノーノーらしい(森久保乃々のウワサより)</p>"
 	}, {
 		"title": "<span title=\"神崎蘭子\">???</span>「魂が…ヴァルハラへと旅立ったようね(もしもーし、起きてますか～?)」",
 		"original": "アイドルマスター シンデレラガールズ スターライトステージ",

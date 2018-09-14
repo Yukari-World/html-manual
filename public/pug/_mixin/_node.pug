@@ -1,7 +1,7 @@
 mixin menuSidebar(href, name)
 	li: a(href=href, title=name)= name
 
-ul
+ul#listNode
 	+menuSidebar('#', '[WIP] Node.js導入マニュアル')
 	+menuSidebar('node-manualBrowsersync.html', 'Browsersync導入マニュアル')
 	+menuSidebar('node-npm.html', 'npm コマンド')

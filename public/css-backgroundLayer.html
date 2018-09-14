@@ -32,7 +32,7 @@
 </head>
 
 <body>
-	<header class="md-show" role="banner">
+	<header class="md-show" id="top" role="banner">
 		<h1>backgroundを重ねる</h1>
 		<p id="menuBtn">Menu</p>
 	</header>
@@ -40,8 +40,8 @@
 		<h2>HTML Manual Menu</h2>
 		<ul>
 			<li>
-				<h3><a href="#" title="Main">Main</a></h3>
-				<ul>
+				<h3><a class="expand-box" id="linkMain">+</a><a href="#sideMain" title="Main">Main</a></h3>
+				<ul id="listMain">
 					<li><a href="index.html" title="TOP Page">TOP Page</a></li>
 					<li><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
 					<li><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
@@ -49,8 +49,8 @@
 				</ul>
 			</li>
 			<li>
-				<h3><a href="#" title="CSS">CSS</a></h3>
-				<ul>
+				<h3><a class="expand-box" id="linkCSS">+</a><a href="#sideCSS" title="CSS">CSS</a></h3>
+				<ul id="listCSS">
 					<li><a href="css-backgroundLayer.html">backgroundを重ねる</a></li>
 					<li><a href="css-disablebrTag.html">brタグによる改行を無効化</a></li>
 					<li><a href="css-beforeAfter.html">疑似要素 :before / :after</a></li>
@@ -60,23 +60,23 @@
 				</ul>
 			</li>
 			<li>
-				<h3><a href="#" title="HTML">HTML</a></h3>
-				<ul>
+				<h3><a class="expand-box" id="linkHTML">+</a><a href="#sideHTML" title="HTML">HTML</a></h3>
+				<ul id="listHTML">
 					<li><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
 					<li><a href="#" title="[WIP] ファイルダウンロード">[WIP] ファイルダウンロード</a></li>
 				</ul>
 			</li>
 			<li>
-				<h3><a href="#" title="JavaScript">JavaScript</a></h3>
-				<ul>
+				<h3><a class="expand-box" id="linkJavaScript">+</a><a href="#sideJavaScript" title="JavaScript">JavaScript</a></h3>
+				<ul id="listJavaScript">
 					<li><a href="#" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
 					<li><a href="#" title="[WIP] Promise">[WIP] Promise</a></li>
 					<li><a href="#" title="[WIP] XMLHttpRequest">[WIP] XMLHttpRequest</a></li>
 				</ul>
 			</li>
 			<li>
-				<h3><a href="#" title="Language">Language</a></h3>
-				<ul>
+				<h3><a class="expand-box" id="linkLanguage">+</a><a href="#sideLanguage" title="Language">Language</a></h3>
+				<ul id="listLanguage">
 					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
 					<li><a href="language-pug.html" title="Pug">Pug</a></li>
 					<li><a href="language-sass.html" title="Sass">Sass</a></li>
@@ -84,8 +84,8 @@
 				</ul>
 			</li>
 			<li>
-				<h3><a href="#" title="Node.js">Node.js</a></h3>
-				<ul>
+				<h3><a class="expand-box" id="linkNode">+</a><a href="#sideNode" title="Node.js">Node.js</a></h3>
+				<ul id="listNode">
 					<li><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
 					<li><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
 					<li><a href="node-npm.html" title="npm コマンド">npm コマンド</a></li>
@@ -93,8 +93,8 @@
 				</ul>
 			</li>
 			<li>
-				<h3><a href="#" title="PHP">PHP</a></h3>
-				<ul>
+				<h3><a class="expand-box" id="linkPHP">+</a><a href="#sidePHP" title="PHP">PHP</a></h3>
+				<ul id="listPHP">
 					<li><a href="php-pdo.html" title="PDO(PHP Data Objects)">PDO(PHP Data Objects)</a></li>
 					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
 					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
@@ -102,8 +102,8 @@
 				</ul>
 			</li>
 			<li>
-				<h3><a href="#" title="SQL">SQL</a></h3>
-				<ul>
+				<h3><a class="expand-box" id="linkSQL">+</a><a href="#sideSQL" title="SQL">SQL</a></h3>
+				<ul id="listSQL">
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
 					<li><a href="#" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
@@ -117,8 +117,8 @@
 				</ul>
 			</li>
 			<li>
-				<h3><a href="#" title="Other">Other</a></h3>
-				<ul>
+				<h3><a class="expand-box" id="linkOther">+</a><a href="#sideOther" title="Other">Other</a></h3>
+				<ul id="listOther">
 					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
 					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
 					<li><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
@@ -163,7 +163,7 @@
 			</section>
 		</main>
 		<footer role="contentinfo">
-			<p><s id="randomWord"></s></p>
+			<p id="randomWord">Loading...</p>
 			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
 				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
 				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(Scss)</a></p>

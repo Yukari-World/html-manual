@@ -52,6 +52,9 @@ body {
 }
 
 a {
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
 	text-decoration: none;
 	color: #9999FF;
 }
@@ -166,6 +169,9 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	height: 100vh;
 	min-height: 100vh;
 	padding: 10px 0 2em;
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
 	border-width: 0 3px 0 0;
 	border-style: solid;
 	-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 0 0/0 stretch;
@@ -208,6 +214,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	-ms-flex-align: center;
 	align-items: center;
 	padding-top: 3px;
+	padding-left: 10px;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
 	font-size: 18px;
@@ -221,24 +228,63 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 }
 
 .sidebar > ul > li h3 a {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
+}
+
+.sidebar > ul > li input[type="checkbox"] {
+	display: none;
+}
+
+.sidebar > ul > li input[type="checkbox"].panel-switch + ul {
+	height: 0;
+}
+
+.sidebar > ul > li input[type="checkbox"].panel-switch:not(:checked) + ul li {
+	display: none;
+}
+
+.sidebar > ul > li input[type="checkbox"].panel-switch:checked + ul {
+	height: auto;
 }
 
 .sidebar > ul > li ul {
-	margin-left: 1em;
+	margin-left: calc(1em + 12px);
 	padding-right: 2px;
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
 	text-indent: -1em;
 }
 
-.sidebar > ul > li ul li::before {
+.sidebar > ul > li ul li {
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+}
+
+.sidebar > ul > li ul li:before {
 	content: "├";
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
 }
 
-.sidebar > ul > li ul li:last-child::before {
+.sidebar > ul > li ul li:last-child:before {
 	content: "└";
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
 }
@@ -258,8 +304,8 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	align-items: center;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	width: 18px;
-	height: 18px;
+	width: 20px;
+	height: 20px;
 	margin: auto 5px auto 0;
 	cursor: pointer;
 	font-size: 12px;
@@ -499,6 +545,14 @@ footer p:last-child {
 
 	.sidebar > ul > li {
 		margin-top: 10px;
+	}
+
+	.sidebar > ul > li h3 {
+		padding-left: 0;
+	}
+
+	.sidebar > ul > li ul {
+		margin-left: calc(1em + 2px);
 	}
 
 	body > .content {

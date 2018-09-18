@@ -116,6 +116,35 @@ class xorShift {
 }
 
 /**
+ * MDN
+ *
+ * @param {String} type 調べる項目
+ * @return {boolean} 利用可能かのbool
+ */
+function storageAvailable(type) {
+	let storage = window[type];
+	try {
+		let	x = '__storage_test__';
+		storage.setItem(x, x);
+		storage.removeItem(x);
+		return true;
+	} catch (e) {
+		return e instanceof DOMException && (
+			// everything except Firefox
+			e.code === 22 ||
+			// Firefox
+			e.code === 1014 ||
+			// test name field too, because code might not be present
+			// everything except Firefox
+			e.name === 'QuotaExceededError' ||
+			// Firefox
+			e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+			// acknowledge QuotaExceededError only if there's something already stored
+			storage.length !== 0;
+	}
+}
+
+/**
  * ランダムワード取得
  *
  * @return {Promise}    終了コード
@@ -213,38 +242,39 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 	if (window.innerWidth <= imdWidth && bmenuToggle === false) {
 		document.getElementById('menu').setAttribute('style', 'display: none');
-	} else if (bmenuToggle === true) {
+	} else if (window.innerWidth > imdWidth || bmenuToggle === true) {
 		document.getElementById('menu').removeAttribute('style');
 	}
 
 	// サイドバーの処理
-	for (let sideName of sideList) {
-		let linkElement = document.getElementById('link' + sideName);
-		let listElement = document.getElementById('list' + sideName);
-		// ローカルストレージから情報を取得
-		sideToggle[sideName] = localStorage.getItem(sideName + 'Toggle');
+	// ローカルストレージサポートの確認
+	if (storageAvailable('localStorage')) {
+		for (let sideName of sideList) {
+			let linkElement = document.getElementById('link' + sideName);
+			// ローカルストレージから情報を取得
+			sideToggle[sideName] = localStorage.getItem(sideName + 'Toggle');
 
-		// フラグを元に隠すかの指定
-		if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
-			listElement.setAttribute('style', 'display: none');
-		} else {
-			linkElement.textContent = '-';
-		}
-
-		// イベントの登録
-		linkElement.addEventListener('click', function () {
+			// フラグを元に隠すかの指定
 			if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
-				sideToggle[sideName] = 'true';
-				localStorage.setItem(sideName + 'Toggle', 'true');
-				linkElement.textContent = '-';
-				listElement.removeAttribute('style');
+				// Null
 			} else {
-				sideToggle[sideName] = 'false';
-				localStorage.setItem(sideName + 'Toggle', 'false');
-				linkElement.textContent = '+';
-				listElement.setAttribute('style', 'display: none');
+				linkElement.textContent = '-';
+				linkElement.checked = true;
 			}
-		});
+
+			// イベントの登録
+			linkElement.addEventListener('change', function () {
+				if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
+					sideToggle[sideName] = 'true';
+					localStorage.setItem(sideName + 'Toggle', 'true');
+					linkElement.textContent = '-';
+				} else {
+					sideToggle[sideName] = 'false';
+					localStorage.setItem(sideName + 'Toggle', 'false');
+					linkElement.textContent = '+';
+				}
+			});
+		}
 	}
 
 	/**
@@ -271,7 +301,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 			document.getElementById('menu').removeAttribute('style');
 		} else {
 			bmenuToggle = false;
-			document.getElementById('menu').setAttribute('style', 'display: none');
+			if (window.innerWidth <= imdWidth) {
+				document.getElementById('menu').setAttribute('style', 'display: none');
+			}
 		}
 	});
 

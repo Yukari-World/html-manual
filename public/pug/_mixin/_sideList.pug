@@ -3,46 +3,55 @@ h2 HTML Manual Menu
 ul
 	li
 		h3
-			a#linkMain.expand-box +
-			a(href='#sideMain', title='Main') Main
+			label.expand-box(for='linkMain') +
+			a(href='', title='Main') Main
+		input#linkMain.panel-switch(type='checkbox')
 		include _main
 	li
 		h3
-			a#linkCSS.expand-box +
-			a(href='#sideCSS', title='CSS') CSS
+			label.expand-box(for='linkCSS') +
+			a(href='', title='CSS') CSS
+		input#linkCSS.panel-switch(type='checkbox')
 		include _css
 	li
 		h3
-			a#linkHTML.expand-box +
-			a(href='#sideHTML', title='HTML') HTML
+			label.expand-box(for='linkHTML') +
+			a(href='', title='HTML') HTML
+		input#linkHTML.panel-switch(type='checkbox')
 		include _html
 	li
 		h3
-			a#linkJavaScript.expand-box +
-			a(href='#sideJavaScript', title='JavaScript') JavaScript
+			label.expand-box(for='linkJavaScript') +
+			a(href='', title='JavaScript') JavaScript
+		input#linkJavaScript.panel-switch(type='checkbox')
 		include _js
 	li
 		h3
-			a#linkLanguage.expand-box +
-			a(href='#sideLanguage', title='Language') Language
+			label.expand-box(for='linkLanguage') +
+			a(href='', title='Language') Language
+		input#linkLanguage.panel-switch(type='checkbox')
 		include _language
 	li
 		h3
-			a#linkNode.expand-box +
-			a(href='#sideNode', title='Node.js') Node.js
+			label.expand-box(for='linkNode') +
+			a(href='', title='Node.js') Node.js
+		input#linkNode.panel-switch(type='checkbox')
 		include _node
 	li
 		h3
-			a#linkPHP.expand-box +
-			a(href='#sidePHP', title='PHP') PHP
+			label.expand-box(for='linkPHP') +
+			a(href='', title='PHP') PHP
+		input#linkPHP.panel-switch(type='checkbox')
 		include _php
 	li
 		h3
-			a#linkSQL.expand-box +
-			a(href='#sideSQL', title='SQL') SQL
+			label.expand-box(for='linkSQL') +
+			a(href='', title='SQL') SQL
+		input#linkSQL.panel-switch(type='checkbox')
 		include _sql
 	li
 		h3
-			a#linkOther.expand-box +
-			a(href='#sideOther', title='Other') Other
+			label.expand-box(for='linkOther') +
+			a(href='', title='Other') Other
+		input#linkOther.panel-switch(type='checkbox')
 		include _other

@@ -13,7 +13,8 @@ html(lang='ja')
 		header#top.md-show(role='banner')
 			block headTitle
 				include ./_header
-			p#menuBtn Menu
+			label(for='menuBtn') Menu
+		input#menuBtn.panel-switch(type='checkbox')
 		nav#menu.sidebar
 			include ../_mixin/_sideList
 		.content

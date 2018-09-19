@@ -11,27 +11,6 @@
 	line-height: 1.2;
 }
 
-::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-}
-
-::-webkit-scrollbar-track {
-	background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-	-webkit-transition: all 0.1s ease;
-	-o-transition: all 0.1s ease;
-	transition: all 0.1s ease;
-	border-radius: 10px;
-	background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.75)), to(rgba(255, 255, 255, 0.25)));
-	background-image: -webkit-linear-gradient(top left, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
-	background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
-	-webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
-	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
-}
-
 body {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -51,6 +30,16 @@ body {
 	background-color: #000011;
 }
 
+body > input[type="checkbox"] {
+	display: none;
+}
+
+body > .content {
+	display: block;
+	width: calc(100% - 240px);
+	margin-left: 240px;
+}
+
 a {
 	-webkit-transition: all 0.5s ease-out;
 	-o-transition: all 0.5s ease-out;
@@ -67,6 +56,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "游ゴシック体","Yu Gothic","YuGothic","ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ","Meiryo","Osaka","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
 }
 
+dl dd {
+	margin-left: 2em;
+}
+
 ul {
 	list-style: none;
 }
@@ -81,6 +74,31 @@ ul ul, ol {
 
 ol li:not(:first-child) {
 	margin-top: 5px;
+}
+
+.mintyo {
+	font-family: "游明朝",YuMincho,"ヒラギノ明朝 ProN W3","Hiragino Mincho ProN","HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	-webkit-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.75)), to(rgba(255, 255, 255, 0.25)));
+	background-image: -webkit-linear-gradient(top left, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+	background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+	-webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 @-webkit-keyframes flashString {
@@ -127,10 +145,6 @@ ol li:not(:first-child) {
 	}
 }
 
-.mintyo {
-	font-family: "游明朝",YuMincho,"ヒラギノ明朝 ProN W3","Hiragino Mincho ProN","HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
-}
-
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * Prism Overwrite
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -169,9 +183,6 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	height: 100vh;
 	min-height: 100vh;
 	padding: 10px 0 2em;
-	-webkit-transition: all 0.5s ease-out;
-	-o-transition: all 0.5s ease-out;
-	transition: all 0.5s ease-out;
 	border-width: 0 3px 0 0;
 	border-style: solid;
 	-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 0 0/0 stretch;
@@ -179,25 +190,6 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	-o-border-image: -o-linear-gradient(top, #000011, #1164FF) 1/0 3px 0 0/0 stretch;
 	border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 0 0/0 stretch;
 	border-image: linear-gradient(180deg, #000011, #1164FF) 1/0 3px 0 0/0 stretch;
-}
-
-.sidebar::-webkit-scrollbar {
-	width: 5px;
-	height: 5px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-	border-radius: 10px;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF));
-	background-image: -webkit-linear-gradient(top, #000011, #1164FF);
-	background-image: linear-gradient(180deg, #000011, #1164FF);
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	background-image: -webkit-gradient(linear, left top, right bottom, from(#CCCCCC), to(#888888));
-	background-image: -webkit-linear-gradient(top left, #CCCCCC, #888888);
-	background-image: linear-gradient(to bottom right, #CCCCCC, #888888);
 }
 
 .sidebar > ul > li {
@@ -244,16 +236,11 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	display: none;
 }
 
-.sidebar > ul > li input[type="checkbox"].panel-switch + ul {
+.sidebar > ul > li input[type="checkbox"].panel-switch:not(:checked) + ul {
+	overflow: hidden;
 	height: 0;
-}
-
-.sidebar > ul > li input[type="checkbox"].panel-switch:not(:checked) + ul li {
-	display: none;
-}
-
-.sidebar > ul > li input[type="checkbox"].panel-switch:checked + ul {
-	height: auto;
+	padding: 0;
+	border-width: 0;
 }
 
 .sidebar > ul > li ul {
@@ -289,19 +276,30 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	animation: flashString 10s linear infinite;
 }
 
+.sidebar::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF));
+	background-image: -webkit-linear-gradient(top, #000011, #1164FF);
+	background-image: linear-gradient(180deg, #000011, #1164FF);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear, left top, right bottom, from(#CCCCCC), to(#888888));
+	background-image: -webkit-linear-gradient(top left, #CCCCCC, #888888);
+	background-image: linear-gradient(to bottom right, #CCCCCC, #888888);
+}
+
 .expand-box {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 20px;
@@ -312,34 +310,27 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	border: 1px solid #FFFFFF;
 }
 
-dl dd {
-	margin-left: 2em;
-}
-
-body > .content {
-	display: block;
-	width: calc(100% - 240px);
-	margin-left: 240px;
-}
-
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * ヘッダー
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
 
-header {
+.expand-box, header {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: justify;
-	-webkit-justify-content: space-between;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
+}
+
+header {
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
 	margin-top: 15px;
 	margin-bottom: 3px;
 	border-width: 0 0 5px;
@@ -356,7 +347,7 @@ header h1 {
 	font-size: 36px;
 }
 
-header #menuBtn {
+header label {
 	display: none;
 }
 
@@ -508,6 +499,18 @@ footer p:last-child {
 		align-items: unset;
 	}
 
+	body > input[type="checkbox"].panel-switch:not(:checked) + nav {
+		overflow: hidden;
+		height: 0;
+		padding: 0;
+		border-width: 0;
+	}
+
+	body > .content {
+		width: 100%;
+		margin-left: 0;
+	}
+
 	.md-hide {
 		display: none;
 	}
@@ -519,6 +522,9 @@ footer p:last-child {
 		min-height: unset;
 		margin-bottom: 20px;
 		padding-left: 2px;
+		-webkit-transition: all 0.5s ease-out;
+		-o-transition: all 0.5s ease-out;
+		transition: all 0.5s ease-out;
 		border-bottom-width: 3px;
 		border-left-width: 3px;
 		-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 5px/0 stretch;
@@ -555,12 +561,7 @@ footer p:last-child {
 		margin-left: calc(1em + 2px);
 	}
 
-	body > .content {
-		width: 100%;
-		margin-left: 0;
-	}
-
-	header #menuBtn {
+	header label {
 		display: -webkit-inline-box;
 		display: -webkit-inline-flex;
 		display: -ms-inline-flexbox;
@@ -626,13 +627,13 @@ footer p:last-child {
 		display: none;
 	}
 
-	.line-highlight, .sidebar {
-		display: none;
-	}
-
 	body > .content {
 		width: 100%;
 		margin-left: 0;
+	}
+
+	.line-highlight, .sidebar {
+		display: none;
 	}
 
 	footer p:first-child {

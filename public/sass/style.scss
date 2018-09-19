@@ -65,24 +65,6 @@ $breakpoint-down: (
 	line-height: 1.2;
 }
 
-::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-
-	&-track {
-		// border-radius: 10px;
-		background-color: transparent;
-		// box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-	}
-
-	&-thumb {
-		transition: all 0.1s ease;
-		border-radius: 10px;
-		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
-		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
-	}
-}
-
 body {
 	display: flex;
 	justify-content: space-between;
@@ -108,18 +90,40 @@ body {
 			display: none;
 		}
 	}
-}
 
-.md {
-	&-hide {
-		@include max-screen(md) {
+	 > input {
+		&[type="checkbox"] {
 			display: none;
+
+			&.panel-switch {
+				&:not(:checked) {
+					 + nav {
+						@include max-screen(md) {
+							// display: none;
+							overflow: hidden;
+							height: 0;
+							padding: 0;
+							border-width: 0;
+						}
+					}
+				}
+			}
 		}
 	}
 
-	&-show {
-		@include min-screen(md) {
-			display: none;
+	 > .content {
+		display: block;
+		width: calc(100% - 240px);
+		margin-left: 240px;
+
+		@include max-screen(md) {
+			width: 100%;
+			margin-left: 0;
+		}
+
+		@media print {
+			width: 100%;
+			margin-left: 0;
 		}
 	}
 }
@@ -136,6 +140,12 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+dl {
+	dd {
+		margin-left: 2em;
+	}
 }
 
 ul {
@@ -162,6 +172,45 @@ ol {
 	}
 }
 
+// クラス設定
+.md {
+	&-hide {
+		@include max-screen(md) {
+			display: none;
+		}
+	}
+
+	&-show {
+		@include min-screen(md) {
+			display: none;
+		}
+	}
+}
+
+.mintyo {
+	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
+// ベンダー固有情報
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+
+	&-track {
+		// border-radius: 10px;
+		background-color: transparent;
+		// box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+	}
+
+	&-thumb {
+		transition: all 0.1s ease;
+		border-radius: 10px;
+		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+	}
+}
+
+// アニメーション設定
 @keyframes flashString {
 	0% {
 		color: #FFFFFF;
@@ -182,10 +231,6 @@ ol {
 		color: #FFFFFF;
 		text-shadow: 0 0 10px rgba(255, 255, 255, 0);
 	}
-}
-
-.mintyo {
-	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -248,7 +293,6 @@ code, pre {
 	height: 100vh;
 	min-height: 100vh;
 	padding: 10px 0 2em;
-	transition: all 0.5s ease-out;
 	border-width: 0;
 	border-style: solid;
 	border-right-width: 3px;
@@ -261,6 +305,7 @@ code, pre {
 		min-height: unset;
 		margin-bottom: 20px;
 		padding-left: 2px;
+		transition: all 0.5s ease-out;
 		border-bottom-width: 3px;
 		border-left-width: 3px;
 		border-image: linear-gradient(to bottom, #000011, #1164FF) 1/0 3px 5px/0 stretch;
@@ -268,22 +313,6 @@ code, pre {
 
 	@media print {
 		display: none;
-	}
-
-	&::-webkit-scrollbar {
-		width: 5px;
-		height: 5px;
-
-		&-track {
-			border-radius: 10px;
-			background-image: linear-gradient(to bottom, #000011, #1164FF);
-		}
-
-		&-thumb {
-			border-radius: 10px;
-			background-image: linear-gradient(to bottom right, #CCCCCC, #888888);
-			// box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
-		}
 	}
 
 	 > ul {
@@ -335,23 +364,13 @@ code, pre {
 					display: none;
 
 					&.panel-switch {
-						 + ul {
-							// display: none;
-							height: 0;
-						}
-
 						&:not(:checked) {
 							 + ul {
-								li {
-									display: none;
-								}
-							}
-						}
-
-						&:checked {
-							 + ul {
-								// display: block;
-								height: auto;
+								// display: none;
+								overflow: hidden;
+								height: 0;
+								padding: 0;
+								border-width: 0;
 							}
 						}
 					}
@@ -384,8 +403,24 @@ code, pre {
 							animation: flashString 10s linear infinite;
 						}
 					}
-				}
-			}
+				}// End of li
+			}// End of ul
+		}// End of li
+	}// End of ul
+
+	&::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+
+		&-track {
+			border-radius: 10px;
+			background-image: linear-gradient(to bottom, #000011, #1164FF);
+		}
+
+		&-thumb {
+			border-radius: 10px;
+			background-image: linear-gradient(to bottom right, #CCCCCC, #888888);
+			// box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
 		}
 	}
 }
@@ -401,30 +436,6 @@ code, pre {
 	cursor: pointer;
 	font-size: 12px;
 	border: 1px #FFFFFF solid;
-}
-
-dl {
-	dd {
-		margin-left: 2em;
-	}
-}
-
-body {
-	 > .content {
-		display: block;
-		width: calc(100% - 240px);
-		margin-left: 240px;
-
-		@include max-screen(md) {
-			width: 100%;
-			margin-left: 0;
-		}
-
-		@media print {
-			width: 100%;
-			margin-left: 0;
-		}
-	}
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -452,7 +463,7 @@ header {
 		}
 	}
 
-	#menuBtn {
+	label {
 		display: none;
 
 		@include max-screen(md) {

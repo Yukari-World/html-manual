@@ -5,7 +5,7 @@
  */
 
 // Init
-const imdWidth = 992;
+// const imdWidth = 992;
 const sideList = [
 	'Main',
 	'CSS',
@@ -18,7 +18,7 @@ const sideList = [
 	'Other',
 ];
 
-let bmenuToggle = false;
+// let bmenuToggle = false;
 let bwordDecide = false;
 let sideToggle = [];
 
@@ -225,26 +225,12 @@ function setrandomWord() {
 	document.getElementById('randomWord').innerHTML = randomWordList[Math.floor(xorRand.randomFloat() * randomWordList.length)].title;
 }
 
-window.onresize = function () {
-	if (window.innerWidth <= imdWidth && bmenuToggle === false) {
-		document.getElementById('menu').setAttribute('style', 'display: none');
-	} else if (window.innerWidth > imdWidth || bmenuToggle === true) {
-		document.getElementById('menu').removeAttribute('style');
-	}
-};
-
 /**
  * HTMLの読み込み終了時に行われれる処理
  */
 document.addEventListener('DOMContentLoaded', async function () {
 	randomWordList = await getrandomWord();
 	xorRand = new xorShift();
-
-	if (window.innerWidth <= imdWidth && bmenuToggle === false) {
-		document.getElementById('menu').setAttribute('style', 'display: none');
-	} else if (window.innerWidth > imdWidth || bmenuToggle === true) {
-		document.getElementById('menu').removeAttribute('style');
-	}
 
 	// サイドバーの処理
 	// ローカルストレージサポートの確認
@@ -294,18 +280,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 	if (textRandom !== null) {
 		randomOutput(randomWordList);
 	}
-
-	document.getElementById('menuBtn').addEventListener('click', function () {
-		if (!bmenuToggle) {
-			bmenuToggle = true;
-			document.getElementById('menu').removeAttribute('style');
-		} else {
-			bmenuToggle = false;
-			if (window.innerWidth <= imdWidth) {
-				document.getElementById('menu').setAttribute('style', 'display: none');
-			}
-		}
-	});
 
 	setrandomWord();
 

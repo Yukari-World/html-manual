@@ -14,6 +14,7 @@ const sideList = [
 	'Language',
 	'Node',
 	'PHP',
+	'SCSS',
 	'SQL',
 	'Other',
 ];
@@ -236,6 +237,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 	// ローカルストレージサポートの確認
 	if (storageAvailable('localStorage')) {
 		for (let sideName of sideList) {
+			let btnElement = document.getElementById('btn' + sideName);
 			let linkElement = document.getElementById('link' + sideName);
 			// ローカルストレージから情報を取得
 			sideToggle[sideName] = localStorage.getItem(sideName + 'Toggle');
@@ -244,7 +246,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 			if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
 				// Null
 			} else {
-				linkElement.textContent = '-';
+				btnElement.textContent = '-';
 				linkElement.checked = true;
 			}
 
@@ -253,11 +255,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 				if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
 					sideToggle[sideName] = 'true';
 					localStorage.setItem(sideName + 'Toggle', 'true');
-					linkElement.textContent = '-';
+					btnElement.textContent = '-';
 				} else {
 					sideToggle[sideName] = 'false';
 					localStorage.setItem(sideName + 'Toggle', 'false');
-					linkElement.textContent = '+';
+					btnElement.textContent = '+';
 				}
 			});
 		}

@@ -3,55 +3,61 @@ h2 HTML Manual Menu
 ul
 	li
 		h3
-			label.expand-box(for='linkMain') +
+			label#btnMain.expand-box(for='linkMain') +
 			a(href='', title='Main') Main
 		input#linkMain.panel-switch(type='checkbox')
 		include _main
 	li
 		h3
-			label.expand-box(for='linkCSS') +
+			label#btnCSS.expand-box(for='linkCSS') +
 			a(href='', title='CSS') CSS
 		input#linkCSS.panel-switch(type='checkbox')
 		include _css
 	li
 		h3
-			label.expand-box(for='linkHTML') +
+			label#btnHTML.expand-box(for='linkHTML') +
 			a(href='', title='HTML') HTML
 		input#linkHTML.panel-switch(type='checkbox')
 		include _html
 	li
 		h3
-			label.expand-box(for='linkJavaScript') +
+			label#btnJavaScript.expand-box(for='linkJavaScript') +
 			a(href='', title='JavaScript') JavaScript
 		input#linkJavaScript.panel-switch(type='checkbox')
 		include _js
 	li
 		h3
-			label.expand-box(for='linkLanguage') +
+			label#btnLanguage.expand-box(for='linkLanguage') +
 			a(href='', title='Language') Language
 		input#linkLanguage.panel-switch(type='checkbox')
 		include _language
 	li
 		h3
-			label.expand-box(for='linkNode') +
+			label#btnNode.expand-box(for='linkNode') +
 			a(href='', title='Node.js') Node.js
 		input#linkNode.panel-switch(type='checkbox')
 		include _node
 	li
 		h3
-			label.expand-box(for='linkPHP') +
+			label#btnPHP.expand-box(for='linkPHP') +
 			a(href='', title='PHP') PHP
 		input#linkPHP.panel-switch(type='checkbox')
 		include _php
 	li
 		h3
-			label.expand-box(for='linkSQL') +
+			label#btnSCSS.expand-box(for='linkSCSS') +
+			a(href='', title='SCSS') SCSS
+		input#linkSCSS.panel-switch(type='checkbox')
+		include _scss
+	li
+		h3
+			label#btnSQL.expand-box(for='linkSQL') +
 			a(href='', title='SQL') SQL
 		input#linkSQL.panel-switch(type='checkbox')
 		include _sql
 	li
 		h3
-			label.expand-box(for='linkOther') +
+			label#btnOther.expand-box(for='linkOther') +
 			a(href='', title='Other') Other
 		input#linkOther.panel-switch(type='checkbox')
 		include _other

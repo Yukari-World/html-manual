@@ -17,7 +17,7 @@
 		<h2>HTML Manual Menu</h2>
 		<ul>
 			<li>
-				<h3><label class="expand-box" for="linkMain">+</label><a href="" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
+				<h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
 				<ul id="listMain">
 					<li><a href="index.html" title="TOP Page">TOP Page</a></li>
 					<li><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
@@ -26,7 +26,7 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" for="linkCSS">+</label><a href="" title="CSS">CSS</a></h3><input class="panel-switch" id="linkCSS" type="checkbox">
+				<h3><label class="expand-box" id="btnCSS" for="linkCSS">+</label><a href="" title="CSS">CSS</a></h3><input class="panel-switch" id="linkCSS" type="checkbox">
 				<ul id="listCSS">
 					<li><a href="css-backgroundLayer.html">backgroundを重ねる</a></li>
 					<li><a href="css-disablebrTag.html">brタグによる改行を無効化</a></li>
@@ -37,14 +37,14 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" for="linkHTML">+</label><a href="" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox">
+				<h3><label class="expand-box" id="btnHTML" for="linkHTML">+</label><a href="" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox">
 				<ul id="listHTML">
 					<li><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
 					<li><a href="#" title="[WIP] ファイルダウンロード">[WIP] ファイルダウンロード</a></li>
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" for="linkJavaScript">+</label><a href="" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
+				<h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
 				<ul id="listJavaScript">
 					<li><a href="#" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
 					<li><a href="#" title="[WIP] Promise">[WIP] Promise</a></li>
@@ -52,7 +52,7 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" for="linkLanguage">+</label><a href="" title="Language">Language</a></h3><input class="panel-switch" id="linkLanguage" type="checkbox">
+				<h3><label class="expand-box" id="btnLanguage" for="linkLanguage">+</label><a href="" title="Language">Language</a></h3><input class="panel-switch" id="linkLanguage" type="checkbox">
 				<ul id="listLanguage">
 					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
 					<li><a href="language-pug.html" title="Pug">Pug</a></li>
@@ -61,7 +61,7 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" for="linkNode">+</label><a href="" title="Node.js">Node.js</a></h3><input class="panel-switch" id="linkNode" type="checkbox">
+				<h3><label class="expand-box" id="btnNode" for="linkNode">+</label><a href="" title="Node.js">Node.js</a></h3><input class="panel-switch" id="linkNode" type="checkbox">
 				<ul id="listNode">
 					<li><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
 					<li><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
@@ -70,7 +70,7 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" for="linkPHP">+</label><a href="" title="PHP">PHP</a></h3><input class="panel-switch" id="linkPHP" type="checkbox">
+				<h3><label class="expand-box" id="btnPHP" for="linkPHP">+</label><a href="" title="PHP">PHP</a></h3><input class="panel-switch" id="linkPHP" type="checkbox">
 				<ul id="listPHP">
 					<li><a href="php-pdo.html" title="PDO(PHP Data Objects)">PDO(PHP Data Objects)</a></li>
 					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
@@ -79,7 +79,11 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" for="linkSQL">+</label><a href="" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
+				<h3><label class="expand-box" id="btnSCSS" for="linkSCSS">+</label><a href="" title="SCSS">SCSS</a></h3><input class="panel-switch" id="linkSCSS" type="checkbox">
+				<ul id="listSCSS"></ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
 				<ul id="listSQL">
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
@@ -94,7 +98,7 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" for="linkOther">+</label><a href="" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox">
+				<h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox">
 				<ul id="listOther">
 					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
 					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
@@ -108,7 +112,15 @@
 		<header class="md-hide" role="banner">
 			<h1>マニュアル更新履歴</h1></header>
 		<main role="main">
-			<dl><dt><h2>2018/09/18</h2></dt>
+			<dl><dt><h2>2018/09/19</h2></dt>
+				<dd>
+					<ul>
+						<li>SCSSの項目を仮追加</li>
+						<li>スマートフォンのサイドバー処理の最適化</li>
+						<li>JavaScriptの依存を減少</li>
+						<li>ボタンレイアウトが機能していない問題を修正</li>
+					</ul>
+				</dd><dt><h2>2018/09/18</h2></dt>
 				<dd>
 					<ul>
 						<li>トップページのページ名をいい加減修正</li>

@@ -6,107 +6,81 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
  * @author Rose Pritchard
  */
 
-code[class*="language-"],
-pre[class*="language-"] {
-	color: #ccc;
-	background: none;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+code[class*="language-"], pre[class*="language-"] {
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
-	word-break: normal;
 	word-wrap: normal;
+	word-break: normal;
 	/* line-height: 1.5; */
-
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
 	tab-size: 4;
-
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
-	-ms-hyphens: none;
 	hyphens: none;
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+	color: #CCC;
+	background: none;
+
+	-ms-hyphens: none;
 }
 
 /* Code blocks */
 pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
 	overflow: auto;
+	margin: 0.5em 0;
+	padding: 1em;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-	background: #2d2d2d;
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+	background: #2D2D2D;
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-	padding: .1em;
-	border-radius: .3em;
+	padding: 0.1em;
 	white-space: normal;
+	border-radius: 0.3em;
 }
 
-.token.comment,
-.token.block-comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
+.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata {
 	color: #999;
 }
 
 .token.punctuation {
-	color: #ccc;
+	color: #CCC;
 }
 
-.token.tag,
-.token.attr-name,
-.token.namespace,
-.token.deleted {
-	color: #e2777a;
+.token.tag, .token.attr-name, .token.namespace, .token.deleted {
+	color: #E2777A;
 }
 
 .token.function-name {
-	color: #6196cc;
+	color: #6196CC;
 }
 
-.token.boolean,
-.token.number,
-.token.function {
-	color: #f08d49;
+.token.boolean, .token.number, .token.function {
+	color: #F08D49;
 }
 
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol {
-	color: #f8c555;
+.token.property, .token.class-name, .token.constant, .token.symbol {
+	color: #F8C555;
 }
 
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin {
-	color: #cc99cd;
+.token.selector, .token.important, .token.atrule, .token.keyword, .token.builtin {
+	color: #CC99CD;
 }
 
-.token.string,
-.token.char,
-.token.attr-value,
-.token.regex,
-.token.variable {
-	color: #7ec699;
+.token.string, .token.char, .token.attr-value, .token.regex, .token.variable {
+	color: #7EC699;
 }
 
-.token.operator,
-.token.entity,
-.token.url {
-	color: #67cdcc;
+.token.operator, .token.entity, .token.url {
+	color: #67CDCC;
 }
 
-.token.important,
-.token.bold {
+.token.important, .token.bold {
 	font-weight: bold;
 }
 .token.italic {
@@ -128,46 +102,41 @@ pre[data-line] {
 
 .line-highlight {
 	position: absolute;
-	left: 0;
 	right: 0;
-	padding: inherit 0;
+	left: 0;
 	margin-top: 1em; /* Same as .prism’s padding-top */
-
-	background: hsla(24, 20%, 50%, .08);
-	background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
-
-	pointer-events: none;
-
-	line-height: inherit;
+	padding: inherit 0;
 	white-space: pre;
+	pointer-events: none;
+	line-height: inherit;
+	background: hsla(24, 20%, 50%, 0.08);
+	background: linear-gradient(to right, hsla(24, 20%, 50%, 0.1) 70%, hsla(24, 20%, 50%, 0));
 }
 
-.line-highlight:before,
-.line-highlight[data-end]:after {
-	content: attr(data-start);
+.line-highlight:before, .line-highlight[data-end]:after {
 	position: absolute;
-	top: .4em;
-	left: .6em;
+	top: 0.4em;
+	left: 0.6em;
 	min-width: 1em;
-	padding: 0 .5em;
-	background-color: hsla(24, 20%, 50%, .4);
-	color: hsl(24, 20%, 95%);
-	font: bold 65%/1.5 sans-serif;
+	padding: 0 0.5em;
+	content: attr(data-start);
 	text-align: center;
-	vertical-align: .3em;
+	vertical-align: 0.3em;
+	font: bold 65%/1.5 sans-serif;
+	color: hsl(24, 20%, 95%);
 	border-radius: 999px;
-	text-shadow: none;
+	background-color: hsla(24, 20%, 50%, 0.4);
 	box-shadow: 0 1px white;
+	text-shadow: none;
 }
 
 .line-highlight[data-end]:after {
-	content: attr(data-end);
 	top: auto;
-	bottom: .4em;
+	bottom: 0.4em;
+	content: attr(data-end);
 }
 
-.line-numbers .line-highlight:before,
-.line-numbers .line-highlight:after {
+.line-numbers .line-highlight:before, .line-numbers .line-highlight:after {
 	content: none;
 }
 
@@ -184,63 +153,56 @@ pre[class*="language-"].line-numbers > code {
 
 .line-numbers .line-numbers-rows {
 	position: absolute;
-	pointer-events: none;
 	top: 0;
-	font-size: 100%;
 	left: -3.8em;
 	width: 3em; /* works for line-numbers below 1000 lines */
-	letter-spacing: -1px;
-	border-right: 1px solid #999;
-
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	letter-spacing: -1px;
+	pointer-events: none;
+	font-size: 100%;
+	border-right: 1px solid #999;
 }
 
 .line-numbers-rows > span {
-	pointer-events: none;
 	display: block;
 	counter-increment: linenumber;
+	pointer-events: none;
 }
 
 .line-numbers-rows > span:before {
-	content: counter(linenumber);
-	color: #999;
 	display: block;
 	padding-right: 0.8em;
+	content: counter(linenumber);
 	text-align: right;
+	color: #999;
 }
 
-.token.tab:not(:empty),
-.token.cr,
-.token.lf,
-.token.space {
+.token.tab:not(:empty), .token.cr, .token.lf, .token.space {
 	position: relative;
 }
 
-.token.tab:not(:empty):before,
-.token.cr:before,
-.token.lf:before,
-.token.space:before {
-	color: hsl(24, 20%, 85%);
+.token.tab:not(:empty):before, .token.cr:before, .token.lf:before, .token.space:before {
 	position: absolute;
+	color: hsl(24, 20%, 85%);
 }
 
 .token.tab:not(:empty):before {
-    /* content: '\21E5'; */
+	/* content: '\21E5'; */
 }
 
 .token.cr:before {
-    /* content: '\240D'; */
+	/* content: '\240D'; */
 }
 
 .token.crlf:before {
-    /* content: '\240D\240A'; */
+	/* content: '\240D\240A'; */
 }
 
 .token.lf:before {
-    /* content: '\240A'; */
+	/* content: '\240A'; */
 }
 
 .token.space:before {
@@ -251,14 +213,12 @@ pre[class*="language-"].line-numbers > code {
 	color: inherit;
 }
 
-code[class*="language-"] a[href],
-pre[class*="language-"] a[href] {
+code[class*="language-"] a[href], pre[class*="language-"] a[href] {
 	cursor: help;
 	text-decoration: none;
 }
 
-code[class*="language-"] a[href]:hover,
-pre[class*="language-"] a[href]:hover {
+code[class*="language-"] a[href]:hover, pre[class*="language-"] a[href]:hover {
 	cursor: help;
 	text-decoration: underline;
 }
@@ -269,8 +229,8 @@ div.code-toolbar {
 
 div.code-toolbar > .toolbar {
 	position: absolute;
-	top: .3em;
-	right: .2em;
+	top: 0.3em;
+	right: 0.2em;
 	transition: opacity 0.3s ease-in-out;
 	opacity: 0;
 }
@@ -288,62 +248,51 @@ div.code-toolbar > .toolbar a {
 }
 
 div.code-toolbar > .toolbar button {
-	background: none;
-	border: 0;
-	color: inherit;
-	font: inherit;
-	line-height: normal;
 	overflow: visible;
 	padding: 0;
 	-webkit-user-select: none; /* for button */
 	-moz-user-select: none;
 	-ms-user-select: none;
+	font: inherit;
+	line-height: normal;
+	color: inherit;
+	border: 0;
+	background: none;
 }
 
-div.code-toolbar > .toolbar a,
-div.code-toolbar > .toolbar button,
-div.code-toolbar > .toolbar span {
-	color: #bbb;
-	font-size: .8em;
-	padding: 0 .5em;
-	background: #f5f2f0;
+div.code-toolbar > .toolbar a, div.code-toolbar > .toolbar button, div.code-toolbar > .toolbar span {
+	padding: 0 0.5em;
+	font-size: 0.8em;
+	color: #BBB;
+	border-radius: 0.5em;
+	background: #F5F2F0;
 	background: rgba(224, 224, 224, 0.2);
 	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
-	border-radius: .5em;
 }
 
-div.code-toolbar > .toolbar a:hover,
-div.code-toolbar > .toolbar a:focus,
-div.code-toolbar > .toolbar button:hover,
-div.code-toolbar > .toolbar button:focus,
-div.code-toolbar > .toolbar span:hover,
-div.code-toolbar > .toolbar span:focus {
-	color: inherit;
+div.code-toolbar > .toolbar a:hover, div.code-toolbar > .toolbar a:focus, div.code-toolbar > .toolbar button:hover, div.code-toolbar > .toolbar button:focus, div.code-toolbar > .toolbar span:hover, div.code-toolbar > .toolbar span:focus {
 	text-decoration: none;
+	color: inherit;
 }
 
-.prism-previewer,
-.prism-previewer:before,
-.prism-previewer:after {
+.prism-previewer, .prism-previewer:before, .prism-previewer:after {
 	position: absolute;
 	pointer-events: none;
 }
 
-.prism-previewer,
-.prism-previewer:after {
+.prism-previewer, .prism-previewer:after {
 	left: 50%;
 }
 
 .prism-previewer {
-	margin-top: -48px;
 	width: 32px;
 	height: 32px;
+	margin-top: -48px;
 	margin-left: -16px;
-
+	-webkit-transition: opacity 0.25s;
+	-o-transition: opacity 0.25s;
+	transition: opacity 0.25s;
 	opacity: 0;
-	-webkit-transition: opacity .25s;
-	-o-transition: opacity .25s;
-	transition: opacity .25s;
 }
 
 .prism-previewer.flipped {
@@ -351,20 +300,19 @@ div.code-toolbar > .toolbar span:focus {
 	margin-bottom: -48px;
 }
 
-.prism-previewer:before,
-.prism-previewer:after {
-	content: '';
+.prism-previewer:before, .prism-previewer:after {
 	position: absolute;
+	content: "";
 	pointer-events: none;
 }
 
 .prism-previewer:before {
 	top: -5px;
 	right: -5px;
-	left: -5px;
 	bottom: -5px;
+	left: -5px;
+	border: 5px solid #FFF;
 	border-radius: 10px;
-	border: 5px solid #fff;
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
 }
 
@@ -375,7 +323,7 @@ div.code-toolbar > .toolbar span:focus {
 	margin: 5px 0 0 -7px;
 	border: 7px solid transparent;
 	border-color: rgba(255, 0, 0, 0);
-	border-top-color: #fff;
+	border-top-color: #FFF;
 }
 
 .prism-previewer.flipped:after {
@@ -384,7 +332,7 @@ div.code-toolbar > .toolbar span:focus {
 	margin-top: 0;
 	margin-bottom: 5px;
 	border-top-color: rgba(255, 0, 0, 0);
-	border-bottom-color: #fff;
+	border-bottom-color: #FFF;
 }
 
 .prism-previewer.active {
@@ -393,7 +341,7 @@ div.code-toolbar > .toolbar span:focus {
 
 .prism-previewer-angle:before {
 	border-radius: 50%;
-	background: #fff;
+	background: #FFF;
 }
 
 .prism-previewer-angle:after {
@@ -421,18 +369,17 @@ div.code-toolbar > .toolbar span:focus {
 .prism-previewer-angle circle {
 	fill: transparent;
 	stroke: hsl(200, 10%, 20%);
+	stroke-dasharray: 0, 500;
 	stroke-opacity: 0.9;
 	stroke-width: 32;
-	stroke-dasharray: 0, 500;
 }
 
 .prism-previewer-gradient {
-	background-image: linear-gradient(45deg, #bbb 25%, transparent 25%, transparent 75%, #bbb 75%, #bbb), linear-gradient(45deg, #bbb 25%, #eee 25%, #eee 75%, #bbb 75%, #bbb);
-	background-size: 10px 10px;
-	background-position: 0 0, 5px 5px;
-
 	width: 64px;
 	margin-left: -32px;
+	background-image: linear-gradient(45deg, #BBB 25%, transparent 25%, transparent 75%, #BBB 75%, #BBB), linear-gradient(45deg, #BBB 25%, #EEE 25%, #EEE 75%, #BBB 75%, #BBB);
+	background-position: 0 0, 5px 5px;
+	background-size: 10px 10px;
 }
 
 .prism-previewer-gradient:before {
@@ -442,18 +389,18 @@ div.code-toolbar > .toolbar span:focus {
 .prism-previewer-gradient div {
 	position: absolute;
 	top: -5px;
-	left: -5px;
 	right: -5px;
 	bottom: -5px;
+	left: -5px;
+	border: 5px solid #FFF;
 	border-radius: 10px;
-	border: 5px solid #fff;
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
 }
 
 .prism-previewer-color {
-	background-image: linear-gradient(45deg, #bbb 25%, transparent 25%, transparent 75%, #bbb 75%, #bbb), linear-gradient(45deg, #bbb 25%, #eee 25%, #eee 75%, #bbb 75%, #bbb);
-	background-size: 10px 10px;
+	background-image: linear-gradient(45deg, #BBB 25%, transparent 25%, transparent 75%, #BBB 75%, #BBB), linear-gradient(45deg, #BBB 25%, #EEE 25%, #EEE 75%, #BBB 75%, #BBB);
 	background-position: 0 0, 5px 5px;
+	background-size: 10px 10px;
 }
 
 .prism-previewer-color:before {
@@ -462,10 +409,10 @@ div.code-toolbar > .toolbar span:focus {
 }
 
 .prism-previewer-easing {
-	margin-top: -76px;
-	margin-left: -30px;
 	width: 60px;
 	height: 60px;
+	margin-top: -76px;
+	margin-left: -30px;
 	background: #333;
 }
 
@@ -566,7 +513,7 @@ div.code-toolbar > .toolbar span:focus {
 
 .prism-previewer-time:before {
 	border-radius: 50%;
-	background: #fff;
+	background: #FFF;
 }
 
 .prism-previewer-time:after {
@@ -584,49 +531,46 @@ div.code-toolbar > .toolbar span:focus {
 }
 
 .prism-previewer-time circle {
-	fill: transparent;
-	stroke: hsl(200, 10%, 20%);
-	stroke-opacity: 0.9;
-	stroke-width: 32;
-	stroke-dasharray: 0, 500;
-	stroke-dashoffset: 0;
 	-webkit-animation: prism-previewer-time linear infinite 3s;
 	-moz-animation: prism-previewer-time linear infinite 3s;
 	-o-animation: prism-previewer-time linear infinite 3s;
 	animation: prism-previewer-time linear infinite 3s;
+
+	fill: transparent;
+	stroke: hsl(200, 10%, 20%);
+	stroke-dasharray: 0, 500;
+	stroke-dashoffset: 0;
+	stroke-opacity: 0.9;
+	stroke-width: 32;
 }
 
 /* Fallback, in case JS does not run, to ensure the code is at least visible */
-[class*='lang-'] script[type='text/plain'],
-[class*='language-'] script[type='text/plain'],
-script[type='text/plain'][class*='lang-'],
-script[type='text/plain'][class*='language-'] {
+[class*="lang-"] script[type="text/plain"], [class*="language-"] script[type="text/plain"], script[type="text/plain"][class*="lang-"], script[type="text/plain"][class*="language-"] {
 	display: block;
-	font: 100% Consolas, Monaco, monospace;
-	white-space: pre;
 	overflow: auto;
+	white-space: pre;
+	font: 100% Consolas, Monaco, monospace;
 }
 
 .command-line-prompt {
-	border-right: 1px solid #999;
 	display: block;
 	float: left;
-	font-size: 100%;
-	letter-spacing: -1px;
 	margin-right: 1em;
-	pointer-events: none;
-
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	letter-spacing: -1px;
+	pointer-events: none;
+	font-size: 100%;
+	border-right: 1px solid #999;
 }
 
 .command-line-prompt > span:before {
-	color: #999;
-	content: ' ';
 	display: block;
 	padding-right: 0.8em;
+	content: " ";
+	color: #999;
 }
 
 .command-line-prompt > span[data-user]:before {

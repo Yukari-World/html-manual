@@ -47,6 +47,7 @@ class xorShift {
 	 */
 	constructor(w = Math.floor(Date.now() / 1000)) {
 		let dateTemp = new Date();
+
 		/**
 		 * 乱数 X
 		 *

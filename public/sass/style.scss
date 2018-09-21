@@ -245,8 +245,11 @@ code, pre {
 		font-family: "Migu 1M", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 		line-height: 1.2;
 
-		-webkit-overflow-scrolling: touch;
+		@include max-screen(xs) {
+			max-height: 80vh;
+		}
 
+		-webkit-overflow-scrolling: touch;
 		@media print {
 			// color: #000000;
 		}

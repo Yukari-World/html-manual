@@ -1,7 +1,7 @@
 extends ./_includes/_layout
 block title
 	- var title = '背景画像スクロールの固定';
-	title #{title}
+	title #{title} - HTML Technical Manual
 block headSpace
 	style(type='text/css').
 		.layer1, .layer2 {
@@ -40,8 +40,7 @@ block content
 
 		.layer1
 		p
-			code.language-css
-				span.token.property background
+			code.language-css: span.token.property background
 			| で1行に収める場合の記述方法。詰め込み過ぎているあまり理解し辛いと思われるので、これを細かな単位に分解する。
 
 		pre.language-css.line-numbers: code.

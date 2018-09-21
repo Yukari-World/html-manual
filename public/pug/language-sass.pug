@@ -1,7 +1,7 @@
 extends ./_includes/_layout
 block title
 	- var title = 'Sass';
-	title #{title}
+	title #{title} - HTML Technical Manual
 block headTitle
 	h1 #{title}
 block content
@@ -115,7 +115,7 @@ block content
 				border-top-width: $footer-line
 				border-bottom-width: $footer-line * 3
 				// 間に式を使う場合は\#{}で囲む
-				border-image: $gradation-pattern 1 / \#{$footer-line} 0 \#{$footer-line * 3} / 0 stretch 
+				border-image: $gradation-pattern 1 / \#{$footer-line} 0 \#{$footer-line * 3} / 0 stretch
 
 		h4 CSS
 		pre.language-css.line-numbers: code.

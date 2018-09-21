@@ -1,16 +1,25 @@
 extends ./_includes/_layout
 block title
 	- var title = 'マニュアル更新履歴';
-	title #{title}
+	title #{title} - HTML Technical Manual
 block headTitle
 	h1 #{title}
 block content
 	dl
+		dt: h2 2018/09/21
+		dd
+			ul
+				li 全ページタイトルに『HTML Technical Manual』の文字列を追加
+				li サンプルページ『Prismハイライトの例』を追加。現在ドラフト段階
+				li 技術マニュアル『フェードイン』を更新
+
 		dt: h2 2018/09/20
 		dd
 			ul
 				li 画像圧縮率の変更
+				li ファイル軽量化による最適化
 				li JavaScriptのソースマップ出力方法の修正
+				li 技術マニュアル『フェードイン』を追加
 
 		dt: h2 2018/09/19
 		dd

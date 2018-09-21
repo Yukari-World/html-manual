@@ -613,6 +613,10 @@ footer p:last-child {
 }
 
 @media only screen and (max-width: 576px) {
+	code[class*="language-"], pre[class*="language-"] {
+		max-height: 80vh;
+	}
+
 	footer p:last-child {
 		white-space: normal;
 	}

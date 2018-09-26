@@ -3,7 +3,7 @@ image: alpine:latest
 pages:
   stage: deploy
   script:
-  - echo 'Nothing to do...'
+    - find public/* -type f | xargs -I {} sh -c "gzip {}; touch {}"
   artifacts:
     paths:
     - public

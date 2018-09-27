@@ -6,8 +6,9 @@
 	<title>Pug - HTML Technical Manual</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
-	<link href="css/prism.min.css" rel="stylesheet" type="text/css">
-	<link href="css/style.min.css" rel="stylesheet" type="text/css">
+	<link rel="preload" type="text/css" href="css/prism.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" type="text/css" href="css/prism.min.css"></noscript>
+	<link rel="preload" type="text/css" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" type="text/css" href="css/style.min.css"></noscript>
+	<script type="application/javascript" src="js/cssrelpreload.js"></script>
 </head>
 
 <body>
@@ -15,6 +16,7 @@
 		<h1>Pug</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
+		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
 		<ul>
 			<li>
 				<h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
@@ -48,9 +50,10 @@
 			<li>
 				<h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
 				<ul id="listJavaScript">
-					<li><a href="#" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
-					<li><a href="#" title="[WIP] Promise">[WIP] Promise</a></li>
-					<li><a href="#" title="[WIP] XMLHttpRequest">[WIP] XMLHttpRequest</a></li>
+					<li><a href="js-FetchAPI.html" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
+					<li><a href="js-localStorage.html" title="[WIP] localStorage">[WIP] localStorage</a></li>
+					<li><a href="js-Promise.html" title="[WIP] Promise">[WIP] Promise</a></li>
+					<li><a href="js-XMLHttpRequest.html" title="[WIP] XMLHttpRequest">[WIP] XMLHttpRequest</a></li>
 				</ul>
 			</li>
 			<li>
@@ -59,7 +62,7 @@
 					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
 					<li><a href="language-pug.html" title="Pug">Pug</a></li>
 					<li><a href="language-sass.html" title="Sass">Sass</a></li>
-					<li><a href="#" title="[WIP] Scss">[WIP] Scss</a></li>
+					<li><a href="#" title="[WIP] SCSS">[WIP] SCSS</a></li>
 				</ul>
 			</li>
 			<li>
@@ -121,7 +124,7 @@
 			<section>
 				<h2>記述方法</h2>
 				<h3>基本的な記述</h3>
-				<p>記述方法はRubyスタイルに近い。タブで階層を示し、HTMLタグを囲む必要はない。但し、HTMLタグをそのまま記述しても特に問題はない。</p>
+				<p>記述方法はRubyやYAMLの記述方法に近い。タブで階層を示し、HTMLタグを囲む必要はない。但し、HTMLタグをそのまま記述しても特に問題はない。</p>
 				<h4>Pug</h4><pre class="language-pug line-numbers"><code>doctype html
 html(lang='ja')
 	head
@@ -160,8 +163,10 @@ html(lang='ja')
 &lt;/html&gt;
 </code></pre>
 				<h3>プロパティ</h3>
-				<p>プロパティは括弧で記述する。複数プロパティがある場合はカンマで区切る。但し、こちらは必須ではない。</p>
-				<h4>Pug</h4><pre class="language-pug line-numbers"><code>input(type='text', name='school', placeholder='学校名')</code></pre>
+				<p>プロパティは括弧で記述する。括弧とHTMLタグの間にスペースを入れるとHTML要素内の文字として扱われるのでスペースを入れてはならない。<br>複数プロパティがある場合はカンマで区切る。但し、こちらは必須ではない。</p>
+				<h4>Pug</h4><pre class="language-pug line-numbers"><code>input(type='text', name='school', placeholder='学校名')		//- ←OK
+input (type='text', name='school', placeholder='学校名')	//- ←NG
+input(type='text' name='school' placeholder='学校名')		//- ←一応OK</code></pre>
 				<h4>HTML</h4><pre class="language-html line-numbers"><code>&lt;input type="text" name="school" placeholder="学校名"&gt;
 </code></pre>
 				<h3>複数行の記述</h3>
@@ -245,7 +250,7 @@ ul
 				<p>複数のパーツを使い回したり、パーツを細分化する際に使用する。尚、pugテンプレートファイルを指定する場合は拡張子を記述する必要はない。</p><pre class="line-numbers" data-src="pug/_mixin/_sideList.pug" data-download-link data-line="12, 15, 18, 21, 24, 27, 30, 33"></pre>
 				<h3>extends 継承</h3>
 				<h4>Pug</h4>
-				<p>親ファイル。<code class="language-pug"><span class="token keyword">block</span></code>を追加することで継承先にて要素を追加、もしくは置き換えることができる。要素に何も追加しない場合、出力時も何も出力されない。</p><pre class="line-numbers" data-src="pug/_includes/_layout.pug" data-download-link data-line="5, 10, 13, 20, 23, 28"></pre>
+				<p>親ファイル。<code class="language-pug"><span class="token keyword">block</span></code>を追加することで継承先にて要素を追加、もしくは置き換えることができる。要素に何も追加しない場合、出力時も何も出力されない。</p><pre class="line-numbers" data-src="pug/_includes/_layout.pug" data-download-link data-line="5, 18, 21, 29, 32, 40"></pre>
 				<p>子ファイル。<code class="language-pug"><span class="token keyword">extends</span></code>で継承元のテンプレートファイルを指定する。ファイル先頭コメントを除いて必ず1行目に指定しなければならない(1行目以外指定した場合エラーとなる)。<br><code class="language-pug"><span class="token keyword">block</span></code>で継承元のブロック名を指定することでブロックの内容を置き換えることができる。<br>
 					<code
 					    class="language-pug"><span class="token keyword">block append</span></code>もしくは<code class="language-pug"><span class="token keyword">append</span></code>でブロック要素を指定した場合、継承元の内容を保持しつつ要素を追加することができる。<code class="language-pug"><span class="token keyword">block</span></code>を指定していない箇所がある場合、指定されていない内容は継承元の内容が出力される。</p>
@@ -254,7 +259,7 @@ ul
 			</section>
 			<section>
 				<h2>変換方法</h2>
-				<p>Pugはテンプレートエンジンであるため、そのままではHTMLとして認識されない。そのため変換する必要がある。これはその一例である。<br>尚、此等を利用するにあたって予めNode.jsのインストールが必要となる。インストールしていない場合は別とマニュアルを参照してインストールを行うこと。<br>また、内容に応じてプロジェクトパッケージを必要とするためそちらも予め作成しておくように。</p>
+				<p>Pugはテンプレートエンジンであるため、そのままではHTMLとして認識されない。そのため変換する必要がある。これはその一例である。<br>尚、此等を利用するにあたって予めNode.jsのインストールが必要となる。インストールしていない場合は別途マニュアルを参照してインストールを行うこと。<br>また、内容に応じてプロジェクトパッケージを必要とするためそちらも予め作成しておくように。</p>
 				<h3>コマンドラインで変換</h3>
 				<ol>
 					<li>
@@ -305,7 +310,7 @@ gulp.task('pug', function {
 			<p id="randomWord">Loading...</p>
 			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
 				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
-				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(Scss)</a></p>
+				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
 		</footer>
 	</div>
 	<script type="application/javascript" src="js/prism.min.js"></script>

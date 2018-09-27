@@ -15,7 +15,7 @@ block content
 	section
 		h2 記述方法
 		h3 基本的な記述
-		p 記述方法はRubyスタイルに近い。タブで階層を示し、HTMLタグを囲む必要はない。但し、HTMLタグをそのまま記述しても特に問題はない。
+		p 記述方法はRubyやYAMLの記述方法に近い。タブで階層を示し、HTMLタグを囲む必要はない。但し、HTMLタグをそのまま記述しても特に問題はない。
 		h4 Pug
 		pre.language-pug.line-numbers: code.
 			doctype html
@@ -61,10 +61,15 @@ block content
 			&lt;/html&gt;
 
 		h3 プロパティ
-		p プロパティは括弧で記述する。複数プロパティがある場合はカンマで区切る。但し、こちらは必須ではない。
+		p
+			| プロパティは括弧で記述する。括弧とHTMLタグの間にスペースを入れるとHTML要素内の文字として扱われるのでスペースを入れてはならない。
+			br
+			| 複数プロパティがある場合はカンマで区切る。但し、こちらは必須ではない。
 		h4 Pug
 		pre.language-pug.line-numbers: code.
-			input(type='text', name='school', placeholder='学校名')
+			input(type='text', name='school', placeholder='学校名')		//- ←OK
+			input (type='text', name='school', placeholder='学校名')	//- ←NG
+			input(type='text' name='school' placeholder='学校名')		//- ←一応OK
 		h4 HTML
 		pre.language-html.line-numbers: code.
 			&lt;input type="text" name="school" placeholder="学校名"&gt;
@@ -194,7 +199,7 @@ block content
 			| 親ファイル。
 			code.language-pug: span.token.keyword block
 			| を追加することで継承先にて要素を追加、もしくは置き換えることができる。要素に何も追加しない場合、出力時も何も出力されない。
-		pre(data-src='pug/_includes/_layout.pug' data-download-link data-line='5, 10, 13, 20, 23, 28').line-numbers
+		pre(data-src='pug/_includes/_layout.pug' data-download-link data-line='5, 18, 21, 29, 32, 40').line-numbers
 		p
 			| 子ファイル。
 			code.language-pug: span.token.keyword extends
@@ -216,7 +221,7 @@ block content
 		p
 			| Pugはテンプレートエンジンであるため、そのままではHTMLとして認識されない。そのため変換する必要がある。これはその一例である。
 			br
-			| 尚、此等を利用するにあたって予めNode.jsのインストールが必要となる。インストールしていない場合は別とマニュアルを参照してインストールを行うこと。
+			| 尚、此等を利用するにあたって予めNode.jsのインストールが必要となる。インストールしていない場合は別途マニュアルを参照してインストールを行うこと。
 			br
 			| また、内容に応じてプロジェクトパッケージを必要とするためそちらも予め作成しておくように。
 

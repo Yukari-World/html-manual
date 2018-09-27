@@ -6,6 +6,6 @@ pages:
     - find public/* -type f | xargs -I {} sh -c "gzip {}; touch {}"
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
+    - master

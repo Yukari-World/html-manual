@@ -6,8 +6,83 @@
 	<title>npm コマンド - HTML Technical Manual</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
-	<link href="css/prism.min.css" rel="stylesheet" type="text/css">
-	<link href="css/style.min.css" rel="stylesheet" type="text/css">
+	<link rel="preload" type="text/css" href="css/prism.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" type="text/css" href="css/prism.min.css"></noscript>
+	<link rel="preload" type="text/css" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" type="text/css" href="css/style.min.css"></noscript>
+	<script type="application/javascript">
+		/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+		(function(a) {
+			if (!a.loadCSS) {
+				a.loadCSS = function() {}
+			}
+			var b = loadCSS.relpreload = {};
+			b.support = (function() {
+				var d;
+				try {
+					d = a.document.createElement("link").relList.supports("preload")
+				} catch (f) {
+					d = false
+				}
+				return function() {
+					return d
+				}
+			})();
+			b.bindMediaToggle = function(e) {
+				var f = e.media || "all";
+
+				function d() {
+					e.media = f
+				}
+				if (e.addEventListener) {
+					e.addEventListener("load", d)
+				} else {
+					if (e.attachEvent) {
+						e.attachEvent("onload", d)
+					}
+				}
+				setTimeout(function() {
+					e.rel = "stylesheet";
+					e.media = "only x"
+				});
+				setTimeout(d, 3000)
+			};
+			b.poly = function() {
+				if (b.support()) {
+					return
+				}
+				var d = a.document.getElementsByTagName("link");
+				for (var e = 0; e < d.length; e++) {
+					var f = d[e];
+					if (f.rel === "preload" && f.getAttribute("as") === "style" && !f.getAttribute("data-loadcss")) {
+						f.setAttribute("data-loadcss", true);
+						b.bindMediaToggle(f)
+					}
+				}
+			};
+			if (!b.support()) {
+				b.poly();
+				var c = a.setInterval(b.poly, 500);
+				if (a.addEventListener) {
+					a.addEventListener("load", function() {
+						b.poly();
+						a.clearInterval(c)
+					})
+				} else {
+					if (a.attachEvent) {
+						a.attachEvent("onload", function() {
+							b.poly();
+							a.clearInterval(c)
+						})
+					}
+				}
+			}
+			if (typeof exports !== "undefined") {
+				exports.loadCSS = loadCSS
+			} else {
+				a.loadCSS = loadCSS
+			}
+		}(typeof global !== "undefined" ? global : this));
+
+	</script>
 </head>
 
 <body>
@@ -15,6 +90,7 @@
 		<h1>npm コマンド</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
+		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
 		<ul>
 			<li>
 				<h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
@@ -48,9 +124,10 @@
 			<li>
 				<h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
 				<ul id="listJavaScript">
-					<li><a href="#" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
-					<li><a href="#" title="[WIP] Promise">[WIP] Promise</a></li>
-					<li><a href="#" title="[WIP] XMLHttpRequest">[WIP] XMLHttpRequest</a></li>
+					<li><a href="js-FetchAPI.html" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
+					<li><a href="js-localStorage.html" title="[WIP] localStorage">[WIP] localStorage</a></li>
+					<li><a href="js-Promise.html" title="[WIP] Promise">[WIP] Promise</a></li>
+					<li><a href="js-XMLHttpRequest.html" title="[WIP] XMLHttpRequest">[WIP] XMLHttpRequest</a></li>
 				</ul>
 			</li>
 			<li>
@@ -59,7 +136,7 @@
 					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
 					<li><a href="language-pug.html" title="Pug">Pug</a></li>
 					<li><a href="language-sass.html" title="Sass">Sass</a></li>
-					<li><a href="#" title="[WIP] Scss">[WIP] Scss</a></li>
+					<li><a href="#" title="[WIP] SCSS">[WIP] SCSS</a></li>
 				</ul>
 			</li>
 			<li>
@@ -172,7 +249,7 @@ npm un &lt;package&gt;</code></pre>
 			<p id="randomWord">Loading...</p>
 			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
 				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
-				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(Scss)</a></p>
+				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
 		</footer>
 	</div>
 	<script type="application/javascript" src="js/prism.min.js"></script>

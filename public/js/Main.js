@@ -233,39 +233,6 @@ function setrandomWord() {
 document.addEventListener('DOMContentLoaded', async function () {
 	randomWordList = await getrandomWord();
 	xorRand = new xorShift();
-	let isEnableStorage = storageAvailable('localStorage');
-
-	document.getElementById('expandAll').addEventListener('click', function () {
-		for (let sideName of sideList) {
-			let btnElement = document.getElementById('btn' + sideName);
-			let linkElement = document.getElementById('link' + sideName);
-
-			// trueに変更
-			linkElement.checked = true;
-			sideToggle[sideName] = 'true';
-			btnElement.textContent = '-';
-			// ローカルストレージサポートの確認
-			if (isEnableStorage) {
-				localStorage.setItem(sideName + 'Toggle', 'true');
-			}
-		}
-	});
-
-	document.getElementById('collapseAll').addEventListener('click', function () {
-		for (let sideName of sideList) {
-			let btnElement = document.getElementById('btn' + sideName);
-			let linkElement = document.getElementById('link' + sideName);
-
-			// falseに変更
-			linkElement.checked = false;
-			sideToggle[sideName] = 'false';
-			btnElement.textContent = '+';
-			// ローカルストレージサポートの確認
-			if (isEnableStorage) {
-				localStorage.setItem(sideName + 'Toggle', 'false');
-			}
-		}
-	});
 
 	// サイドバーの処理
 	// ローカルストレージサポートの確認

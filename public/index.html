@@ -6,17 +6,15 @@
 	<title>トップページ - HTML Technical Manual</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
-	<link rel="preload" type="text/css" href="css/prism.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" type="text/css" href="css/prism.min.css"></noscript>
-	<link rel="preload" type="text/css" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" type="text/css" href="css/style.min.css"></noscript>
-	<script type="application/javascript" src="js/cssrelpreload.js"></script>
+	<link href="css/prism.min.css" rel="stylesheet" type="text/css">
+	<link href="css/style.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 	<header class="md-show" id="top" role="banner">
-		<h1>HTML Technical Manual</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+		<h1>HTML Manual</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
-		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
 		<ul>
 			<li>
 				<h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
@@ -50,10 +48,9 @@
 			<li>
 				<h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
 				<ul id="listJavaScript">
-					<li><a href="js-FetchAPI.html" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
-					<li><a href="js-localStorage.html" title="[WIP] localStorage">[WIP] localStorage</a></li>
-					<li><a href="js-Promise.html" title="[WIP] Promise">[WIP] Promise</a></li>
-					<li><a href="js-XMLHttpRequest.html" title="[WIP] XMLHttpRequest">[WIP] XMLHttpRequest</a></li>
+					<li><a href="#" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
+					<li><a href="#" title="[WIP] Promise">[WIP] Promise</a></li>
+					<li><a href="#" title="[WIP] XMLHttpRequest">[WIP] XMLHttpRequest</a></li>
 				</ul>
 			</li>
 			<li>
@@ -62,7 +59,7 @@
 					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
 					<li><a href="language-pug.html" title="Pug">Pug</a></li>
 					<li><a href="language-sass.html" title="Sass">Sass</a></li>
-					<li><a href="#" title="[WIP] SCSS">[WIP] SCSS</a></li>
+					<li><a href="#" title="[WIP] Scss">[WIP] Scss</a></li>
 				</ul>
 			</li>
 			<li>
@@ -115,7 +112,7 @@
 	</nav>
 	<div class="content">
 		<header class="md-hide" role="banner">
-			<h1>HTML Technical Manual</h1></header>
+			<h1>HTML Manual</h1></header>
 		<main role="main">
 			<section>
 				<p>左のメニューより選択してください。<br>このページのコードの表示には<a href="http://mix-mplus-ipa.osdn.jp/migu/" title="Miguフォント : M+とIPAの合成フォント" target="_blank">Migu 1M</a>フォントの導入を推奨しています。<br>また、このフォントはプログラムコーディングにおいても優秀なため、導入を推奨します。<br>各ページのコードのハイライトには<a href="https://prismjs.com/"
@@ -157,7 +154,7 @@ html(lang='ja')
 			h2 Easy?
 		footer(role='contentinfo')
 </code></pre>
-				<h3>SCSS</h3><pre class="language-scss line-numbers"><code>header {
+				<h3>Scss</h3><pre class="language-scss line-numbers"><code>header {
 	position: fixed;
 	width: 100%;
 	background-color: #175397;
@@ -177,7 +174,7 @@ html(lang='ja')
 				<ul>
 					<li>JavaScript(ECMAScript 2017), Babelにより後方互換確保済み</li>
 					<li><a href="https://pugjs.org/" title="Pug: Getting Started" target="_blank">Pug(Jade)</a></li>
-					<li><a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(Syntactically Awesome Style Sheets)(SCSS)</a></li>
+					<li><a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(Syntactically Awesome Style Sheets)(Scss)</a></li>
 				</ul>
 				<h3>画像</h3>
 				<ul>
@@ -229,7 +226,7 @@ html(lang='ja')
 			<p id="randomWord">Loading...</p>
 			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
 				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
-				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
+				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(Scss)</a></p>
 		</footer>
 	</div>
 	<script type="application/javascript" src="js/prism.min.js"></script>

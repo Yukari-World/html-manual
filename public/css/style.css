@@ -295,43 +295,6 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	background-image: linear-gradient(to bottom right, #CCCCCC, #888888);
 }
 
-.nav-button {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: space-evenly;
-	-webkit-justify-content: space-evenly;
-	-ms-flex-pack: space-evenly;
-	justify-content: space-evenly;
-}
-
-@supports (-ms-ime-align: auto) {
-	.nav-button {
-		-webkit-justify-content: space-around;
-		-ms-flex-pack: distribute;
-		justify-content: space-around;
-	}
-}
-
-@supports (-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and ((-o-object-fit: fill) or (object-fit: fill)) {
-	.nav-button {
-		-webkit-justify-content: space-around;
-		-ms-flex-pack: distribute;
-		justify-content: space-around;
-	}
-}
-
-.nav-button button {
-	width: 100px;
-	height: 24px;
-	font-size: 12px;
-	color: #FFFFFF;
-	border: none;
-	border-radius: 5px;
-	background-color: #1164FF;
-}
-
 .expand-box {
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
@@ -401,21 +364,21 @@ section:first-child {
 	margin-top: 5px;
 }
 
-section h2, section h3, section h4, section h5, section h6 {
-	padding: 0 10px;
-}
-
 section h2 {
+	padding: 0 10px;
 	font-size: 24px;
 }
 
 section h3 {
-	margin-top: 5px;
 	font-size: 18px;
 }
 
-section h4 {
+section h3, section h4 {
 	margin-top: 5px;
+	padding: 0 10px;
+}
+
+section h4 {
 	font-size: 14px;
 }
 

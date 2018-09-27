@@ -2,7 +2,6 @@ mixin menuSidebar(href, name)
 	li: a(href=href, title=name)= name
 
 ul#listJavaScript
-	+menuSidebar('js-FetchAPI.html', '[WIP] Fetch API')
-	+menuSidebar('js-localStorage.html', '[WIP] localStorage')
-	+menuSidebar('js-Promise.html', '[WIP] Promise')
-	+menuSidebar('js-XMLHttpRequest.html', '[WIP] XMLHttpRequest')
+	+menuSidebar('#', '[WIP] Fetch API')
+	+menuSidebar('#', '[WIP] Promise')
+	+menuSidebar('#', '[WIP] XMLHttpRequest')

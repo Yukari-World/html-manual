@@ -87,7 +87,7 @@ block content
 			| の第一引数は代入する変数の型を示しており、iはinterger数値を示しており、sはstring文字列を示している。第二引数以降には変数を指定する。直接値や文字列を指定することはできないので注意が必要。
 
 		h3 PDO
-		pre.language-php.line-numbers(data-line='2,4-6'): code.
+		pre.language-php.line-numbers(data-line='2, 4-6'): code.
 			try {
 				$query = "SELECT * FROM `user` WHERE `id` = :id AND `password` = PASSWORD(:password)";
 				$stmt = $pdo-&gt;prepare($query); // SQL Queryの格納

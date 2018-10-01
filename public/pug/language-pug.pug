@@ -37,7 +37,7 @@ block content
 		h4 HTML
 		p
 			| 出力結果。実際の出力結果は全く整形されていないので必要に応じて
-			a(href='https://github.com/beautify-web/js-beautify' target='_blank') JS-Beautify
+			a(href='https://github.com/beautify-web/js-beautify', target='_blank') JS-Beautify
 			| 等で整形する必要がある。尚、Pugの変換オプションに自動整形するオプションがあるが、現在は非推奨なので注意。
 		pre.language-html.line-numbers: code.
 			&lt;!DOCTYPE html&gt;
@@ -191,7 +191,7 @@ block content
 		h3 include インクルード
 		h4 Pug
 		p 複数のパーツを使い回したり、パーツを細分化する際に使用する。尚、pugテンプレートファイルを指定する場合は拡張子を記述する必要はない。
-		pre(data-src='pug/_mixin/_sideList.pug' data-download-link data-line='13, 19, 25, 31, 37, 43, 49, 55, 61, 67').line-numbers
+		pre.line-numbers(data-src='pug/_mixin/_sideList.pug', data-download-link, data-line='13, 19, 25, 31, 37, 43, 49, 55, 61, 67')
 
 		h3 extends 継承
 		h4 Pug
@@ -199,7 +199,7 @@ block content
 			| 親ファイル。
 			code.language-pug: span.token.keyword block
 			| を追加することで継承先にて要素を追加、もしくは置き換えることができる。要素に何も追加しない場合、出力時も何も出力されない。
-		pre(data-src='pug/_includes/_layout.pug' data-download-link data-line='5, 11, 14, 22, 25, 30').line-numbers
+		pre.line-numbers(data-src='pug/_includes/_layout.pug', data-download-link, data-line='5, 11, 14, 22, 25, 30')
 		p
 			| 子ファイル。
 			code.language-pug: span.token.keyword extends
@@ -214,7 +214,7 @@ block content
 			| でブロック要素を指定した場合、継承元の内容を保持しつつ要素を追加することができる。
 			code.language-pug: span.token.keyword block
 			| を指定していない箇所がある場合、指定されていない内容は継承元の内容が出力される。
-		pre(data-src='pug/css-textShadow.pug' data-download-link data-line='1, 2, 5, 27, 29').line-numbers
+		pre.line-numbers(data-src='pug/css-textShadow.pug', data-download-link, data-line='1, 2, 5, 27, 29')
 
 	section
 		h2 変換方法
@@ -292,4 +292,4 @@ block content
 	section
 		h2 最後に
 		p このマニュアルはPugで作られており、ソースを全て残しているので参考にする場合はPugフォルダ参照。クラシックなページデザイン故に参考になるか怪しいが。
-		pre(data-src='pug/index.pug' data-download-link).line-numbers
+		pre.line-numbers(data-src='pug/index.pug', data-download-link)

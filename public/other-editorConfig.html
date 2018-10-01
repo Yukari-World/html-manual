@@ -3,39 +3,16 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>文字装飾による可読性の向上 - HTML Technical Manual</title>
+	<title>EditorConfig - HTML Technical Manual</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
 	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
-	<style type="text/css">
-		.exsample1,
-		.exsample2 {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 500px;
-			height: 200px;
-			margin: 5px auto;
-			color: #000000;
-			border-radius: 10px;
-			background-color: #F5F9FA;
-		}
-
-		.exsample1 {
-			text-shadow: 0 0 6px #000000;
-		}
-
-		.exsample2 {
-			text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;
-		}
-
-	</style>
 </head>
 
 <body>
 	<header class="md-show" id="top" role="banner">
-		<h1>文字装飾による可読性の向上</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+		<h1>EditorConfig</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
@@ -138,32 +115,89 @@
 	</nav>
 	<div class="content">
 		<header class="md-hide" role="banner">
-			<h1>文字装飾による可読性の向上</h1></header>
+			<h1>EditorConfig</h1></header>
 		<main role="main">
 			<section>
-				<h2>説明</h2>
-				<p>画像の上に文字を出力させる時、白地に白文字や黒地に黒文字といったことが発生することがある。これは可読性に大きく影響する。しかし、文字装飾を付与することで可読性の向上を望める場合がある。</p>
+				<h2>EditorConfigとは</h2>
+				<p>EditorConfigとはエディター毎に存在するインデント設定や改行コードの設定等を統一する設定ファイルとそのプラグインである。また、ファイル毎に応じてその設定を変更することができ、また、プロジェクト毎に管理できるので記述ルールの整合性をある程度ではあるが保つことができる。</p>
 			</section>
 			<section>
-				<h2>使用方法と解説</h2><pre class="language-css line-numbers"><code>text-shadow: 0 0 6px #000000;</code></pre>
-				<div class="exsample1">
-					<p>I was once an adventurer like you;then I took an arrow in the knee.</p>
-				</div>
-				<p>文字の真下にぼかし6pxの黒の影を付与する。数値が小さい程文字の原型が残り、大きくなる程ぼやけたようになる。</p><pre class="language-css line-numbers"><code>text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;</code></pre>
-				<div class="exsample2">
-					<p>I was once an adventurer like you;then I took an arrow in the knee.</p>
-				</div>
-				<p>赤と青の影を付与する。カンマを使用することで複数定義することができる。数の制限は特にないが、あくまで装飾に過ぎず、多く指定し過ぎると却って可読性を損なう要因となる。</p>
+				<h2>導入方法</h2>
+				<p>エディターによってはデフォルトで対応している場合もあるが、プラグインを必要としているものもある。<br>詳細な導入方法は別日記述予定。</p>
 			</section>
 			<section>
-				<h2>使用上の注意</h2>
+				<h2>設定ファイル</h2>
+				<p>設定ファイルは.editorconfigファイルに記述する。</p>
+				<h3>.editorconfigの例</h3><pre class="language-markup line-numbers"><code># EditorConfigの最上位ファイルであることを示す
+root = true
+
+# 全体共通設定
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# PHPファイル全体に適応する内容
+[*.php]
+indent_style = space
+
+# ファイル名を直接指定することもできる
+[package.json]
+indent_size = 2
+</code></pre>
+				<p>設定は上から下へと適応される。</p>
+				<h3>設定項目の説明</h3>
+				<h4>indent_style</h4>
+				<p>TABキーを入力した時のインデント方法を指定する。指定可能な項目は以下の通り。</p>
 				<ul>
-					<li>文字色と背景に合わせて文字装飾の色を調整することを忘れずに。</li>
+					<li>tab</li>
+					<li>space</li>
+				</ul>
+				<h4>indent_size</h4>
+				<p>インデントサイズを指定する。</p>
+				<h4>tab_width</h4>
+				<p>タブのインデントサイズを指定する。未指定の場合、indent_sizeの値が適応される。</p>
+				<h4>end_of_line</h4>
+				<p>ファイルの改行コードを指定する。指定可能な項目は以下の通り。</p>
+				<ul>
+					<li>lf</li>
+					<li>cr</li>
+					<li>crlf</li>
+				</ul>
+				<h4>charset</h4>
+				<p>ファイルの文字コードを指定する。指定可能な項目は以下の通り。</p>
+				<ul>
+					<li>latin1</li>
+					<li>utf-8</li>
+					<li>utf-8-bom</li>
+					<li>utf-16be</li>
+					<li>utf-16le</li>
+				</ul>
+				<h4>trim_trailing_whitespace</h4>
+				<p>行末にあるスペースやタブといった空白を削除するかどうか。trueに指定すると行末の空白を削る。指定可能な項目は以下の通り。</p>
+				<ul>
+					<li>true</li>
+					<li>false</li>
+				</ul>
+				<h4>insert_final_newline</h4>
+				<p>最終行に空白の行を追加するかどうか。指定可能な項目は以下の通り。</p>
+				<ul>
+					<li>true</li>
+					<li>false</li>
+				</ul>
+				<h4>root</h4>
+				<p>このコンフィグファイルが最上階であるかどうか。falseの場合、ルートディレクトリまで遡って.editorconfigファイルを捜索する。指定可能な項目は以下の通り。</p>
+				<ul>
+					<li>true</li>
+					<li>false</li>
 				</ul>
 			</section>
 			<section>
 				<h2>参考リンク</h2>
-				<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/text-shadow" target="_blank">Mozilla</a></p>
+				<p><a href="https://editorconfig.org/" target="_blank">EditorConfig</a></p>
 			</section>
 		</main>
 		<footer role="contentinfo">

@@ -1,0 +1,97 @@
+extends ./_includes/_layout
+block title
+	- var title = 'EditorConfig';
+	title #{title} - HTML Technical Manual
+block headTitle
+	h1 #{title}
+block content
+	section
+		h2 EditorConfigとは
+		p EditorConfigとはエディター毎に存在するインデント設定や改行コードの設定等を統一する設定ファイルとそのプラグインである。また、ファイル毎に応じてその設定を変更することができ、また、プロジェクト毎に管理できるので記述ルールの整合性をある程度ではあるが保つことができる。
+
+	section
+		h2 導入方法
+		p
+			| エディターによってはデフォルトで対応している場合もあるが、プラグインを必要としているものもある。
+			br
+			| 詳細な導入方法は別日記述予定。
+
+	section
+		h2 設定ファイル
+		p 設定ファイルは.editorconfigファイルに記述する。
+		h3 .editorconfigの例
+		pre.language-markup.line-numbers: code.
+			# EditorConfigの最上位ファイルであることを示す
+			root = true
+
+			# 全体共通設定
+			[*]
+			charset = utf-8
+			end_of_line = lf
+			indent_size = 4
+			indent_style = tab
+			insert_final_newline = true
+			trim_trailing_whitespace = true
+
+			# PHPファイル全体に適応する内容
+			[*.php]
+			indent_style = space
+
+			# ファイル名を直接指定することもできる
+			[package.json]
+			indent_size = 2
+
+		p 設定は上から下へと適応される。
+
+		h3 設定項目の説明
+
+		h4 indent_style
+		p TABキーを入力した時のインデント方法を指定する。指定可能な項目は以下の通り。
+		ul
+			li tab
+			li space
+
+		h4 indent_size
+		p インデントサイズを指定する。
+
+		h4 tab_width
+		p タブのインデントサイズを指定する。未指定の場合、indent_sizeの値が適応される。
+
+		h4 end_of_line
+		p ファイルの改行コードを指定する。指定可能な項目は以下の通り。
+		ul
+			li lf
+			li cr
+			li crlf
+
+		h4 charset
+		p ファイルの文字コードを指定する。指定可能な項目は以下の通り。
+		ul
+			li latin1
+			li utf-8
+			li utf-8-bom
+			li utf-16be
+			li utf-16le
+
+		h4 trim_trailing_whitespace
+		p 行末にあるスペースやタブといった空白を削除するかどうか。trueに指定すると行末の空白を削る。指定可能な項目は以下の通り。
+		ul
+			li true
+			li false
+
+		h4 insert_final_newline
+		p 最終行に空白の行を追加するかどうか。指定可能な項目は以下の通り。
+		ul
+			li true
+			li false
+
+		h4 root
+		p このコンフィグファイルが最上階であるかどうか。falseの場合、ルートディレクトリまで遡って.editorconfigファイルを捜索する。指定可能な項目は以下の通り。
+		ul
+			li true
+			li false
+
+	section
+		h2 参考リンク
+		p
+			a(href='https://editorconfig.org/', target='_blank') EditorConfig

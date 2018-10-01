@@ -91,10 +91,10 @@
 				<ul id="listSQL">
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
-					<li><a href="#" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
+					<li><a href="sql-like.html" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
 					<li><a href="sql-transaction.html" title="TRANSACTION(トランザクション)">TRANSACTION(トランザクション)</a></li>
 					<li><a href="sql-truncate.html" title="TRUNCATE(テーブルを空にする)">TRUNCATE(テーブルを空にする)</a></li>
-					<li><a href="#" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
+					<li><a href="sql-deleteFlag.html" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
 					<li><a href="sql-MySQLinsertWhereExists.html" title="[MySQL] INSERT WHERE EXISTS">[MySQL] INSERT WHERE EXISTS</a></li>
 					<li><a href="sql-MySQLint.html" title="[MySQL] INT(11) の意味">[MySQL] INT(11) の意味</a></li>
 					<li><a href="sql-MySQLupdateSelect.html" title="[MySQL] UPDATE SELECT">[MySQL] UPDATE SELECT</a></li>
@@ -107,6 +107,7 @@
 					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
 					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
 					<li><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
+					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
 					<li><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
 				</ul>
 			</li>
@@ -174,7 +175,7 @@ if ($stmt = $mysqli-&gt;prepare($query)) {
 }
 </code></pre>
 				<p>MySQLiの例。SQLに値を代入する位置にプレースホルダ`?`を挿入して指定した後一度<code class="language-php"><span class="token function">prepare</span></code>に格納する必要がある。格納した後にバインドする。<br><code class="language-php"><span class="token function">bind_param</span></code>の第一引数は代入する変数の型を示しており、iはinterger数値を示しており、sはstring文字列を示している。第二引数以降には変数を指定する。直接値や文字列を指定することはできないので注意が必要。</p>
-				<h3>PDO</h3><pre class="language-php line-numbers" data-line="2,4-6"><code>try {
+				<h3>PDO</h3><pre class="language-php line-numbers" data-line="2, 4-6"><code>try {
 	$query = "SELECT * FROM `user` WHERE `id` = :id AND `password` = PASSWORD(:password)";
 	$stmt = $pdo-&gt;prepare($query); // SQL Queryの格納
 	// バインド

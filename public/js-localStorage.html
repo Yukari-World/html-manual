@@ -91,10 +91,10 @@
 				<ul id="listSQL">
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
-					<li><a href="#" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
+					<li><a href="sql-like.html" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
 					<li><a href="sql-transaction.html" title="TRANSACTION(トランザクション)">TRANSACTION(トランザクション)</a></li>
 					<li><a href="sql-truncate.html" title="TRUNCATE(テーブルを空にする)">TRUNCATE(テーブルを空にする)</a></li>
-					<li><a href="#" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
+					<li><a href="sql-deleteFlag.html" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
 					<li><a href="sql-MySQLinsertWhereExists.html" title="[MySQL] INSERT WHERE EXISTS">[MySQL] INSERT WHERE EXISTS</a></li>
 					<li><a href="sql-MySQLint.html" title="[MySQL] INT(11) の意味">[MySQL] INT(11) の意味</a></li>
 					<li><a href="sql-MySQLupdateSelect.html" title="[MySQL] UPDATE SELECT">[MySQL] UPDATE SELECT</a></li>
@@ -107,6 +107,7 @@
 					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
 					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
 					<li><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
+					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
 					<li><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
 				</ul>
 			</li>
@@ -115,7 +116,22 @@
 	<div class="content">
 		<header class="md-hide" role="banner">
 			<h1>localStorage</h1></header>
-		<main role="main"></main>
+		<main role="main">
+			<section>
+				<h2>説明</h2>
+				<p>HTMLで一時的なデータを保存する方法は主にCookieが主流だがサイトのデータを一時的なデータを保存する方法の一つとしてローカルストレージという機能があるのでそれについて説明する。</p>
+			</section>
+			<section>
+				<h2>ローカルストレージのデータを確認する方法</h2>
+				<p>ブラウザ毎に説明する。</p>
+				<h3>Google Chrome</h3>
+				<p>ページを右クリックして検証、もしくはF12キーからDevToolsを開く。<br>メニュー上部のタブからApplicationを選択するとLocal Storageの項目があるので展開して確認する。</p>
+				<h3>Firefox</h3>
+				<p>ページを右クリックして要素を調査、もしくはF12キーから開発ツールを開く。<br>メニュー上部のタブからストレージを選択するとローカルストレージの項目があるので展開して確認する。</p>
+				<h3>Microsoft Edge</h3>
+				<p>デバッグ機能が正しく機能していないため置いていおく。ローカルストレージ自体は利用できる。</p>
+			</section>
+		</main>
 		<footer role="contentinfo">
 			<p id="randomWord">Loading...</p>
 			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"

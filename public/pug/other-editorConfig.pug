@@ -15,6 +15,16 @@ block content
 			| エディターによってはデフォルトで対応している場合もあるが、プラグインを必要としているものもある。
 			br
 			| 詳細な導入方法は別日記述予定。
+		h3 Atom
+		h4 コマンドラインからインストール
+		p コマンドラインに以下のコマンドを入力することでインストールできる。但し、Atomがマニュアルインストールの場合使用することができない。
+		pre.language-batch.line-numbers: code.
+			apm install editorconfig
+		h4 パッケージからインストール
+		p EditorConfigと検索すると結果に出てくるのでそれをインストールする。
+		h4 インストールにおける注意点
+		p whitespace(Atomのデフォルトパッケージ)のパッケージが競合するため、設定変更、もしくは無効化をすること。
+		p インデントの設定をautoに設定すること。
 
 	section
 		h2 設定ファイル
@@ -48,8 +58,8 @@ block content
 		h4 indent_style
 		p TABキーを入力した時のインデント方法を指定する。指定可能な項目は以下の通り。
 		ul
-			li tab
-			li space
+			each val in ['tab', 'space']
+				li= val
 
 		h4 indent_size
 		p インデントサイズを指定する。
@@ -60,36 +70,32 @@ block content
 		h4 end_of_line
 		p ファイルの改行コードを指定する。指定可能な項目は以下の通り。
 		ul
-			li lf
-			li cr
-			li crlf
+			each val in ['lf', 'cr', 'crlf']
+				li= val
 
 		h4 charset
 		p ファイルの文字コードを指定する。指定可能な項目は以下の通り。
 		ul
-			li latin1
-			li utf-8
-			li utf-8-bom
-			li utf-16be
-			li utf-16le
+			each val in ['latin1', 'utf-8', 'utf-8-bom', 'utf-16be', 'utf-16le']
+				li= val
 
 		h4 trim_trailing_whitespace
 		p 行末にあるスペースやタブといった空白を削除するかどうか。trueに指定すると行末の空白を削る。指定可能な項目は以下の通り。
 		ul
-			li true
-			li false
+			each val in ['true', 'false']
+				li= val
 
 		h4 insert_final_newline
 		p 最終行に空白の行を追加するかどうか。指定可能な項目は以下の通り。
 		ul
-			li true
-			li false
+			each val in ['true', 'false']
+				li= val
 
 		h4 root
 		p このコンフィグファイルが最上階であるかどうか。falseの場合、ルートディレクトリまで遡って.editorconfigファイルを捜索する。指定可能な項目は以下の通り。
 		ul
-			li true
-			li false
+			each val in ['true', 'false']
+				li= val
 
 	section
 		h2 参考リンク

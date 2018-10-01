@@ -401,7 +401,7 @@ section:first-child {
 	margin-top: 5px;
 }
 
-section h2, section h3, section h4, section h5, section h6 {
+section h2, section h3, section h4, section h5, section h6, section p {
 	padding: 0 10px;
 }
 
@@ -417,10 +417,6 @@ section h3 {
 section h4 {
 	margin-top: 5px;
 	font-size: 14px;
-}
-
-section p {
-	padding: 0 10px;
 }
 
 section ul {

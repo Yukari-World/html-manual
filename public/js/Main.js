@@ -1,7 +1,7 @@
 /**
  * @fileOverview マニュアル用JavaScript
- * @version 1.0.0
  * @since 1.0.0
+ * @version 1.3.0
  */
 
 // Init
@@ -37,7 +37,7 @@ let xorRand;
  *
  * @type {class}
  * @since   1.1.0
- * @version 1.2.0
+ * @version 1.3.0
  */
 class xorShift {
 	/**
@@ -118,10 +118,14 @@ class xorShift {
 }
 
 /**
- * MDN
+ * ローカルストレージの環境が利用可能か調べる関数
+ *
+ * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API|MDN}より参照
  *
  * @param {String} type 調べる項目
  * @return {boolean} 利用可能かのbool
+ * @since   1.3.0
+ * @version 1.3.0
  */
 function storageAvailable(type) {
 	let storage = window[type];
@@ -151,7 +155,7 @@ function storageAvailable(type) {
  *
  * @return {Promise}    終了コード
  * @since   1.2.0
- * @version 1.2.0
+ * @version 1.3.0
  */
 function getrandomWord() {
 	return new Promise((resolve, reject) => {
@@ -175,8 +179,8 @@ function getrandomWord() {
  *
  * @param {number} seconds 時間
  * @return {void}
- * @version 1.2.0
  * @since 1.0.0
+ * @version 1.3.0
  */
 function secondsInterval(seconds = 5) {
 	let bdate = new Date();
@@ -194,8 +198,8 @@ function secondsInterval(seconds = 5) {
  * @interface
  * @param  {JSON}   jsonData    JSON Data
  * @return {void}
- * @version 1.2.0
  * @since 1.0.0
+ * @version 1.3.0
  */
 function randomOutput(jsonData) {
 	// Init
@@ -220,8 +224,8 @@ function randomOutput(jsonData) {
  *
  * @interface
  * @return {void}
- * @version 1.2.0
  * @since 1.0.0
+ * @version 1.3.0
  */
 function setrandomWord() {
 	document.getElementById('randomWord').innerHTML = randomWordList[Math.floor(xorRand.randomFloat() * randomWordList.length)].title;

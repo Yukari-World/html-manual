@@ -29,6 +29,24 @@ block content
 				die('Database Connection Failed: ' . $e-&gt;getMessage());
 			}
 
+		p xamppの設定が初期設定の場合、以下のように記述することで接続することができる。
+		p データベースは適時書き換えること。
+		pre.language-php.line-numbers: code.
+			$dsn = 'mysql:host=localhost;dbname=*データベース名*;charset=utf8';
+			$username = 'root';
+			$password = '';
+
+			try {
+				/**
+				 * PHP Data Objects SQL Connector
+				 * @var PDO
+				 */
+				$pdo = new PDO($dsn, $username, $password);
+				$pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			} catch (PDOException $e) {
+				die('Database Connection Failed: ' . $e-&gt;getMessage());
+			}
+
 		h3 データの取得
 		p 一般的なデータの取得を行う。PDOでは基本的にはtry文の中に記述していく。参照テーブルがuserとなっているが、必要に応じて参照先を変更すること。
 		pre.language-php.line-numbers: code.

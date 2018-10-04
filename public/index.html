@@ -104,11 +104,12 @@
 			<li>
 				<h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox">
 				<ul id="listOther">
+					<li><a href="other-runPHPForHTML.html" title="[Apache] HTMLファイルでPHPを動かす">[Apache] HTMLファイルでPHPを動かす</a></li>
 					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
 					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
 					<li><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
-					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
 					<li><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
+					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -221,7 +222,7 @@ html(lang='ja')
 			<section>
 				<h2>よくありそうな質問</h2>
 				<h3>HTMLソースが汚い</h3>
-				<p>仕様です。HTML自体はPugテンプレートに基づいて出力されていて、その後自動整形がかかっています。そのため出力結果は自動整形の結果に依存します。</p>
+				<p>仕様です。HTML自体はPugテンプレートに基づいてMinifyされたHTMLが出力されていて、その後自動整形ツールでHTMLソースを整形しています。そのため出力結果は自動整形ツールの結果に依存しており、こちらで対処できる内容ではありません。また、コード整形は可能な限り自動化し手動で時間を掛けるものではないと考えているためこちらで修正する予定もありませんので予めご了承ください。</p>
 				<h3>フッターにある取り消し線の内容は何?</h3>
 				<p>全て元ネタがあります。わからない場合、調べてみましょう。尚、内容は秒が10の倍数毎に切り替わるようになっています。現在<span id="countRandom">0</span>個の候補があります。表示内容は<a href="https://ja.wikipedia.org/wiki/Xorshift" target="_blank">擬似乱数Xorshift</a>のランダムであり、表示結果が重複することがあります。</p>
 			</section>

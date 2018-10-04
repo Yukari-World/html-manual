@@ -42,6 +42,7 @@ let xorRand;
 class xorShift {
 	/**
 	 * コンストラクタメソッド
+	 *
 	 * @constructor
 	 * @param {number} w Seed Number
 	 */
@@ -56,6 +57,7 @@ class xorShift {
 		 * <li>Day ^ Month / 2</li>
 		 * <li>Month * Day * max(Seconds, 5) * max(Minites, 3)</li>
 		 * </ul>
+		 *
 		 * @type {number}
 		 */
 		this.x = Math.max(Math.floor(dateTemp.getDay() ** (dateTemp.getMonth() / 2)), dateTemp.getMonth() * dateTemp.getDay() * Math.max(dateTemp.getSeconds(), 5) * Math.max(dateTemp.getMinutes(), 3)); // 123456789
@@ -64,6 +66,7 @@ class xorShift {
 		 * 乱数 Y
 		 *
 		 * max(Seconds, 5) ^ floor(max(Minites, 10) / 10) + max(Seconds, 1) * max(Minites, 1) * floor(Year / 10)
+		 *
 		 * @type {number}
 		 */
 		this.y = Math.max(Math.max(dateTemp.getSeconds(), 5) ** Math.floor(Math.max(dateTemp.getMinutes(), 10) / 10) + Math.max(dateTemp.getSeconds(), 1) * Math.max(dateTemp.getMinutes(), 1) * Math.floor(dateTemp.getFullYear() / 10)); // 362436069
@@ -72,6 +75,7 @@ class xorShift {
 		 * 乱数 Z
 		 *
 		 * randomWordList.length + (配列randomWordListの2, 3, 5, 7 の文字列の文字数の和) * (配列randomWordListの11, 13, 17, 19 の文字列の文字数の和) * (配列randomWordListの23, 29 の文字列の文字数の和) * (配列randomWordListの31, 37 の文字列の文字数の和)
+		 *
 		 * @type {number}
 		 */
 		this.z = randomWordList.length + (randomWordList[2].summary.length + randomWordList[3].summary.length + randomWordList[5].summary.length + randomWordList[7].summary.length) * (randomWordList[11].summary.length + randomWordList[13].summary.length + randomWordList[17].summary.length + randomWordList[19].summary.length) * (randomWordList[23].summary.length + randomWordList[29].summary.length) * (randomWordList[31].summary.length + randomWordList[37].summary.length); // 521288629;
@@ -91,6 +95,7 @@ class xorShift {
 
 	/**
 	 * 乱数の生成
+	 *
 	 * @return {number} 乱数の結果
 	 */
 	randomInt32() {
@@ -106,6 +111,7 @@ class xorShift {
 
 	/**
 	 * 浮動少数の乱数の生成
+	 *
 	 * @return {number} 乱数の結果
 	 */
 	randomFloat() {
@@ -122,8 +128,8 @@ class xorShift {
  *
  * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API|MDN}より参照
  *
- * @param {String} type 調べる項目
- * @return {boolean} 利用可能かのbool
+ * @param  {String}     type    調べる項目
+ * @return {boolean}            利用可能かのbool
  * @since   1.3.0
  * @version 1.3.0
  */
@@ -177,7 +183,7 @@ function getrandomWord() {
 /**
  * 指定時間毎に実行する
  *
- * @param {number} seconds 時間
+ * @param  {number} seconds  時間
  * @return {void}
  * @since 1.0.0
  * @version 1.3.0

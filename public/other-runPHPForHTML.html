@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>[MySQL] UPDATE SELECT - HTML Technical Manual</title>
+	<title>[Apache] HTMLファイルでPHPを動かす - HTML Technical Manual</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
 	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
@@ -12,7 +12,7 @@
 
 <body>
 	<header class="md-show" id="top" role="banner">
-		<h1>[MySQL] UPDATE SELECT</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+		<h1>[Apache] HTMLファイルでPHPを動かす</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
@@ -116,28 +116,29 @@
 	</nav>
 	<div class="content">
 		<header class="md-hide" role="banner">
-			<h1>[MySQL] UPDATE SELECT</h1></header>
+			<h1>[Apache] HTMLファイルでPHPを動かす</h1></header>
 		<main role="main">
 			<section>
 				<h2>説明</h2>
-				<p>SQLデータベースには『方言』が存在する。この『方言』の存在によって通常とは異なる方法で行う必要が出てくることがある。これはその『方言』の一つで、SQL Serverでは<code class="language-sql"><span class="token keyword keyword-UPDATE">UPDATE</span><span class="token keyword space">&nbsp;</span><span class="token keyword keyword-SELECT">SELECT</span></code>で行えることがMySQLでは行えない。しかし、以下の方法でそれと同じことができる。</p>
+				<p>HTMLファイルの拡張子のままPHPを動作させる方法があるので記述する。</p>
 			</section>
 			<section>
 				<h2>使用方法と解説</h2>
-				<p>以下の方法で同じことを再現できる。</p><pre class="language-sql line-numbers"><code>UPDATE
-	`table1`,
-	`table2`
-SET
-	`table1`.`value` = `table2`.`value`
-WHERE
-	`table1`.`id` = `table2`.`id`
-;
-</code></pre></section>
+				<p>.htaccessファイルに以下の記述を追加する。</p><pre class="language-xml line-numbers"><code>&lt;Files "\.html$"&gt;
+AddHandler application/x-httpd-php .html
+&lt;/Files&gt;
+</code></pre>
+				<p>原理としてはHTMLファイルをPHPページであるとMIMEタイプを偽装することでPHPの処理を実行させることができる。</p>
+			</section>
 			<section>
-				<h2>使用上の注意</h2>
+				<h2>説明</h2>
 				<ul>
-					<li><code class="language-sql"><span class="token keyword keyword-UPDATE">UPDATE</span></code>句なのでテストを行う際は<code class="language-sql"><span class="token keyword keyword-TRANSACTION">TRANSACTION</span></code>句と併用することを推奨する。<code class="language-sql"><span class="token keyword keyword-TRANSACTION">TRANSACTION</span></code>句の使用方法は既に解説があるので省略する。</li>
+					<li>HTMLファイルを読み込む時、必ずPHPを仲介する都合上レスポンスが低下する可能性があるので注意が必要。</li>
 				</ul>
+			</section>
+			<section>
+				<h2>参考リンク</h2>
+				<p><a href="https://xn--web-oi9du9bc8tgu2a.com/how-to-use-php-in-html-files/" target="_blank">htaccessに3行足すだけ！『.html』内でPHPを実行する方法！ | WEB改善事例集(GMOソリューションパートナー株式会社)</a></p>
 			</section>
 		</main>
 		<footer role="contentinfo">

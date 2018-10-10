@@ -493,7 +493,7 @@ footer {
 	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 15px/0 stretch;
 }
 
-footer p:first-child {
+footer p:first-child a {
 	padding: 0 0 0 10px;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
@@ -684,7 +684,7 @@ footer p:last-child {
 		display: none;
 	}
 
-	footer p:first-child {
+	footer p:first-child a {
 		-webkit-animation: unset;
 		animation: unset;
 		color: #000000;

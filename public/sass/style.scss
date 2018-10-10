@@ -615,14 +615,16 @@ footer {
 		}
 
 		&:first-child {
-			padding: 0 0 0 10px;
-			animation: flashString 10s linear infinite;
-			text-decoration: line-through;
-			color: #FFFFFF;
+			a {
+				padding: 0 0 0 10px;
+				animation: flashString 10s linear infinite;
+				text-decoration: line-through;
+				color: #FFFFFF;
 
-			@media print {
-				animation: unset;
-				color: #000000;
+				@media print {
+					animation: unset;
+					color: #000000;
+				}
 			}
 
 			b {

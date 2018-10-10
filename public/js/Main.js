@@ -5,6 +5,9 @@
  */
 
 // Init
+// SendAjax関数の呼び出し
+import { SendAjax } from './ajax-response.js';
+
 // const imdWidth = 992;
 const sideList = [
 	'Main',
@@ -22,9 +25,6 @@ const sideList = [
 // let bmenuToggle = false;
 let bwordDecide = false;
 let sideToggle = [];
-
-// SendAjax関数の呼び出し
-import {SendAjax} from './ajax-response.js';
 /**
  * ランダムワードマニア
  * @const {string[][]}
@@ -126,7 +126,7 @@ class xorShift {
 /**
  * ローカルストレージの環境が利用可能か調べる関数
  *
- * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API|MDN}より参照
+ * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API MDN}より参照
  *
  * @param  {String}     type    調べる項目
  * @return {boolean}            利用可能かのbool
@@ -210,10 +210,13 @@ function secondsInterval(seconds = 5) {
 function randomOutput(jsonData) {
 	// Init
 	const textRandom = document.getElementById('randomOutput');
+	let listCount = 0;
 	let dl = document.createElement('dl');
 	for (let data_t of jsonData) {
 		let dt = document.createElement('dt');
 		let dd = document.createElement('dd');
+
+		dt.setAttribute('id', 'wordID' + ++listCount);
 
 		dt.innerHTML = '<h3>' + data_t.title + '</h3><h4>出典: ' + data_t.original + '</h4>';
 		dd.innerHTML = data_t.summary;
@@ -234,16 +237,17 @@ function randomOutput(jsonData) {
  * @version 1.3.0
  */
 function setrandomWord() {
-	document.getElementById('randomWord').innerHTML = randomWordList[Math.floor(xorRand.randomFloat() * randomWordList.length)].title;
+	let wordNum = Math.floor(xorRand.randomFloat() * randomWordList.length);
+	document.getElementById('randomWord').innerHTML = '<a href="scp-randomWord.html#wordID' + (wordNum + 1) + '">' + randomWordList[wordNum].title + '</a>';
 }
 
 /**
  * HTMLの読み込み終了時に行われれる処理
  */
 document.addEventListener('DOMContentLoaded', async function () {
+	const isEnableStorage = storageAvailable('localStorage');
 	randomWordList = await getrandomWord();
 	xorRand = new xorShift();
-	let isEnableStorage = storageAvailable('localStorage');
 
 	document.getElementById('expandAll').addEventListener('click', function () {
 		for (let sideName of sideList) {

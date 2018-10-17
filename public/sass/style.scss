@@ -129,7 +129,7 @@ body {
 }
 
 a {
-	transition: all 0.5s ease-out;
+	transition: all 0.25s ease-out;
 	text-decoration: none;
 	color: #9999FF;
 
@@ -189,6 +189,23 @@ ol {
 
 .mintyo {
 	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
+.stub, .deprecated {
+	margin: 10px;
+	padding: 20px;
+	border-width: 5px;
+	border-style: solid;
+}
+
+.stub {
+	border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
+	background-color: #000033;
+}
+
+.deprecated {
+	border-image: linear-gradient(to top right, #1164FF, #FF0D0D, #1164FF) 1/5px 5px/0 stretch;
+	background-color: #330000;
 }
 
 // ベンダー固有情報
@@ -394,6 +411,7 @@ code, pre {
 				li {
 					transition: all 0.5s ease-out;
 					&:before {
+						padding-right: 2px;
 						content: "├";
 						transition: all 0.5s ease-out;
 						animation: flashString 10s linear infinite;
@@ -401,6 +419,7 @@ code, pre {
 
 					&:last-child {
 						&:before {
+							padding-right: 2px;
 							content: "└";
 							transition: all 0.5s ease-out;
 							animation: flashString 10s linear infinite;

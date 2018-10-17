@@ -19,6 +19,7 @@ const sideList = [
 	'PHP',
 	'SCSS',
 	'SQL',
+	'Wordpress',
 	'Other',
 ];
 

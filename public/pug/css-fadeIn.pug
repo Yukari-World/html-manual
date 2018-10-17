@@ -106,9 +106,19 @@ block headSpace
 			background-image: url(img/markus-spiske-357131.jpg);
 		}
 
+		.anim p {
+			display: inline;
+			padding: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+
 block headTitle
 	h1 #{title}
 block content
+	section.stub
+		h2 書きかけのページ
+		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
+
 	section
 		h2 説明
 		p 下から上へのコンテンツフェードインが要求されることが多いためその一例を記述する。
@@ -202,28 +212,27 @@ block content
 
 		h3 実行結果
 		.area
-			.anim.box-1 要素1
-			.anim.box-2 要素2
-			.anim.box-3 要素3
-			.anim.box-4 要素4
-			.anim.box-5 要素5
-			.anim.box-6 要素6
-			.anim.box-7 要素7
-			.anim.box-8 要素8
-			.anim.box-9 要素9
-			.anim.box-10 要素10
-			.anim.box-11 要素11
-			.anim.box-12 要素12
-			.anim.box-13 要素13
-			.anim.box-14 要素14
-			.anim.box-15 要素15
-			.anim.box-16 要素16
+			.anim.box-1: p 要素1
+			.anim.box-2: p 要素2
+			.anim.box-3: p 要素3
+			.anim.box-4: p 要素4
+			.anim.box-5: p 要素5
+			.anim.box-6: p 要素6
+			.anim.box-7: p 要素7
+			.anim.box-8: p 要素8
+			.anim.box-9: p 要素9
+			.anim.box-10: p 要素10
+			.anim.box-11: p 要素11
+			.anim.box-12: p 要素12
+			.anim.box-13: p 要素13
+			.anim.box-14: p 要素14
+			.anim.box-15: p 要素15
+			.anim.box-16: p 要素16
 
-	//- section
-	//- 	h2 使用上の注意
-	//- 	ul
-	//- 		li HTML文字の間に改行やタブ等があると不自然な隙間が発生するのでできるだけ文字を詰めることを推奨する。
-	//- 		li classを利用して有効なタグを指定することもできる。
+	section
+		h2 使用上の注意
+		ul
+			li アニメーション時間が長すぎるとストレスの要因にもなりうるため、長くても1秒程度には収めること。
 
 	//- section
 	//- 	h2 参考リンク
@@ -232,10 +241,10 @@ block content
 
 block jsContent
 	script.
-		window.addEventListener('DOMContentLoaded', function() {
+		window.addEventListener('DOMContentLoaded', function () {
 			window.onscroll = function () {
 				let myFade = document.getElementsByClassName('anim');
-				for(var i = 0; i < myFade.length; i++) {
+				for (var i = 0; i < myFade.length; i++) {
 					let targetElement = myFade[i].getBoundingClientRect(); //ターゲット要素の高さ
 					let scroll = document.documentElement.scrollTop || document.body.scrollTop; //スクロール
 					let windowHeight = window.innerHeight; //ウィンドウの高さ

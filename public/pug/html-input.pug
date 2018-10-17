@@ -1,0 +1,201 @@
+extends ./_includes/_layout
+block title
+	- var title = 'input要素';
+	title #{title} - HTML Technical Manual
+block headSpace
+	style(type='text/css').
+		label {
+			display: flex;
+			align-items: center;
+		}
+
+		.form-area {
+			padding: 15px;
+			color: #000000;
+			border: 2px solid #FFFFFF;
+			background-color: #9999CC;
+		}
+
+		.form-area input[type="checkbox"] {
+			display: inline-flex;
+			align-items: center;
+		}
+
+block headTitle
+	h1 #{title}
+block content
+	section.stub
+		h2 書きかけのページ
+		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
+
+	section
+		h2 説明
+		p input要素はform要素と一緒に使われることの多いホームページを訪れたユーザーがデータを入力する要素の一つである(ユーザーが入力するその他の要素はtextarea、button等がある)。inputは非常に種類が多く、利用頻度が高いがその全てを把握するのが難しいのでこのページで一通り纏めておく。
+
+	section
+		h2
+
+		h3 button
+		pre.language-html.line-numbers: code.
+			&lt;input type="button" value="ボタン"&gt;
+
+		.form-area
+			input(type='button' value='ボタン')
+
+		h3 checkbox
+		pre.language-html.line-numbers: code.
+			&lt;label&gt;&lt;input type="checkbox" value="1"&gt;内容1&lt;/label&gt;
+
+		.form-area
+			label
+				input(type='checkbox' value='1')
+				| 内容1
+
+		h3 color
+		pre.language-html.line-numbers: code.
+			&lt;input type="color" value="#FFFFFF"&gt;
+
+		.form-area
+			input(type='color' value='#FFFFFF')
+
+		h3 date
+		pre.language-html.line-numbers: code.
+			&lt;input type="date"&gt;
+
+		.form-area
+			input(type='date')
+
+		h3 datetime-local
+		pre.language-html.line-numbers: code.
+			&lt;input type="datetime-local"&gt;
+
+		.form-area
+			input(type='datetime-local')
+
+		h3 email
+		pre.language-html.line-numbers: code.
+			&lt;input type="email"&gt;
+
+		.form-area
+			input(type='email')
+
+		h3 file
+		pre.language-html.line-numbers: code.
+			&lt;input type="file"&gt;
+
+		.form-area
+			input(type='file')
+
+		h3 hidden
+		pre.language-html.line-numbers: code.
+			&lt;input type="hidden"&gt;
+
+		.form-area
+			input(type='hidden')
+
+		h3 image
+		pre.language-html.line-numbers: code.
+			&lt;input type="image"&gt;
+
+		.form-area
+			input(type='image')
+
+		h3 month
+		pre.language-html.line-numbers: code.
+			&lt;input type="month"&gt;
+
+		.form-area
+			input(type='month')
+
+		h3 number
+		pre.language-html.line-numbers: code.
+			&lt;input type="number"&gt;
+
+		.form-area
+			input(type='number')
+
+		h3 password
+		pre.language-html.line-numbers: code.
+			&lt;input type="password"&gt;
+
+		.form-area
+			input(type='password')
+
+		h3 radio
+		pre.language-html.line-numbers: code.
+			&lt;label&gt;&lt;input type="radio" value="1"&gt;内容1&lt;/label&gt;
+
+		.form-area
+			label
+				input(type='radio' value='1')
+				| 内容1
+
+		h3 range
+		pre.language-html.line-numbers: code.
+			&lt;input type="range"&gt;
+
+		.form-area
+			input(type='range')
+
+		h3 reset
+		pre.language-html.line-numbers: code.
+			&lt;input type="reset"&gt;
+
+		.form-area
+			input(type='reset')
+
+		h3 search
+		pre.language-html.line-numbers: code.
+			&lt;input type="search"&gt;
+
+		.form-area
+			input(type='search')
+
+		h3 submit
+		pre.language-html.line-numbers: code.
+			&lt;input type="submit"&gt;
+
+		.form-area
+			input(type='submit')
+
+		h3 tel
+		pre.language-html.line-numbers: code.
+			&lt;input type="tel"&gt;
+
+		.form-area
+			input(type='tel')
+
+		h3 text
+		pre.language-html.line-numbers: code.
+			&lt;input type="text"&gt;
+
+		.form-area
+			input(type='text')
+
+		h3 time
+		pre.language-html.line-numbers: code.
+			&lt;input type="time"&gt;
+
+		.form-area
+			input(type='time')
+
+		h3 url
+		pre.language-html.line-numbers: code.
+			&lt;input type="url"&gt;
+
+		.form-area
+			input(type='url')
+
+		h3 week
+		pre.language-html.line-numbers: code.
+			&lt;input type="week"&gt;
+
+		.form-area
+			input(type='week')
+
+	section
+
+	section
+		h2 参考リンク
+		p
+			a(href='https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input' target='_blank')  Mozilla

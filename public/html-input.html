@@ -3,16 +3,35 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>TRUNCATE(テーブルを空にする) - HTML Technical Manual</title>
+	<title>input要素 - HTML Technical Manual</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
 	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<style type="text/css">
+		label {
+			display: flex;
+			align-items: center;
+		}
+
+		.form-area {
+			padding: 15px;
+			color: #000000;
+			border: 2px solid #FFFFFF;
+			background-color: #9999CC;
+		}
+
+		.form-area input[type="checkbox"] {
+			display: inline-flex;
+			align-items: center;
+		}
+
+	</style>
 </head>
 
 <body>
 	<header class="md-show" id="top" role="banner">
-		<h1>TRUNCATE(テーブルを空にする)</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+		<h1>input要素</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
@@ -121,35 +140,89 @@
 	</nav>
 	<div class="content">
 		<header class="md-hide" role="banner">
-			<h1>TRUNCATE(テーブルを空にする)</h1></header>
+			<h1>input要素</h1></header>
 		<main role="main">
+			<section class="stub">
+				<h2>書きかけのページ</h2>
+				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
+			</section>
 			<section>
 				<h2>説明</h2>
-				<h3>まず最初に</h3>
-				<p>データテーブルに多大な影響を与える危険なコマンドです。悪用しないようにしてください。</p>
-				<h3>改めて説明</h3>
-				<p><code class="language-sql"><span class="token keyword keyword-TRUNCATE">TRUNCATE</span></code>はテーブルにあるデータを白紙にするコマンドです。</p>
+				<p>input要素はform要素と一緒に使われることの多いホームページを訪れたユーザーがデータを入力する要素の一つである(ユーザーが入力するその他の要素はtextarea、button等がある)。inputは非常に種類が多く、利用頻度が高いがその全てを把握するのが難しいのでこのページで一通り纏めておく。</p>
 			</section>
 			<section>
-				<h2>使用方法と解説</h2>
-				<p>至って単純である。</p><pre class="language-sql line-numbers"><code>TRUNCATE `table_name1`, `table_name2`, ...;
-</code></pre></section>
-			<section>
-				<h2>使用上の注意</h2>
-				<ul>
-					<li>コマンド使用時は必ずテーブル名を再度確認し、削除先を間違えないようにすること。また、バックアップを忘れずに。</li>
-					<li>外部参照を行っていた場合、整合性を一切確認しないためデータベースに不釣合いが起こる場合がある。実行する場合は後述するコマンドの方が好ましい場合がある。但し、データベースによっては外部参照がある場合、実行されないことがある。</li>
-					<li>似た手法に<pre class="language-sql line-numbers"><code>DELETE FROM `table_name`;</code></pre>があるが、こちらは<code class="language-sql"><span class="token keyword keyword-AUTO_INCREMENT">AUTO_INCREMENT</span></code>のカウントをリセットしない(<code class="language-sql"><span class="token keyword keyword-TRUNCATE">TRUNCATE</span></code>はカウントをリセットする)。</li>
-					<li>一部のデータベースの例外を除き<code class="language-sql"><span class="token keyword keyword-TRANSACTION">TRANSACTION</span></code>を利用してもロールバックすることができない。これは<code class="language-sql"><span class="token keyword keyword-TRUNCATE">TRUNCATE</span></code>実行後、自動的に
-						<code
-						    class="language-sql"><span class="token keyword keyword-COMMIT">COMMIT</span></code>されるためである。</li>
-					<li>非常に単純なコマンドではあるが、再度記述するがデータベースを空にする非常に危険なコマンドである。必要がない限りは使用しないこと。</li>
-					<li>悪用を防ぐために、パーミッションによりこのコマンドの使用できるユーザーを制限することができる。データベース管理者はコマンド権限の確認を忘れずに。MySQLの場合、DROP権限を無効化すると使用できなくなる。<br>特にPHP等のスクリプトを通す場合、外部からの悪質な入力対策を怠らないように。</li>
-				</ul>
+				<h2></h2>
+				<h3>button</h3><pre class="language-html line-numbers"><code>&lt;input type="button" value="ボタン"&gt;
+</code></pre>
+				<div class="form-area"><input type="button" value="ボタン"></div>
+				<h3>checkbox</h3><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="checkbox" value="1"&gt;内容1&lt;/label&gt;
+</code></pre>
+				<div class="form-area"><label><input type="checkbox" value="1">内容1</label></div>
+				<h3>color</h3><pre class="language-html line-numbers"><code>&lt;input type="color" value="#FFFFFF"&gt;
+</code></pre>
+				<div class="form-area"><input type="color" value="#FFFFFF"></div>
+				<h3>date</h3><pre class="language-html line-numbers"><code>&lt;input type="date"&gt;
+</code></pre>
+				<div class="form-area"><input type="date"></div>
+				<h3>datetime-local</h3><pre class="language-html line-numbers"><code>&lt;input type="datetime-local"&gt;
+</code></pre>
+				<div class="form-area"><input type="datetime-local"></div>
+				<h3>email</h3><pre class="language-html line-numbers"><code>&lt;input type="email"&gt;
+</code></pre>
+				<div class="form-area"><input type="email"></div>
+				<h3>file</h3><pre class="language-html line-numbers"><code>&lt;input type="file"&gt;
+</code></pre>
+				<div class="form-area"><input type="file"></div>
+				<h3>hidden</h3><pre class="language-html line-numbers"><code>&lt;input type="hidden"&gt;
+</code></pre>
+				<div class="form-area"><input type="hidden"></div>
+				<h3>image</h3><pre class="language-html line-numbers"><code>&lt;input type="image"&gt;
+</code></pre>
+				<div class="form-area"><input type="image"></div>
+				<h3>month</h3><pre class="language-html line-numbers"><code>&lt;input type="month"&gt;
+</code></pre>
+				<div class="form-area"><input type="month"></div>
+				<h3>number</h3><pre class="language-html line-numbers"><code>&lt;input type="number"&gt;
+</code></pre>
+				<div class="form-area"><input type="number"></div>
+				<h3>password</h3><pre class="language-html line-numbers"><code>&lt;input type="password"&gt;
+</code></pre>
+				<div class="form-area"><input type="password"></div>
+				<h3>radio</h3><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="radio" value="1"&gt;内容1&lt;/label&gt;
+</code></pre>
+				<div class="form-area"><label><input type="radio" value="1">内容1</label></div>
+				<h3>range</h3><pre class="language-html line-numbers"><code>&lt;input type="range"&gt;
+</code></pre>
+				<div class="form-area"><input type="range"></div>
+				<h3>reset</h3><pre class="language-html line-numbers"><code>&lt;input type="reset"&gt;
+</code></pre>
+				<div class="form-area"><input type="reset"></div>
+				<h3>search</h3><pre class="language-html line-numbers"><code>&lt;input type="search"&gt;
+</code></pre>
+				<div class="form-area"><input type="search"></div>
+				<h3>submit</h3><pre class="language-html line-numbers"><code>&lt;input type="submit"&gt;
+</code></pre>
+				<div class="form-area"><input type="submit"></div>
+				<h3>tel</h3><pre class="language-html line-numbers"><code>&lt;input type="tel"&gt;
+</code></pre>
+				<div class="form-area"><input type="tel"></div>
+				<h3>text</h3><pre class="language-html line-numbers"><code>&lt;input type="text"&gt;
+</code></pre>
+				<div class="form-area"><input type="text"></div>
+				<h3>time</h3><pre class="language-html line-numbers"><code>&lt;input type="time"&gt;
+</code></pre>
+				<div class="form-area"><input type="time"></div>
+				<h3>url</h3><pre class="language-html line-numbers"><code>&lt;input type="url"&gt;
+</code></pre>
+				<div class="form-area"><input type="url"></div>
+				<h3>week</h3><pre class="language-html line-numbers"><code>&lt;input type="week"&gt;
+</code></pre>
+				<div class="form-area"><input type="week"></div>
 			</section>
+			<section></section>
 			<section>
 				<h2>参考リンク</h2>
-				<p><a href="https://www.postgresql.jp/document/10/html/sql-truncate.html" target="_blank">PostgreSQL</a><br><a href="https://ja.wikipedia.org/wiki/TRUNCATE_(SQL)" target="_blank">Wikipedia</a></p>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input" target="_blank"> Mozilla</a></p>
 			</section>
 		</main>
 		<footer role="contentinfo">

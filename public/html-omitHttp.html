@@ -42,8 +42,9 @@
 			<li>
 				<h3><label class="expand-box" id="btnHTML" for="linkHTML">+</label><a href="" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox">
 				<ul id="listHTML">
-					<li><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
+					<li><a href="html-input.html" title="input要素">input要素</a></li>
 					<li><a href="#" title="[WIP] ファイルダウンロード">[WIP] ファイルダウンロード</a></li>
+					<li><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
 				</ul>
 			</li>
 			<li>
@@ -102,14 +103,18 @@
 				</ul>
 			</li>
 			<li>
+				<h3><label class="expand-box" id="btnWordpress" for="linkWordpress">+</label><a href="" title="Wordpress">Wordpress</a></h3><input class="panel-switch" id="linkWordpress" type="checkbox">
+				<ul id="listWordpress"></ul>
+			</li>
+			<li>
 				<h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox">
 				<ul id="listOther">
+					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
 					<li><a href="other-runPHPForHTML.html" title="[Apache] HTMLファイルでPHPを動かす">[Apache] HTMLファイルでPHPを動かす</a></li>
 					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
 					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
 					<li><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
 					<li><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
-					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -118,11 +123,13 @@
 		<header class="md-hide" role="banner">
 			<h1>[Deprecated] httpの省略</h1></header>
 		<main role="main">
-			<section>
+			<section class="deprecated">
 				<h2>注意</h2>
-				<p>この内容は非推奨の内容です。利用することは避けてください。</p>
+				<p>このページの内容は非推奨です。テスト目的以外で利用することは避けてください。</p>
+			</section>
+			<section>
 				<h2>説明</h2>
-				<p>http:やhttps:といった混在した記述を解消する記述方法がある。</p>
+				<p>http://やhttps://といった混在した記述を解消する記述方法がある。</p>
 			</section>
 			<section>
 				<h2>使用方法と解説</h2>
@@ -135,8 +142,8 @@
 			<section>
 				<h2>使用上の注意</h2>
 				<ul>
-					<li>このような記述方法は現在Googleでは推奨されていない。数年前までは推奨していたが現在はhttpsを推奨している。</li>
-					<li>ローカルファイルで開いた場合file:として認識するためこの方法を使用しないほうが良い。</li>
+					<li>このような記述方法は現在Googleでは推奨されていない。数年前までは推奨していたが現在はhttps://を推奨している。</li>
+					<li>ローカルファイルで開いた場合file://として認識するためこの方法を使用しないほうが良い。</li>
 				</ul>
 			</section>
 			<section>

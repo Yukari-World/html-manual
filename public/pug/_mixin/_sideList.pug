@@ -61,6 +61,12 @@ ul
 		include _sql
 	li
 		h3
+			label#btnWordpress.expand-box(for='linkWordpress') +
+			a(href='', title='Wordpress') Wordpress
+		input#linkWordpress.panel-switch(type='checkbox')
+		include _wordpress
+	li
+		h3
 			label#btnOther.expand-box(for='linkOther') +
 			a(href='', title='Other') Other
 		input#linkOther.panel-switch(type='checkbox')

@@ -41,9 +41,9 @@ body > .content {
 }
 
 a {
-	-webkit-transition: all 0.5s ease-out;
-	-o-transition: all 0.5s ease-out;
-	transition: all 0.5s ease-out;
+	-webkit-transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
 	text-decoration: none;
 	color: #9999FF;
 }
@@ -78,6 +78,31 @@ ol li:not(:first-child) {
 
 .mintyo {
 	font-family: "游明朝",YuMincho,"ヒラギノ明朝 ProN W3","Hiragino Mincho ProN","HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
+}
+
+.deprecated, .stub {
+	margin: 10px;
+	padding: 20px;
+	border-width: 5px;
+	border-style: solid;
+}
+
+.stub {
+	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#000011), to(#1164FF)) 1/5px 5px/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
+	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
+	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#000011), to(#1164FF)) 1/5px 5px/0 stretch;
+	border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
+	background-color: #000033;
+}
+
+.deprecated {
+	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0D0D), to(#1164FF)) 1/5px 5px/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #FF0D0D, #1164FF) 1/5px 5px/0 stretch;
+	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #FF0D0D, #1164FF) 1/5px 5px/0 stretch;
+	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0D0D), to(#1164FF)) 1/5px 5px/0 stretch;
+	border-image: linear-gradient(to top right, #1164FF, #FF0D0D, #1164FF) 1/5px 5px/0 stretch;
+	background-color: #330000;
 }
 
 ::-webkit-scrollbar {
@@ -259,6 +284,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 }
 
 .sidebar > ul > li ul li:before {
+	padding-right: 2px;
 	content: "├";
 	-webkit-transition: all 0.5s ease-out;
 	-o-transition: all 0.5s ease-out;
@@ -268,6 +294,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 }
 
 .sidebar > ul > li ul li:last-child:before {
+	padding-right: 2px;
 	content: "└";
 	-webkit-transition: all 0.5s ease-out;
 	-o-transition: all 0.5s ease-out;

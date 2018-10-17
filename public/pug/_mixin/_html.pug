@@ -2,5 +2,6 @@ mixin menuSidebar(href, name)
 	li: a(href=href, title=name)= name
 
 ul#listHTML
-	+menuSidebar('html-omitHttp.html', '[Deprecated] httpの省略')
+	+menuSidebar('html-input.html', 'input要素')
 	+menuSidebar('#', '[WIP] ファイルダウンロード')
+	+menuSidebar('html-omitHttp.html', '[Deprecated] httpの省略')

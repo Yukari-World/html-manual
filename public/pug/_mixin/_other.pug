@@ -2,9 +2,9 @@ mixin menuSidebar(href, name)
 	li: a(href=href, title=name)= name
 
 ul#listOther
+	+menuSidebar('other-editorConfig.html', 'EditorConfig')
 	+menuSidebar('other-runPHPForHTML.html', '[Apache] HTMLファイルでPHPを動かす')
 	+menuSidebar('#', '[Atom/WIP] Atom 導入マニュアル')
 	+menuSidebar('#', '[Atom/WIP] apm Command')
 	+menuSidebar('#', '[Unix/WIP] Console Command')
 	+menuSidebar('#', '[XAMPP/WIP] ローカルネットワーク接続')
-	+menuSidebar('other-editorConfig.html', 'EditorConfig')

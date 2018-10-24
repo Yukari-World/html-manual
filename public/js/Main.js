@@ -208,7 +208,7 @@ function secondsInterval(seconds = 5) {
  * @since 1.0.0
  * @version 1.3.0
  */
-function randomOutput(jsonData) {
+async function randomOutput(jsonData) {
 	// Init
 	const textRandom = document.getElementById('randomOutput');
 	let listCount = 0;
@@ -239,7 +239,8 @@ function randomOutput(jsonData) {
  */
 function setrandomWord() {
 	let wordNum = Math.floor(xorRand.randomFloat() * randomWordList.length);
-	document.getElementById('randomWord').innerHTML = '<a href="scp-randomWord.html#wordID' + (wordNum + 1) + '">' + randomWordList[wordNum].title + '</a>';
+	document.getElementById('randomWord').setAttribute('href', 'scp-randomWord.html#wordID' + (wordNum + 1));
+	document.getElementById('randomWord').innerHTML =  randomWordList[wordNum].title;
 }
 
 /**

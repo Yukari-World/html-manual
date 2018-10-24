@@ -4,6 +4,7 @@
 // Import
 @import "_calc.scss";
 // 変数の定義(Global)
+$global-font-size: 14px;
 $gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 $width-list: (
 	xs:	576,
@@ -65,12 +66,17 @@ $breakpoint-down: (
 	line-height: 1.2;
 }
 
+html {
+	// rem指定用
+	font-size: $global-font-size;
+}
+
 body {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
 	font-family: "メイリオ", "Meiryo", sans-serif;
-	font-size: 14px;
+	font-size: 1rem;
 	color: #FFFFFF;
 	background-color: #000011;
 
@@ -83,6 +89,7 @@ body {
 
 	@media print {
 		color: #000000;
+		background-color: unset;
 	}
 
 	 > header {
@@ -144,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 
 dl {
 	dd {
-		margin-left: 2em;
+		margin-left: 2rem;
 	}
 }
 
@@ -158,12 +165,12 @@ ul {
 	}
 
 	ul {
-		margin-left: 2em;
+		margin-left: 2rem;
 	}
 }
 
 ol {
-	margin-left: 2em;
+	margin-left: 2rem;
 
 	li {
 		&:not(:first-child) {
@@ -196,6 +203,10 @@ ol {
 	padding: 20px;
 	border-width: 5px;
 	border-style: solid;
+
+	@media print {
+		color: #FFFFFF;
+	}
 }
 
 .stub {
@@ -312,7 +323,7 @@ code, pre {
 	min-width: 240px;
 	height: 100vh;
 	min-height: 100vh;
-	padding: 10px 0 2em;
+	padding: 10px 0 2rem;
 	border-width: 0;
 	border-style: solid;
 	border-right-width: 3px;
@@ -362,7 +373,7 @@ code, pre {
 				padding-top: 3px;
 				padding-left: $menu-margin;
 				animation: flashString 10s linear infinite;
-				font-size: 18px;
+				font-size: 1.25rem;
 				border-width: 0;
 				border-style: solid;
 				border-top-width: 3px;
@@ -462,7 +473,7 @@ code, pre {
 	button {
 		width: 100px;
 		height: 24px;
-		font-size: 12px;
+		font-size: 0.9rem;
 		color: #FFFFFF;
 		border: none;
 		border-radius: 5px;
@@ -479,7 +490,7 @@ code, pre {
 	height: 20px;
 	margin: auto 5px auto 0;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 0.9rem;
 	border: 1px #FFFFFF solid;
 }
 
@@ -492,16 +503,20 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 15px;
+	margin-top: 1rem;
 	margin-bottom: 3px;
 	border-width: 0;
 	border-style: solid;
 	border-bottom-width: 5px;
 	border-image: $gradation-pattern 1/0 0 5px/0 stretch;
 
+	@media print {
+		margin-top: 0;
+	}
+
 	h1 {
-		padding-left: 1em;
-		font-size: 36px;
+		padding-left: 2.5rem;
+		font-size: 2.5rem;
 
 		@include max-screen(sm) {
 			font-size: 4.7vw;
@@ -545,26 +560,26 @@ section {
 		border-image: $gradation-pattern 1/2px 0 0/0 stretch;
 	}
 
-	h2, h3, h4, h5, h6, p {
-		padding: 0 10px;
+	h1, h2, h3, h4, h5, h6, p {
+		padding: 0 0.5rem;
 	}
 
 	h2 {
-		font-size: 24px;
+		font-size: 1.75rem;
 	}
 
 	h3 {
 		margin-top: 5px;
-		font-size: 18px;
+		font-size: 1.25rem;
 	}
 
 	h4 {
 		margin-top: 5px;
-		font-size: 14px;
+		font-size: 1rem;
 	}
 
 	ul {
-		margin-left: 36px;
+		margin-left: 2rem;
 		list-style: disc;
 
 		li {
@@ -573,9 +588,19 @@ section {
 	}
 
 	dl {
-		padding-left: 1em;
+		padding-left: 0.5rem;
+
+		dt {
+			h1, h2, h3, h4, h5, h6 {
+				padding: 0;
+			}
+		}
 
 		dd {
+			p {
+				padding: 0;
+			}
+
 			ul {
 				li {
 					&:first-child {
@@ -620,8 +645,8 @@ footer {
 	border-width: 0;
 	border-style: solid;
 	border-top-width: 5px;
-	border-bottom-width: 15px;
-	border-image: $gradation-pattern 1/5px 0 15px/0 stretch;
+	border-bottom-width: 20px;
+	border-image: $gradation-pattern 1/5px 0 20px/0 stretch;
 
 	@include max-screen(sm) {
 		flex-direction: column-reverse;
@@ -635,10 +660,10 @@ footer {
 
 		&:first-child {
 			a {
-				padding: 0 0 0 10px;
+				padding: 0 0 0 0.5rem;
 				animation: flashString 10s linear infinite;
 				text-decoration: line-through;
-				color: #FFFFFF;
+				color: unset;
 
 				@media print {
 					animation: unset;
@@ -652,7 +677,7 @@ footer {
 		}
 
 		&:last-child {
-			margin-left: 2em;
+			margin-left: 2rem;
 			text-align: right;
 			white-space: nowrap;
 

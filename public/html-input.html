@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 	<style type="text/css">
 		label {
-			display: flex;
+			display: inline-flex;
 			align-items: center;
 		}
 
@@ -148,92 +148,177 @@
 			</section>
 			<section>
 				<h2>説明</h2>
-				<p>input要素はform要素と一緒に使われることの多いホームページを訪れたユーザーがデータを入力する要素の一つである(ユーザーが入力するその他の要素はtextarea、button等がある)。inputは非常に種類が多く、利用頻度が高いがその全てを把握するのが難しいのでこのページで一通り纏めておく。</p>
+				<p><code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">input</span><span class="token punctuation">&gt;</span></code>要素は<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">form</span><span class="token punctuation">&gt;</span></code>要素と一緒に使われることの多いホームページを訪れたユーザーがデータを入力する要素の一つである(ユーザーが入力するその他の要素は
+					<code
+					    class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">textarea</span><span class="token punctuation">&gt;</span></code>、<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">button</span><span class="token punctuation">&gt;</span></code>等がある)。
+						<code
+						    class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">input</span><span class="token punctuation">&gt;</span></code>は非常に種類が多く、利用頻度が高いがその全てを把握するのが難しいのでこのページで一通り纏めておく。</p>
 			</section>
 			<section>
-				<h2></h2>
-				<h3>button</h3><pre class="language-html line-numbers"><code>&lt;input type="button" value="ボタン"&gt;
+				<h2>inputの種類</h2>
+				<dl><dt><h3 id="input-button">button</h3></dt>
+					<dd>
+						<p>機能を持たないボタンを作成する。</p><pre class="language-html line-numbers"><code>&lt;input type="button" value="ボタン"&gt;
 </code></pre>
-				<div class="form-area"><input type="button" value="ボタン"></div>
-				<h3>checkbox</h3><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="checkbox" value="1"&gt;内容1&lt;/label&gt;
+						<div class="form-area"><input type="button" value="ボタン"></div>
+					</dd><dt><h3 id="input-checkbox">checkbox</h3></dt>
+					<dd>
+						<p>チェックボックスを作成する。ラジオボタンと異なり複数選択することができる。</p><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="checkbox" value="1"&gt;内容1&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox" value="2"&gt;内容2&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox" value="3"&gt;内容3&lt;/label&gt;
 </code></pre>
-				<div class="form-area"><label><input type="checkbox" value="1">内容1</label></div>
-				<h3>color</h3><pre class="language-html line-numbers"><code>&lt;input type="color" value="#FFFFFF"&gt;
+						<div class="form-area"><label><input type="checkbox" value="1">内容1</label><label><input type="checkbox" value="2">内容2</label><label><input type="checkbox" value="3">内容3</label></div>
+					</dd><dt><h3 id="input-color">color</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="color" value="#FFFFFF"&gt;
 </code></pre>
-				<div class="form-area"><input type="color" value="#FFFFFF"></div>
-				<h3>date</h3><pre class="language-html line-numbers"><code>&lt;input type="date"&gt;
+						<div class="form-area"><input type="color" value="#FFFFFF"></div>
+					</dd><dt><h3 id="input-date">date</h3></dt>
+					<dd>
+						<p>日付入力フォームを作成する。ブラウザによってはカレンダーが表示されたりする。</p><pre class="language-html line-numbers"><code>&lt;input type="date"&gt;
 </code></pre>
-				<div class="form-area"><input type="date"></div>
-				<h3>datetime-local</h3><pre class="language-html line-numbers"><code>&lt;input type="datetime-local"&gt;
+						<div class="form-area"><input type="date"></div>
+					</dd><dt><h3 id="input-datetime-local">datetime-local</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="datetime-local"&gt;
 </code></pre>
-				<div class="form-area"><input type="datetime-local"></div>
-				<h3>email</h3><pre class="language-html line-numbers"><code>&lt;input type="email"&gt;
+						<div class="form-area"><input type="datetime-local"></div>
+					</dd><dt><h3 id="input-email">email</h3></dt>
+					<dd>
+						<p>メールアドレス入力フォームを作成する。ブラウザ毎にメールアドレスの検証機能が異なる。</p><pre class="language-html line-numbers"><code>&lt;input type="email"&gt;
 </code></pre>
-				<div class="form-area"><input type="email"></div>
-				<h3>file</h3><pre class="language-html line-numbers"><code>&lt;input type="file"&gt;
+						<div class="form-area"><input type="email"></div>
+					</dd><dt><h3 id="input-file">file</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="file"&gt;
 </code></pre>
-				<div class="form-area"><input type="file"></div>
-				<h3>hidden</h3><pre class="language-html line-numbers"><code>&lt;input type="hidden"&gt;
+						<div class="form-area"><input type="file"></div>
+					</dd><dt><h3 id="input-hidden">hidden</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="hidden"&gt;
 </code></pre>
-				<div class="form-area"><input type="hidden"></div>
-				<h3>image</h3><pre class="language-html line-numbers"><code>&lt;input type="image"&gt;
+						<div class="form-area"><input type="hidden"></div>
+					</dd><dt><h3 id="input-image">image</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="image"&gt;
 </code></pre>
-				<div class="form-area"><input type="image"></div>
-				<h3>month</h3><pre class="language-html line-numbers"><code>&lt;input type="month"&gt;
+						<div class="form-area"><input type="image"></div>
+					</dd><dt><h3 id="input-month">month</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="month"&gt;
 </code></pre>
-				<div class="form-area"><input type="month"></div>
-				<h3>number</h3><pre class="language-html line-numbers"><code>&lt;input type="number"&gt;
+						<div class="form-area"><input type="month"></div>
+					</dd><dt><h3 id="input-number">number</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="number"&gt;
 </code></pre>
-				<div class="form-area"><input type="number"></div>
-				<h3>password</h3><pre class="language-html line-numbers"><code>&lt;input type="password"&gt;
+						<div class="form-area"><input type="number"></div>
+					</dd><dt><h3 id="input-password">password</h3></dt>
+					<dd>
+						<p>パスワード入力フォームを作成する。パスワード入力時、文字は全て●で表示される。また、非SSLページ(暗号化されていないページ)ではブラウザによっては警告が表示される。</p><pre class="language-html line-numbers"><code>&lt;input type="password"&gt;
 </code></pre>
-				<div class="form-area"><input type="password"></div>
-				<h3>radio</h3><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="radio" value="1"&gt;内容1&lt;/label&gt;
+						<div class="form-area"><input type="password"></div>
+					</dd><dt><h3 id="input-radio">radio</h3></dt>
+					<dd>
+						<p>複数の選択肢から1つを選ぶラジオボタンを作成する。</p><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="radio" value="1"&gt;内容1&lt;/label&gt;
 </code></pre>
-				<div class="form-area"><label><input type="radio" value="1">内容1</label></div>
-				<h3>range</h3><pre class="language-html line-numbers"><code>&lt;input type="range"&gt;
+						<div class="form-area"><label><input type="radio" value="1">内容1</label></div>
+						<p>ラジオボタンはname属性に同じ名前を指定することで同一グループであると認識する。</p><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="radio" name="bread" value="1"&gt;内容1&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="bread" value="2"&gt;内容1&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="bread" value="3"&gt;内容1&lt;/label&gt;
 </code></pre>
-				<div class="form-area"><input type="range"></div>
-				<h3>reset</h3><pre class="language-html line-numbers"><code>&lt;input type="reset"&gt;
+						<div class="form-area"><label><input type="radio" name="bread" value="1">内容1</label><label><input type="radio" name="bread" value="2">内容2</label><label><input type="radio" name="bread" value="3">内容3</label></div>
+					</dd><dt><h3 id="input-range">range</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="range"&gt;
 </code></pre>
-				<div class="form-area"><input type="reset"></div>
-				<h3>search</h3><pre class="language-html line-numbers"><code>&lt;input type="search"&gt;
+						<div class="form-area"><input type="range"></div>
+					</dd><dt><h3 id="input-reset">reset</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="reset"&gt;
 </code></pre>
-				<div class="form-area"><input type="search"></div>
-				<h3>submit</h3><pre class="language-html line-numbers"><code>&lt;input type="submit"&gt;
+						<div class="form-area"><input type="reset"></div>
+					</dd><dt><h3 id="input-search">search</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="search"&gt;
 </code></pre>
-				<div class="form-area"><input type="submit"></div>
-				<h3>tel</h3><pre class="language-html line-numbers"><code>&lt;input type="tel"&gt;
+						<div class="form-area"><input type="search"></div>
+					</dd><dt><h3 id="input-submit">submit</h3></dt>
+					<dd>
+						<p>フォームの入力を完了し送信するボタンを作成する。</p><pre class="language-html line-numbers"><code>&lt;input type="submit"&gt;
 </code></pre>
-				<div class="form-area"><input type="tel"></div>
-				<h3>text</h3><pre class="language-html line-numbers"><code>&lt;input type="text"&gt;
+						<div class="form-area"><input type="submit"></div>
+					</dd><dt><h3 id="input-tel">tel</h3></dt>
+					<dd>
+						<p>電話番号入力フォームを作成する。</p><pre class="language-html line-numbers"><code>&lt;input type="tel"&gt;
 </code></pre>
-				<div class="form-area"><input type="text"></div>
-				<h3>time</h3><pre class="language-html line-numbers"><code>&lt;input type="time"&gt;
+						<div class="form-area"><input type="tel"></div>
+					</dd><dt><h3 id="input-text">text</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="text"&gt;
 </code></pre>
-				<div class="form-area"><input type="time"></div>
-				<h3>url</h3><pre class="language-html line-numbers"><code>&lt;input type="url"&gt;
+						<div class="form-area"><input type="text"></div>
+					</dd><dt><h3 id="input-time">time</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="time"&gt;
 </code></pre>
-				<div class="form-area"><input type="url"></div>
-				<h3>week</h3><pre class="language-html line-numbers"><code>&lt;input type="week"&gt;
+						<div class="form-area"><input type="time"></div>
+					</dd><dt><h3 id="input-url">url</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="url"&gt;
 </code></pre>
-				<div class="form-area"><input type="week"></div>
+						<div class="form-area"><input type="url"></div>
+					</dd><dt><h3 id="input-week">week</h3></dt>
+					<dd><pre class="language-html line-numbers"><code>&lt;input type="week"&gt;
+</code></pre>
+						<div class="form-area"><input type="week"></div>
+					</dd>
+				</dl>
 			</section>
-			<section></section>
+			<section>
+				<h2>使用可能な属性</h2>
+				<h3>autofocus</h3>
+				<p>そのページに移行した時、自動的にそのフォームに入力カーソルが置かれる。<code class="language-html"><span class="token attr-name">autofocus</span></code>には内容が存在しないため<code class="language-html"><span class="token attr-name">autofocus</span></code>のみでも問題はない。尚サンプルは性質上ページこの位置まで勝手に移動してしまうので用意していない。</p>
+				<pre
+				    class="language-html line-numbers"><code>&lt;input type="text" name="your-name" autofocus="autofocus"&gt;
+</code></pre>
+					<h3>formaction</h3>
+					<p>フォームに入力された情報を処理するプログラムのURIを指定する。<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">form</span><span class="token punctuation">&gt;</span></code>要素に指定した<code class="language-html"><span class="token attr-name">action</span></code>属性よりも優先される。この属性はimageもしくはsubmitにのみ指定できる。</p>
+					<pre
+					    class="language-html line-numbers"><code>&lt;input type="submit" formaction="sample.php"&gt;
+</code></pre>
+						<h3>list</h3>
+						<h3>name</h3>
+						<p>フォーム項目の名前。ブラウザ上には表示されないため<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">label</span><span class="token punctuation">&gt;</span></code>等を使用してどの様な項目なのか記入する必要がある。JavaScriptのパーツとして使用する場合を除きほぼ必須項目である。</p>
+						<pre
+						    class="language-html line-numbers"><code>&lt;input type="text" name="your-name"&gt;
+</code></pre>
+							<div class="form-area"><input type="text" name="your-name"></div>
+							<h3>required</h3>
+							<p>そのフォームの入力を必須にする。<code class="language-html"><span class="token attr-name">required</span></code>には内容が存在しないため<code class="language-html"><span class="token attr-name">required</span></code>のみでも問題はない。 checkboxに使用した場合、必ずその項目をチェックをつけなくてはならない。
+							</p>
+							<h3>value</h3>
+							<p>checkbox、hidden、submit、radioとそれ以外では扱いが異なる。</p>
+							<ul>
+								<li>checkboxとradioの場合<br>選択した時に送られる値。</li>
+								<li>hiddenの場合<br>フォームに送られる値。JavaScript等使わない限り編集することができない。</li>
+								<li>submitの場合<br>ボタンに表示される文字列。フォーム送信時にその文字列も一緒に送られる。<pre class="language-html line-numbers"><code>&lt;input type="submit" name="submit" value="送信確認"&gt;
+</code></pre>
+									<div class="form-area"><input type="submit" name="submit" value="送信確認"></div>
+								</li>
+								<li>それ以外の項目の場合<br>フォーム項目の初期値。<pre class="language-html line-numbers"><code>&lt;input type="text" name="your-name" value="山田太郎"&gt;
+</code></pre>
+									<div class="form-area"><input type="text" name="your-name" value="山田太郎"></div>
+								</li>
+							</ul>
+			</section>
+			<section>
+				<h2>使用上の注意</h2>
+				<ul>
+					<li><code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">form</span><span class="token punctuation">&gt;</span></code>要素上に存在しない入力フォームは基本的に送信されない。formから独立した位置に入力フォームを設置する場合は<code class="language-html"><span class="token attr-name">form</span></code>属性を忘れないようにすること。但し大抵これを使用する場合入力フォームの位置が通常より遠ざかる位置にあることが多いためフォームの形としては不適切になりやすいことには注意すること。またHTML5の要素故に旧バージョンのブラウザでは対応していないことが多いので注意が必要。</li>
+				</ul>
+			</section>
 			<section>
 				<h2>参考リンク</h2>
-				<p><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input" target="_blank"> Mozilla</a></p>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input" target="_blank">Mozilla</a></p>
 			</section>
 		</main>
 		<footer role="contentinfo">
-			<p id="randomWord">Loading...</p>
+			<p><a id="randomWord">Loading...</a></p>
 			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
 				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
 				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
 		</footer>
 	</div>
-	<script type="application/javascript" src="js/prism.min.js"></script>
-	<script type="application/javascript" src="js/index.js"></script>
+	<script type="application/javascript" src="js/prism.min.js" defer></script>
+	<script type="application/javascript" src="js/index.js" defer></script>
 </body>
 
 </html>

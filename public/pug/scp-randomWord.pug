@@ -6,8 +6,12 @@ block headTitle
 	h1 #{title}
 block append headSpace
 	style(type='text/css').
+		section dl {
+			padding: 0;
+		}
+
 		dt:not(:first-child) {
-			margin-top: 20px;
+			margin-top: 1.5rem;
 			border-width: 3px 0 0;
 			border-style: solid;
 			-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
@@ -22,12 +26,16 @@ block append headSpace
 			font-weight: 400;
 		}
 
-		dt h4 {
-			padding: 0 10px;
-			font-size: 10px;
+		section dl dt h3 {
+			padding: 0 0 0 10px;
 		}
 
-		dd h3 {
+		section dl dt h4 {
+			padding: 0 0 0 10px;
+			font-size: 0.75rem;
+		}
+
+		section dl dd h3 {
 			padding: 0;
 		}
 
@@ -36,7 +44,7 @@ block append headSpace
 		}
 
 		#randomOutput p:nth-child(1n+2) {
-			margin-top: 1em;
+			margin-top: 1rem;
 		}
 
 		#randomOutput h4 {

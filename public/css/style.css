@@ -11,6 +11,10 @@
 	line-height: 1.2;
 }
 
+html {
+	font-size: 14px;
+}
+
 body {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -25,7 +29,7 @@ body {
 	-ms-flex-align: start;
 	align-items: flex-start;
 	font-family: "メイリオ","Meiryo",sans-serif;
-	font-size: 14px;
+	font-size: 1rem;
 	color: #FFFFFF;
 	background-color: #000011;
 }
@@ -57,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 dl dd {
-	margin-left: 2em;
+	margin-left: 2rem;
 }
 
 ul {
@@ -69,7 +73,7 @@ ul li:not(:first-child) {
 }
 
 ul ul, ol {
-	margin-left: 2em;
+	margin-left: 2rem;
 }
 
 ol li:not(:first-child) {
@@ -207,7 +211,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	min-width: 240px;
 	height: 100vh;
 	min-height: 100vh;
-	padding: 10px 0 2em;
+	padding: 10px 0 2rem;
 	border-width: 0 3px 0 0;
 	border-style: solid;
 	-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 0 0/0 stretch;
@@ -234,7 +238,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	padding-left: 10px;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
-	font-size: 18px;
+	font-size: 1.25rem;
 	border-width: 3px 0 0;
 	border-style: solid;
 	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
@@ -352,7 +356,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 .nav-button button {
 	width: 100px;
 	height: 24px;
-	font-size: 12px;
+	font-size: 0.9rem;
 	color: #FFFFFF;
 	border: none;
 	border-radius: 5px;
@@ -370,7 +374,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	height: 20px;
 	margin: auto 5px auto 0;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 0.9rem;
 	border: 1px solid #FFFFFF;
 }
 
@@ -395,7 +399,7 @@ header {
 	-webkit-justify-content: space-between;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
-	margin-top: 15px;
+	margin-top: 1rem;
 	margin-bottom: 3px;
 	border-width: 0 0 5px;
 	border-style: solid;
@@ -407,8 +411,8 @@ header {
 }
 
 header h1 {
-	padding-left: 1em;
-	font-size: 36px;
+	padding-left: 2.5rem;
+	font-size: 2.5rem;
 }
 
 header label {
@@ -439,26 +443,26 @@ section:not(:first-child) {
 	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/2px 0 0/0 stretch;
 }
 
-section h2, section h3, section h4, section h5, section h6, section p {
-	padding: 0 10px;
+section h1, section h2, section h3, section h4, section h5, section h6, section p {
+	padding: 0 0.5rem;
 }
 
 section h2 {
-	font-size: 24px;
+	font-size: 1.75rem;
 }
 
 section h3 {
 	margin-top: 5px;
-	font-size: 18px;
+	font-size: 1.25rem;
 }
 
 section h4 {
 	margin-top: 5px;
-	font-size: 14px;
+	font-size: 1rem;
 }
 
 section ul {
-	margin-left: 36px;
+	margin-left: 2rem;
 	list-style: disc;
 }
 
@@ -467,7 +471,11 @@ section ul li {
 }
 
 section dl {
-	padding-left: 1em;
+	padding-left: 0.5rem;
+}
+
+section dl dt h1, section dl dt h2, section dl dt h3, section dl dt h4, section dl dt h5, section dl dt h6, section dl dd p {
+	padding: 0;
 }
 
 section dl dd ul li:first-child {
@@ -511,21 +519,21 @@ footer {
 	margin-top: 3px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	border-width: 5px 0 15px;
+	border-width: 5px 0 20px;
 	border-style: solid;
-	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/5px 0 15px/0 stretch;
-	-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/5px 0 15px/0 stretch;
-	-o-border-image: -o-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/5px 0 15px/0 stretch;
-	border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/5px 0 15px/0 stretch;
-	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 15px/0 stretch;
+	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/5px 0 20px/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
+	-o-border-image: -o-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
+	border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/5px 0 20px/0 stretch;
+	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
 }
 
 footer p:first-child a {
-	padding: 0 0 0 10px;
+	padding: 0 0 0 0.5rem;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
 	text-decoration: line-through;
-	color: #FFFFFF;
+	color: unset;
 }
 
 footer p:first-child b {
@@ -533,7 +541,7 @@ footer p:first-child b {
 }
 
 footer p:last-child {
-	margin-left: 2em;
+	margin-left: 2rem;
 	text-align: right;
 	white-space: nowrap;
 }
@@ -696,6 +704,7 @@ footer p:last-child {
 @media print {
 	body {
 		color: #000000;
+		background-color: unset;
 	}
 
 	body > header {
@@ -707,8 +716,16 @@ footer p:last-child {
 		margin-left: 0;
 	}
 
+	.deprecated, .stub {
+		color: #FFFFFF;
+	}
+
 	.line-highlight, .sidebar {
 		display: none;
+	}
+
+	header {
+		margin-top: 0;
 	}
 
 	footer p:first-child a {

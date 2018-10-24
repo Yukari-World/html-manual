@@ -1,8 +1,8 @@
 [
 	{
-	    "title": "SCP-131 - The \"Eye Pods\"",
-	    "original": "SCP Foundation",
-	    "summary": "<h3>SCP-131 - \"アイポッド\"</h3><h4><b>オブジェクトクラス:</b> <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>"
+		"title": "SCP-131 - The \"Eye Pods\"",
+		"original": "SCP Foundation",
+		"summary": "<h3>SCP-131 - \"アイポッド\"</h3><h4><b>オブジェクトクラス:</b> <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>"
 	}, {
 		"title": "SCP-173 - The Sculpture - <b>The Original</b>",
 		"original": "SCP Foundation",
@@ -48,9 +48,9 @@
 		"original": "SCP Foundation",
 		"summary": "<h3>SCP-3999 - 私は私に起きることすべての中心にいる</h3><h4><b>オブジェクトクラス:</b> <span class=\"object-unclass\">Apollyon</span></h4><p>Please Wait...</p>"
 	}, {
-	    "title": "<span style=\"color: #008000; font-weight: 700;\">Taboo</span>",
-	    "original": "SCP Foundation",
-	    "summary": "<span style=\"color: #008000; font-weight: 700;\">禁忌</span><h4><b>オブジェクトクラス:</b> <span class=\"object-keter\">Keter</span></h4><p>SCPナンバーが入っていないので分かり辛いがSCP-4000である。現在未翻訳にて内容不明。</p>"
+		"title": "<span style=\"color: #008000; font-weight: 700;\">Taboo</span>",
+		"original": "SCP Foundation",
+		"summary": "<span style=\"color: #008000; font-weight: 700;\">禁忌</span><h4><b>オブジェクトクラス:</b> <span class=\"object-keter\">Keter</span></h4><p>SCPナンバーが入っていないので分かり辛いがSCP-4000である。現在未翻訳にて内容不明。</p>"
 	}, {
 		"title": "SCP-011-JP - 俺達はスーパーボール",
 		"original": "SCP Foundation",
@@ -175,6 +175,10 @@
 		"title": "<span title=\"森久保乃々\">???</span>「おはようございます…帰っていいですか?」",
 		"original": "アイドルマスター シンデレラガールズ スターライトステージ",
 		"summary": "<p>森久保乃々の朝の挨拶。アイドルとして参加するのは1度きりの予定がはっきりと物言わない性格故に現在尚も引っ張られ続けている。尚帰っては駄目な模様。</p>"
+	}, {
+		"title": "<span title=\"二宮飛鳥\">???</span>「想いを言語化するのは難しいな…正しく伝わるとも限らない…」",
+		"original": "アイドルマスター シンデレラガールズ スターライトステージ",
+		"summary": "<p>二宮飛鳥の発言。特に日本語は同じ言葉でも意味合いが変わってくるので余計難しく感じる(個人的感覚)。</p>"
 	}, {
 		"title": "<span title=\"神崎蘭子\">???</span>「神よ…我はそなたに、別れを告げに来た!(お祈りしますね)」",
 		"original": "アイドルマスター シンデレラガールズ スターライトステージ",
@@ -324,8 +328,8 @@
 		"original": "SCP Foundation",
 		"summary": "<p>よろしくおねがいします</p><p class=\"mintyo\" style=\"text-align: right; font-size: 48px;\">メモ</p>"
 	}, {
-	    "title": "竜退治はもう飽きた",
-	    "original": "メタルマックス",
-	    "summary": "<p>『メタルマックス』のキャッチコピー。当時ドラゴンが登場するRPGが乱発していた時代を皮肉るインパクトの大きいキャッチコピーであった。尚、『メタルマックス』自体はRPGとしては戦車や銃火器といったものがメインであり、当時としては非常に珍しい作品であった。</p>"
+		"title": "竜退治はもう飽きた",
+		"original": "メタルマックス",
+		"summary": "<p>『メタルマックス』のキャッチコピー。当時ドラゴンが登場するRPGが乱発していた時代を皮肉るインパクトの大きいキャッチコピーであった。尚、『メタルマックス』自体はRPGとしては戦車や銃火器といったものがメインであり、当時としては非常に珍しい作品であった。</p>"
 	}
 ]

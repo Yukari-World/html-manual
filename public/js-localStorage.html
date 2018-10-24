@@ -132,8 +132,8 @@
 				<p>HTMLで一時的なデータを保存する方法は主にCookieが主流だがサイトのデータを一時的なデータを保存する方法の一つとしてローカルストレージという機能があるのでそれについて説明する。</p>
 			</section>
 			<section>
-				<h2>ローカルストレージのデータを確認する方法</h2>
-				<p>ブラウザ毎に説明する。</p>
+				<h2>ローカルストレージに格納されているデータを確認する方法</h2>
+				<p>ブラウザ毎に表示位置が異なるのでブラウザ毎に説明する。</p>
 				<h3>Google Chrome</h3>
 				<p>ページを右クリックして検証、もしくはF12キーからDevToolsを開く。<br>メニュー上部のタブからApplicationを選択するとLocal Storageの項目があるので展開して確認する。</p>
 				<h3>Firefox</h3>
@@ -141,16 +141,51 @@
 				<h3>Microsoft Edge</h3>
 				<p>ページを右クリックして要素を調査、もしくはF12キーから開発ツールを開く。<br>メニュー上部のタブからデバッガーを選択するとローカルストレージの項目があるので展開して確認する。</p>
 			</section>
+			<section>
+				<h2>使用上の注意</h2>
+				<ul>
+					<li>ブラウザによってはストレージが使用できないことがある。以下のソースを使用することで使用できるかどうかを調べることができる。<pre class="language-javascript line-numbers"><code>/**
+ * ローカルストレージの環境が利用可能か調べる関数
+ *
+ * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API MDN}より参照
+ *
+ * @param  {String}     type    調べる項目
+ * @return {boolean}            利用可能かのbool
+ */
+function storageAvailable(type) {
+	let storage = window[type];
+	try {
+		let	x = '__storage_test__';
+		storage.setItem(x, x);
+		storage.removeItem(x);
+		return true;
+	} catch (e) {
+		return e instanceof DOMException && (
+			// everything except Firefox
+			e.code === 22 ||
+			// Firefox
+			e.code === 1014 ||
+			// test name field too, because code might not be present
+			// everything except Firefox
+			e.name === 'QuotaExceededError' ||
+			// Firefox
+			e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+			// acknowledge QuotaExceededError only if there's something already stored
+			storage.length !== 0;
+	}
+}</code></pre></li>
+				</ul>
+			</section>
 		</main>
 		<footer role="contentinfo">
-			<p id="randomWord">Loading...</p>
+			<p><a id="randomWord">Loading...</a></p>
 			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
 				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
 				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
 		</footer>
 	</div>
-	<script type="application/javascript" src="js/prism.min.js"></script>
-	<script type="application/javascript" src="js/index.js"></script>
+	<script type="application/javascript" src="js/prism.min.js" defer></script>
+	<script type="application/javascript" src="js/index.js" defer></script>
 </body>
 
 </html>

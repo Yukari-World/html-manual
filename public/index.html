@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
 	<meta charset="utf-8">
 	<title>トップページ - HTML Technical Manual</title>
@@ -178,7 +177,7 @@ html(lang='ja')
 </code></pre></section>
 			<section>
 				<h2>マニュアル作成について</h2>
-				<p>このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは同マニュアルのディレクトリに置いていますので参考にしてください。</p>
+				<p>このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは<a href="https://gitlab.com/fcc-y/html-manual" target="_blank">Gitlab</a>に置いていますので参考にしてください。</p>
 				<h3>開発言語</h3>
 				<ul>
 					<li>JavaScript(ECMAScript 2017), Babelにより後方互換確保済み</li>
@@ -204,6 +203,8 @@ html(lang='ja')
 				<dl><dt>JavaScript</dt>
 					<dd>
 						<ul>
+							<li><a href="https://github.com/aFarkas/lazysizes" title="GitHub - aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration."
+								    target="_blank">lazysizes</a></li>
 							<li><a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a></li>
 						</ul>
 					</dd><dt>Node.js(関連パッケージは省略)</dt>
@@ -241,8 +242,8 @@ html(lang='ja')
 				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
 		</footer>
 	</div>
-	<script type="application/javascript" src="js/prism.min.js" defer></script>
-	<script type="application/javascript" src="js/index.js" defer></script>
+	<script type="application/javascript" async="async" src="js/lazysizes.min.js"></script>
+	<script type="application/javascript" defer="defer" src="js/prism.min.js"></script>
+	<script type="application/javascript" defer="defer" src="js/index.js"></script>
 </body>
-
 </html>

@@ -10,13 +10,7 @@ block headSpace
 			justify-content: space-evenly;
 		}
 
-		@supports (-ms-ime-align:auto) {
-			.area {
-				justify-content: space-around;
-			}
-		}
-
-		@supports (-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill) {
+		@supports (-ms-ime-align:auto) or ((-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill)) {
 			.area {
 				justify-content: space-around;
 			}
@@ -134,13 +128,7 @@ block content
 				justify-content: space-evenly;
 			}
 
-			@supports (-ms-ime-align: auto) {
-				.area {
-					justify-content: space-around;
-				}
-			}
-
-			@supports (-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill) {
+			@supports (-ms-ime-align:auto) or ((-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill)) {
 				.area {
 					justify-content: space-around;
 				}

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
 	<meta charset="utf-8">
 	<title>マニュアル更新履歴 - HTML Technical Manual</title>
@@ -123,7 +122,15 @@
 		<header class="md-hide" role="banner">
 			<h1>マニュアル更新履歴</h1></header>
 		<main role="main">
-			<dl><dt><h2>2018/10/24</h2></dt>
+			<dl><dt><h2>2018/10/26</h2></dt>
+				<dd>
+					<ul>
+						<li>lazysizesの導入。但し現在未使用</li>
+						<li>JavaScriptの処理を変更</li>
+						<li>Worker処理の予約</li>
+						<li>CSSの最適化と細かな文の修正</li>
+					</ul>
+				</dd><dt><h2>2018/10/24</h2></dt>
 				<dd>
 					<ul>
 						<li>非同期通信の調整</li>
@@ -380,8 +387,8 @@
 				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
 		</footer>
 	</div>
-	<script type="application/javascript" src="js/prism.min.js" defer></script>
-	<script type="application/javascript" src="js/index.js" defer></script>
+	<script type="application/javascript" async="async" src="js/lazysizes.min.js"></script>
+	<script type="application/javascript" defer="defer" src="js/prism.min.js"></script>
+	<script type="application/javascript" defer="defer" src="js/index.js"></script>
 </body>
-
 </html>

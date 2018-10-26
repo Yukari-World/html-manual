@@ -445,6 +445,11 @@ code, pre {
 		width: 5px;
 		height: 5px;
 
+		@include max-screen(md) {
+			width: 0;
+			height: 0;
+		}
+
 		&-track {
 			border-radius: 10px;
 			background-image: linear-gradient(to bottom, #000011, #1164FF);
@@ -462,11 +467,7 @@ code, pre {
 	display: flex;
 	justify-content: space-evenly;
 
-	@supports (-ms-ime-align:auto) {
-		justify-content: space-around;
-	}
-
-	@supports (-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill) {
+	@supports (-ms-ime-align:auto) or ((-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill)) {
 		justify-content: space-around;
 	}
 
@@ -534,7 +535,7 @@ header {
 			height: 32px;
 			margin-right: 5px;
 			margin-bottom: 5px;
-			border-radius: 10px;
+			border-radius: 5px;
 			background-color: #1164FF;
 		}
 	}
@@ -570,7 +571,12 @@ section {
 
 	h3 {
 		margin-top: 5px;
+		margin-left: 5px;
+		padding-left: 5px;
 		font-size: 1.25rem;
+		border-left: 10px solid #1164FF;
+
+		// -webkit-box-reflect: below -10px -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.6));
 	}
 
 	h4 {
@@ -593,6 +599,10 @@ section {
 		dt {
 			h1, h2, h3, h4, h5, h6 {
 				padding: 0;
+			}
+
+			h3 {
+				padding-left: 5px;
 			}
 		}
 

@@ -211,8 +211,20 @@ function secondsInterval(seconds = 5) {
 async function randomOutput(jsonData) {
 	// Init
 	const textRandom = document.getElementById('randomOutput');
+	if (window.Worker) {
+		// 予約枠
+	} else {
+		// 予約枠
+	}
 	let listCount = 0;
 	let dl = document.createElement('dl');
+
+	// リストを置く場所を予め作る
+	dl.setAttribute('id', 'RandomList');
+	textRandom.innerHTML = '';
+	textRandom.appendChild(dl);
+
+	const randomList = document.getElementById('RandomList');
 	for (let data_t of jsonData) {
 		let dt = document.createElement('dt');
 		let dd = document.createElement('dd');
@@ -222,11 +234,9 @@ async function randomOutput(jsonData) {
 		dt.innerHTML = '<h3>' + data_t.title + '</h3><h4>出典: ' + data_t.original + '</h4>';
 		dd.innerHTML = data_t.summary;
 
-		dl.appendChild(dt);
-		dl.appendChild(dd);
+		randomList.appendChild(dt);
+		randomList.appendChild(dd);
 	}
-	textRandom.innerHTML = '';
-	textRandom.appendChild(dl);
 }
 
 /**

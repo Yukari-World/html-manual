@@ -224,6 +224,10 @@
 		"original": "SCP Foundation",
 		"summary": "<p>Please Wait...</p>"
 	}, {
+		"title": "<span title=\"森久保乃々\">???</span>「渋谷は苦手なんですけど…」",
+		"original": "アイドルマスター シンデレラガールズ スターライトステージ",
+		"summary": "<p>森久保乃々の発言。ここで言う渋谷は地名なのだが、これに対して渋谷凛が反応して……</p><p>凛の反応自体ワルノリなのだが、嘆いた本人は大慌て。……困ったものである。</p>"
+	}, {
 		"title": "<span title=\"神崎蘭子\">???</span>「祝杯を挙げようぞ。今宵は征服の夜!(楽しいお仕事、ありがとう!)」",
 		"original": "アイドルマスター シンデレラガールズ スターライトステージ",
 		"summary": "<p>Please Wait...</p>"
@@ -318,7 +322,7 @@
 	}, {
 		"title": "生命、宇宙、そして万物についての究極の疑問の答え",
 		"original": "銀河ヒッチハイクガイド(The Hitchhiker's Guide to the Galaxy)",
-		"summary": "<p style=\"font-size: 42px;\">42</p><p>尚、この答えはGoogleの電卓に上記の文字を入力してもこの数字が返ってくる。</p>"
+		"summary": "<p style=\"font-size: 42px;\">42</p><p>尚、この答えはGoogle検索やGoogle電卓に上記の文字を入力してもこの数字が返ってくる。</p>"
 	}, {
 		"title": "静寂の恐怖が息を潜める",
 		"original": "夢見館の物語",

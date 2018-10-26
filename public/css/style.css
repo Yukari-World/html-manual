@@ -337,15 +337,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	justify-content: space-evenly;
 }
 
-@supports (-ms-ime-align: auto) {
-	.nav-button {
-		-webkit-justify-content: space-around;
-		-ms-flex-pack: distribute;
-		justify-content: space-around;
-	}
-}
-
-@supports (-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and ((-o-object-fit: fill) or (object-fit: fill)) {
+@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and ((-o-object-fit: fill) or (object-fit: fill))) {
 	.nav-button {
 		-webkit-justify-content: space-around;
 		-ms-flex-pack: distribute;
@@ -453,7 +445,10 @@ section h2 {
 
 section h3 {
 	margin-top: 5px;
+	margin-left: 5px;
+	padding-left: 5px;
 	font-size: 1.25rem;
+	border-left: 10px solid #1164FF;
 }
 
 section h4 {
@@ -474,7 +469,15 @@ section dl {
 	padding-left: 0.5rem;
 }
 
-section dl dt h1, section dl dt h2, section dl dt h3, section dl dt h4, section dl dt h5, section dl dt h6, section dl dd p {
+section dl dt h1, section dl dt h2, section dl dt h3, section dl dt h4, section dl dt h5, section dl dt h6 {
+	padding: 0;
+}
+
+section dl dt h3 {
+	padding-left: 5px;
+}
+
+section dl dd p {
 	padding: 0;
 }
 
@@ -640,6 +643,11 @@ footer p:last-child {
 		margin-left: calc(1em + 2px);
 	}
 
+	.sidebar::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+
 	header label {
 		display: -webkit-inline-box;
 		display: -webkit-inline-flex;
@@ -657,7 +665,7 @@ footer p:last-child {
 		height: 32px;
 		margin-right: 5px;
 		margin-bottom: 5px;
-		border-radius: 10px;
+		border-radius: 5px;
 		background-color: #1164FF;
 	}
 }

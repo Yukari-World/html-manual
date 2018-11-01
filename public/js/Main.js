@@ -1,7 +1,8 @@
 /**
  * @fileOverview マニュアル用JavaScript
- * @since 1.0.0
- * @version 1.3.0
+ *
+ * @since   1.0.0
+ * @version 1.3.5
  */
 
 // Init
@@ -23,8 +24,7 @@ const sideList = [
 	'Other',
 ];
 
-// let bmenuToggle = false;
-let bwordDecide = false;
+let bWordDecide = false;
 let sideToggle = [];
 /**
  * ランダムワードマニア
@@ -36,9 +36,9 @@ let xorRand;
 /**
  * Xor Shift乱数
  *
- * @type {class}
+ * @type    {class}
  * @since   1.1.0
- * @version 1.3.0
+ * @version 1.3.5
  */
 class xorShift {
 	/**
@@ -88,10 +88,11 @@ class xorShift {
 		 * @type {number}
 		 */
 		this.w = w;
-		console.log('Number X: ' + this.x);
-		console.log('Number Y: ' + this.y);
-		console.log('Number Z: ' + this.z);
-		console.log('Number W: ' + this.w);
+		console.log('Seed Info:');
+		console.log('X: ' + this.x);
+		console.log('Y: ' + this.y);
+		console.log('Z: ' + this.z);
+		console.log('W: ' + this.w);
 	}
 
 	/**
@@ -129,10 +130,10 @@ class xorShift {
  *
  * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API MDN}より参照
  *
- * @param  {String}     type    調べる項目
- * @return {boolean}            利用可能かのbool
+ * @param   {String}    type    調べる項目
+ * @return  {boolean}           利用可能かのbool
  * @since   1.3.0
- * @version 1.3.0
+ * @version 1.3.5
  */
 function storageAvailable(type) {
 	let storage = window[type];
@@ -160,9 +161,9 @@ function storageAvailable(type) {
 /**
  * ランダムワード取得
  *
- * @return {Promise}    終了コード
+ * @return  {Promise}   終了コード
  * @since   1.2.0
- * @version 1.3.0
+ * @version 1.3.5
  */
 function getrandomWord() {
 	return new Promise((resolve, reject) => {
@@ -184,18 +185,18 @@ function getrandomWord() {
 /**
  * 指定時間毎に実行する
  *
- * @param  {number} seconds  時間
- * @return {void}
- * @since 1.0.0
- * @version 1.3.0
+ * @param   {number}    seconds 時間
+ * @return  {void}
+ * @since   1.0.0
+ * @version 1.3.5
  */
 function secondsInterval(seconds = 5) {
 	let bdate = new Date();
-	if (bdate.getSeconds() % seconds === 0 && bwordDecide === false) {
-		bwordDecide = true;
+	if (bdate.getSeconds() % seconds === 0 && bWordDecide === false) {
+		bWordDecide = true;
 		setrandomWord();
-	} else if (bdate.getSeconds() % seconds === 1 && bwordDecide === true) {
-		bwordDecide = false;
+	} else if (bdate.getSeconds() % seconds === 1 && bWordDecide === true) {
+		bWordDecide = false;
 	}
 }
 
@@ -203,21 +204,16 @@ function secondsInterval(seconds = 5) {
  * ランダムワードの解説を出力
  *
  * @interface
- * @param  {JSON}   jsonData    JSON Data
- * @return {void}
- * @since 1.0.0
- * @version 1.3.0
+ * @param   {JSON}  jsonData    JSON Data
+ * @return  {void}
+ * @since   1.0.0
+ * @version 1.3.5
  */
 async function randomOutput(jsonData) {
 	// Init
 	const textRandom = document.getElementById('randomOutput');
-	if (window.Worker) {
-		// 予約枠
-	} else {
-		// 予約枠
-	}
+	const dl = document.createElement('dl');
 	let listCount = 0;
-	let dl = document.createElement('dl');
 
 	// リストを置く場所を予め作る
 	dl.setAttribute('id', 'RandomList');
@@ -225,17 +221,36 @@ async function randomOutput(jsonData) {
 	textRandom.appendChild(dl);
 
 	const randomList = document.getElementById('RandomList');
-	for (let data_t of jsonData) {
-		let dt = document.createElement('dt');
-		let dd = document.createElement('dd');
 
-		dt.setAttribute('id', 'wordID' + ++listCount);
+	// Workerの使用可否の確認
+	if (window.Worker) {
+		// Workerの読み込み
+		// 相対パスで読み込む場合HTMLからの相対パスなので要注意
+		// const worker = new Worker('js/WorkerTask.js', { type: 'module' });
+		const worker = new Worker('js/WorkerTask.js');
 
-		dt.innerHTML = '<h3>' + data_t.title + '</h3><h4>出典: ' + data_t.original + '</h4>';
-		dd.innerHTML = data_t.summary;
+		worker.addEventListener('message', function (event) {
+			randomList.innerHTML += event.data;
+		});
+		worker.addEventListener('messageerror', function (event) {
+			console.error('Task failed', event.data);
+		});
 
-		randomList.appendChild(dt);
-		randomList.appendChild(dd);
+		// JSONデータを丸投げ
+		worker.postMessage(jsonData);
+	} else {
+		for (let dataTemp of jsonData) {
+			const dt = document.createElement('dt');
+			const dd = document.createElement('dd');
+
+			dt.setAttribute('id', 'wordID' + ++listCount);
+
+			dt.innerHTML = '<h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4>';
+			dd.innerHTML = dataTemp.summary;
+
+			randomList.appendChild(dt);
+			randomList.appendChild(dd);
+		}
 	}
 }
 
@@ -243,9 +258,9 @@ async function randomOutput(jsonData) {
  * ランダムワードの出力
  *
  * @interface
- * @return {void}
- * @since 1.0.0
- * @version 1.3.0
+ * @return  {void}
+ * @since   1.0.0
+ * @version 1.3.5
  */
 function setrandomWord() {
 	let wordNum = Math.floor(xorRand.randomFloat() * randomWordList.length);
@@ -279,8 +294,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 	document.getElementById('collapseAll').addEventListener('click', function () {
 		for (let sideName of sideList) {
-			let btnElement = document.getElementById('btn' + sideName);
-			let linkElement = document.getElementById('link' + sideName);
+			const btnElement = document.getElementById('btn' + sideName);
+			const linkElement = document.getElementById('link' + sideName);
 
 			// falseに変更
 			linkElement.checked = false;
@@ -297,8 +312,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 	// ローカルストレージサポートの確認
 	if (storageAvailable('localStorage')) {
 		for (let sideName of sideList) {
-			let btnElement = document.getElementById('btn' + sideName);
-			let linkElement = document.getElementById('link' + sideName);
+			const btnElement = document.getElementById('btn' + sideName);
+			const linkElement = document.getElementById('link' + sideName);
 			// ローカルストレージから情報を取得
 			sideToggle[sideName] = localStorage.getItem(sideName + 'Toggle');
 

@@ -15,37 +15,14 @@ $width-list: (
 	hd: 1920,
 ) !default;
 
-// min-width
-// レスポンシブのブレークポイントの設定を行います
-// この指定はmin-screenで使用されます
-$breakpoint-up: (
-	"xs":		"only screen and (min-width: 577px)",
-	"sm":		"only screen and (min-width: 769px)",
-	"md":		"only screen and (min-width: 993px)",
-	"lg":		"only screen and (min-width: 1201px)",
-	"lx":		"only screen and (min-width: 1441px)",
-) !default;
-
-// max-width
-// レスポンシブのブレークポイントの設定を行います
-// この指定はmax-screenで使用されます
-$breakpoint-down: (
-	"xs":		"only screen and (max-width: 576px)",
-	"sm":		"only screen and (max-width: 768px)",
-	"md":		"only screen and (max-width: 992px)",
-	"lg":		"only screen and (max-width: 1200px)",
-	"lx":		"only screen and (max-width: 1440px)",
-) !default;
-
-// @mixinの定義
 @mixin min-screen($breakpoint: md) {
-	@media #{map-get($breakpoint-up, $breakpoint)} {
+	@media only screen and (min-width: #{map-get($width-list, $breakpoint) + 1}px) {
 		@content;
 	}
 }
 
 @mixin max-screen($breakpoint: md) {
-	@media #{map-get($breakpoint-down, $breakpoint)} {
+	@media only screen and (max-width: #{map-get($width-list, $breakpoint)}px) {
 		@content;
 	}
 }
@@ -198,25 +175,52 @@ ol {
 	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 }
 
-.stub, .deprecated {
+.stub, .cation, .danger, .deprecated {
 	margin: 10px;
-	padding: 20px;
+	padding: 1rem;
 	border-width: 5px;
 	border-style: solid;
 
 	@media print {
 		color: #FFFFFF;
 	}
+
+	h2 {
+		margin-bottom: 1rem;
+		padding: 0;
+	}
+
+	p {
+		padding: 0;
+	}
 }
 
 .stub {
+	border-color: #1164FF;
 	border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	background-color: #000033;
+	background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011);
+}
+
+.cation {
+	border-color: #FFFF33;
+	border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
+	background-color: #333300;
+	background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011);
+}
+
+.danger {
+	border-color: #FF0F0F;
+	border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+	background-color: #330000;
+	background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011);
 }
 
 .deprecated {
-	border-image: linear-gradient(to top right, #1164FF, #FF0D0D, #1164FF) 1/5px 5px/0 stretch;
+	border-color: #1164FF;
+	border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
 	background-color: #330000;
+	background-image: linear-gradient(to top left, #330000, #000033 20%, #000033 80%, #330000);
 }
 
 // ベンダー固有情報

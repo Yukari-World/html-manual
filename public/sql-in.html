@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>日付時間 date() - HTML Technical Manual</title>
+	<title>IN()(複数選択) - HTML Technical Manual</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
 	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
@@ -11,7 +11,7 @@
 
 <body>
 	<header class="md-show" id="top" role="banner">
-		<h1>日付時間 date()</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+		<h1>IN()(複数選択)</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
@@ -121,29 +121,11 @@
 	</nav>
 	<div class="content">
 		<header class="md-hide" role="banner">
-			<h1>日付時間 date()</h1></header>
+			<h1>IN()(複数選択)</h1></header>
 		<main role="main">
-			<section>
-				<h2>説明</h2>
-				<p>日付の表示は非常にややこしいものが多い。これはMySQLのDATE_FORMAT()にも言えることなのだが、今回はよく使用されるPHPの処理のみをピックアップする。</p>
-			</section>
-			<section>
-				<h2>使用方法と解説</h2>
-				<p>シングルクォーテーションを使用しているが、ダブルクォーテーションでも問題ない。</p>
-				<h3>年月日を表示する</h3><pre class="language-php line-numbers"><code>date('Y-m-d')</code></pre>
-				<p></p>結果:&nbsp;<time id="date1"></time><br>`Y`を小文字にした場合、年の下2桁が出力される。<pre class="language-php line-numbers"><code>date('y-m-d')</code></pre>結果:&nbsp;<time id="date2"></time>
-				<h3>時間を表示する</h3><pre class="language-php line-numbers"><code>date('H:i:s')</code></pre>結果:&nbsp;<time id="date3"></time><br>注意すべき点として分は`m`ではなく`i`であることである。`m`を使用した場合、月が出力されるため、注意が必要。
-				<h3>年月日を連結して表示する</h3><pre class="language-php line-numbers"><code>date('Ymd')</code></pre>結果:&nbsp;<time id="date4"></time>
-				<h3>日時を表示する</h3><pre class="language-php line-numbers"><code>date('Y-m-d H:i:s')</code></pre>結果:&nbsp;<time id="date5"></time><br>MySQLのDATETIMEフォーマットの形である。</section>
-			<section>
-				<h2>使用上の注意</h2>
-				<ul>
-					<li>php.iniのタイムゾーン設定がない場合、標準時間(UTC+0)を元に出力される。PHPソースでこれを解決する場合、<pre class="language-php line-numbers"><code>date_default_timezone_set('Asia/Tokyo');</code></pre>を入力することで解決できる。</li>
-				</ul>
-			</section>
-			<section>
-				<h2>参考リンク</h2>
-				<p><a href="http://php.net/manual/ja/function.date.php" target="_blank">PHP.net</a></p>
+			<section class="stub">
+				<h2>書きかけのページ</h2>
+				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
 			</section>
 		</main>
 		<footer role="contentinfo">
@@ -156,22 +138,5 @@
 	<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
 	<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
 	<script type="module" defer="defer" src="js/Main.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			let dToday = new Date();
-			let year = dToday.getFullYear();
-			let month = ('0' + (dToday.getMonth() + 1)).slice(-2);
-			let day = ('0' + dToday.getDate()).slice(-2);
-			let hour = ('0' + dToday.getHours()).slice(-2);
-			let minute = ('0' + dToday.getMinutes()).slice(-2);
-			let second = ('0' + dToday.getSeconds()).slice(-2);
-
-			document.getElementById('date1').textContent = year + '-' + month + '-' + day;
-			document.getElementById('date2').textContent = year.toString().substr(2, 2) + '-' + month + '-' + day;
-			document.getElementById('date3').textContent = hour + ':' + minute + ':' + second;
-			document.getElementById('date4').textContent = year + month + day;
-			document.getElementById('date5').textContent = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
-		});
-	</script>
 </body>
 </html>

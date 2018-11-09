@@ -84,29 +84,78 @@ ol li:not(:first-child) {
 	font-family: "游明朝",YuMincho,"ヒラギノ明朝 ProN W3","Hiragino Mincho ProN","HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
 }
 
-.deprecated, .stub {
+.cation, .danger, .deprecated, .stub {
 	margin: 10px;
-	padding: 20px;
+	padding: 1rem;
 	border-width: 5px;
 	border-style: solid;
 }
 
+.cation h2, .danger h2, .deprecated h2, .stub h2 {
+	margin-bottom: 1rem;
+	padding: 0;
+}
+
+.cation p, .danger p, .deprecated p, .stub p {
+	padding: 0;
+}
+
 .stub {
+	border-color: #1164FF;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#000011), to(#1164FF)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#000011), to(#1164FF)) 1/5px 5px/0 stretch;
 	border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	background-color: #000033;
+	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #000033), color-stop(80%, #000033), to(#000011));
+	background-image: -webkit-linear-gradient(bottom right, #000011, #000033 20%, #000033 80%, #000011);
+	background-image: -o-linear-gradient(bottom right, #000011, #000033 20%, #000033 80%, #000011);
+	background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011);
+}
+
+.cation {
+	border-color: #FFFF33;
+	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#000011), to(#FFFF33)) 1/5px 5px/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(bottom left, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
+	-o-border-image: -o-linear-gradient(bottom left, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
+	border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#000011), to(#FFFF33)) 1/5px 5px/0 stretch;
+	border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
+	background-color: #333300;
+	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #333300), color-stop(80%, #333300), to(#000011));
+	background-image: -webkit-linear-gradient(bottom right, #000011, #333300 20%, #333300 80%, #000011);
+	background-image: -o-linear-gradient(bottom right, #000011, #333300 20%, #333300 80%, #000011);
+	background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011);
+}
+
+.danger {
+	border-color: #FF0F0F;
+	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#000011), to(#FF0F0F)) 1/5px 5px/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(bottom left, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+	-o-border-image: -o-linear-gradient(bottom left, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+	border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#000011), to(#FF0F0F)) 1/5px 5px/0 stretch;
+	border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #330000), color-stop(80%, #330000), to(#000011));
+	background-image: -webkit-linear-gradient(bottom right, #000011, #330000 20%, #330000 80%, #000011);
+	background-image: -o-linear-gradient(bottom right, #000011, #330000 20%, #330000 80%, #000011);
+	background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011);
+}
+
+.danger, .deprecated {
+	background-color: #330000;
 }
 
 .deprecated {
-	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0D0D), to(#1164FF)) 1/5px 5px/0 stretch;
-	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #FF0D0D, #1164FF) 1/5px 5px/0 stretch;
-	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #FF0D0D, #1164FF) 1/5px 5px/0 stretch;
-	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0D0D), to(#1164FF)) 1/5px 5px/0 stretch;
-	border-image: linear-gradient(to top right, #1164FF, #FF0D0D, #1164FF) 1/5px 5px/0 stretch;
-	background-color: #330000;
+	border-color: #1164FF;
+	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0F0F), to(#1164FF)) 1/5px 5px/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
+	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
+	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0F0F), to(#1164FF)) 1/5px 5px/0 stretch;
+	border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
+	background-image: -webkit-gradient(linear, right bottom, left top, from(#330000), color-stop(20%, #000033), color-stop(80%, #000033), to(#330000));
+	background-image: -webkit-linear-gradient(bottom right, #330000, #000033 20%, #000033 80%, #330000);
+	background-image: -o-linear-gradient(bottom right, #330000, #000033 20%, #000033 80%, #330000);
+	background-image: linear-gradient(to top left, #330000, #000033 20%, #000033 80%, #330000);
 }
 
 ::-webkit-scrollbar {
@@ -724,7 +773,7 @@ footer p:last-child {
 		margin-left: 0;
 	}
 
-	.deprecated, .stub {
+	.cation, .danger, .deprecated, .stub {
 		color: #FFFFFF;
 	}
 

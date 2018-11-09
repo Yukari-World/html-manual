@@ -89,6 +89,7 @@
 			<li>
 				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
 				<ul id="listSQL">
+					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
 					<li><a href="sql-like.html" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
@@ -125,7 +126,10 @@
 			<section>
 				<p>左のメニューより選択してください。<br>このページのコードの表示には<a href="http://mix-mplus-ipa.osdn.jp/migu/" title="Miguフォント : M+とIPAの合成フォント" target="_blank">Migu 1M</a>フォントの導入を推奨しています。<br>また、このフォントはプログラムコーディングにおいても優秀なため、導入を推奨します。<br>各ページのコードのハイライトには<a href="https://prismjs.com/"
 					    title="Prism" target="_blank">Prism</a>が使用されています。</p>
-				<p>このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザも非対応です。また、JavaScript無効状態では殆どのサンプルが動作しません。予めご了承ください。</p>
+				<div class="cation">
+					<h2>注意事項</h2>
+					<p>このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。<br>また、JavaScript無効状態ではJavaScriptを使用したサンプルが、CSSを無効化したりオーバーライドしている場合一部のサンプルが正しく動作しません。予めご了承ください。</p>
+				</div>
 			</section>
 			<section>
 				<h2>Prismハイライトの例</h2>
@@ -245,6 +249,6 @@ html(lang='ja')
 	</div>
 	<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
 	<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
-	<script type="text/javascript" defer="defer" src="js/index.js"></script>
+	<script type="module" defer="defer" src="js/Main.js"></script>
 </body>
 </html>

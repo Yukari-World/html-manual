@@ -1,5 +1,5 @@
 /**
- * @fileOverview Worker Task
+ * @file Worker Task
  *
  * @since   1.0.0
  * @version 1.0.1
@@ -10,10 +10,16 @@
 // import { SendAjax } from './ajax-response.js';
 
 /**
+ * ランダムワードマニア
+ * @constant {string[][]}
+ */
+let randomWordList;
+
+/**
  * HTTPステータスコードの確認
  *
  * @param   {Response}       response    レスポンスデータ
- * @return  {Response|Error}             HTTPステータスコードが200番台ならレスポンスデータ、そうでなければエラー
+ * @returns {Response|Error}             HTTPステータスコードが200番台ならレスポンスデータ、そうでなければエラー
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -33,7 +39,7 @@ function checkStatus(response) {
  * JSONデータの切り出し
  *
  * @param   {Response}   response    レスポンスデータ
- * @return  {JSON}                   レスポンスに格納されているJSONデータ
+ * @returns {JSON}                   レスポンスに格納されているJSONデータ
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -47,12 +53,12 @@ function parseJSON(response) {
  *
  * @param   {string}                     sendURL 転送先URL
  * @param   {FormData}                   form    転送するForm Data
- * @return  {Promise.JSON|Promise.Error}         JSONデータもしくはエラー内容
+ * @returns {Promise.JSON|Promise.Error}         JSONデータもしくはエラー内容
  * @since   1.0.0
  * @version 1.0.0
  */
 function SendAjax(sendURL, form) {
-	return new Promise((resolve, reject) => {
+	return new Promise(function (resolve, reject) {
 		fetch(sendURL, {
 			method: 'POST',
 			body: form
@@ -71,15 +77,16 @@ function SendAjax(sendURL, form) {
 /**
  * ランダムワード取得
  *
- * @return {Promise}    終了コード
+ * @async
+ * @returns {Promise}   終了コード
  * @since   1.0.0
  * @version 1.0.1
  */
-function getrandomWord() {
-	return new Promise((resolve, reject) => {
+async function getrandomWord() {
+	return new Promise(function (resolve, reject)  {
 		let fd = new FormData();
 
-		SendAjax('json/randomWord.json', fd)
+		SendAjax('../json/randomWord.json', fd)
 			.then(function (json) {
 				// console.log(json);
 				resolve(json);
@@ -95,13 +102,18 @@ function getrandomWord() {
 /**
  * Worker Task
  */
-self.addEventListener('message', function (event) {
+self.addEventListener('message', async function (event) {
 	// 送られてきたデータを格納
 	const temp = event.data;
+	randomWordList = await getrandomWord();
 	let listCount = 0;
 
-	for (let dataTemp of temp) {
-		postMessage('<dt id="' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt><dd>' + dataTemp.summary + '</dd>');
+	switch (temp.mode) {
+	case 'createRandList':
+		for (let dataTemp of randomWordList) {
+			postMessage('<dt id="' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt><dd>' + dataTemp.summary + '</dd>');
+		}
+		break;
 	}
 });
 

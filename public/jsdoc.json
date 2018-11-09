@@ -1,0 +1,23 @@
+{
+    "docdash": {
+        "static": true,
+        "sort": false
+    },
+    "tags": {
+        "allowUnknownTags": false
+    },
+    "opts": {
+        "template": "./node_modules/docdash/",
+        "encoding": "utf8",
+        "destination": "./HTML Manual/docs/JSDoc",
+        "recurse": true,
+        "verbose": true
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    }
+}

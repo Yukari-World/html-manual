@@ -1,7 +1,7 @@
 /**
  * @fileoverview Ajaxレスポンス取得処理に使用するAjax
  *
- * @module ajax-response
+ * @module  ajax-response
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -9,8 +9,8 @@
 /**
  * HTTPステータスコードの確認
  *
- * @param  {Response}       response    レスポンスデータ
- * @return {Response|Error}             HTTPステータスコードが200番台ならレスポンスデータ、そうでなければエラー
+ * @param   {Response}          response    レスポンスデータ
+ * @returns {Response|Error}                HTTPステータスコードが200番台ならレスポンスデータ、そうでなければエラー
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -29,8 +29,8 @@ function checkStatus(response) {
 /**
  * JSONデータの切り出し
  *
- * @param  {Response}   response    レスポンスデータ
- * @return {JSON}                   レスポンスに格納されているJSONデータ
+ * @param   {Response}  response    レスポンスデータ
+ * @returns {JSON}                  レスポンスに格納されているJSONデータ
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -42,14 +42,14 @@ function parseJSON(response) {
 /**
  * Ajax転送処理
  *
- * @param       {string}                        sendURL 転送先URL
- * @param       {FormData}                      form    転送するForm Data
- * @return      {Promise.JSON|Promise.Error}            JSONデータもしくはエラー内容
+ * @param   {string}                        sendURL 転送先URL
+ * @param   {FormData}                      form    転送するForm Data
+ * @returns {Promise.JSON|Promise.Error}            JSONデータもしくはエラー内容
  * @since   1.0.0
  * @version 1.0.0
  */
 function SendAjax(sendURL, form) {
-	return new Promise((resolve, reject) => {
+	return new Promise(function (resolve, reject) {
 		fetch(sendURL, {
 			method: 'POST',
 			body: form

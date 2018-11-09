@@ -1,5 +1,5 @@
 /**
- * @fileOverview マニュアル用JavaScript
+ * @file マニュアル用JavaScript
  *
  * @since   1.0.0
  * @version 1.3.5
@@ -28,7 +28,7 @@ let bWordDecide = false;
 let sideToggle = [];
 /**
  * ランダムワードマニア
- * @const {string[][]}
+ * @constant {string[][]}
  */
 let randomWordList;
 let xorRand;
@@ -44,8 +44,8 @@ class xorShift {
 	/**
 	 * コンストラクタメソッド
 	 *
-	 * @constructor
-	 * @param {number} w Seed Number
+	 * @constructs
+	 * @param {number} [w=Math.floor(Date.now() / 1000)] Seed Number
 	 */
 	constructor(w = Math.floor(Date.now() / 1000)) {
 		let dateTemp = new Date();
@@ -85,6 +85,7 @@ class xorShift {
 		 * 乱数 W
 		 *
 		 * デフォルト初期値は現在の時間の1970/01/01 00:00:00からの秒数
+		 *
 		 * @type {number}
 		 */
 		this.w = w;
@@ -98,7 +99,7 @@ class xorShift {
 	/**
 	 * 乱数の生成
 	 *
-	 * @return {number} 乱数の結果
+	 * @returns {number} 乱数の結果
 	 */
 	randomInt32() {
 		let t = this.x ^ this.x << 11;
@@ -114,7 +115,7 @@ class xorShift {
 	/**
 	 * 浮動少数の乱数の生成
 	 *
-	 * @return {number} 乱数の結果
+	 * @returns {number} 乱数の結果
 	 */
 	randomFloat() {
 		let randNumber = this.randomInt32();
@@ -131,7 +132,7 @@ class xorShift {
  * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API MDN}より参照
  *
  * @param   {String}    type    調べる項目
- * @return  {boolean}           利用可能かのbool
+ * @returns {boolean}           利用可能かのbool
  * @since   1.3.0
  * @version 1.3.5
  */
@@ -161,12 +162,12 @@ function storageAvailable(type) {
 /**
  * ランダムワード取得
  *
- * @return  {Promise}   終了コード
+ * @returns {Promise}   終了コード
  * @since   1.2.0
  * @version 1.3.5
  */
 function getrandomWord() {
-	return new Promise((resolve, reject) => {
+	return new Promise(function (resolve, reject) {
 		let fd = new FormData();
 
 		SendAjax('json/randomWord.json', fd)
@@ -185,8 +186,8 @@ function getrandomWord() {
 /**
  * 指定時間毎に実行する
  *
- * @param   {number}    seconds 時間
- * @return  {void}
+ * @param   {number}    [seconds=5]  更新間隔(秒)
+ * @returns {void}
  * @since   1.0.0
  * @version 1.3.5
  */
@@ -203,9 +204,10 @@ function secondsInterval(seconds = 5) {
 /**
  * ランダムワードの解説を出力
  *
+ * @async
  * @interface
  * @param   {JSON}  jsonData    JSON Data
- * @return  {void}
+ * @returns {void}
  * @since   1.0.0
  * @version 1.3.5
  */
@@ -237,7 +239,7 @@ async function randomOutput(jsonData) {
 		});
 
 		// JSONデータを丸投げ
-		worker.postMessage(jsonData);
+		worker.postMessage({'mode': 'createRandList'});
 	} else {
 		for (let dataTemp of jsonData) {
 			const dt = document.createElement('dt');
@@ -258,7 +260,7 @@ async function randomOutput(jsonData) {
  * ランダムワードの出力
  *
  * @interface
- * @return  {void}
+ * @returns {void}
  * @since   1.0.0
  * @version 1.3.5
  */
@@ -317,7 +319,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 			// ローカルストレージから情報を取得
 			sideToggle[sideName] = localStorage.getItem(sideName + 'Toggle');
 
-			// フラグを元に隠すかの指定
+			// フラグを基に隠すかの指定
 			if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
 				// Null
 			} else {
@@ -342,7 +344,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 	/**
 	 * 現在の個数
-	 * @const {Element}
+	 * @constant {Element}
 	 */
 	const cntRandom = document.getElementById('countRandom');
 	if (cntRandom !== null) {
@@ -351,7 +353,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 	/**
 	 * ランダムワードの出力位置
-	 * @const {Element}
+	 * @constant {Element}
 	 */
 	const textRandom = document.getElementById('randomOutput');
 	if (textRandom !== null) {

@@ -1,27 +1,25 @@
 @charset "UTF-8"
 
 // Initialize
+// Import
+@import "_calc.scss"
 // 変数の定義(Global)
+$global-font-size: 14px
 $gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+$width-list: (xs: 576, sm: 768, md: 992, lg: 1200, lx: 1400, hd: 1920) !default
 
-// min-width
-// レスポンシブのブレークポイントの設定を行います
-// この指定はmin-screenで使用されます
-$breakpoint-up: ("xs": "only screen and (min-width: 577px)", "sm": "only screen and (min-width: 769px)", "md": "only screen and (min-width: 993px)", "lg": "only screen and (min-width: 1201px)", "lx": "only screen and (min-width: 1441px)",) !default
-
-// max-width
-// レスポンシブのブレークポイントの設定を行います
-// この指定はmax-screenで使用されます
-$breakpoint-down: ("xs": "only screen and (max-width: 576px)","sm": "only screen and (max-width: 768px)","md": "only screen and (max-width: 992px)","lg": "only screen and (max-width: 1200px)","lx": "only screen and (max-width: 1440px)",) !default
-
-// @mixinの定義
 @mixin min-screen($breakpoint: md)
-	@media #{map-get($breakpoint-up, $breakpoint)}
+	@media only screen and (min-width: #{map-get($width-list, $breakpoint) + 1}px)
 		@content
 
 @mixin max-screen($breakpoint: md)
-	@media #{map-get($breakpoint-down, $breakpoint)}
+	@media only screen and (max-width: #{map-get($width-list, $breakpoint)}px)
 		@content
+
+/// Viewport Widthの演算
+@function calc-viewport($value: 1000, $breakpoint: md)
+	@return round-decimal(($value / map-get($width-list, $breakpoint)) * 100, 3) + vw
+
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * 共通項目
@@ -33,6 +31,127 @@ $breakpoint-down: ("xs": "only screen and (max-width: 576px)","sm": "only screen
 	padding: 0
 	line-height: 1.2
 
+html
+	// rem指定用
+	font-size: $global-font-size
+
+body
+	display: flex
+	justify-content: space-between
+	align-items: flex-start
+	font-family: "メイリオ", "Meiryo", sans-serif
+	font-size: 1rem
+	color: #FFFFFF
+	background-color: #000011
+
+	@include max-screen(md)
+		display: flex
+		flex-direction: column
+		justify-content: unset
+		align-items: unset
+
+	@media print
+		color: #000000
+		background-color: unset
+
+	 > header
+		@media print
+			display: none
+
+	 > input
+		&[type="checkbox"]
+			display: none
+
+			&.panel-switch
+				&:not(:checked)
+					+ nav
+						@include max-screen(md)
+							// display: none
+							overflow: hidden
+							height: 0
+							padding: 0
+							border-width: 0
+
+	 > .content
+		display: block
+		width: calc(100% - 240px)
+		margin-left: 240px
+
+		@include max-screen(md)
+			width: 100%
+			margin-left: 0
+
+		@media print
+			width: 100%
+			margin-left: 0
+
+a
+	transition: all 0.25s ease-out
+	text-decoration: none
+	color: #9999FF
+
+	&:hover
+		color: #FFCC66
+
+h1, h2, h3, h4, h5, h6
+	font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+
+dl
+	dd
+		margin-left: 2rem
+
+ul
+	list-style: none
+
+	li
+		&:not(:first-child)
+			margin-top: 5px
+
+	ul
+		margin-left: 2rem
+
+ol
+	margin-left: 2rem
+
+	li
+		&:not(:first-child)
+			margin-top: 5px
+
+// クラス設定
+.md
+	&-hide
+		@include max-screen(md)
+			display: none
+
+	&-show
+		@include min-screen(md)
+			display: none
+
+.mintyo
+	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif
+
+.stub, .cation, .deprecated
+	margin: 10px
+	padding: 20px
+	border-width: 5px
+	border-style: solid
+
+	@media print
+		color: #FFFFFF
+
+.stub
+	border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch
+	background-color: #000033
+
+.cation
+	border-image: linear-gradient(to top right, #FFFF00, #000011, #FFFF00) 1/5px 5px/0 stretch
+	background-color: #333300
+
+.deprecated
+	border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch
+	background-color: #330000
+
+// ベンダー固有情報
 ::-webkit-scrollbar
 	width: 10px
 	height: 10px
@@ -48,77 +167,15 @@ $breakpoint-down: ("xs": "only screen and (max-width: 576px)","sm": "only screen
 		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25))
 		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3)
 
-body
-	display: flex
-	justify-content: space-between
-	align-items: flex-start
-	font-family: "メイリオ", "Meiryo", sans-serif
-	font-size: 14px
-	color: #FFFFFF
-	background-color: #000011
-
-	@include max-screen(md)
-		display: flex
-		flex-direction: column
-		justify-content: unset
-		align-items: unset
-
-	@media print
-		color: #000000
-
-	 > header
-		@media print
-			display: none
-
-.md
-	&-hide
-		@include max-screen(md)
-			display: none
-
-	&-show
-		@include min-screen(md)
-			display: none
-
-a
-	text-decoration: none
-	color: #9999FF
-
-	&:hover
-		color: #FFCC66
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6
-	font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
-
-ul
-	list-style: none
-
-	li
-		&:not(:first-child)
-			margin-top: 5px
-
-	ul
-		margin-left: 2em
-
-ol
-	margin-left: 2em
-
-	li
-		&:not(:first-child)
-			margin-top: 5px
-
+// アニメーション設定
 @keyframes flashString
 	0%
 		color: #FFFFFF
-		text-shadow: unset
+		text-shadow: 0 0 0 rgba(255, 255, 255, 0)
 
 	90%
 		color: #FFFFFF
-		text-shadow: 0 0 10px rgba(255, 255, 255, 0)
+		text-shadow: 0 0 0 rgba(255, 255, 255, 0)
 
 	95%
 		color: #FFFF66
@@ -126,7 +183,8 @@ ol
 
 	100%
 		color: #FFFFFF
-		text-shadow: 0 0 10px rgba(255, 255, 255, 0)
+		text-shadow: 0 0 0 rgba(255, 255, 255, 0)
+
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * Prism Overwrite
@@ -140,8 +198,10 @@ code, pre
 		font-family: "Migu 1M", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace
 		line-height: 1.2
 
-		-webkit-overflow-scrolling: touch
+		@include max-screen(xs)
+			max-height: 80vh
 
+		-webkit-overflow-scrolling: touch
 		@media print
 			// color: #000000
 
@@ -153,10 +213,21 @@ code, pre
 	@media print
 		display: none
 
+
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * サイドバー
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
+
+// @keyframes openList
+// 	from
+// 		display: hidden
+// 		transform: translateY(-400px)
+
+// 	to
+// 		display: block
+// 		transform: translateY(0)
+// 		height: 100%
 
 .sidebar
 	position: fixed
@@ -167,7 +238,8 @@ code, pre
 	width: 240px
 	min-width: 240px
 	height: 100vh
-	padding: 10px 0 2em
+	min-height: 100vh
+	padding: 10px 0 2rem
 	border-width: 0
 	border-style: solid
 	border-right-width: 3px
@@ -177,18 +249,101 @@ code, pre
 		position: static
 		width: 100%
 		height: auto
+		min-height: unset
 		margin-bottom: 20px
 		padding-left: 2px
+		transition: all 0.5s ease-out
 		border-bottom-width: 3px
 		border-left-width: 3px
 		border-image: linear-gradient(to bottom, #000011, #1164FF) 1/0 3px 5px/0 stretch
 
 	@media print
-		display: none;
+		display: none
+
+	 > ul
+		$menu-margin: 10px
+
+		@include max-screen(md)
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			padding: 0 5px
+			padding-bottom: 10px
+
+		 > li
+			margin-top: 15px
+
+			@include max-screen(md)
+				margin-top: 10px
+
+			@include max-screen(sm)
+				margin-top: 5px
+
+			h3
+				display: flex
+				align-items: center
+				padding-top: 3px
+				padding-left: $menu-margin
+				animation: flashString 10s linear infinite
+				font-size: 1.25rem
+				border-width: 0
+				border-style: solid
+				border-top-width: 3px
+				border-image: linear-gradient(to right, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch
+
+				@include max-screen(md)
+					padding-left: 0
+
+				a
+					display: inline-flex
+					align-items: center
+					animation: flashString 10s linear infinite
+
+			input
+				&[type="checkbox"]
+					display: none
+
+					&.panel-switch
+						&:not(:checked)
+							+ ul
+								// display: none
+								overflow: hidden
+								height: 0
+								padding: 0
+								border-width: 0
+
+			ul
+				margin-left: calc(1em + #{$menu-margin + 2px})
+				padding-right: 2px
+				transition: all 0.5s ease-out
+				// animation: openList 0.2s linear all
+				text-indent: -1em
+
+				@include max-screen(md)
+					margin-left: calc(1em + 2px)
+
+				li
+					transition: all 0.5s ease-out
+					&:before
+						padding-right: 2px
+						content: "├"
+						transition: all 0.5s ease-out
+						animation: flashString 10s linear infinite
+
+					&:last-child
+						&:before
+							padding-right: 2px
+							content: "└"
+							transition: all 0.5s ease-out
+							animation: flashString 10s linear infinite
 
 	&::-webkit-scrollbar
 		width: 5px
 		height: 5px
+
+		@include max-screen(md)
+			width: 0
+			height: 0
 
 		&-track
 			border-radius: 10px
@@ -199,69 +354,34 @@ code, pre
 			background-image: linear-gradient(to bottom right, #CCCCCC, #888888)
 			// box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3)
 
-	> ul
-		@include max-screen(md)
-			display: flex
-			flex-wrap: wrap
-			justify-content: space-between
-			padding: 0 5px
-			padding-bottom: 10px
+.nav-button
+	display: flex
+	justify-content: space-evenly
 
-		> li
-			margin-top: 15px
+	@supports (-ms-ime-align:auto) or ((-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill))
+		justify-content: space-around
 
-			@include max-screen(md)
-				margin-top: 10px
+	button
+		width: 100px
+		height: 24px
+		font-size: 0.9rem
+		color: #FFFFFF
+		border: none
+		border-radius: 5px
+		background-color: #1164FF
 
-			@include max-screen(sm)
-				margin-top: 5px
+.expand-box
+	display: flex
+	justify-content: center
+	align-items: center
+	box-sizing: border-box
+	width: 20px
+	height: 20px
+	margin: auto 5px auto 0
+	cursor: pointer
+	font-size: 0.9rem
+	border: 1px #FFFFFF solid
 
-
-			h3
-				padding-top: 3px
-				animation: flashString 10s linear infinite
-				font-size: 16px
-				border-width: 0
-				border-style: solid
-				border-top-width: 3px
-				border-image: linear-gradient(to right, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch
-
-				a
-					animation: flashString 10s linear infinite
-
-			ul
-				margin-left: 1em
-				padding-right: 2px
-				text-indent: -1em
-
-				li
-					&::before
-						content: "├"
-						animation: flashString 10s linear infinite
-
-
-					&:last-child
-						&::before
-							content: "└"
-							animation: flashString 10s linear infinite
-
-dl
-	dd
-		margin-left: 2em
-
-body
-	> .content
-		display: block
-		width: calc(100% - 240px)
-		margin-left: 240px
-
-		@include max-screen(md)
-			width: 100%
-			margin-left: 0
-
-		@media print
-			width: 100%
-			margin-left: 0
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * ヘッダー
@@ -272,21 +392,24 @@ header
 	display: flex
 	justify-content: space-between
 	align-items: center
-	margin-top: 15px
+	margin-top: 1rem
 	margin-bottom: 3px
 	border-width: 0
 	border-style: solid
 	border-bottom-width: 5px
 	border-image: $gradation-pattern 1/0 0 5px/0 stretch
 
+	@media print
+		margin-top: 0
+
 	h1
-		padding-left: 1em
-		font-size: 36px
+		padding-left: 2.5rem
+		font-size: 2.5rem
 
 		@include max-screen(sm)
 			font-size: 4.7vw
 
-	#menuBtn
+	label
 		display: none
 
 		@include max-screen(md)
@@ -296,8 +419,10 @@ header
 			width: 160px
 			height: 32px
 			margin-right: 5px
-			border-radius: 10px
-			background-color: #1164FFFF
+			margin-bottom: 5px
+			border-radius: 5px
+			background-color: #1164FF
+
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * コンテンツ
@@ -310,34 +435,53 @@ section
 	&:first-child
 		margin-top: 5px
 
+	&:not(:first-child)
+		padding-top: 5px
+		border-width: 0
+		border-style: solid
+		border-top-width: 2px
+		border-image: $gradation-pattern 1/2px 0 0/0 stretch
+
+	h1, h2, h3, h4, h5, h6, p
+		padding: 0 0.5rem
+
 	h2
-		padding: 0 10px
-		font-size: 24px
+		font-size: 1.75rem
 
 	h3
 		margin-top: 5px
-		padding: 0 10px
-		font-size: 18px
+		margin-left: 5px
+		padding-left: 5px
+		font-size: 1.25rem
+		border-left: 10px solid #1164FF
+
+		// -webkit-box-reflect: below -10px -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.6))
 
 	h4
 		margin-top: 5px
-		padding: 0 10px
-		font-size: 14px
-
-	p
-		padding: 0 10px
+		font-size: 1rem
 
 	ul
-		margin-left: 36px
+		margin-left: 2rem
 		list-style: disc
 
 		li
 			padding-right: 10px
 
 	dl
-		padding-left: 1em
+		padding-left: 0.5rem
+
+		dt
+			h1, h2, h3, h4, h5, h6
+				padding: 0
+
+			h3
+				padding-left: 5px
 
 		dd
+			p
+				padding: 0
+
 			ul
 				li
 					&:first-child
@@ -356,6 +500,7 @@ section
 	&-keter
 		color: #FF3333
 
+
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * フッター
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -371,8 +516,8 @@ footer
 	border-width: 0
 	border-style: solid
 	border-top-width: 5px
-	border-bottom-width: 15px
-	border-image: $gradation-pattern 1/5px 0 15px/0 stretch
+	border-bottom-width: 20px
+	border-image: $gradation-pattern 1/5px 0 20px/0 stretch
 
 	@include max-screen(sm)
 		flex-direction: column-reverse
@@ -382,19 +527,22 @@ footer
 			box-sizing: border-box
 			width: 100%
 
-
 		&:first-child
-			padding: 0 0 0 10px
+			a
+				padding: 0 0 0 0.5rem
+				animation: flashString 10s linear infinite
+				text-decoration: line-through
+				color: unset
 
-			@media print
-				animation: unset
-				color: #000000
+				@media print
+					animation: unset
+					color: #000000
 
 			b
 				font-weight: 900
 
 		&:last-child
-			margin-left: 2em
+			margin-left: 2rem
 			text-align: right
 			white-space: nowrap
 
@@ -404,6 +552,7 @@ footer
 
 			@include max-screen(xs)
 				white-space: normal
+
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * レスポンシブの設定

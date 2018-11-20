@@ -401,11 +401,27 @@ code, pre {
 					&.panel-switch {
 						&:not(:checked) {
 							 + ul {
+								max-height: 0;
 								// display: none;
-								overflow: hidden;
-								height: 0;
+								// overflow: hidden;
+								// height: 0;
 								padding: 0;
 								border-width: 0;
+
+								li {
+									visibility: hidden;
+									// visibility: hidden;
+									// height: 0;
+									opacity: 0;
+
+									a {
+										opacity: inherit;
+									}
+
+									&:before {
+										// content: unset;
+									}
+								}
 							}
 						}
 					}
@@ -424,7 +440,9 @@ code, pre {
 				}
 
 				li {
+					// overflow: hidden;
 					transition: all 0.5s ease-out;
+
 					&:before {
 						padding-right: 2px;
 						content: "├";

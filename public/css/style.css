@@ -315,10 +315,18 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 }
 
 .sidebar > ul > li input[type="checkbox"].panel-switch:not(:checked) + ul {
-	overflow: hidden;
-	height: 0;
+	max-height: 0;
 	padding: 0;
 	border-width: 0;
+}
+
+.sidebar > ul > li input[type="checkbox"].panel-switch:not(:checked) + ul li {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.sidebar > ul > li input[type="checkbox"].panel-switch:not(:checked) + ul li a {
+	opacity: inherit;
 }
 
 .sidebar > ul > li ul {

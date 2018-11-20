@@ -1,7 +1,21 @@
 {
     "docdash": {
         "static": true,
-        "sort": false
+        "sort": false,
+        "sectionOrder": [
+            "Classes",
+            "Modules",
+            "Externals",
+            "Events",
+            "Namespaces",
+            "Mixins",
+            "Tutorials",
+            "Interfaces"
+        ],
+        "disqus": "",
+        "search": true,
+        "collapse": false,
+        "typedefs": true
     },
     "tags": {
         "allowUnknownTags": false

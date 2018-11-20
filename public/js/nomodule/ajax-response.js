@@ -43,24 +43,41 @@ function parseJSON(response) {
  * Ajax転送処理
  *
  * @param   {string}                        sendURL 転送先URL
- * @param   {FormData}                      form    転送するForm Data
+ * @param   {FormData}                      form    転送するForm Data(無くても問題ない)
  * @returns {Promise.JSON|Promise.Error}            JSONデータもしくはエラー内容
  * @since   1.0.0
  * @version 1.0.0
  */
 function SendAjax(sendURL, form) {
 	return new Promise(function (resolve, reject) {
-		fetch(sendURL, {
-			method: 'POST',
-			body: form
-		})
-			.then(checkStatus)
-			.then(parseJSON)
-			.then(function (json) {
-				resolve(json);
+		if (self.fetch) {
+			fetch(sendURL, {
+				method: 'POST',
+				body: form
 			})
-			.catch(function (error) {
+				.then(checkStatus)
+				.then(parseJSON)
+				.then(function (json) {
+					resolve(json);
+				})
+				.catch(function (error) {
+					reject(error);
+				});
+		} else {
+			// Fetch API未対応時の処理
+			let xhr = new XMLHttpRequest();
+			xhr.open('POST', sendURL, true);
+			xhr.addEventListener('load', function () {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					resolve(xhr.response);
+				}
+			});
+
+			xhr.addEventListener('error', function (error) {
 				reject(error);
 			});
+
+			xhr.send(form);
+		}
 	});
 }

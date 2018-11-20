@@ -14,7 +14,7 @@
 			justify-content: space-evenly;
 		}
 
-		@supports (-ms-ime-align:auto) or ((-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill)) {
+		@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill)) {
 			.area {
 				justify-content: space-around;
 			}
@@ -30,83 +30,38 @@
 		}
 
 		.anim {
-			opacity: 0;
+			position: relative;
+			overflow: hidden;
 			transition: all 1s ease;
 			transform: translateY(100px);
+			opacity: 0;
 		}
 
 		.anim.show {
-			opacity: 1;
 			transform: none;
+			opacity: 1;
 		}
 
-		.anim.box-1 {
-			background-image: url(img/sander-wehkamp-779070.jpg);
-		}
-
-		.anim.box-2 {
-			background-image: url(img/andrea-cau-51160.jpg);
-		}
-
-		.anim.box-3 {
-			background-image: url(img/denys-nevozhai-154974.jpg);
-		}
-
-		.anim.box-4 {
-			background-image: url(img/astemir-almov-265122.jpg);
-		}
-
-		.anim.box-5 {
-			background-image: url(img/denys-nevozhai-100695.jpg);
-		}
-
-		.anim.box-6 {
-			background-image: url(img/ben-neale-297658.jpg);
-		}
-
-		.anim.box-7 {
-			background-image: url(img/denys-nevozhai-351730.jpg);
-		}
-
-		.anim.box-8 {
-			background-image: url(img/john-westrock-777794.jpg);
-		}
-
-		.anim.box-9 {
-			background-image: url(img/kelsey-johnsen-727.jpg);
-		}
-
-		.anim.box-10 {
-			background-image: url(img/ray-hennessy-253874.jpg);
-		}
-
-		.anim.box-11 {
-			background-image: url(img/scott-ruzzene-355988.jpg);
-		}
-
-		.anim.box-12 {
-			background-image: url(img/mark-solarski-209233.jpg);
-		}
-
-		.anim.box-13 {
-			background-image: url(img/shubhankar-sharma-51901.jpg);
-		}
-
-		.anim.box-14 {
-			background-image: url(img/tyler-van-der-hoeven-357415.jpg);
-		}
-
-		.anim.box-15 {
-			background-image: url(img/robert-lukeman-150146.jpg);
-		}
-
-		.anim.box-16 {
-			background-image: url(img/markus-spiske-357131.jpg);
+		.anim img {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			height: 100%;
+			-webkit-transform: translate(-50%, 0);
+			-ms-transform: translate(-50%, 0);
+			transform: translate(-50%, 0);
 		}
 
 		.anim p {
-			display: inline;
-			padding: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			box-sizing: border-box;
+			width: 4rem;
+			padding: 5px;
+			line-height: 1;
+			border-bottom-right-radius: 10px;
 			background-color: rgba(0, 0, 0, 0.6);
 		}
 	</style>
@@ -226,10 +181,6 @@
 		<header class="md-hide" role="banner">
 			<h1>フェードイン</h1></header>
 		<main role="main">
-			<section class="stub">
-				<h2>書きかけのページ</h2>
-				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
-			</section>
 			<section>
 				<h2>説明</h2>
 				<p>下から上へのコンテンツフェードインが要求されることが多いためその一例を記述する。</p>
@@ -242,7 +193,7 @@
 	justify-content: space-evenly;
 }
 
-@supports (-ms-ime-align:auto) or ((-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill)) {
+@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill)) {
 	.area {
 		justify-content: space-around;
 	}
@@ -254,7 +205,7 @@
 	height: 30vw;
 	max-height: 250px;
 	margin-bottom: 15px;
-	background:  #0E2EBB no-repeat top/auto 100%;
+	background: #0E2EBB no-repeat top/auto 100%;
 }
 
 .anim {
@@ -287,10 +238,10 @@
 	&lt;div class="anim box-16"&gt;要素16&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 				<p>boxナンバリングは単純に背景画像を指定するためのものであるため省略する。</p>
-				<h3>JavaScript</h3><pre class="language-javascript line-numbers"><code>window.addEventListener('DOMContentLoaded', function() {
-	window.onscroll = function () {
+				<h3>JavaScript</h3><pre class="language-javascript line-numbers"><code>window.addEventListener('DOMContentLoaded', function () {
+	window.addEventListener('scroll', function () {
 		let myFade = document.getElementsByClassName('anim');
-		for(var i = 0; i < myFade.length; i++) {
+		for (let i = 0; i < myFade.length; i++) {
 			let targetElement = myFade[i].getBoundingClientRect(); //ターゲット要素の高さ
 			let scroll = document.documentElement.scrollTop || document.body.scrollTop; //スクロール
 			let windowHeight = window.innerHeight; //ウィンドウの高さ
@@ -298,57 +249,57 @@
 				myFade[i].classList.add('show');
 			}
 		}
-	}
+	}, false);
 }, false);</code></pre>
 				<p>執筆者はjQuery撲滅派なのでjQueryを利用した記述方法はないと考えて良い。</p>
 				<h3>実行結果</h3>
 				<div class="area">
-					<div class="anim box-1">
+					<div class="anim box-1"><img class="lazyload" data-src="img/sander-wehkamp-779070.jpg" alt="">
 						<p>要素1</p>
 					</div>
-					<div class="anim box-2">
+					<div class="anim box-2"><img class="lazyload" data-src="img/andrea-cau-51160.jpg" alt="">
 						<p>要素2</p>
 					</div>
-					<div class="anim box-3">
+					<div class="anim box-3"><img class="lazyload" data-src="img/denys-nevozhai-154974.jpg" alt="">
 						<p>要素3</p>
 					</div>
-					<div class="anim box-4">
+					<div class="anim box-4"><img class="lazyload" data-src="img/astemir-almov-265122.jpg" alt="">
 						<p>要素4</p>
 					</div>
-					<div class="anim box-5">
+					<div class="anim box-5"><img class="lazyload" data-src="img/denys-nevozhai-100695.jpg" alt="">
 						<p>要素5</p>
 					</div>
-					<div class="anim box-6">
+					<div class="anim box-6"><img class="lazyload" data-src="img/ben-neale-297658.jpg" alt="">
 						<p>要素6</p>
 					</div>
-					<div class="anim box-7">
+					<div class="anim box-7"><img class="lazyload" data-src="img/denys-nevozhai-351730.jpg" alt="">
 						<p>要素7</p>
 					</div>
-					<div class="anim box-8">
+					<div class="anim box-8"><img class="lazyload" data-src="img/john-westrock-777794.jpg" alt="">
 						<p>要素8</p>
 					</div>
-					<div class="anim box-9">
+					<div class="anim box-9"><img class="lazyload" data-src="img/kelsey-johnsen-727.jpg" alt="">
 						<p>要素9</p>
 					</div>
-					<div class="anim box-10">
+					<div class="anim box-10"><img class="lazyload" data-src="img/ray-hennessy-253874.jpg" alt="">
 						<p>要素10</p>
 					</div>
-					<div class="anim box-11">
+					<div class="anim box-11"><img class="lazyload" data-src="img/scott-ruzzene-355988.jpg" alt="">
 						<p>要素11</p>
 					</div>
-					<div class="anim box-12">
+					<div class="anim box-12"><img class="lazyload" data-src="img/mark-solarski-209233.jpg" alt="">
 						<p>要素12</p>
 					</div>
-					<div class="anim box-13">
+					<div class="anim box-13"><img class="lazyload" data-src="img/shubhankar-sharma-51901.jpg" alt="">
 						<p>要素13</p>
 					</div>
-					<div class="anim box-14">
+					<div class="anim box-14"><img class="lazyload" data-src="img/tyler-van-der-hoeven-357415.jpg" alt="">
 						<p>要素14</p>
 					</div>
-					<div class="anim box-15">
+					<div class="anim box-15"><img class="lazyload" data-src="img/robert-lukeman-150146.jpg" alt="">
 						<p>要素15</p>
 					</div>
-					<div class="anim box-16">
+					<div class="anim box-16"><img class="lazyload" data-src="img/markus-spiske-357131.jpg" alt="">
 						<p>要素16</p>
 					</div>
 				</div>
@@ -372,9 +323,9 @@
 	<script type="module" defer="defer" src="js/Main.js"></script>
 	<script>
 		window.addEventListener('DOMContentLoaded', function() {
-			window.onscroll = function() {
+			window.addEventListener('scroll', function() {
 				let myFade = document.getElementsByClassName('anim');
-				for (var i = 0; i < myFade.length; i++) {
+				for (let i = 0; i < myFade.length; i++) {
 					let targetElement = myFade[i].getBoundingClientRect(); //ターゲット要素の高さ
 					let scroll = document.documentElement.scrollTop || document.body.scrollTop; //スクロール
 					let windowHeight = window.innerHeight; //ウィンドウの高さ
@@ -382,7 +333,7 @@
 						myFade[i].classList.add('show');
 					}
 				}
-			}
+			}, false);
 		}, false);
 	</script>
 </body>

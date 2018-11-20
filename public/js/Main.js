@@ -1,8 +1,9 @@
 /**
  * @file マニュアル用JavaScript
  *
+ * @module  manual
  * @since   1.0.0
- * @version 1.3.5
+ * @version 1.3.6
  */
 
 // Init
@@ -10,6 +11,12 @@
 import { SendAjax } from './ajax-response.js';
 
 // const imdWidth = 992;
+/**
+ * メニューカテゴリリスト
+ * @constant
+ * @default
+ * @type {string[]}
+ */
 const sideList = [
 	'Main',
 	'CSS',
@@ -28,7 +35,13 @@ let bWordDecide = false;
 let sideToggle = [];
 /**
  * ランダムワードマニア
- * @constant {string[][]}
+ *
+ * @constant
+ * @property {object[]}  randomWordList            項目
+ * @property {string}    randomWordList.title      タイトル
+ * @property {string}    randomWordList.original   引用元
+ * @property {string}    randomWordList.summary    概要
+ * @type     {object[]}
  */
 let randomWordList;
 let xorRand;
@@ -38,9 +51,9 @@ let xorRand;
  *
  * @type    {class}
  * @since   1.1.0
- * @version 1.3.5
+ * @version 1.3.6
  */
-class xorShift {
+class XorShift {
 	/**
 	 * コンストラクタメソッド
 	 *
@@ -59,6 +72,7 @@ class xorShift {
 		 * <li>Month * Day * max(Seconds, 5) * max(Minites, 3)</li>
 		 * </ul>
 		 *
+		 * @default max(Day ^ Month / 2, Month * Day * max(Seconds, 5) * max(Minites, 3))
 		 * @type {number}
 		 */
 		this.x = Math.max(Math.floor(dateTemp.getDay() ** (dateTemp.getMonth() / 2)), dateTemp.getMonth() * dateTemp.getDay() * Math.max(dateTemp.getSeconds(), 5) * Math.max(dateTemp.getMinutes(), 3)); // 123456789
@@ -66,8 +80,7 @@ class xorShift {
 		/**
 		 * 乱数 Y
 		 *
-		 * max(Seconds, 5) ^ floor(max(Minites, 10) / 10) + max(Seconds, 1) * max(Minites, 1) * floor(Year / 10)
-		 *
+		 * @default max(Seconds, 5) ^ floor(max(Minites, 10) / 10) + max(Seconds, 1) * max(Minites, 1) * floor(Year / 10)
 		 * @type {number}
 		 */
 		this.y = Math.max(Math.max(dateTemp.getSeconds(), 5) ** Math.floor(Math.max(dateTemp.getMinutes(), 10) / 10) + Math.max(dateTemp.getSeconds(), 1) * Math.max(dateTemp.getMinutes(), 1) * Math.floor(dateTemp.getFullYear() / 10)); // 362436069
@@ -75,8 +88,7 @@ class xorShift {
 		/**
 		 * 乱数 Z
 		 *
-		 * randomWordList.length + (配列randomWordListの2, 3, 5, 7 の文字列の文字数の和) * (配列randomWordListの11, 13, 17, 19 の文字列の文字数の和) * (配列randomWordListの23, 29 の文字列の文字数の和) * (配列randomWordListの31, 37 の文字列の文字数の和)
-		 *
+		 * @default randomWordList.length + (配列randomWordListの2, 3, 5, 7 の文字列の文字数の和) * (配列randomWordListの11, 13, 17, 19 の文字列の文字数の和) * (配列randomWordListの23, 29 の文字列の文字数の和) * (配列randomWordListの31, 37 の文字列の文字数の和)
 		 * @type {number}
 		 */
 		this.z = randomWordList.length + (randomWordList[2].summary.length + randomWordList[3].summary.length + randomWordList[5].summary.length + randomWordList[7].summary.length) * (randomWordList[11].summary.length + randomWordList[13].summary.length + randomWordList[17].summary.length + randomWordList[19].summary.length) * (randomWordList[23].summary.length + randomWordList[29].summary.length) * (randomWordList[31].summary.length + randomWordList[37].summary.length); // 521288629;
@@ -131,10 +143,10 @@ class xorShift {
  *
  * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API MDN}より参照
  *
- * @param   {String}    type    調べる項目
+ * @param   {string}    type    調べる項目
  * @returns {boolean}           利用可能かのbool
  * @since   1.3.0
- * @version 1.3.5
+ * @version 1.3.6
  */
 function storageAvailable(type) {
 	let storage = window[type];
@@ -163,21 +175,19 @@ function storageAvailable(type) {
  * ランダムワード取得
  *
  * @returns {Promise}   終了コード
+ * @requires module:ajax-response/SendAjax
  * @since   1.2.0
- * @version 1.3.5
+ * @version 1.3.6
  */
 function getrandomWord() {
 	return new Promise(function (resolve, reject) {
-		let fd = new FormData();
-
-		SendAjax('json/randomWord.json', fd)
+		SendAjax('json/randomWord.json')
 			.then(function (json) {
 				// console.log(json);
 				resolve(json);
 			})
 			.catch(function (error) {
 				console.error('request failed', error);
-				// document.getElementById('errors').appendChild(document.createTextNode(event.toString));
 				reject(error);
 			});
 	});
@@ -189,7 +199,7 @@ function getrandomWord() {
  * @param   {number}    [seconds=5]  更新間隔(秒)
  * @returns {void}
  * @since   1.0.0
- * @version 1.3.5
+ * @version 1.3.6
  */
 function secondsInterval(seconds = 5) {
 	let bdate = new Date();
@@ -205,11 +215,10 @@ function secondsInterval(seconds = 5) {
  * ランダムワードの解説を出力
  *
  * @async
- * @interface
  * @param   {JSON}  jsonData    JSON Data
  * @returns {void}
  * @since   1.0.0
- * @version 1.3.5
+ * @version 1.3.6
  */
 async function randomOutput(jsonData) {
 	// Init
@@ -226,8 +235,10 @@ async function randomOutput(jsonData) {
 
 	// Workerの使用可否の確認
 	if (window.Worker) {
-		// Workerの読み込み
-		// 相対パスで読み込む場合HTMLからの相対パスなので要注意
+		/**
+		 * Workerの読み込み
+		 * 相対パスで読み込む場合実行するHTMLからの相対パスなので要注意
+		 */
 		// const worker = new Worker('js/WorkerTask.js', { type: 'module' });
 		const worker = new Worker('js/WorkerTask.js');
 
@@ -259,10 +270,9 @@ async function randomOutput(jsonData) {
 /**
  * ランダムワードの出力
  *
- * @interface
  * @returns {void}
  * @since   1.0.0
- * @version 1.3.5
+ * @version 1.3.6
  */
 function setrandomWord() {
 	let wordNum = Math.floor(xorRand.randomFloat() * randomWordList.length);
@@ -275,8 +285,14 @@ function setrandomWord() {
  */
 document.addEventListener('DOMContentLoaded', async function () {
 	const isEnableStorage = storageAvailable('localStorage');
-	randomWordList = await getrandomWord();
-	xorRand = new xorShift();
+	await getrandomWord()
+		.then(function (json) {
+			randomWordList = json;
+		})
+		.catch(function (error) {
+			console.error(error);
+		});
+	xorRand = new XorShift();
 
 	document.getElementById('expandAll').addEventListener('click', function () {
 		for (let sideName of sideList) {
@@ -319,6 +335,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 			// ローカルストレージから情報を取得
 			sideToggle[sideName] = localStorage.getItem(sideName + 'Toggle');
 
+			// 初期フラグの設定
 			// フラグを基に隠すかの指定
 			if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
 				// Null
@@ -329,6 +346,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 			// イベントの登録
 			linkElement.addEventListener('change', function () {
+				// フラグを基に隠すかの指定
 				if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
 					sideToggle[sideName] = 'true';
 					localStorage.setItem(sideName + 'Toggle', 'true');
@@ -344,7 +362,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 	/**
 	 * 現在の個数
-	 * @constant {Element}
+	 * @constant
+	 * @type {HTMLElement}
 	 */
 	const cntRandom = document.getElementById('countRandom');
 	if (cntRandom !== null) {
@@ -353,7 +372,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 	/**
 	 * ランダムワードの出力位置
-	 * @constant {Element}
+	 * @constant
+	 * @type {HTMLElement}
 	 */
 	const textRandom = document.getElementById('randomOutput');
 	if (textRandom !== null) {

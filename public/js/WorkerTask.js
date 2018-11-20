@@ -1,6 +1,7 @@
 /**
  * @file Worker Task
  *
+ * @module  manual-worker
  * @since   1.0.0
  * @version 1.0.1
  */
@@ -11,7 +12,8 @@
 
 /**
  * ランダムワードマニア
- * @constant {string[][]}
+ * @constant
+ * @type {JSON}
  */
 let randomWordList;
 
@@ -52,25 +54,43 @@ function parseJSON(response) {
  * Ajax転送処理
  *
  * @param   {string}                     sendURL 転送先URL
- * @param   {FormData}                   form    転送するForm Data
+ * @param   {FormData}                   [form]  転送するForm Data(無くても問題ない)
  * @returns {Promise.JSON|Promise.Error}         JSONデータもしくはエラー内容
  * @since   1.0.0
  * @version 1.0.0
  */
 function SendAjax(sendURL, form) {
 	return new Promise(function (resolve, reject) {
-		fetch(sendURL, {
-			method: 'POST',
-			body: form
-		})
-			.then(checkStatus)
-			.then(parseJSON)
-			.then(function (json) {
-				resolve(json);
+		if (self.fetch) {
+			fetch(sendURL, {
+				method: 'POST',
+				body: form
 			})
-			.catch(function (error) {
+				.then(checkStatus)
+				.then(parseJSON)
+				.then(function (json) {
+					resolve(json);
+				})
+				.catch(function (error) {
+					reject(error);
+				});
+		} else {
+			// Fetch API未対応時の処理
+			// reject('fetch API is not Suooprted.');
+			let xhr = new XMLHttpRequest();
+			xhr.open('POST', sendURL, true);
+			xhr.addEventListener('load', function () {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					resolve(xhr.response);
+				}
+			});
+
+			xhr.addEventListener('error', function (error) {
 				reject(error);
 			});
+
+			xhr.send();
+		}
 	});
 }
 
@@ -84,9 +104,7 @@ function SendAjax(sendURL, form) {
  */
 async function getrandomWord() {
 	return new Promise(function (resolve, reject)  {
-		let fd = new FormData();
-
-		SendAjax('../json/randomWord.json', fd)
+		SendAjax('../json/randomWord.json')
 			.then(function (json) {
 				// console.log(json);
 				resolve(json);
@@ -103,13 +121,21 @@ async function getrandomWord() {
  * Worker Task
  */
 self.addEventListener('message', async function (event) {
+	console.log('Worker Task: Running task.');
+
 	// 送られてきたデータを格納
 	const temp = event.data;
-	randomWordList = await getrandomWord();
+	await getrandomWord()
+		.then(function (json) {
+			randomWordList = json;
+		}).catch(function (error) {
+			console.error(error);
+		});
 	let listCount = 0;
 
 	switch (temp.mode) {
 	case 'createRandList':
+		console.log('Worker Task: Create Random Word List');
 		for (let dataTemp of randomWordList) {
 			postMessage('<dt id="' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt><dd>' + dataTemp.summary + '</dd>');
 		}

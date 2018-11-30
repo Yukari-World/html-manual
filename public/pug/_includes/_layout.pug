@@ -12,6 +12,19 @@ html(lang='ja')
 		//- link(rel='preload', type='text/css', href='css/style.min.css', as='style', onload="this.onload=null;this.rel='stylesheet'")
 		//- noscript
 		//- 	link(rel='stylesheet', type='text/css', href='css/style.min.css')
+
+		//- データの先読み
+		link(rel='preload', as='style', type='text/css', href='css/prism.min.css')
+		link(rel='preload', as='style', type='text/css', href='css/style.min.css')
+		link(rel='preload', as='script', type='application/javascript', href='js/lazysizes.min.js')
+		link(rel='preload', as='script', type='application/javascript', href='js/prism.min.js')
+		link(rel='preload', as='script', type='application/javascript', href='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js')
+		//- link(rel='preload', as='fetch', type='application/json', crossorigin, href='json/randomWord.json')
+		link(rel='modulepreload', href='js/Main.js')
+		link(rel='modulepreload', href='js/ajax-response.js')
+		block preloader
+
+		//- データの本読み込み
 		link(rel='stylesheet', type='text/css', href='css/prism.min.css')
 		link(rel='stylesheet', type='text/css', href='css/style.min.css')
 		//- script(type='text/javascript').

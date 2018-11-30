@@ -9,8 +9,8 @@
 /**
  * HTTPステータスコードの確認
  *
- * @param   {Response}       response    レスポンスデータ
- * @returns {Response|Error}             HTTPステータスコードが200番台ならレスポンスデータ、そうでなければエラー
+ * @param   {Response}          response    レスポンスデータ
+ * @returns {Response|Error}                HTTPステータスコードが200番台ならレスポンスデータ、そうでなければエラー
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -29,8 +29,8 @@ function checkStatus(response) {
 /**
  * JSONデータの切り出し
  *
- * @param   {Response}   response    レスポンスデータ
- * @returns {JSON}                   レスポンスに格納されているJSONデータ
+ * @param   {Response}  response    レスポンスデータ
+ * @returns {JSON}                  レスポンスに格納されているJSONデータ
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -42,9 +42,9 @@ function parseJSON(response) {
 /**
  * Ajax転送処理
  *
- * @param   {string}                     sendURL 転送先URL
- * @param   {FormData}                   [form]  転送するForm Data(無くても問題ない)
- * @returns {Promise.JSON|Promise.Error}         JSONデータもしくはエラー内容
+ * @param   {string}                        sendURL 転送先URL
+ * @param   {FormData}                      [form]  転送するForm Data(無くても問題ない)
+ * @returns {Promise.JSON|Promise.Error}            JSONデータもしくはエラー内容
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -77,6 +77,11 @@ export function SendAjax(sendURL, form) {
 				reject(error);
 			});
 
+			xhr.addEventListener('timeout', function () {
+				reject('connection timeout');
+			});
+
+			xhr.timeout = 30000;
 			xhr.send(form);
 		}
 	});

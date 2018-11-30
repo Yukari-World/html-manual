@@ -1,7 +1,7 @@
 /**
  * @fileoverview Ajaxレスポンス取得処理に使用するAjax
  *
- * @module  ajax-response
+ * @module  nomodule/ajax-response
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -43,7 +43,7 @@ function parseJSON(response) {
  * Ajax転送処理
  *
  * @param   {string}                        sendURL 転送先URL
- * @param   {FormData}                      form    転送するForm Data(無くても問題ない)
+ * @param   {FormData}                      [form]  転送するForm Data(無くても問題ない)
  * @returns {Promise.JSON|Promise.Error}            JSONデータもしくはエラー内容
  * @since   1.0.0
  * @version 1.0.0
@@ -77,6 +77,11 @@ function SendAjax(sendURL, form) {
 				reject(error);
 			});
 
+			xhr.addEventListener('timeout', function () {
+				reject('connection timeout');
+			});
+
+			xhr.timeout = 30000;
 			xhr.send(form);
 		}
 	});

@@ -63,7 +63,7 @@ block content
 			// SQL Queryの格納
 			if ($stmt = $mysqli-&gt;prepare($query)) {
 				// バインド
-				$stmt-&gt;bind_param("is", $(int)$id, $password);
+				$stmt-&gt;bind_param("is", (int)$id, $password);
 				$stmt-&gt;execute(); // SQLの実行
 
 				// 結果の格納(列の数だけ指定)

@@ -5,6 +5,13 @@
 	<title>バインドを利用したSQLの実行 - HTML Technical Manual</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
+	<link rel="preload" as="style" type="text/css" href="css/prism.min.css">
+	<link rel="preload" as="style" type="text/css" href="css/style.min.css">
+	<link rel="preload" as="script" type="application/javascript" href="js/lazysizes.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
+	<link rel="modulepreload" href="js/Main.js">
+	<link rel="modulepreload" href="js/ajax-response.js">
 	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
@@ -165,7 +172,7 @@ if ($result = $mysqli-&gt;query($query)) {
 // SQL Queryの格納
 if ($stmt = $mysqli-&gt;prepare($query)) {
 	// バインド
-	$stmt-&gt;bind_param("is", $(int)$id, $password);
+	$stmt-&gt;bind_param("is", (int)$id, $password);
 	$stmt-&gt;execute(); // SQLの実行
 
 	// 結果の格納(列の数だけ指定)

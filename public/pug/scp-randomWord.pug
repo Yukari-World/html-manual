@@ -4,6 +4,8 @@ block title
 	title #{title} - HTML Technical Manual
 block headTitle
 	h1 #{title}
+block preloader
+	link(rel='modulepreload', href='js/WorkerTask.js')
 block append headSpace
 	style(type='text/css').
 		section dl {

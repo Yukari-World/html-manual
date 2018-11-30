@@ -86,8 +86,9 @@ body {
 							// display: none;
 							overflow: hidden;
 							height: 0;
+							margin: 0;
 							padding: 0;
-							border-width: 0;
+							border: none;
 						}
 					}
 				}
@@ -255,8 +256,10 @@ ol {
 	}
 
 	95% {
-		color: #FFFF66;
-		text-shadow: 0 0 10px #FFFF66;
+		$flash: #FFFF66;
+
+		color: $flash;
+		text-shadow: 0 0 10px $flash;
 	}
 
 	100% {
@@ -397,6 +400,7 @@ code, pre {
 			input {
 				&[type="checkbox"] {
 					display: none;
+					visibility: hidden;
 
 					&.panel-switch {
 						&:not(:checked) {
@@ -410,7 +414,6 @@ code, pre {
 
 								li {
 									visibility: hidden;
-									// visibility: hidden;
 									// height: 0;
 									opacity: 0;
 
@@ -444,16 +447,16 @@ code, pre {
 					transition: all 0.5s ease-out;
 
 					&:before {
-						padding-right: 2px;
 						content: "├";
+						padding-right: 2px;
 						transition: all 0.5s ease-out;
 						animation: flashString 10s linear infinite;
 					}
 
 					&:last-child {
 						&:before {
-							padding-right: 2px;
 							content: "└";
+							padding-right: 2px;
 							transition: all 0.5s ease-out;
 							animation: flashString 10s linear infinite;
 						}
@@ -496,6 +499,7 @@ code, pre {
 	button {
 		width: 100px;
 		height: 24px;
+		cursor: pointer;
 		font-size: 0.9rem;
 		color: #FFFFFF;
 		border: none;
@@ -541,6 +545,9 @@ header {
 		padding-left: 2.5rem;
 		font-size: 2.5rem;
 
+		@include max-screen(md) {
+			padding-left: 5vw;
+		}
 		@include max-screen(sm) {
 			font-size: 4.7vw;
 		}
@@ -555,8 +562,9 @@ header {
 			align-items: center;
 			width: 160px;
 			height: 32px;
-			margin-right: 5px;
-			margin-bottom: 5px;
+			margin: 0 5px 5px;
+			cursor: pointer;
+			font-size: 1.25rem;
 			border-radius: 5px;
 			background-color: #1164FF;
 		}
@@ -644,6 +652,12 @@ section {
 					}
 				}
 			}
+		}
+	}
+
+	p {
+		 + p {
+			padding-top: 1rem;
 		}
 	}
 }

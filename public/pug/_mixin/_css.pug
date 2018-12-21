@@ -1,5 +1,5 @@
 mixin menuSidebar(href, name)
-	li: a(href=href)= name
+	li: a(href=href, title=name)= name
 
 ul#listCSS
 	+menuSidebar('css-backgroundLayer.html', 'backgroundを重ねる')

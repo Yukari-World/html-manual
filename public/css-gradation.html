@@ -49,9 +49,9 @@
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
-		<ul>
+		<ul id="navigation">
 			<li>
-				<h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
+				<h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="category-main.html" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
 				<ul id="listMain">
 					<li><a href="index.html" title="TOP Page">TOP Page</a></li>
 					<li><a href="scp-prismHighlight.html" title="Prismハイライトの例">Prismハイライトの例</a></li>
@@ -61,36 +61,36 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnCSS" for="linkCSS">+</label><a href="" title="CSS">CSS</a></h3><input class="panel-switch" id="linkCSS" type="checkbox">
+				<h3><label class="expand-box" id="btnCSS" for="linkCSS">+</label><a href="category-css.html" title="CSS">CSS</a></h3><input class="panel-switch" id="linkCSS" type="checkbox">
 				<ul id="listCSS">
-					<li><a href="css-backgroundLayer.html">backgroundを重ねる</a></li>
-					<li><a href="css-disablebrTag.html">brタグによる改行を無効化</a></li>
-					<li><a href="css-beforeAfter.html">疑似要素 :before / :after</a></li>
-					<li><a href="css-gradation.html">グラデーション</a></li>
-					<li><a href="css-backgroundScrollLock.html">背景画像スクロールの固定</a></li>
-					<li><a href="css-fadeIn.html">フェードイン</a></li>
-					<li><a href="css-textShadow.html">文字装飾による可読性の向上</a></li>
+					<li><a href="css-backgroundLayer.html" title="backgroundを重ねる">backgroundを重ねる</a></li>
+					<li><a href="css-disablebrTag.html" title="brタグによる改行を無効化">brタグによる改行を無効化</a></li>
+					<li><a href="css-beforeAfter.html" title="疑似要素 :before / :after">疑似要素 :before / :after</a></li>
+					<li><a href="css-gradation.html" title="グラデーション">グラデーション</a></li>
+					<li><a href="css-backgroundScrollLock.html" title="背景画像スクロールの固定">背景画像スクロールの固定</a></li>
+					<li><a href="css-fadeIn.html" title="フェードイン">フェードイン</a></li>
+					<li><a href="css-textShadow.html" title="文字装飾による可読性の向上">文字装飾による可読性の向上</a></li>
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnHTML" for="linkHTML">+</label><a href="" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox">
+				<h3><label class="expand-box" id="btnHTML" for="linkHTML">+</label><a href="category-html.html" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox">
 				<ul id="listHTML">
 					<li><a href="html-input.html" title="input要素">input要素</a></li>
-					<li><a href="#" title="[WIP] ファイルダウンロード">[WIP] ファイルダウンロード</a></li>
+					<li><a href="html-fileDownload.html" title="ファイルダウンロード">ファイルダウンロード</a></li>
 					<li><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
+				<h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="category-js.html" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
 				<ul id="listJavaScript">
-					<li><a href="js-FetchAPI.html" title="[WIP] Fetch API">[WIP] Fetch API</a></li>
 					<li><a href="js-localStorage.html" title="[WIP] localStorage">[WIP] localStorage</a></li>
 					<li><a href="js-Promise.html" title="[WIP] Promise">[WIP] Promise</a></li>
-					<li><a href="js-XMLHttpRequest.html" title="[WIP] XMLHttpRequest">[WIP] XMLHttpRequest</a></li>
+					<li><a href="js-FetchAPI.html" title="[Ajax/WIP] Fetch API">[Ajax/WIP] Fetch API</a></li>
+					<li><a href="js-XMLHttpRequest.html" title="[Ajax/WIP] XMLHttpRequest">[Ajax/WIP] XMLHttpRequest</a></li>
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnLanguage" for="linkLanguage">+</label><a href="" title="Language">Language</a></h3><input class="panel-switch" id="linkLanguage" type="checkbox">
+				<h3><label class="expand-box" id="btnLanguage" for="linkLanguage">+</label><a href="category-language.html" title="Language">Language</a></h3><input class="panel-switch" id="linkLanguage" type="checkbox">
 				<ul id="listLanguage">
 					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
 					<li><a href="language-pug.html" title="Pug">Pug</a></li>
@@ -99,7 +99,7 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnNode" for="linkNode">+</label><a href="" title="Node.js">Node.js</a></h3><input class="panel-switch" id="linkNode" type="checkbox">
+				<h3><label class="expand-box" id="btnNode" for="linkNode">+</label><a href="category-node.html" title="Node.js">Node.js</a></h3><input class="panel-switch" id="linkNode" type="checkbox">
 				<ul id="listNode">
 					<li><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
 					<li><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
@@ -108,7 +108,7 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnPHP" for="linkPHP">+</label><a href="" title="PHP">PHP</a></h3><input class="panel-switch" id="linkPHP" type="checkbox">
+				<h3><label class="expand-box" id="btnPHP" for="linkPHP">+</label><a href="category-php.html" title="PHP">PHP</a></h3><input class="panel-switch" id="linkPHP" type="checkbox">
 				<ul id="listPHP">
 					<li><a href="php-pdo.html" title="PDO(PHP Data Objects)">PDO(PHP Data Objects)</a></li>
 					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
@@ -117,11 +117,13 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnSCSS" for="linkSCSS">+</label><a href="" title="SCSS">SCSS</a></h3><input class="panel-switch" id="linkSCSS" type="checkbox">
-				<ul id="listSCSS"></ul>
+				<h3><label class="expand-box" id="btnSCSS" for="linkSCSS">+</label><a href="category-scss.html" title="SCSS">SCSS</a></h3><input class="panel-switch" id="linkSCSS" type="checkbox">
+				<ul id="listSCSS">
+					<li><a href="scss-gradationList.html" title="特殊なグラデーションリスト">特殊なグラデーションリスト</a></li>
+				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
+				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
 				<ul id="listSQL">
 					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
@@ -137,11 +139,11 @@
 				</ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnWordpress" for="linkWordpress">+</label><a href="" title="Wordpress">Wordpress</a></h3><input class="panel-switch" id="linkWordpress" type="checkbox">
+				<h3><label class="expand-box" id="btnWordpress" for="linkWordpress">+</label><a href="category-wordpress.html" title="Wordpress">Wordpress</a></h3><input class="panel-switch" id="linkWordpress" type="checkbox">
 				<ul id="listWordpress"></ul>
 			</li>
 			<li>
-				<h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox">
+				<h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="category-other.html" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox">
 				<ul id="listOther">
 					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
 					<li><a href="other-runPHPForHTML.html" title="[Apache] HTMLファイルでPHPを動かす">[Apache] HTMLファイルでPHPを動かす</a></li>
@@ -169,36 +171,37 @@
 					    class="language-css"><span class="token property">background</span></code>の各プロパティのショートハンドとして補完しており、<code class="language-css"><span class="token property">background-image</span></code>に対して適応する。</p><pre class="language-css line-numbers"><code>background: linear-gradient(45deg, red, blue);</code></pre>
 				<div
 				    class="gradient2"></div>
-	<p>Mozillaに公開されている例。対角線上に赤から青となるグラデーションが生成される。</p><pre class="language-css line-numbers"><code>background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%);</code></pre>
-	<div class="gradient3"></div>
-	<p>三色グラデーションの例。カンマで繋ぐ事で複数色設定できる。更に割合を指定することで色の変わり目の位置を指定することができる。</p><pre class="language-css line-numbers"><code>background: linear-gradient(to right, #000011, #1164FF, #FFFF99);</code></pre>
-	<div class="gradient4"></div>
-	<p>本マニュアルで使用されているグラデーション。%表記が省略された場合は色の切れ目が均等な位置になるように位置が割り振られる。左側の色は背景色と同じ色のため殆ど見えない。尚、このマニュアルの背景は黒ではない。</p>
-	</section>
-	<section>
-		<h2>使用上の注意</h2>
-		<ul>
-			<li>これらのCSSはブラウザ間の互換性が低い点に注意が必要。特にIEや古いスマートフォンを利用しているユーザーからは見えない可能性もある。対処としてはこれとは別に背景画像を用意することで完全ではないものの回避できる。</li>
-			<li>グラデーションは<b>画像扱い</b>であるため、取扱の間違いには注意。<code class="language-markup">color</code>ではなく、<code class="language-markup">image</code>なので要注意。</li>
-			<li>複数利用する場合、スペックによっては表示速度に著しく影響するので注意が必要。対処法としてグラデーション背景を用意する方法がある。</li>
-			<li>画像タグ(<code class="language-markup"><span class="token punctuation">&lt;</span><span class="token tag">img</span><span class="token punctuation">&gt;</span></code>)に対して適応する場合、beforeに付与する必要がある。また、必要に応じて<code class="language-css"><span class="token property">z-index</span></code>による重なりを気にする必要がある。</li>
-			<li>複数のブラウザで実装する場合、ベンダープレフィックスを忘れずに。gulpで自動付与する方法もあるが、詳細はgulpの項目を参照。</li>
-		</ul>
-	</section>
-	<section>
-		<h2>参考リンク</h2>
-		<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient" target="_blank">Mozilla</a></p>
-	</section>
-	</main>
-	<footer role="contentinfo">
-		<p><a id="randomWord">Loading...</a></p>
-		<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
-			    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
-			    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
-	</footer>
-	</div>
-	<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
-	<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
-	<script type="module" defer="defer" src="js/Main.js"></script>
+	<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient" target="_blank">MDN Web Docs</a>に公開されている例。対角線上に赤から青となるグラデーションが生成される。</p><pre class="language-css line-numbers"><code>background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%);</code></pre>
+	<div
+	    class="gradient3"></div>
+		<p>三色グラデーションの例。カンマで繋ぐ事で複数色設定できる。更に割合を指定することで色の変わり目の位置を指定することができる。</p><pre class="language-css line-numbers"><code>background: linear-gradient(to right, #000011, #1164FF, #FFFF99);</code></pre>
+		<div class="gradient4"></div>
+		<p>本マニュアルで使用されているグラデーション。%表記が省略された場合は色の切れ目が均等な位置になるように位置が割り振られる。左側の色は背景色と同じ色のため殆ど見えない。尚、このマニュアルの背景は黒ではない。</p>
+		</section>
+		<section>
+			<h2>使用上の注意</h2>
+			<ul>
+				<li>これらのCSSはブラウザ間の互換性が低い点に注意が必要。特にIEや古いスマートフォンを利用しているユーザーからは見えない可能性もある。対処としてはこれとは別に背景画像を用意することで完全ではないものの回避できる。</li>
+				<li>グラデーションは<b>画像扱い</b>であるため、取扱の間違いには注意。backgroundやborderに指定する場合<code class="language-markup">color</code>ではなく、<code class="language-markup">image</code>に指定する。</li>
+				<li>複数利用する場合、スペックによっては表示速度に著しく影響するので注意が必要。対処法としてグラデーション背景を用意する方法がある。</li>
+				<li>画像タグ(<code class="language-markup"><span class="token punctuation">&lt;</span><span class="token tag">img</span><span class="token punctuation">&gt;</span></code>)に対して適応する場合、beforeに付与する必要がある。また、必要に応じて<code class="language-css"><span class="token property">z-index</span></code>による重なりを気にする必要がある。</li>
+				<li>複数のブラウザで実装する場合、ベンダープレフィックスを忘れずに。gulpで自動付与する方法もあるが、詳細はgulpの項目を参照。</li>
+			</ul>
+		</section>
+		<section>
+			<h2>参考リンク</h2>
+			<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient" target="_blank">MDN Web Docs</a></p>
+		</section>
+		</main>
+		<footer role="contentinfo">
+			<p><a id="randomWord">Loading...</a></p>
+			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
+				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
+				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
+		</footer>
+		</div>
+		<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
+		<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
+		<script type="module" defer="defer" src="js/Main.js"></script>
 </body>
 </html>

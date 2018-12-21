@@ -74,38 +74,83 @@ ol li:not(:first-child) {
 	font-family: "游明朝",YuMincho,"ヒラギノ明朝 ProN W3","Hiragino Mincho ProN","HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
 }
 
-.cation, .deprecated, .stub {
+.cation, .danger, .deprecated, .stub {
 	margin: 10px;
-	padding: 20px;
+	padding: 1rem;
 	border-width: 5px;
 	border-style: solid;
 }
 
+.cation h2, .danger h2, .deprecated h2, .stub h2 {
+	margin-bottom: 1rem;
+	padding: 0;
+}
+
+.cation p, .danger p, .deprecated p, .stub p {
+	padding: 0;
+}
+
 .stub {
+	border-color: #1164FF;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#000011), to(#1164FF)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#000011), to(#1164FF)) 1/5px 5px/0 stretch;
 	border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	background-color: #000033;
+	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #000033), color-stop(80%, #000033), to(#000011));
+	background-image: -webkit-linear-gradient(bottom right, #000011, #000033 20%, #000033 80%, #000011);
+	background-image: -o-linear-gradient(bottom right, #000011, #000033 20%, #000033 80%, #000011);
+	background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011);
+}
+
+.stub, .cation {
+	border-width: 5px;
 }
 
 .cation {
-	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF00), color-stop(#000011), to(#FFFF00)) 1/5px 5px/0 stretch;
-	-webkit-border-image: -webkit-linear-gradient(bottom left, #FFFF00, #000011, #FFFF00) 1/5px 5px/0 stretch;
-	-o-border-image: -o-linear-gradient(bottom left, #FFFF00, #000011, #FFFF00) 1/5px 5px/0 stretch;
-	border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF00), color-stop(#000011), to(#FFFF00)) 1/5px 5px/0 stretch;
-	border-image: linear-gradient(to top right, #FFFF00, #000011, #FFFF00) 1/5px 5px/0 stretch;
+	border-color: #FFFF33;
+	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#000011), to(#FFFF33)) 1/5px 5px/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(bottom left, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
+	-o-border-image: -o-linear-gradient(bottom left, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
+	border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#000011), to(#FFFF33)) 1/5px 5px/0 stretch;
+	border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
 	background-color: #333300;
+	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #333300), color-stop(80%, #333300), to(#000011));
+	background-image: -webkit-linear-gradient(bottom right, #000011, #333300 20%, #333300 80%, #000011);
+	background-image: -o-linear-gradient(bottom right, #000011, #333300 20%, #333300 80%, #000011);
+	background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011);
+}
+
+.danger {
+	border-color: #FF0F0F;
+	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#000011), to(#FF0F0F)) 1/5px 5px/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(bottom left, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+	-o-border-image: -o-linear-gradient(bottom left, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+	border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#000011), to(#FF0F0F)) 1/5px 5px/0 stretch;
+	border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #330000), color-stop(80%, #330000), to(#000011));
+	background-image: -webkit-linear-gradient(bottom right, #000011, #330000 20%, #330000 80%, #000011);
+	background-image: -o-linear-gradient(bottom right, #000011, #330000 20%, #330000 80%, #000011);
+	background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011);
+}
+
+.danger, .deprecated {
+	border-width: 5px;
+	background-color: #330000;
 }
 
 .deprecated {
+	border-color: #1164FF;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0F0F), to(#1164FF)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
 	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0F0F), to(#1164FF)) 1/5px 5px/0 stretch;
 	border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
-	background-color: #330000;
+	background-image: -webkit-gradient(linear, right bottom, left top, from(#330000), color-stop(20%, #000033), color-stop(80%, #000033), to(#330000));
+	background-image: -webkit-linear-gradient(bottom right, #330000, #000033 20%, #000033 80%, #330000);
+	background-image: -o-linear-gradient(bottom right, #330000, #000033 20%, #000033 80%, #330000);
+	background-image: linear-gradient(to top left, #330000, #000033 20%, #000033 80%, #330000);
 }
 
 ::-webkit-scrollbar {
@@ -127,6 +172,10 @@ ol li:not(:first-child) {
 	background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
 	-webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
 	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: transparent;
 }
 
 @-webkit-keyframes flashString {
@@ -261,11 +310,15 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 .nav-button button {
 	width: 100px;
 	height: 24px;
-	font-size: 0.9rem;
 	color: #FFFFFF;
 	border: none;
 	border-radius: 5px;
 	background-color: #1164FF;
+}
+
+.nav-button button, .expand-box {
+	cursor: pointer;
+	font-size: 0.9rem;
 }
 
 .expand-box {
@@ -278,8 +331,6 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	width: 20px;
 	height: 20px;
 	margin: auto 5px auto 0;
-	cursor: pointer;
-	font-size: 0.9rem;
 	border: 1px solid #FFFFFF;
 }
 
@@ -330,7 +381,7 @@ header label {
  */
 
 section {
-	margin-top: 10px;
+	margin-top: 1.5rem;
 }
 
 section:first-child {
@@ -350,6 +401,10 @@ section:not(:first-child) {
 
 section h1, section h2, section h3, section h4, section h5, section h6, section p {
 	padding: 0 0.5rem;
+}
+
+section h1 + dl, section h1 + ol, section h1 + p, section h1 + ul, section h2 + dl, section h2 + ol, section h2 + p, section h2 + ul, section h3 + dl, section h3 + ol, section h3 + p, section h3 + ul, section h4 + dl, section h4 + ol, section h4 + p, section h4 + ul, section h5 + dl, section h5 + ol, section h5 + p, section h5 + ul, section h6 + dl, section h6 + ol, section h6 + p, section h6 + ul {
+	margin-top: 1em;
 }
 
 section h2 {
@@ -400,6 +455,10 @@ section dl dd ul li:first-child {
 
 section dl dd ul li:last-child {
 	margin-bottom: 5px;
+}
+
+section p + p {
+	padding-top: 1rem;
 }
 
 .object-safe {
@@ -522,6 +581,10 @@ footer p:last-child {
 		height: 0;
 	}
 
+	header h1 {
+		padding-left: 5vw;
+	}
+
 	header label {
 		display: -webkit-inline-box;
 		display: -webkit-inline-flex;
@@ -537,8 +600,9 @@ footer p:last-child {
 		align-items: center;
 		width: 160px;
 		height: 32px;
-		margin-right: 5px;
-		margin-bottom: 5px;
+		margin: 0 5px 5px;
+		cursor: pointer;
+		font-size: 1.25rem;
 		border-radius: 5px;
 		background-color: #1164FF;
 	}
@@ -598,7 +662,7 @@ footer p:last-child {
 		margin-left: 0;
 	}
 
-	.cation, .deprecated, .stub {
+	.cation, .danger, .deprecated, .stub {
 		color: #FFFFFF;
 	}
 

@@ -56,7 +56,9 @@ block content
 		pre.language-css.line-numbers: code
 			| background: linear-gradient(45deg, red, blue);
 		.gradient2
-		p Mozillaに公開されている例。対角線上に赤から青となるグラデーションが生成される。
+		p
+			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient', target='_blank') MDN Web Docs
+			| に公開されている例。対角線上に赤から青となるグラデーションが生成される。
 
 		pre.language-css.line-numbers: code
 			| background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%);
@@ -75,11 +77,11 @@ block content
 			li
 				| グラデーションは
 				b 画像扱い
-				| であるため、取扱の間違いには注意。
+				| であるため、取扱の間違いには注意。backgroundやborderに指定する場合
 				code.language-markup color
 				| ではなく、
 				code.language-markup image
-				| なので要注意。
+				| に指定する。
 			li 複数利用する場合、スペックによっては表示速度に著しく影響するので注意が必要。対処法としてグラデーション背景を用意する方法がある。
 			li
 				| 画像タグ(
@@ -96,4 +98,4 @@ block content
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient', target='_blank') Mozilla
+			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient', target='_blank') MDN Web Docs

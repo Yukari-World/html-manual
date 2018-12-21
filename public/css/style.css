@@ -114,6 +114,10 @@ ol li:not(:first-child) {
 	background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011);
 }
 
+.stub, .cation {
+	border-width: 5px;
+}
+
 .cation {
 	border-color: #FFFF33;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#000011), to(#FFFF33)) 1/5px 5px/0 stretch;
@@ -142,6 +146,7 @@ ol li:not(:first-child) {
 }
 
 .danger, .deprecated {
+	border-width: 5px;
 	background-color: #330000;
 }
 
@@ -163,7 +168,7 @@ ol li:not(:first-child) {
 	height: 10px;
 }
 
-::-webkit-scrollbar-track {
+::-webkit-scrollbar, ::-webkit-scrollbar-track {
 	background-color: transparent;
 }
 
@@ -177,6 +182,10 @@ ol li:not(:first-child) {
 	background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
 	-webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
 	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: transparent;
 }
 
 @-webkit-keyframes flashString {
@@ -477,7 +486,7 @@ header label {
  */
 
 section {
-	margin-top: 10px;
+	margin-top: 1.5rem;
 }
 
 section:first-child {
@@ -497,6 +506,10 @@ section:not(:first-child) {
 
 section h1, section h2, section h3, section h4, section h5, section h6, section p {
 	padding: 0 0.5rem;
+}
+
+section h1 + dl, section h1 + ol, section h1 + p, section h1 + ul, section h2 + dl, section h2 + ol, section h2 + p, section h2 + ul, section h3 + dl, section h3 + ol, section h3 + p, section h3 + ul, section h4 + dl, section h4 + ol, section h4 + p, section h4 + ul, section h5 + dl, section h5 + ol, section h5 + p, section h5 + ul, section h6 + dl, section h6 + ol, section h6 + p, section h6 + ul {
+	margin-top: 1em;
 }
 
 section h2 {

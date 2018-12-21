@@ -69,8 +69,9 @@ body
 							// display: none
 							overflow: hidden
 							height: 0
+							margin: 0
 							padding: 0
-							border-width: 0
+							border: none
 
 	 > .content
 		display: block
@@ -130,26 +131,49 @@ ol
 .mintyo
 	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif
 
-.stub, .cation, .deprecated
+.stub, .cation, .danger, .deprecated
 	margin: 10px
-	padding: 20px
+	padding: 1rem
 	border-width: 5px
 	border-style: solid
 
 	@media print
 		color: #FFFFFF
 
+	h2
+		margin-bottom: 1rem
+		padding: 0
+
+	p
+		padding: 0
+
 .stub
+	border-width: 5px
+	border-color: #1164FF
 	border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch
 	background-color: #000033
+	background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011)
 
 .cation
-	border-image: linear-gradient(to top right, #FFFF00, #000011, #FFFF00) 1/5px 5px/0 stretch
+	border-width: 5px
+	border-color: #FFFF33
+	border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch
 	background-color: #333300
+	background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011)
+
+.danger
+	border-width: 5px
+	border-color: #FF0F0F
+	border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch
+	background-color: #330000
+	background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011)
 
 .deprecated
+	border-width: 5px
+	border-color: #1164FF
 	border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch
 	background-color: #330000
+	background-image: linear-gradient(to top left, #330000, #000033 20%, #000033 80%, #330000)
 
 // ベンダー固有情報
 ::-webkit-scrollbar
@@ -167,6 +191,9 @@ ol
 		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25))
 		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3)
 
+	&-corner
+		background-color: transparent
+
 // アニメーション設定
 @keyframes flashString
 	0%
@@ -178,8 +205,10 @@ ol
 		text-shadow: 0 0 0 rgba(255, 255, 255, 0)
 
 	95%
-		color: #FFFF66
-		text-shadow: 0 0 10px #FFFF66
+		$flash: #FFFF66
+
+		color: $flash
+		text-shadow: 0 0 10px $flash
 
 	100%
 		color: #FFFFFF
@@ -302,15 +331,28 @@ code, pre
 			input
 				&[type="checkbox"]
 					display: none
+					visibility: hidden
 
 					&.panel-switch
 						&:not(:checked)
 							+ ul
+								max-height: 0
 								// display: none
-								overflow: hidden
-								height: 0
+								// overflow: hidden
+								// height: 0
 								padding: 0
 								border-width: 0
+
+								li
+									visibility: hidden
+									// height: 0
+									opacity: 0
+
+									a
+										opacity: inherit
+
+									&:before
+										// content: unset
 
 			ul
 				margin-left: calc(1em + #{$menu-margin + 2px})
@@ -323,17 +365,19 @@ code, pre
 					margin-left: calc(1em + 2px)
 
 				li
+					// overflow: hidden
 					transition: all 0.5s ease-out
+
 					&:before
-						padding-right: 2px
 						content: "├"
+						padding-right: 2px
 						transition: all 0.5s ease-out
 						animation: flashString 10s linear infinite
 
 					&:last-child
 						&:before
+							conten: "└"
 							padding-right: 2px
-							content: "└"
 							transition: all 0.5s ease-out
 							animation: flashString 10s linear infinite
 
@@ -358,12 +402,13 @@ code, pre
 	display: flex
 	justify-content: space-evenly
 
-	@supports (-ms-ime-align:auto) or ((-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill))
+	@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill))
 		justify-content: space-around
 
 	button
 		width: 100px
 		height: 24px
+		cursor: pointer
 		font-size: 0.9rem
 		color: #FFFFFF
 		border: none
@@ -406,6 +451,9 @@ header
 		padding-left: 2.5rem
 		font-size: 2.5rem
 
+		@include max-screen(md)
+			padding-left: 5vw
+
 		@include max-screen(sm)
 			font-size: 4.7vw
 
@@ -418,11 +466,11 @@ header
 			align-items: center
 			width: 160px
 			height: 32px
-			margin-right: 5px
-			margin-bottom: 5px
+			margin: 0 5px 5px
+			cursor: pointer
+			font-size: 1.25rem
 			border-radius: 5px
 			background-color: #1164FF
-
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * コンテンツ
@@ -430,7 +478,7 @@ header
  */
 
 section
-	margin-top: 10px
+	margin-top: 1.5rem
 
 	&:first-child
 		margin-top: 5px
@@ -444,6 +492,11 @@ section
 
 	h1, h2, h3, h4, h5, h6, p
 		padding: 0 0.5rem
+
+
+	h1, h2, h3, h4, h5, h6
+		+ p, + ul, + ol, + dl
+			margin-top: 1em
 
 	h2
 		font-size: 1.75rem
@@ -490,6 +543,10 @@ section
 					&:last-child
 						margin-bottom: 5px
 
+	p
+		+ p
+			padding-top: 1rem
+
 .object
 	&-safe
 		color: #33FF33
@@ -499,7 +556,6 @@ section
 
 	&-keter
 		color: #FF3333
-
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * フッター
@@ -552,7 +608,6 @@ footer
 
 			@include max-screen(xs)
 				white-space: normal
-
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * レスポンシブの設定

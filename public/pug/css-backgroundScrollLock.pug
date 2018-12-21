@@ -24,6 +24,12 @@ block headSpace
 			background-attachment: local, fixed;
 		}
 
+		@media only screen and (max-width: 992px) {
+			.layer1, .layer2 {
+			background-position: 0 100px, top left 10vw;
+			}
+		}
+
 block headTitle
 	h1 #{title}
 block content
@@ -83,11 +89,13 @@ block content
 	section
 		h2 使用上の注意
 		ul
-			li 特には無いが、1行指定の場合、複雑化しすぎるのでソースコードの短縮を望む場合を除けば避けるべきである。Sass/SCSSを使用している場合、Node.jsにコンパイル時に短縮化してくれるpackageが存在するのでそちらを使用したほうがミスが少なくなる。
+			li 1行指定の場合、複雑化しすぎるのでソースコードの短縮を望む場合を除けば避けるべきである。Sass/SCSSを使用している場合、Node.jsにコンパイル時に短縮化してくれるpackageが存在するのでそちらを使用したほうがミスが少なくなる。
+			li モバイル端末のブラウザではこの方法では実装することができない(MDNでは利用可とはなっているが)。実装方法はあるが非常に複雑なためここでは省略する。
 
 	section
 		h2 おまけ SCSSで記述
 		p SCSSで記述する場合、以下のように記述しても同様のことを行うことができる。
+		h3 SCSS(Input)
 		pre.language-scss.line-numbers: code.
 			.header-background {
 				background: {
@@ -98,8 +106,17 @@ block content
 					attachment: local, fixed;
 				}
 			}
+		h3 CSS(Output)
+		pre.language-scss.line-numbers: code.
+			.header-background {
+				background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
+				background-repeat: repeat-x, repeat;
+				background-position: 0 100px, top left 27.7vw;
+				background-size: 100% 50%, auto;
+				background-attachment: local, fixed;
+			}
 
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/background', target='_blank') Mozilla
+			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/background', target='_blank') MDN Web Docs

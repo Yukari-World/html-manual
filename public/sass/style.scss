@@ -197,6 +197,7 @@ ol {
 }
 
 .stub {
+	border-width: 5px;
 	border-color: #1164FF;
 	border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	background-color: #000033;
@@ -204,6 +205,7 @@ ol {
 }
 
 .cation {
+	border-width: 5px;
 	border-color: #FFFF33;
 	border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
 	background-color: #333300;
@@ -211,6 +213,7 @@ ol {
 }
 
 .danger {
+	border-width: 5px;
 	border-color: #FF0F0F;
 	border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
 	background-color: #330000;
@@ -218,6 +221,7 @@ ol {
 }
 
 .deprecated {
+	border-width: 5px;
 	border-color: #1164FF;
 	border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
 	background-color: #330000;
@@ -228,6 +232,7 @@ ol {
 ::-webkit-scrollbar {
 	width: 10px;
 	height: 10px;
+	background-color: transparent;
 
 	&-track {
 		// border-radius: 10px;
@@ -240,6 +245,10 @@ ol {
 		border-radius: 10px;
 		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
 		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+	}
+
+	&-corner {
+		background-color: transparent;
 	}
 }
 
@@ -421,9 +430,9 @@ code, pre {
 										opacity: inherit;
 									}
 
-									&:before {
-										// content: unset;
-									}
+									// &:before {
+									// content: unset;
+									// }
 								}
 							}
 						}
@@ -492,7 +501,7 @@ code, pre {
 	display: flex;
 	justify-content: space-evenly;
 
-	@supports (-ms-ime-align:auto) or ((-webkit-text-size-adjust:none) and (-webkit-marquee-repetition:infinite) and (object-fit:fill)) {
+	@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill)) {
 		justify-content: space-around;
 	}
 
@@ -577,7 +586,7 @@ header {
  */
 
 section {
-	margin-top: 10px;
+	margin-top: 1.5rem;
 
 	&:first-child {
 		margin-top: 5px;
@@ -593,6 +602,12 @@ section {
 
 	h1, h2, h3, h4, h5, h6, p {
 		padding: 0 0.5rem;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		 + p,  + ul,  + ol,  + dl {
+			margin-top: 1em;
+		}
 	}
 
 	h2 {

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>特殊なグラデーションリスト - HTML Technical Manual</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#000011">
+	<link rel="preload" as="style" type="text/css" href="css/prism.min.css">
+	<link rel="preload" as="style" type="text/css" href="css/style.min.css">
+	<link rel="preload" as="script" type="application/javascript" href="js/lazysizes.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
+	<link rel="modulepreload" href="js/Main.js">
+	<link rel="modulepreload" href="js/ajax-response.js">
+	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<style type="text/css">
+		.exsample-area {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 500px;
+			height: 200px;
+			margin: 5px auto;
+			color: #000000;
+			border-radius: 10px;
+			background-color: #F5F9FA;
+		}
+
+		.list ul {
+			width: 480px;
+			height: 500px;
+			margin: 5px 120px 5px 25px;
+			list-style: none;
+		}
+
+		.list li:not(:last-child) {
+			margin-bottom: 70px;
+		}
+
+		.list li:nth-of-type(1) {
+			margin-left: 120px;
+		}
+
+		.list li:nth-of-type(2) {
+			margin-left: 60px;
+		}
+
+		.list-gradient {
+			width: 360px;
+			height: 120px;
+			-webkit-transform: skew(-20deg);
+			-ms-transform: skew(-20deg);
+			transform: skew(-20deg);
+			background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(58, 58, 58, 0.84)), to(rgba(177, 171, 171, 0.84)));
+			background-image: -webkit-linear-gradient(right top, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
+			background-image: -o-linear-gradient(right top, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
+			background-image: linear-gradient(to left bottom, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
+			background-size: 480px 500px;
+		}
+
+		.list-gradient p {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: start;
+			-webkit-justify-content: flex-start;
+			-ms-flex-pack: start;
+			justify-content: flex-start;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			-ms-flex-align: center;
+			align-items: center;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 360px;
+			height: 120px;
+			padding-left: 20px;
+			-webkit-transform: skew(20deg);
+			-ms-transform: skew(20deg);
+			transform: skew(20deg);
+			font-size: calc(1rem + 1.354vw);
+			font-weight: 600;
+		}
+
+		.num-1 .list-gradient {
+			background-position: left -120px top 0;
+		}
+
+		.num-2 .list-gradient {
+			background-position: left -60px top -190px;
+		}
+
+		.num-3 .list-gradient {
+			background-position: left 0 top -380px;
+		}
+
+		@media only screen and (max-width: 1200px) {
+			.list ul {
+				width: 40vw;
+				height: 41.667vw;
+				margin: 0.417vw 10vw 0.417vw 2.083vw;
+			}
+			.list li:not(:last-child) {
+				margin-bottom: 5.833vw;
+			}
+			.list li:nth-of-type(1) {
+				margin-left: 10vw;
+			}
+			.list li:nth-of-type(2) {
+				margin-left: 5vw;
+			}
+			.list-gradient {
+				background-size: 40vw 41.667vw;
+			}
+			.list-gradient,
+			.list-gradient p {
+				width: 30vw;
+				height: 10vw;
+			}
+			.num-1 .list-gradient {
+				background-position: left -10vw top 0;
+			}
+			.num-2 .list-gradient {
+				background-position: left -5vw top -15.833vw;
+			}
+			.num-3 .list-gradient {
+				background-position: left 0 top -31.667vw;
+			}
+		}
+
+		@media only screen and (max-width: 576px) {
+			.list ul {
+				width: 85%;
+				margin: 0.868vw 20.833vw 0.868vw 4.34vw;
+			}
+			.list li:nth-of-type(1) {
+				margin-left: 0;
+			}
+			.list li:nth-of-type(2) {
+				margin-left: 0;
+			}
+			.list-gradient {
+				width: 85vw;
+				max-width: 360px;
+				background-size: 85vw 41.667vw;
+			}
+			.list-gradient p {
+				width: 85vw;
+				max-width: 360px;
+				padding-left: 30px;
+			}
+			.num-1 .list-gradient {
+				background-position: left 0 top 0;
+			}
+			.num-2 .list-gradient {
+				background-position: left 0 top -15.833vw;
+			}
+			.num-3 .list-gradient {
+				background-position: left 0 top -31.667vw;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<header class="md-show" id="top" role="banner">
+		<h1>特殊なグラデーションリスト</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+	<nav class="sidebar" id="menu">
+		<h2>HTML Manual Menu</h2>
+		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
+		<ul id="navigation">
+			<li>
+				<h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="category-main.html" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
+				<ul id="listMain">
+					<li><a href="index.html" title="TOP Page">TOP Page</a></li>
+					<li><a href="scp-prismHighlight.html" title="Prismハイライトの例">Prismハイライトの例</a></li>
+					<li><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
+					<li><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
+					<li><a href="scp-randomWord.html" title="???">???</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnCSS" for="linkCSS">+</label><a href="category-css.html" title="CSS">CSS</a></h3><input class="panel-switch" id="linkCSS" type="checkbox">
+				<ul id="listCSS">
+					<li><a href="css-backgroundLayer.html" title="backgroundを重ねる">backgroundを重ねる</a></li>
+					<li><a href="css-disablebrTag.html" title="brタグによる改行を無効化">brタグによる改行を無効化</a></li>
+					<li><a href="css-beforeAfter.html" title="疑似要素 :before / :after">疑似要素 :before / :after</a></li>
+					<li><a href="css-gradation.html" title="グラデーション">グラデーション</a></li>
+					<li><a href="css-backgroundScrollLock.html" title="背景画像スクロールの固定">背景画像スクロールの固定</a></li>
+					<li><a href="css-fadeIn.html" title="フェードイン">フェードイン</a></li>
+					<li><a href="css-textShadow.html" title="文字装飾による可読性の向上">文字装飾による可読性の向上</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnHTML" for="linkHTML">+</label><a href="category-html.html" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox">
+				<ul id="listHTML">
+					<li><a href="html-input.html" title="input要素">input要素</a></li>
+					<li><a href="html-fileDownload.html" title="ファイルダウンロード">ファイルダウンロード</a></li>
+					<li><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="category-js.html" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
+				<ul id="listJavaScript">
+					<li><a href="js-localStorage.html" title="[WIP] localStorage">[WIP] localStorage</a></li>
+					<li><a href="js-Promise.html" title="[WIP] Promise">[WIP] Promise</a></li>
+					<li><a href="js-FetchAPI.html" title="[Ajax/WIP] Fetch API">[Ajax/WIP] Fetch API</a></li>
+					<li><a href="js-XMLHttpRequest.html" title="[Ajax/WIP] XMLHttpRequest">[Ajax/WIP] XMLHttpRequest</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnLanguage" for="linkLanguage">+</label><a href="category-language.html" title="Language">Language</a></h3><input class="panel-switch" id="linkLanguage" type="checkbox">
+				<ul id="listLanguage">
+					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
+					<li><a href="language-pug.html" title="Pug">Pug</a></li>
+					<li><a href="language-sass.html" title="Sass">Sass</a></li>
+					<li><a href="#" title="[WIP] SCSS">[WIP] SCSS</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnNode" for="linkNode">+</label><a href="category-node.html" title="Node.js">Node.js</a></h3><input class="panel-switch" id="linkNode" type="checkbox">
+				<ul id="listNode">
+					<li><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
+					<li><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
+					<li><a href="node-npm.html" title="npm コマンド">npm コマンド</a></li>
+					<li><a href="#" title="[Gulp/WIP] Gulp導入マニュアル">[Gulp/WIP] Gulp導入マニュアル</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnPHP" for="linkPHP">+</label><a href="category-php.html" title="PHP">PHP</a></h3><input class="panel-switch" id="linkPHP" type="checkbox">
+				<ul id="listPHP">
+					<li><a href="php-pdo.html" title="PDO(PHP Data Objects)">PDO(PHP Data Objects)</a></li>
+					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
+					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
+					<li><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnSCSS" for="linkSCSS">+</label><a href="category-scss.html" title="SCSS">SCSS</a></h3><input class="panel-switch" id="linkSCSS" type="checkbox">
+				<ul id="listSCSS">
+					<li><a href="scss-gradationList.html" title="特殊なグラデーションリスト">特殊なグラデーションリスト</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
+				<ul id="listSQL">
+					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
+					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
+					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
+					<li><a href="sql-like.html" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
+					<li><a href="sql-transaction.html" title="TRANSACTION(トランザクション)">TRANSACTION(トランザクション)</a></li>
+					<li><a href="sql-truncate.html" title="TRUNCATE(テーブルを空にする)">TRUNCATE(テーブルを空にする)</a></li>
+					<li><a href="sql-deleteFlag.html" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
+					<li><a href="sql-MySQLinsertWhereExists.html" title="[MySQL] INSERT WHERE EXISTS">[MySQL] INSERT WHERE EXISTS</a></li>
+					<li><a href="sql-MySQLint.html" title="[MySQL] INT(11) の意味">[MySQL] INT(11) の意味</a></li>
+					<li><a href="sql-MySQLupdateSelect.html" title="[MySQL] UPDATE SELECT">[MySQL] UPDATE SELECT</a></li>
+					<li><a href="#" title="[MySQL/WIP] UTF-8のあれこれ">[MySQL/WIP] UTF-8のあれこれ</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnWordpress" for="linkWordpress">+</label><a href="category-wordpress.html" title="Wordpress">Wordpress</a></h3><input class="panel-switch" id="linkWordpress" type="checkbox">
+				<ul id="listWordpress"></ul>
+			</li>
+			<li>
+				<h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="category-other.html" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox">
+				<ul id="listOther">
+					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
+					<li><a href="other-runPHPForHTML.html" title="[Apache] HTMLファイルでPHPを動かす">[Apache] HTMLファイルでPHPを動かす</a></li>
+					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
+					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
+					<li><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
+					<li><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div class="content">
+		<header class="md-hide" role="banner">
+			<h1>特殊なグラデーションリスト</h1></header>
+		<main role="main">
+			<section>
+				<div class="stub">
+					<h2>書きかけのページ</h2>
+					<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
+				</div>
+				<div class="cation">
+					<h2>応用技術</h2>
+					<p>ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。</p>
+				</div>
+			</section>
+			<section>
+				<h2>説明</h2>
+				<p>今回以下のHTMLデザインを作成するとする。</p>
+				<div class="list">
+					<ul>
+						<li class="num-1">
+							<div class="list-gradient">
+								<p>リスト項目1</p>
+							</div>
+						</li>
+						<li class="num-2">
+							<div class="list-gradient">
+								<p>リスト項目2</p>
+							</div>
+						</li>
+						<li class="num-3">
+							<div class="list-gradient">
+								<p>リスト項目3</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h2>通常のCSSでは難しい点</h2>
+				<dl><dt><h3>グラデーションが独立していない</h3></dt>
+					<dd>各項目毎にグラデーションが連立しており、全体でまたがっている。</dd><dt><h3>項目毎に空白が均一ではない</h3></dt>
+					<dd>最初の項目程右に離れており、最後の項目程左に近い。</dd>
+				</dl>
+				<p>特に問題なのはグラデーションであり、マージン幅も考慮した上でポジションを決めなければならず、</p>
+			</section>
+			<section>
+				<h2>コードの生成</h2>
+				<h3>pug</h3><pre class="language-pug line-numbers"><code>.list
+	ul
+		li.num-1
+		.list-gradient
+			p リスト項目1
+		li.num-2
+		.list-gradient
+			p リスト項目2
+		li.num-3
+		.list-gradient
+			p リスト項目3
+</code></pre>
+				<p>これでも良いが、リストの追加や配置の入れ替え等を効率良く行えるようにするため以下のように記述する。</p><pre class="language-pug line-numbers"><code>.list
+	-
+		var boxList = [
+			{
+				title: 'リスト項目1',
+			}, {
+				title: 'リスト項目2',
+			}, {
+				title: 'リスト項目3',
+			},
+		];
+		var i = 1;
+	ul
+		each item, index in boxList
+			li(class='num-' + i++)
+				div.list-gradient
+					p &#035;{item.title}
+</code></pre>
+				<h3>SCSS</h3>
+				<p>SCSSファイル。これをCSSに出力する。</p><pre class="language-scss line-numbers"><code>@charset "UTF-8";
+
+// Import
+@import "_calc.scss";
+
+// 変数の定義(Global)
+$global-font: 14;
+// レスポンシブブレークポイントの設定
+$width-list: (
+	xs:	576,
+	sm:	768,
+	md:	992,
+	lg:	1200,
+	lx:	1440,
+	hd: 1920,
+) !default;
+
+// @mixinの定義
+// レスポンシブの設定
+@mixin min-screen($breakpoint: md) {
+	@media only screen and (min-width: &#035;{map-get($width-list, $breakpoint) + 1}px) {
+		@content;
+	}
+}
+
+@mixin max-screen($breakpoint: md) {
+	@media only screen and (max-width: &#035;{map-get($width-list, $breakpoint)}px) {
+		@content;
+	}
+}
+
+/// Viewport Widthの演算
+/// round-decimalは_calc.scssに定義
+@function calc-viewport($value: 1000, $breakpoint: md) {
+	@return round-decimal(($value / map-get($width-list, $breakpoint)) * 100, 3) + vw;
+}
+
+.list {
+	// 各項目の初期値を指定。この値を変えることで少ない記述で編集をすることができる。
+	// pxで記述していないのは後のレスポンシブ記述を簡単にするため
+	$list-width: 360;
+	$list-height: 120;
+	$list-margin-left: 60;
+	$list-margin-bottom: 70;
+	$list-max: 3; // リストの項目数
+	$list-box-rotation: 20deg;
+	$gradient-width: $list-width + $list-margin-left * ($list-max - 1);
+	$gradient-height: ($list-height + $list-margin-bottom) * $list-max - $list-margin-bottom;
+
+	ul {
+		width: $gradient-width + px; // pxと足し合わせて文字列連結を行う
+		height: $gradient-height + px;
+		margin: 5px 120px 5px 25px;
+		list-style: none;
+
+		// mixinの内容を呼び出してレスポンシブを記述しやすく工夫する
+		@include max-screen(lg) {
+			width: calc-viewport($gradient-width, lg); // オブジェクトの大きさを元にvwを計算する。pxが無いのは計算が正しく行われないため
+			height: calc-viewport($gradient-height, lg);
+			margin: &#035;{calc-viewport(5, lg)} &#035;{calc-viewport(120, lg)} &#035;{calc-viewport(5, lg)} &#035;{calc-viewport(25, lg)};
+		}
+		@include max-screen(xs) {
+			width: 85%;
+			margin: &#035;{calc-viewport(5, xs)} &#035;{calc-viewport(120, xs)} &#035;{calc-viewport(5, xs)} &#035;{calc-viewport(25, xs)};
+		}
+	}
+
+	li {
+		&amp;:not(:last-child) {
+			margin-bottom: $list-margin-bottom + px;
+
+			@include max-screen(lg) {
+				margin-bottom: calc-viewport($list-margin-bottom, lg);
+			}
+		}
+
+		@for $i from 1 through ($list-max - 1) {
+			&amp;:nth-of-type(&#035;{$i}) {
+				margin-left: $list-margin-left * ($list-max - $i) + px;
+
+				@include max-screen(lg) {
+					margin-left: calc-viewport($list-margin-left * ($list-max - $i), lg);
+				}
+				@include max-screen(xs) {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+
+	// .list-gradient
+	&amp;-gradient {
+		width: $list-width + px;
+		height: $list-height + px;
+		transform: skew(-$list-box-rotation); // リスト項目を傾ける
+		background-image: linear-gradient(to left bottom, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
+		background-size: &#035;{$gradient-width + px} &#035;{$gradient-height + px};
+
+		@include max-screen(lg) {
+			width: calc-viewport($list-width, lg);
+			height: calc-viewport($list-height, lg);
+			background-size: &#035;{calc-viewport($gradient-width, lg)} &#035;{calc-viewport($gradient-height, lg)};
+		}
+		@include max-screen(xs) {
+			width: 85vw;
+			max-width: $list-width + px;
+			background-size: 85vw &#035;{calc-viewport($gradient-height, xs)};
+		}
+
+		p {
+			$font-size: 40;
+
+			display: flex; // フレキシブルスタイルを使用して縦位置の中央に配置する
+			justify-content: flex-start;
+			align-items: center; // 縦に対する配置
+			box-sizing: border-box; // 幅のとり方の設定
+			width: $list-width + px;
+			height: $list-height + px;
+			padding-left: 20px;
+			transform: skew($list-box-rotation); // 文字も傾いてしまうため逆方向に傾きを加えて元に戻す
+			font-size: calc(1rem + &#035;{calc-viewport($font-size - $global-font, hd)});
+			font-weight: 600;
+
+			@include max-screen(lg) {
+				width: calc-viewport($list-width, lg);
+				height: calc-viewport($list-height, lg);
+			}
+			@include max-screen(xs) {
+				width: 85vw;
+				max-width: $list-width + px;
+				padding-left: 30px;
+			}
+		}
+
+		// 画像の位置を変更
+		// 座標は項目ごとに異なるのでループで位置を変えていく
+		@for $i from 1 through $list-max {
+			.num-&#035;{$i} &amp; {
+				background-position: left &#035;{-$list-margin-left * ($list-max - $i) + px} top &#035;{-($list-height + $list-margin-bottom) * ($i - 1) + px};
+
+				@include max-screen(lg) {
+					background-position: left -&#035;{calc-viewport($list-margin-left * ($list-max - $i), lg)} top -&#035;{calc-viewport(($list-height + $list-margin-bottom) * ($i - 1), lg)};
+				}
+				@include max-screen(xs) {
+					background-position: left 0 top -&#035;{calc-viewport(($list-height + $list-margin-bottom) * ($i - 1), lg)};
+				}
+			}
+		}
+	}
+}
+</code></pre></section>
+			<section>
+				<h2>コードの出力結果</h2>
+				<h3>HTML</h3><pre class="language-html line-numbers"><code>&lt;div class="list"&gt;
+	&lt;ul&gt;
+		&lt;li class="num-1"&gt;
+			&lt;div class="list-gradient"&gt;
+				&lt;p&gt;リスト項目1&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+		&lt;li class="num-2"&gt;
+			&lt;div class="list-gradient"&gt;
+				&lt;p&gt;リスト項目2&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+		&lt;li class="num-3"&gt;
+			&lt;div class="list-gradient"&gt;
+				&lt;p&gt;リスト項目3&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+				<h3>CSS</h3>
+				<p>CSSの出力結果。メディアクエリはプラグインによりマージされている。 また、互換性はautoprefixerにより確認、付与されている。
+				</p><pre class="language-css line-numbers"><code>.list ul {
+	width: 480px;
+	height: 500px;
+	margin: 5px 120px 5px 25px;
+	list-style: none;
+}
+
+.list li:not(:last-child) {
+	margin-bottom: 70px;
+}
+
+.list li:nth-of-type(1) {
+	margin-left: 120px;
+}
+
+.list li:nth-of-type(2) {
+	margin-left: 60px;
+}
+
+.list-gradient {
+	width: 360px;
+	height: 120px;
+	-webkit-transform: skew(-20deg);
+	-ms-transform: skew(-20deg);
+	transform: skew(-20deg);
+	background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(58, 58, 58, 0.84)), to(rgba(177, 171, 171, 0.84)));
+	background-image: -webkit-linear-gradient(right top, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
+	background-image: -o-linear-gradient(right top, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
+	background-image: linear-gradient(to left bottom, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
+	background-size: 480px 500px;
+}
+
+.list-gradient p {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 360px;
+	height: 120px;
+	padding-left: 20px;
+	-webkit-transform: skew(20deg);
+	-ms-transform: skew(20deg);
+	transform: skew(20deg);
+	font-size: calc(1rem + 1.354vw);
+	font-weight: 600;
+}
+
+.num-1 .list-gradient {
+	background-position: left -120px top 0;
+}
+
+.num-2 .list-gradient {
+	background-position: left -60px top -190px;
+}
+
+.num-3 .list-gradient {
+	background-position: left 0 top -380px;
+}
+
+@media only screen and (max-width: 1200px) {
+	.list ul {
+		width: 40vw;
+		height: 41.667vw;
+		margin: 0.417vw 10vw 0.417vw 2.083vw;
+	}
+
+	.list li:not(:last-child) {
+		margin-bottom: 5.833vw;
+	}
+
+	.list li:nth-of-type(1) {
+		margin-left: 10vw;
+	}
+
+	.list li:nth-of-type(2) {
+		margin-left: 5vw;
+	}
+
+	.list-gradient {
+		background-size: 40vw 41.667vw;
+	}
+
+	.list-gradient, .list-gradient p {
+		width: 30vw;
+		height: 10vw;
+	}
+
+	.num-1 .list-gradient {
+		background-position: left -10vw top 0;
+	}
+
+	.num-2 .list-gradient {
+		background-position: left -5vw top -15.833vw;
+	}
+
+	.num-3 .list-gradient {
+		background-position: left 0 top -31.667vw;
+	}
+}
+
+@media only screen and (max-width: 576px) {
+	.list ul {
+		width: 85%;
+		margin: 0.868vw 20.833vw 0.868vw 4.34vw;
+	}
+
+	.list li:nth-of-type(1) {
+		margin-left: 0;
+	}
+
+	.list li:nth-of-type(2) {
+		margin-left: 0;
+	}
+
+	.list-gradient {
+		width: 85vw;
+		max-width: 360px;
+		background-size: 85vw 41.667vw;
+	}
+
+	.list-gradient p {
+		width: 85vw;
+		max-width: 360px;
+		padding-left: 30px;
+	}
+
+	.num-1 .list-gradient {
+		background-position: left 0 top 0;
+	}
+
+	.num-2 .list-gradient {
+		background-position: left 0 top -15.833vw;
+	}
+
+	.num-3 .list-gradient {
+		background-position: left 0 top -31.667vw;
+	}
+}</code></pre></section>
+		</main>
+		<footer role="contentinfo">
+			<p><a id="randomWord">Loading...</a></p>
+			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
+				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
+				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
+		</footer>
+	</div>
+	<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
+	<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
+	<script type="module" defer="defer" src="js/Main.js"></script>
+</body>
+</html>

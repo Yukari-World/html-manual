@@ -153,7 +153,7 @@ class XorShift {
 function storageAvailable(type) {
 	let storage = window[type];
 	try {
-		let	x = '__storage_test__';
+		let x = '__storage_test__';
 		storage.setItem(x, x);
 		storage.removeItem(x);
 		return true;
@@ -252,7 +252,7 @@ async function randomOutput(jsonData) {
 		});
 
 		// JSONデータを丸投げ
-		worker.postMessage({'mode': 'createRandList'});
+		worker.postMessage({ 'mode': 'createRandList' });
 	} else {
 		for (let dataTemp of jsonData) {
 			const dt = document.createElement('dt');
@@ -279,11 +279,11 @@ async function randomOutput(jsonData) {
 function setrandomWord() {
 	let wordNum = Math.floor(xorRand.randomFloat() * randomWordList.length);
 	document.getElementById('randomWord').setAttribute('href', 'scp-randomWord.html#wordID' + (wordNum + 1));
-	document.getElementById('randomWord').innerHTML =  randomWordList[wordNum].title;
+	document.getElementById('randomWord').innerHTML = randomWordList[wordNum].title;
 }
 
 /**
- * HTMLの読み込み終了時に行われれる処理
+ * HTMLの読み込み完了時に行われれる処理
  */
 document.addEventListener('DOMContentLoaded', async function () {
 	const isEnableStorage = storageAvailable('localStorage');

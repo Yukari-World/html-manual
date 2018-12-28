@@ -5,10 +5,11 @@
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
 
-* {
+a, abbr, address, article, aside, audio, b, blockquote, body, button, canvas, caption, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
 	margin: 0;
 	padding: 0;
 	line-height: 1.2;
+	border: 0;
 }
 
 html {
@@ -436,6 +437,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	width: 20px;
 	height: 20px;
 	margin: auto 5px auto 0;
+	line-height: 0.9rem;
 	border: 1px solid #FFFFFF;
 }
 

@@ -16,6 +16,7 @@
  * @type {JSON}
  */
 let randomWordList;
+let randomWordTags = [];
 
 /**
  * HTTPステータスコードの確認
@@ -141,8 +142,15 @@ self.addEventListener('message', async function (event) {
 	case 'createRandList':
 		console.log('Worker Task: Create Random Word List');
 		for (let dataTemp of randomWordList) {
+			for (let searchTag of dataTemp.tags) {
+				if (!randomWordTags.includes(searchTag, 0)) {
+					randomWordTags.push(searchTag);
+				}
+			}
 			postMessage('<dt id="' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt><dd>' + dataTemp.summary + '</dd>');
 		}
+		randomWordTags.sort();
+		console.log(randomWordTags);
 		break;
 	}
 });

@@ -2,6 +2,8 @@ extends ./_includes/_layout
 block title
 	- var title = 'backgroundを重ねる';
 	title #{title} - HTML Technical Manual
+block preloader
+	link(rel='preload', as='image', type='image/jpeg', href='./img/robert-lukeman-150146.jpg')
 block headSpace
 	style(type='text/css').
 		.layer1, .layer2 {
@@ -58,4 +60,4 @@ block content
 	section
 		h2 参考リンク
 		p
-			a(href='https://www.webcreatorbox.com/tech/css-blend-mode', target='_blank') CSSブレンドモードで画像を彩ろう | Webクリエイターボックス
+			a(href='https://www.webcreatorbox.com/tech/css-blend-mode', target='_blank', rel='external noopener') CSSブレンドモードで画像を彩ろう | Webクリエイターボックス

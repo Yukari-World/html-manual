@@ -34,24 +34,21 @@ block content
 		pre.language-sql.line-numbers: code.
 			INSERT INTO -- 挿入する値
 				`insert_table`(`index_1`, `index_2`, `column_1`)
-			SELECT -- アスタリスクを利用しない場合はINSERT対象のテーブルのカラム全て
-				*
-			FROM
-				( -- 挿入する値
-					SELECT
-						1 AS `index_1`,
-						1 AS `index_2`,
-						'name' AS `column_1`
-				) AS `tmp`
+			SELECT -- カラム重複回避のための記述
+				`from_table`.`index_1`,
+				`from_table`.`index_2`,
+				`from_table`.`column_1`
+			FROM -- 移行元のテーブル名
+				`from_table`
 			WHERE -- 重複確認
 				NOT EXISTS(
 					SELECT
-						`index_1`,
-						`index_2`
+						`insert_table`.`index_1`,
+						`insert_table`.`index_2`
 					FROM
 						`insert_table`
 					WHERE
-						`index_1` = 1 AND `index_2` = 1 -- 重複確認する値。参照先に此等の値が既に存在する場合、挿入されない
+						`insert_table`.`index_1` = `from_table`.`index_1` AND `insert_table`.`index_2` = `from_table`.`index_2` -- 重複確認する値。参照先に此等の値が既に存在する場合、挿入されない
 				)
 			;
 

@@ -3,16 +3,23 @@
 <head>
 	<meta charset="utf-8">
 	<title>Pug - HTML Technical Manual</title>
+	<meta name="description" content="HTMLで纏められた主にHTML技術関連のマニュアルページ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
-	<link rel="preload" as="style" type="text/css" href="css/prism.min.css">
+	<link rel="preload" as="style" type="text/css" href="css/prism.css">
 	<link rel="preload" as="style" type="text/css" href="css/style.min.css">
 	<link rel="preload" as="script" type="application/javascript" href="js/lazysizes.min.js">
-	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="js/prism.js">
 	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
+	<link rel="preload" as="fetch" type="application/json" crossorigin="crossorigin" href="json/randomWord.json">
 	<link rel="modulepreload" href="js/Main.js">
 	<link rel="modulepreload" href="js/ajax-response.js">
-	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
+	<link rel="manifest" href="manifest.json">
+	<link rel="preload" as="fetch" crossorigin="crossorigin" href="pug/_mixin/_sideList.pug">
+	<link rel="preload" as="fetch" crossorigin="crossorigin" href="pug/_includes/_layout.pug">
+	<link rel="preload" as="fetch" crossorigin="crossorigin" href="pug/css-textShadow.pug">
+	<link rel="preload" as="fetch" crossorigin="crossorigin" href="pug/index.pug">
+	<link rel="stylesheet" type="text/css" href="css/prism.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 
@@ -87,6 +94,7 @@
 					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
 					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
 					<li><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
+					<li><a href="php-CIDatabase.html" title="[CodeIgniter] データベース接続">[CodeIgniter] データベース接続</a></li>
 				</ul>
 			</li>
 			<li>
@@ -98,6 +106,7 @@
 			<li>
 				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
 				<ul id="listSQL">
+					<li><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
 					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
@@ -157,7 +166,7 @@ html(lang='ja')
 		script(type='application/javascript', src='js/prism.js')
 </code></pre>
 				<h4>HTML</h4>
-				<p>出力結果。実際の出力結果は全く整形されていないので必要に応じて<a href="https://github.com/beautify-web/js-beautify" target="_blank">JS-Beautify</a>等で整形する必要がある。尚、Pugの変換オプションに自動整形するオプションがあるが、現在は非推奨なので注意。</p><pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+				<p>出力結果。実際の出力結果は全く整形されていないので必要に応じて<a href="https://github.com/beautify-web/js-beautify" target="_blank" rel="external noopener">JS-Beautify</a>等で整形する必要がある。尚、Pugの変換オプションに自動整形するオプションがあるが、現在は非推奨なので注意。</p><pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="ja"&gt;
 &lt;head&gt;
 	&lt;meta charset="utf-8"&gt;
@@ -188,7 +197,7 @@ input(type='text' name='school' placeholder='学校名')		//- ←一応OK</code>
 				<p><code class="language-markup"><span class="token punctuation">&lt;</span><span class="token tag">p</span><span class="token punctuation">&gt;</span></code>タグの様に内容が長くなる場合や同一タグの中に文章とHTMLタグが混在する場合、文章部分は|で始める。</p>
 				<h4>Pug</h4><pre class="language-pug line-numbers"><code>p
 	| 参照元は
-	a(href='#', target='_blank') こちら</code></pre>
+	a(href='#', target='_blank', rel='external noopener') こちら</code></pre>
 				<h4>HTML</h4><pre class="language-html line-numbers"><code>&lt;p&gt;参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;&lt;/p&gt;</code></pre>
 				<p>尚、どうしても一行で済ましたいならば以下のように記述する。</p>
 				<h4>Pug</h4><pre class="language-pug line-numbers"><code>p 参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;
@@ -266,12 +275,7 @@ ul
 				<h3>extends 継承</h3>
 				<h4>Pug</h4>
 				<p>親ファイル。<code class="language-pug"><span class="token keyword">block</span></code>を追加することで継承先にて要素を追加、もしくは置き換えることができる。要素に何も追加しない場合、出力時も何も出力されない。</p><pre class="line-numbers" data-src="pug/_includes/_layout.pug" data-download-link data-line="5, 11, 14, 22, 25, 30"></pre>
-				<p>子ファイル。<code class="language-pug"><span class="token keyword">extends</span></code>で継承元のテンプレートファイルを指定する。ファイル先頭コメントを除いて必ず1行目に指定しなければならない(1行目以外指定した場合エラーとなる)。<br><code class="language-pug"><span class="token keyword">block</span></code>で継承元のブロック名を指定することでブロックの内容を置き換えることができる。<br>
-					<code
-					    class="language-pug"><span class="token keyword">block append</span></code>もしくは<code class="language-pug"><span class="token keyword">append</span></code>でブロック要素を指定した場合、継承元の内容を保持しつつ要素を追加することができる。<code class="language-pug"><span class="token keyword">block</span></code>を指定していない箇所がある場合、指定されていない内容は継承元の内容が出力される。</p>
-				<pre
-				    class="line-numbers" data-src="pug/css-textShadow.pug" data-download-link data-line="1, 2, 5, 27, 29"></pre>
-			</section>
+				<p>子ファイル。<code class="language-pug"><span class="token keyword">extends</span></code>で継承元のテンプレートファイルを指定する。ファイル先頭コメントを除いて必ず1行目に指定しなければならない(1行目以外指定した場合エラーとなる)。<br><code class="language-pug"><span class="token keyword">block</span></code>で継承元のブロック名を指定することでブロックの内容を置き換えることができる。<br><code class="language-pug"><span class="token keyword">block append</span></code>もしくは<code class="language-pug"><span class="token keyword">append</span></code>でブロック要素を指定した場合、継承元の内容を保持しつつ要素を追加することができる。<code class="language-pug"><span class="token keyword">block</span></code>を指定していない箇所がある場合、指定されていない内容は継承元の内容が出力される。</p><pre class="line-numbers" data-src="pug/css-textShadow.pug" data-download-link data-line="1, 2, 5, 27, 29"></pre></section>
 			<section>
 				<h2>変換方法</h2>
 				<p>Pugはテンプレートエンジンであるため、そのままではHTMLとして認識されない。そのため変換する必要がある。これはその一例である。<br>尚、此等を利用するにあたって予めNode.jsのインストールが必要となる。インストールしていない場合は別途マニュアルを参照してインストールを行うこと。<br>また、内容に応じてプロジェクトパッケージを必要とするためそちらも予め作成しておくように。</p>
@@ -311,10 +315,7 @@ gulp.task('pug', function {
 			<section>
 				<h2>使用上の注意</h2>
 				<ul>
-					<li>&amp;、&gt;、&lt;といった記号は、文字列として使用できるが推奨されていない。また、&lt;&gt;で囲むとHTMLタグであると認識される。それぞれ<code class="language-html"><span class="token tag">&amp;amp;</span></code>、<code class="language-html"><span class="token tag">&amp;gt;</span></code>、<code class="language-html"><span class="token tag">&amp;lt;</span></code>といった特殊文字を使用することが推奨さている。特殊文字については以下のリンクを参照。<br>
-						<a
-						    href="http://www.htmq.com/text/" target="_blank">特殊文字リファレンス - HTMLクイックリファレンス</a>
-					</li>
+					<li>&amp;、&gt;、&lt;といった記号は、文字列として使用できるが推奨されていない。また、&lt;&gt;で囲むとHTMLタグであると認識される。それぞれ<code class="language-html"><span class="token tag">&amp;amp;</span></code>、<code class="language-html"><span class="token tag">&amp;gt;</span></code>、<code class="language-html"><span class="token tag">&amp;lt;</span></code>といった特殊文字を使用することが推奨さている。特殊文字については以下のリンクを参照。<br><a href="http://www.htmq.com/text/" target="_blank" rel="external noopener">特殊文字リファレンス - HTMLクイックリファレンス</a></li>
 				</ul>
 			</section>
 			<section>
@@ -323,13 +324,11 @@ gulp.task('pug', function {
 		</main>
 		<footer role="contentinfo">
 			<p><a id="randomWord">Loading...</a></p>
-			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
-				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
-				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
+			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank" rel="external noopener">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank" rel="external noopener">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/" title="Visual Studio Code - Code Editing. Redefined" target="_blank" rel="external noopener">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank" rel="external noopener">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/" title="Pug: Getting Started" target="_blank" rel="external noopener">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank" rel="external noopener">Sass(SCSS)</a><br>Script Load Time:&nbsp;<span id="LoadTime">Unknown ms</span></p>
 		</footer>
 	</div>
 	<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
-	<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
+	<script type="text/javascript" defer="defer" src="js/prism.js"></script>
 	<script type="module" defer="defer" src="js/Main.js"></script>
 </body>
 </html>

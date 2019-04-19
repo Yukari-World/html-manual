@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>TRANSACTION(トランザクション) - HTML Technical Manual</title>
+	<title>[CodeIgniter] データベース接続 - HTML Technical Manual</title>
 	<meta name="description" content="HTMLで纏められた主にHTML技術関連のマニュアルページ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
@@ -21,7 +21,7 @@
 
 <body>
 	<header class="md-show" id="top" role="banner">
-		<h1>TRANSACTION(トランザクション)</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+		<h1>[CodeIgniter] データベース接続</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
@@ -135,38 +135,57 @@
 	</nav>
 	<div class="content">
 		<header class="md-hide" role="banner">
-			<h1>TRANSACTION(トランザクション)</h1></header>
+			<h1>[CodeIgniter] データベース接続</h1></header>
 		<main role="main">
+			<blockquote class="stub">
+				<h2>書きかけのページ</h2>
+				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
+			</blockquote>
 			<section>
 				<h2>説明</h2>
-				<p><code class="language-sql"><span class="token keyword keyword-INSERT">INSERT</span></code>,&nbsp;<code class="language-sql"><span class="token keyword keyword-UPDATE">UPDATE</span></code>,&nbsp;<code class="language-sql"><span class="token keyword keyword-DELETE">DELETE</span></code>といったSQLコマンドはデータベースの変動を伴うため、正確に記述しなければならない。しかし、テスト環境を構築した上で、データを崩さずに確認したい場合がある。そのときに使えるコマンドである。<br>また、更新などで複数のデータテーブルの内容を更新を行う時、更新処理を行う途中でエラー等で処理を中断する際に発生するデータテーブルの一部は更新したが一部は更新しなかったことで起こるデータの不整合を防ぐ事にも使用できる。</p>
+				<p></p>
 			</section>
 			<section>
 				<h2>使用方法と解説</h2>
-				<h3>COMMIT</h3>
-				<p><code class="language-sql"><span class="token keyword keyword-COMMIT">COMMIT</span></code>とは処理を確定させるために使う。使用方法は至って単純である。</p><pre class="language-sql line-numbers"><code>START TRANSACTION;
--- ~~~ SQL CODE ~~~
-COMMIT;</code></pre>
-				<p>トランザクションを挟むことで複数の処理で一つの処理として取り扱われる。</p>
-				<h3>ROLLBACK</h3>
-				<p><code class="language-sql"><span class="token keyword keyword-ROLLBACK">ROLLBACK</span></code>とは、データベースを更新前のデータに戻す時に使用される。こちらも使用方法は至って単純である。</p><pre class="language-sql line-numbers"><code>START TRANSACTION;
--- ~~~ SQL CODE ~~~
-ROLLBACK;</code></pre>
-				<p>尚、トランザクションを省略した時の通常動作は<code class="language-sql"><span class="token keyword keyword-COMMIT">COMMIT</span></code>で動作する。</p>
-			</section>
+				<h3>データベースに接続前の準備</h3>
+				<p>データベースに接続にあたってまずコンフィグにデータベース接続情報を入力する必要がある。<br>CodeIgniter\config\database.phpにある配列にデータベース接続情報を入力する。<br>共同作業等でデータベースの接続情報が各個人で異なる場合はCodeIgniter\configにdevelopmentフォルダを作成し、そこにdatabase.phpを複製し設置する。</p><pre class="language-php line-numbers"><code>$db['default'] = array(
+	'dsn'	=> '',
+	# xamppやローカルサーバーで利用する場合はこのままで問題ない
+	'hostname' => 'localhost',
+	# xamppで利用する場合rootと記述。本番環境の場合可能な限りrootは避けること
+	'username' => '',
+	# xamppで利用する場合は空白のままで問題ない
+	'password' => '',
+	# データベース名。各自予め作成すること
+	'database' => '',
+	# 利用するデータベース接続方法。PHPの設定を確認すること。xamppで利用する場合はこのままで問題ない
+	# サポートされているドライバー: cubrid, ibase, mssql, mysql, mysqli, oci8, odbc, pdo, postgre, sqlite, sqlite3, sqlsrv
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	# データベースエラーを表示するかどうか。初期値にあるこの値は本番でなければ表示するという意味である
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	# SQLクエリを保存するかどうか
+	'cache_on' => FALSE,
+	# SQLクエリの保存先
+	'cachedir' => '',
+	# SQLクエリの文字エンコード
+	'char_set' => 'utf8',
+	# データベース照合文字エンコード。作成したデータベースに応じて変更すること
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+</code></pre></section>
 			<section>
 				<h2>使用上の注意</h2>
 				<ul>
-					<li>ロールバックされるまでSQL実行結果は保持される。<code class="language-sql"><span class="token keyword keyword-INSERT">INSERT</span></code>や<code class="language-sql"><span class="token keyword keyword-UPDATE">UPDATE</span></code>、<code class="language-sql"><span class="token keyword keyword-DELETE">DELETE</span></code>を行った後に<code class="language-sql"><span class="token keyword keyword-SELECT">SELECT</span></code>文を実行することで反映されたデータテーブルを確認できる。</li>
-					<li>ロールバックされるからと言って間違っても本番環境で使用しないように注意。<code class="language-sql"><span class="token keyword keyword-START">START</span><span class="token keyword space">&nbsp;</span><span class="token keyword keyword-TRANSACTION">TRANSACTION;</span></code>を入力することを忘れた場合、効果がないためである。</li>
-					<li><code class="language-sql"><span class="token keyword keyword-AUTO_INCREMENT">AUTO_INCREMENT</span></code>はSQLの結果がロールバックされる場合でも通常通りカウントされ、元に戻ることはない。このためID番号にて不揃いが発生する可能性がある。</li>
-					<li>一部のSQLコマンドはトランザクションの影響を受けない。これは実行後自動的に<code class="language-sql"><span class="token keyword keyword-COMMIT">COMMIT</span></code>動作が実行されるためである。</li>
-					<li>PHPでSQLトランザクションを行う場合、PHP側にその処理に該当する関数が存在するのでそちらを使用すると良い。</li>
+					<li></li>
 				</ul>
-			</section>
-			<section>
-				<h2>参考リンク</h2>
-				<p><a href="https://dev.mysql.com/doc/refman/5.6/ja/commit.html" target="_blank" rel="external noopener">MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.3.1 START TRANSACTION、COMMIT、および ROLLBACK 構文</a></p>
 			</section>
 		</main>
 		<footer role="contentinfo">

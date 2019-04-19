@@ -2,6 +2,8 @@ extends ./_includes/_layout
 block title
 	- var title = '背景画像スクロールの固定';
 	title #{title} - HTML Technical Manual
+block preloader
+	link(rel='preload', as='image', type='image/jpeg', href='./img/nicholas-loo-372788.jpg')
 block headSpace
 	style(type='text/css').
 		.layer1, .layer2 {
@@ -119,4 +121,4 @@ block content
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/background', target='_blank') MDN Web Docs
+			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/background', target='_blank', rel='external noopener') MDN Web Docs

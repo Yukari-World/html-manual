@@ -3,16 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>Browsersync導入マニュアル - HTML Technical Manual</title>
+	<meta name="description" content="HTMLで纏められた主にHTML技術関連のマニュアルページ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
-	<link rel="preload" as="style" type="text/css" href="css/prism.min.css">
+	<link rel="preload" as="style" type="text/css" href="css/prism.css">
 	<link rel="preload" as="style" type="text/css" href="css/style.min.css">
 	<link rel="preload" as="script" type="application/javascript" href="js/lazysizes.min.js">
-	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="js/prism.js">
 	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
+	<link rel="preload" as="fetch" type="application/json" crossorigin="crossorigin" href="json/randomWord.json">
 	<link rel="modulepreload" href="js/Main.js">
 	<link rel="modulepreload" href="js/ajax-response.js">
-	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" type="text/css" href="css/prism.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 
@@ -87,6 +90,7 @@
 					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
 					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
 					<li><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
+					<li><a href="php-CIDatabase.html" title="[CodeIgniter] データベース接続">[CodeIgniter] データベース接続</a></li>
 				</ul>
 			</li>
 			<li>
@@ -98,6 +102,7 @@
 			<li>
 				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
 				<ul id="listSQL">
+					<li><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
 					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
@@ -140,12 +145,12 @@
 				<h2>導入手順</h2>
 				<h3>グローバルインストール</h3>
 				<ol>
-					<li><a href="https://nodejs.org/ja/" title="Node.js" target="_blank">Node.js</a>をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。</li>
+					<li><a href="https://nodejs.org/ja/" title="Node.js" target="_blank" rel="external noopener">Node.js</a>をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。</li>
 					<li>コマンドプロンプトを起動し、<pre class="language-batch line-numbers"><code>npm install -g browser-sync</code></pre>と入力する。これでグローバル環境にBrowsersyncがインストールされる。</li>
 				</ol>
 				<h3>ローカルインストール</h3>
 				<ol>
-					<li><a href="https://nodejs.org/ja/" title="Node.js" target="_blank">Node.js</a>をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。</li>
+					<li><a href="https://nodejs.org/ja/" title="Node.js" target="_blank" rel="external noopener">Node.js</a>をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。</li>
 					<li>コマンドプロンプトを起動し、プロジェクトフォルダに移動する。対象パスにpackage.jsonが存在しない場合<pre class="language-batch line-numbers"><code>npm init</code></pre>と入力し、パッケージの作成を行う。作成手順は省略する。</li>
 					<li>パッケージを作成した、もしくは存在する場合は<pre class="language-batch line-numbers"><code>npm install browser-sync --save-dev</code></pre>と入力する。これでローカルのプロジェクト環境にBrowsersyncがインストールされる。</li>
 				</ol>
@@ -154,14 +159,11 @@
 				<h2>使用方法</h2>
 				<h3>xamppに対して使用する</h3>
 				<ol>
-					<li>コマンドプロンプトを起動し、<pre class="language-batch line-numbers"><code>browser-sync start --proxy localhost:80 --files "*.html, *.css, *.js"</code></pre>と入力する。<code class="language-batch"><span class="token parameter attr-name">--files</span></code>の引数を変更することでファイル更新時の再読み込み対象を指定する事が出来る。<br>ローカルインストールの場合、
-						パッケージを作成したディレクトリに移動し<pre class="language-batch line-numbers"><code>npx browser-sync start --proxy localhost:80 --files "*.html, *.css, *.js"</code></pre>と入力する。</li>
+					<li>コマンドプロンプトを起動し、<pre class="language-batch line-numbers"><code>browser-sync start --proxy localhost:80 --files "*.html, *.css, *.js"</code></pre>と入力する。<code class="language-batch"><span class="token parameter attr-name">--files</span></code>の引数を変更することでファイル更新時の再読み込み対象を指定する事が出来る。<br>ローカルインストールの場合、 パッケージを作成したディレクトリに移動し<pre class="language-batch line-numbers"><code>npx browser-sync start --proxy localhost:80 --files "*.html, *.css, *.js"</code></pre>と入力する。</li>
 				</ol>
 				<h3>サーバーとして起動する</h3>
 				<ol>
-					<li>コマンドプロンプトを起動し、<pre class="language-batch line-numbers"><code>browser-sync start --server --files "css/*.css"</code></pre>と入力する。コマンドを起動した地点をルートパスとして起動する。但し、Browsersync単体ではPHP等の動的ページには対応できない。<br>ローカルインストールの場合、 パッケージを作成したディレクトリに移動し<pre class="language-batch line-numbers"><code>npx browser-sync start --server --files "css/*.css"</code></pre>と入力する。尚、
-						<code
-						    class="language-batch"><span class="token keyword keyword-npx">npx</span></code>コマンド自体最近登場したnpm関連のコマンドではあるが、現在Node.jsを新しくインストールした場合は付属するので特に問題はないと思われる。</li>
+					<li>コマンドプロンプトを起動し、<pre class="language-batch line-numbers"><code>browser-sync start --server --files "css/*.css"</code></pre>と入力する。コマンドを起動した地点をルートパスとして起動する。但し、Browsersync単体ではPHP等の動的ページには対応できない。<br>ローカルインストールの場合、 パッケージを作成したディレクトリに移動し<pre class="language-batch line-numbers"><code>npx browser-sync start --server --files "css/*.css"</code></pre>と入力する。尚、<code class="language-batch"><span class="token keyword keyword-npx">npx</span></code>コマンド自体最近登場したnpm関連のコマンドではあるが、現在Node.jsを新しくインストールした場合は付属するので特に問題はないと思われる。</li>
 				</ol>
 				<h3>Browsersync UIにアクセスする</h3>
 				<ol>
@@ -183,18 +185,16 @@
 			</section>
 			<section>
 				<h2>参考リンク</h2>
-				<p><a href="https://browsersync.io/" target="_blank">Browsersync - Time-saving synchronised browser testing</a></p>
+				<p><a href="https://browsersync.io/" target="_blank" rel="external noopener">Browsersync - Time-saving synchronised browser testing</a></p>
 			</section>
 		</main>
 		<footer role="contentinfo">
 			<p><a id="randomWord">Loading...</a></p>
-			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
-				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
-				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
+			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank" rel="external noopener">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank" rel="external noopener">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/" title="Visual Studio Code - Code Editing. Redefined" target="_blank" rel="external noopener">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank" rel="external noopener">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/" title="Pug: Getting Started" target="_blank" rel="external noopener">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank" rel="external noopener">Sass(SCSS)</a><br>Script Load Time:&nbsp;<span id="LoadTime">Unknown ms</span></p>
 		</footer>
 	</div>
 	<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
-	<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
+	<script type="text/javascript" defer="defer" src="js/prism.js"></script>
 	<script type="module" defer="defer" src="js/Main.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
  *
  * @module  ajax-response
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.0.2
  */
 
 /**
@@ -12,7 +12,7 @@
  * @param   {Response}          response    レスポンスデータ
  * @returns {Response|Error}                HTTPステータスコードが200番台ならレスポンスデータ、そうでなければエラー
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.0.2
  */
 function checkStatus(response) {
 	// HTTPステータスコードが200番台ではない場合
@@ -32,7 +32,7 @@ function checkStatus(response) {
  * @param   {Response}  response    レスポンスデータ
  * @returns {JSON}                  レスポンスに格納されているJSONデータ
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.0.2
  */
 function parseJSON(response) {
 	// console.log(response);
@@ -42,19 +42,44 @@ function parseJSON(response) {
 /**
  * Ajax転送処理
  *
- * @param   {string}                        sendURL 転送先URL
- * @param   {FormData}                      [form]  転送するForm Data(無くても問題ない)
- * @returns {Promise.JSON|Promise.Error}            JSONデータもしくはエラー内容
+ * @param   {string}                        sendURL             転送先URL
+ * @param   {FormData}                      [form]              転送するForm Data(無くても問題ない)
+ * @param   {string}                        [methodType='POST'] 転送メソッド
+ * @returns {Promise.JSON|Promise.Error}                        JSONデータもしくはエラー内容
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.0.2
  */
-export function SendAjax(sendURL, form) {
+export function SendAjax(sendURL, form, methodType) {
 	return new Promise(function (resolve, reject) {
 		if (self.fetch) {
-			fetch(sendURL, {
-				method: 'POST',
-				body: form
-			})
+			let sendStruct;
+			let url;
+
+			// POSTとGETでは転送処理が異なるのでここで処理を行う
+			if (methodType === 'POST' || methodType === 'post') {
+				url = sendURL;
+				sendStruct = {
+					method: methodType,
+					body: form
+				};
+			} else {
+				url = sendURL + '?';
+
+				// GETのURLを作ってくれるらしい
+				const params = new URLSearchParams();
+				// MicrosoftEdgeは未対応のための処置(対策になっていない)
+				if (form.keys !== undefined) {
+					for (let a of form.keys()) {
+						params.set(a, form.get(a));
+					}
+				}
+				url += params;
+				sendStruct = {
+					method: methodType,
+				};
+			}
+
+			fetch(url, sendStruct)
 				.then(checkStatus)
 				.then(parseJSON)
 				.then(function (json) {

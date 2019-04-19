@@ -8,39 +8,15 @@ block preloader
 	link(rel='modulepreload', href='js/WorkerTask.js')
 block append headSpace
 	style(type='text/css').
-		section dl {
-			padding: 0;
-		}
-
-		dt:not(:first-child) {
-			margin-top: 2.5rem;
-			border-width: 3px 0 0;
-			border-style: solid;
-			-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
-			-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
-			-o-border-image: -o-linear-gradient(left, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
-			border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
-			border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
-		}
-
-		h3, h4 {
+		#randomOutput h3, #randomOutput h4 {
 			font-family: "メイリオ", "Meiryo", sans-serif;
 			font-weight: 400;
-		}
-
-		section dl dt h3 {
-			margin-left: 0;
-			padding: 0 0 0 10px;
 			border-left: 0;
 		}
 
-		section dl dt h4 {
-			padding: 0 0 0 10px;
-			font-size: 0.75rem;
-		}
-
-		section dl dd h3 {
-			border-left: 0;
+		#randomOutput h4 {
+			margin: 0;
+			margin-bottom: 1rem;
 			padding: 0;
 		}
 
@@ -53,9 +29,65 @@ block append headSpace
 			margin-top: 1rem;
 		}
 
-		#randomOutput h4 {
+		#randomOutput dl {
+			padding: 0;
+		}
+
+		#randomOutput dt:not(:first-child) {
+			border-width: 3px 0 0;
+			border-style: solid;
+			-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
+			-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
+			-o-border-image: -o-linear-gradient(left, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
+			border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
+			border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
+		}
+
+		#randomOutput dt h3 {
+			margin-left: 0;
+			padding: 0 0 0 10px;
+		}
+
+		#randomOutput dt h4 {
+			padding: 0 0 0 10px;
+			font-size: 0.75rem;
+		}
+
+		#randomOutput dd h3 {
 			margin: 0;
-			margin-bottom: 1rem;
+			padding: 0;
+		}
+
+		#randomOutput .boxTag {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 2.5rem;
+		}
+
+		#randomOutput .tagList {
+			display: inline-flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			box-sizing: border-box;
+			max-width: 70%;
+			margin: 0;
+			padding-right: 10px;
+			list-style: none;
+			font-size: 0.75rem;
+			border-top: 1px #FFFFFF solid;
+		}
+
+		#randomOutput .tagList li {
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-right: 0;
+			padding-left: 10px;
+		}
+
+		@media only screen and (max-width: 768px) {
+			#randomOutput .tagList {
+				max-width: 90%;
+			}
 		}
 
 block content
@@ -63,4 +95,4 @@ block content
 		h2 ランダムワード集
 
 	section#randomOutput
-		p このページはJavaScriptで出力しています。JavaScriptが有効ではない場合、このページは利用できません。予めご了承ください。
+		p このページはJavaScriptで出力しています。JavaScriptが有効ではない、もしくはバージョンの古いブラウザの場合、このページは利用できません。予めご了承ください。

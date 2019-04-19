@@ -3,16 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>トップページ - HTML Technical Manual</title>
+	<meta name="description" content="HTMLで纏められた主にHTML技術関連のマニュアルページ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
-	<link rel="preload" as="style" type="text/css" href="css/prism.min.css">
+	<link rel="preload" as="style" type="text/css" href="css/prism.css">
 	<link rel="preload" as="style" type="text/css" href="css/style.min.css">
 	<link rel="preload" as="script" type="application/javascript" href="js/lazysizes.min.js">
-	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="js/prism.js">
 	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
+	<link rel="preload" as="fetch" type="application/json" crossorigin="crossorigin" href="json/randomWord.json">
 	<link rel="modulepreload" href="js/Main.js">
 	<link rel="modulepreload" href="js/ajax-response.js">
-	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" type="text/css" href="css/prism.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 
@@ -87,6 +90,7 @@
 					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
 					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
 					<li><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
+					<li><a href="php-CIDatabase.html" title="[CodeIgniter] データベース接続">[CodeIgniter] データベース接続</a></li>
 				</ul>
 			</li>
 			<li>
@@ -98,6 +102,7 @@
 			<li>
 				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
 				<ul id="listSQL">
+					<li><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
 					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
@@ -133,16 +138,15 @@
 			<h1>HTML Technical Manual</h1></header>
 		<main role="main">
 			<section>
-				<p>左のメニューより選択してください。<br>このページのコードの表示には<a href="http://mix-mplus-ipa.osdn.jp/migu/" title="Miguフォント : M+とIPAの合成フォント" target="_blank">Migu 1M</a>フォントの導入を推奨しています。<br>また、このフォントはプログラムコーディングにおいても優秀なため、導入を推奨します。<br>各ページのコードのハイライトには<a href="https://prismjs.com/"
-					    title="Prism" target="_blank">Prism</a>が使用されています。</p>
-				<div class="cation">
+				<p>左のメニューより閲覧したい内容を選択してください。<br>このページのコードの表示には<a href="http://mix-mplus-ipa.osdn.jp/migu/" title="Miguフォント : M+とIPAの合成フォント" target="_blank" rel="external noopener">Migu 1M</a>フォントの導入を推奨しています。<br>また、このフォントはプログラムコーディングにおいても優秀なため、導入を推奨します。<br>各ページのコードのハイライトには<a href="https://prismjs.com/" title="Prism" target="_blank" rel="external noopener">Prism</a>が使用されています。</p>
+				<blockquote class="cation">
 					<h2>注意事項</h2>
-					<p>このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。<br>また、JavaScript無効状態ではJavaScriptを使用したサンプルが、CSSを無効化したりオーバーライドしている場合一部のサンプルが正しく動作しません。予めご了承ください。</p>
-				</div>
+					<p>このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。<br>また、JavaScript無効状態ではJavaScriptを使用したサンプルが、CSSを無効化したりオーバーライドしている場合、本マニュアルのデザインが崩れたり一部のサンプルが正しく動作しない可能性があります。予めご了承ください。</p>
+				</blockquote>
 			</section>
 			<section>
 				<h2>Prismハイライトの例</h2>
-				<p>右上のメニューからコードをコピーすることができます。<br>カラーコードはマウスオーバーで色を表示することができます。</p>
+				<p>ソースコード右上のメニューからコードをコピーすることができます。<br>HEXもしくはRGBカラーコード、グラデーションの内容はマウスオーバーで色彩を表示することができます。<br>また、CSSの要素の場合、クリックすることで説明ページに飛ぶことができます(但し、英語)。</p>
 				<h3>CSS</h3><pre class="language-css line-numbers"><code>* {
 	margin: 0;
 	padding: 0;
@@ -191,46 +195,46 @@ html(lang='ja')
 </code></pre></section>
 			<section>
 				<h2>マニュアル作成について</h2>
-				<p>このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは<a href="https://gitlab.com/fcc-y/html-manual" target="_blank">Gitlab</a>に置いていますので参考にしてください。</p>
+				<p>このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは<a href="https://gitlab.com/fcc-y/html-manual" target="_blank" rel="external noopener">Gitlab</a>に置いていますので参考にしてください。</p>
 				<h3>開発言語</h3>
 				<ul>
-					<li>JavaScript(ECMAScript 2017), Babelにより後方互換確保済み</li>
-					<li><a href="https://pugjs.org/" title="Pug: Getting Started" target="_blank">Pug(Jade)</a></li>
-					<li><a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(Syntactically Awesome Style Sheets)(SCSS)</a></li>
+					<li>JavaScript(ECMAScript 2017),&nbsp;<s>Babelにより後方互換確保済み</s></li>
+					<li><a href="https://pugjs.org/" title="Pug: Getting Started" target="_blank" rel="external noopener">Pug(Jade)</a></li>
+					<li><a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank" rel="external noopener">Sass(Syntactically Awesome Style Sheets)(SCSS)</a></li>
 				</ul>
 				<h3>画像</h3>
 				<ul>
-					<li><a href="https://unsplash.com/" title="Unsplash: Beautiful Free Images &amp; Pictures" target="_blank">Unsplash</a></li>
+					<li><a href="https://unsplash.com/" title="Unsplash: Beautiful Free Images &amp; Pictures" target="_blank" rel="external noopener">Unsplash</a></li>
 				</ul>
 				<h3>テキストエディタ</h3>
 				<ul>
-					<li><a href="https://atom.io/" title="Atom" target="_blank">Atom</a></li>
-					<li><a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a></li>
-					<li><a href="https://code.visualstudio.com/" title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a></li>
+					<li><a href="https://atom.io/" title="Atom" target="_blank" rel="external noopener">Atom</a></li>
+					<li><a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank" rel="external noopener">Notepad++</a></li>
+					<li><a href="https://code.visualstudio.com/" title="Visual Studio Code - Code Editing. Redefined" target="_blank" rel="external noopener">Visual Stdio Code</a></li>
 				</ul>
 				<h3>ツール</h3>
 				<ul>
-					<li><a href="https://nodejs.org/ja/" title="Node.js" target="_blank">Node.js</a></li>
-					<li><a href="http://nilposoft.info/index.html" title="Nilposoft" target="_blank">Ralpha Image Resizer</a></li>
+					<li><a href="https://www.heidisql.com/" title="HeidiSQL" target="_blank" rel="external noopener">HeidiSQL</a></li>
+					<li><a href="https://nodejs.org/ja/" title="Node.js" target="_blank" rel="external noopener">Node.js</a></li>
+					<li><a href="http://nilposoft.info/index.html" title="Nilposoft" target="_blank" rel="external noopener">Ralpha Image Resizer</a></li>
 				</ul>
 				<h3>ライブラリ</h3>
 				<dl><dt>JavaScript</dt>
 					<dd>
 						<ul>
-							<li><a href="https://github.com/aFarkas/lazysizes" title="GitHub - aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration."
-								    target="_blank">lazysizes</a></li>
-							<li><a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a></li>
+							<li><a href="https://github.com/aFarkas/lazysizes" title="GitHub - aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration." target="_blank" rel="external noopener">lazysizes</a></li>
+							<li><a href="https://prismjs.com/" title="Prism" target="_blank" rel="external noopener">Prism</a></li>
 						</ul>
 					</dd><dt>Node.js(関連パッケージは省略)</dt>
 					<dd>
 						<ul>
-							<li><a href="http://babeljs.io/" title="Babel · The compiler for next generation JavaScript" target="_blank">Babel</a></li>
-							<li><a href="https://browsersync.io/" title="Browsersync - Time-saving synchronised browser testing" target="_blank">Browsersync</a></li>
-							<li><a href="http://csscomb.com/" title="CSScomb: Makes your code beautiful" target="_blank">CSScomb</a></li>
-							<li><a href="https://eslint.org/" title="ESLint - Pluggable JavaScript linter" target="_blank">ESLint</a></li>
-							<li><a href="https://gulpjs.com/" title="gulp.js" target="_blank">gulp.js</a></li>
-							<li><a href="https://postcss.org/" title="PostCSS - a tool for transforming CSS with JavaScript" target="_blank">PostCSS</a></li>
-							<li><a href="https://webpack.js.org/" title="webpack" target="_blank">webpack</a></li>
+							<li><a href="http://babeljs.io/" title="Babel · The compiler for next generation JavaScript" target="_blank" rel="external noopener">Babel</a></li>
+							<li><a href="https://browsersync.io/" title="Browsersync - Time-saving synchronised browser testing" target="_blank" rel="external noopener">Browsersync</a></li>
+							<li><a href="http://csscomb.com/" title="CSScomb: Makes your code beautiful" target="_blank" rel="external noopener">CSScomb</a></li>
+							<li><a href="https://eslint.org/" title="ESLint - Pluggable JavaScript linter" target="_blank" rel="external noopener">ESLint</a></li>
+							<li><a href="https://gulpjs.com/" title="gulp.js" target="_blank" rel="external noopener">gulp.js</a></li>
+							<li><a href="https://postcss.org/" title="PostCSS - a tool for transforming CSS with JavaScript" target="_blank" rel="external noopener">PostCSS</a></li>
+							<li><a href="https://webpack.js.org/" title="webpack" target="_blank" rel="external noopener">webpack</a></li>
 						</ul>
 					</dd>
 				</dl>
@@ -242,24 +246,30 @@ html(lang='ja')
 			<section>
 				<h2>よくありそうな質問</h2>
 				<h3>白紙ページが多い</h3>
-				<p>筆記者が1人なので記述が間に合っていません。</p>
+				<p>筆記者が1人なので記述が間に合っていません。<br>早く確認したい内容がある場合、報告してください。</p>
 				<h3>HTMLソースが汚い</h3>
-				<p>仕様です。HTML自体はPugテンプレートに基づいてMinifyされたHTMLが出力されており、その後自動整形ツールでHTMLソースを整形しています。そのため出力結果は自動整形ツールの結果に依存しており、こちらで対処できる内容ではありません。<br>また、コード整形は可能な限り自動化し手動で時間を掛けるものではないと考えているためこちらで修正する予定もありませんので予めご了承ください。</p>
+				<p>自動整形ツールの仕様です。HTML自体はPugテンプレートに基づいてMinifyされたHTMLが出力されており、その後自動整形ツールでHTMLソースを整形しています。そのため出力結果は自動整形ツールの結果に依存しており、こちらで対処できる内容ではありません。<br>また、コード整形は可能な限り自動化し手動で時間を掛けるものではないと考えているためこちらで修正する予定もありませんので予めご了承ください。</p>
 				<h3>このHTMLに使用されているCSSファイルが読めない</h3>
-				<p>圧縮済みCSSファイルを使用しているので読めないのが仕様です。どうしても読みたい場合は<a href="https://gitlab.com/fcc-y/html-manual" target="_blank">Gitlabリポジトリ</a>から未圧縮のCSSファイルを取得するか、圧縮済みCSSファイルをテキストエディタのプラグイン等でフォーマットしてみてください。<br>但し、執筆者はSCSSファイルを使用してCSSファイルに変換したものを利用しているので可読性に関しては責任を取ることができませんので予めご了承ください。</p>
+				<p>圧縮済みCSSファイルを使用しているので読めないのが仕様です。どうしても読みたい場合は<a href="https://gitlab.com/fcc-y/html-manual" target="_blank" rel="external noopener">Gitlabリポジトリ</a>から未圧縮のCSSファイルを取得するか、圧縮済みCSSファイルをテキストエディタのプラグイン等でフォーマットしてみてください。<br>但し、執筆者はSCSSファイルを使用してCSSファイルに変換したものを利用しているので可読性に関しては責任を取ることができませんので予めご了承ください。</p>
+				<h3>技術マニュアルなのにお遊びが多い</h3>
+				<p>あちらこちらにあるお遊びは技術の習得段階や練習の過程、興味本位でお試し程度で作られたものが多いです。<br>尚、本マニュアルですが、マニュアルと言いつつソースコードそのものはお遊びなしの本気で作られています。SEO考慮等含めると下手なホームページよりも最適化されています。</p>
+				<h3>マニュアルの内容が難しすぎる</h3>
+				<p>そう?</p>
+				<h3>マニュアルの互換性低くない?</h3>
+				<p>最先端技術を取り扱うのを優先しているため、コーディングの互換性は大幅に犠牲になっています。互換性のある記述方法も順次記述していきますが、いつになるかは不明です。</p>
 				<h3>フッターにある取り消し線の内容は何?</h3>
-				<p>全て元ネタがあります。わからない場合、調べてみましょう。尚、内容は秒が10の倍数毎に切り替わるようになっています。現在<span id="countRandom">0</span>個の候補があります。表示内容は<a href="https://ja.wikipedia.org/wiki/Xorshift" target="_blank">擬似乱数Xorshift</a>のランダムであり、表示結果が重複することがあります。</p>
+				<p>全て元ネタがあります。わからない場合、調べてみましょう。尚、内容は秒が10の倍数毎に切り替わるようになっています。現在<span id="countRandom">---</span>個の候補があります。表示内容は<a href="https://ja.wikipedia.org/wiki/Xorshift" target="_blank" rel="external noopener">擬似乱数Xorshift</a>のランダムであり、表示結果が重複することがあります。</p>
+				<h3>これ、本当に技術マニュアルなの?</h3>
+				<p>はい。</p>
 			</section>
 		</main>
 		<footer role="contentinfo">
 			<p><a id="randomWord">Loading...</a></p>
-			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
-				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
-				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
+			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank" rel="external noopener">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank" rel="external noopener">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/" title="Visual Studio Code - Code Editing. Redefined" target="_blank" rel="external noopener">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank" rel="external noopener">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/" title="Pug: Getting Started" target="_blank" rel="external noopener">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank" rel="external noopener">Sass(SCSS)</a><br>Script Load Time:&nbsp;<span id="LoadTime">Unknown ms</span></p>
 		</footer>
 	</div>
 	<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
-	<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
+	<script type="text/javascript" defer="defer" src="js/prism.js"></script>
 	<script type="module" defer="defer" src="js/Main.js"></script>
 </body>
 </html>

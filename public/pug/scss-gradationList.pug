@@ -168,12 +168,11 @@ block headSpace
 block headTitle
 	h1 #{title}
 block content
-	section
-		.stub
+	blockquote.stub
 			h2 書きかけのページ
 			p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
 
-		.cation
+	blockquote.cation
 			h2 応用技術
 			p ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。
 
@@ -201,7 +200,7 @@ block content
 			dt: h3 項目毎に空白が均一ではない
 			dd 最初の項目程右に離れており、最後の項目程左に近い。
 
-		p 特に問題なのはグラデーションであり、マージン幅も考慮した上でポジションを決めなければならず、
+		p 特に問題なのはグラデーションであり、マージン幅も考慮した上でポジションを決めなければならず、CSS単体で調整を行うのは非常に難しい。
 
 	section
 		h2 コードの生成
@@ -240,7 +239,10 @@ block content
 								p &#035;{item.title}
 
 		h3 SCSS
-		p SCSSファイル。これをCSSに出力する。
+		p
+			| SCSSファイル。これを基にCSSに出力する。細かい記述ルールは
+			a(href='language-sass.html') こちら
+			| を参照。
 		pre.language-scss.line-numbers: code.
 			@charset "UTF-8";
 
@@ -419,8 +421,9 @@ block content
 
 		h3 CSS
 		p
-			| CSSの出力結果。メディアクエリはプラグインによりマージされている。
-			| また、互換性はautoprefixerにより確認、付与されている。
+			| CSSの出力結果。メディアクエリはプラグインによりマージされている。また、互換性は
+			a(href='https://github.com/postcss/autoprefixer', target='_blank', rel='external noopener') autoprefixer
+			| により自動で確認、付与されている。
 		pre.language-css.line-numbers: code.
 			.list ul {
 				width: 480px;

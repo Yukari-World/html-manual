@@ -2,10 +2,12 @@ extends ./_includes/_layout
 block title
 	- var title = 'Sass';
 	title #{title} - HTML Technical Manual
+block preloader
+	link(rel='preload', as='fetch', crossorigin='crossorigin', href='sass/buildSass.sass')
 block headTitle
 	h1 #{title}
 block content
-	section.stub
+	blockquote.stub
 		h2 書きかけのページ
 		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
 

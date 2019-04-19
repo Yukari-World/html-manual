@@ -3,16 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>グラデーション - HTML Technical Manual</title>
+	<meta name="description" content="HTMLで纏められた主にHTML技術関連のマニュアルページ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
-	<link rel="preload" as="style" type="text/css" href="css/prism.min.css">
+	<link rel="preload" as="style" type="text/css" href="css/prism.css">
 	<link rel="preload" as="style" type="text/css" href="css/style.min.css">
 	<link rel="preload" as="script" type="application/javascript" href="js/lazysizes.min.js">
-	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="js/prism.js">
 	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
+	<link rel="preload" as="fetch" type="application/json" crossorigin="crossorigin" href="json/randomWord.json">
 	<link rel="modulepreload" href="js/Main.js">
 	<link rel="modulepreload" href="js/ajax-response.js">
-	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" type="text/css" href="css/prism.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 	<style type="text/css">
 		.gradient1,
@@ -114,6 +117,7 @@
 					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
 					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
 					<li><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
+					<li><a href="php-CIDatabase.html" title="[CodeIgniter] データベース接続">[CodeIgniter] データベース接続</a></li>
 				</ul>
 			</li>
 			<li>
@@ -125,6 +129,7 @@
 			<li>
 				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
 				<ul id="listSQL">
+					<li><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
 					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
@@ -166,42 +171,36 @@
 			<section>
 				<h2>使用方法と解説</h2><pre class="language-css line-numbers"><code>background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);</code></pre>
 				<div class="gradient1"></div>
-				<p><a href="https://dyaddemo.wordpress.com/" title="Dyad – A theme that pairs well with any content" target="_blank">dyad</a>で使用されている直線グラデーション。<br>下から上に半透明の黒のグラデーションを行う。<br>なお、<code class="language-css"><span class="token property">background</span></code>プロパティは
-					<code
-					    class="language-css"><span class="token property">background</span></code>の各プロパティのショートハンドとして補完しており、<code class="language-css"><span class="token property">background-image</span></code>に対して適応する。</p><pre class="language-css line-numbers"><code>background: linear-gradient(45deg, red, blue);</code></pre>
-				<div
-				    class="gradient2"></div>
-	<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient" target="_blank">MDN Web Docs</a>に公開されている例。対角線上に赤から青となるグラデーションが生成される。</p><pre class="language-css line-numbers"><code>background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%);</code></pre>
-	<div
-	    class="gradient3"></div>
-		<p>三色グラデーションの例。カンマで繋ぐ事で複数色設定できる。更に割合を指定することで色の変わり目の位置を指定することができる。</p><pre class="language-css line-numbers"><code>background: linear-gradient(to right, #000011, #1164FF, #FFFF99);</code></pre>
-		<div class="gradient4"></div>
-		<p>本マニュアルで使用されているグラデーション。%表記が省略された場合は色の切れ目が均等な位置になるように位置が割り振られる。左側の色は背景色と同じ色のため殆ど見えない。尚、このマニュアルの背景は黒ではない。</p>
-		</section>
-		<section>
-			<h2>使用上の注意</h2>
-			<ul>
-				<li>これらのCSSはブラウザ間の互換性が低い点に注意が必要。特にIEや古いスマートフォンを利用しているユーザーからは見えない可能性もある。対処としてはこれとは別に背景画像を用意することで完全ではないものの回避できる。</li>
-				<li>グラデーションは<b>画像扱い</b>であるため、取扱の間違いには注意。backgroundやborderに指定する場合<code class="language-markup">color</code>ではなく、<code class="language-markup">image</code>に指定する。</li>
-				<li>複数利用する場合、スペックによっては表示速度に著しく影響するので注意が必要。対処法としてグラデーション背景を用意する方法がある。</li>
-				<li>画像タグ(<code class="language-markup"><span class="token punctuation">&lt;</span><span class="token tag">img</span><span class="token punctuation">&gt;</span></code>)に対して適応する場合、beforeに付与する必要がある。また、必要に応じて<code class="language-css"><span class="token property">z-index</span></code>による重なりを気にする必要がある。</li>
-				<li>複数のブラウザで実装する場合、ベンダープレフィックスを忘れずに。gulpで自動付与する方法もあるが、詳細はgulpの項目を参照。</li>
-			</ul>
-		</section>
-		<section>
-			<h2>参考リンク</h2>
-			<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient" target="_blank">MDN Web Docs</a></p>
-		</section>
+				<p><a href="https://dyaddemo.wordpress.com/" title="Dyad – A theme that pairs well with any content" target="_blank" rel="external noopener">dyad</a>で使用されている直線グラデーション。<br>下から上に半透明の黒のグラデーションを行う。<br>なお、<code class="language-css"><span class="token property">background</span></code>プロパティは<code class="language-css"><span class="token property">background</span></code>の各プロパティのショートハンドとして補完しており、<code class="language-css"><span class="token property">background-image</span></code>に対して適応する。</p><pre class="language-css line-numbers"><code>background: linear-gradient(45deg, red, blue);</code></pre>
+				<div class="gradient2"></div>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient" target="_blank" rel="external noopener">MDN Web Docs</a>に公開されている例。対角線上に赤から青となるグラデーションが生成される。</p><pre class="language-css line-numbers"><code>background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%);</code></pre>
+				<div class="gradient3"></div>
+				<p>三色グラデーションの例。カンマで繋ぐ事で複数色設定できる。更に割合を指定することで色の変わり目の位置を指定することができる。</p><pre class="language-css line-numbers"><code>background: linear-gradient(to right, #000011, #1164FF, #FFFF99);</code></pre>
+				<div class="gradient4"></div>
+				<p>本マニュアルで使用されているグラデーション。%表記が省略された場合は色の切れ目が均等な位置になるように位置が割り振られる。左側の色は背景色と同じ色のため殆ど見えない。尚、このマニュアルの背景は黒ではない。</p>
+			</section>
+			<section>
+				<h2>使用上の注意</h2>
+				<ul>
+					<li>これらのCSSはブラウザ間の互換性が低い点に注意が必要。特にIEや古いスマートフォンを利用しているユーザーからは見えない可能性もある。対処としてはこれとは別に背景画像を用意することで完全ではないものの回避できる。</li>
+					<li>グラデーションは<b>画像扱い</b>であるため、取扱の間違いには注意。backgroundやborderに指定する場合<code class="language-markup">color</code>ではなく、<code class="language-markup">image</code>に指定する。</li>
+					<li>複数利用する場合、スペックによっては表示速度に著しく影響するので注意が必要。対処法としてグラデーション背景を用意する方法がある。</li>
+					<li>画像タグ(<code class="language-markup"><span class="token punctuation">&lt;</span><span class="token tag">img</span><span class="token punctuation">&gt;</span></code>)に対して適応する場合、beforeに付与する必要がある。また、必要に応じて<code class="language-css"><span class="token property">z-index</span></code>による重なりを気にする必要がある。</li>
+					<li>複数のブラウザで実装する場合、ベンダープレフィックスを忘れずに。gulpで自動付与する方法もあるが、詳細はgulpの項目を参照。</li>
+				</ul>
+			</section>
+			<section>
+				<h2>参考リンク</h2>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient" target="_blank" rel="external noopener">MDN Web Docs</a></p>
+			</section>
 		</main>
 		<footer role="contentinfo">
 			<p><a id="randomWord">Loading...</a></p>
-			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
-				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
-				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
+			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank" rel="external noopener">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank" rel="external noopener">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/" title="Visual Studio Code - Code Editing. Redefined" target="_blank" rel="external noopener">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank" rel="external noopener">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/" title="Pug: Getting Started" target="_blank" rel="external noopener">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank" rel="external noopener">Sass(SCSS)</a><br>Script Load Time:&nbsp;<span id="LoadTime">Unknown ms</span></p>
 		</footer>
-		</div>
-		<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
-		<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
-		<script type="module" defer="defer" src="js/Main.js"></script>
+	</div>
+	<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
+	<script type="text/javascript" defer="defer" src="js/prism.js"></script>
+	<script type="module" defer="defer" src="js/Main.js"></script>
 </body>
 </html>

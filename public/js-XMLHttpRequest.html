@@ -3,16 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>XMLHttpRequest - HTML Technical Manual</title>
+	<meta name="description" content="HTMLで纏められた主にHTML技術関連のマニュアルページ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
-	<link rel="preload" as="style" type="text/css" href="css/prism.min.css">
+	<link rel="preload" as="style" type="text/css" href="css/prism.css">
 	<link rel="preload" as="style" type="text/css" href="css/style.min.css">
 	<link rel="preload" as="script" type="application/javascript" href="js/lazysizes.min.js">
-	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="js/prism.js">
 	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
+	<link rel="preload" as="fetch" type="application/json" crossorigin="crossorigin" href="json/randomWord.json">
 	<link rel="modulepreload" href="js/Main.js">
 	<link rel="modulepreload" href="js/ajax-response.js">
-	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" type="text/css" href="css/prism.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 
@@ -87,6 +90,7 @@
 					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
 					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
 					<li><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
+					<li><a href="php-CIDatabase.html" title="[CodeIgniter] データベース接続">[CodeIgniter] データベース接続</a></li>
 				</ul>
 			</li>
 			<li>
@@ -98,6 +102,7 @@
 			<li>
 				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
 				<ul id="listSQL">
+					<li><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
 					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
 					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
 					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
@@ -132,20 +137,18 @@
 		<header class="md-hide" role="banner">
 			<h1>XMLHttpRequest</h1></header>
 		<main role="main">
-			<section class="stub">
+			<blockquote class="stub">
 				<h2>書きかけのページ</h2>
 				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
-			</section>
+			</blockquote>
 		</main>
 		<footer role="contentinfo">
 			<p><a id="randomWord">Loading...</a></p>
-			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/"
-				    title="Visual Studio Code - Code Editing. Redefined" target="_blank">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/"
-				    title="Pug: Getting Started" target="_blank">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank">Sass(SCSS)</a></p>
+			<p>Page Editor, Page Design: Yukari-World<br>Text Editor:&nbsp;<a href="https://atom.io/" title="Atom" target="_blank" rel="external noopener">Atom</a>,&nbsp;<a href="https://notepad-plus-plus.org/" title="Notepad++ Home" target="_blank" rel="external noopener">Notepad++</a>,&nbsp;<a href="https://code.visualstudio.com/" title="Visual Studio Code - Code Editing. Redefined" target="_blank" rel="external noopener">Visual Stdio Code</a><br>Syntax Highlightor:&nbsp;<a href="https://prismjs.com/" title="Prism" target="_blank" rel="external noopener">Prism</a><br>Coding Language: JavaScript,&nbsp;<a href="https://pugjs.org/" title="Pug: Getting Started" target="_blank" rel="external noopener">Pug(Jade)</a>,&nbsp;<a href="http://sass-lang.com/" title="Sass: Syntactically Awesome Style Sheets" target="_blank" rel="external noopener">Sass(SCSS)</a><br>Script Load Time:&nbsp;<span id="LoadTime">Unknown ms</span></p>
 		</footer>
 	</div>
 	<script type="text/javascript" async="async" src="js/lazysizes.min.js"></script>
-	<script type="text/javascript" defer="defer" src="js/prism.min.js"></script>
+	<script type="text/javascript" defer="defer" src="js/prism.js"></script>
 	<script type="module" defer="defer" src="js/Main.js"></script>
 </body>
 </html>

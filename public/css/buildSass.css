@@ -1,14 +1,52 @@
 @charset "UTF-8";
 
+blockquote.cation, blockquote.danger, blockquote.deprecated, blockquote.stub {
+	margin: 10px;
+	padding: 1rem;
+	border-width: 5px;
+	border-style: solid;
+}
+
+blockquote.cation h2, blockquote.danger h2, blockquote.deprecated h2, blockquote.stub h2 {
+	margin-bottom: 1rem;
+}
+
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * 共通項目
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
 
-* {
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
 	margin: 0;
 	padding: 0;
-	line-height: 1.2;
+	vertical-align: baseline;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:after, blockquote:before, q:after, q:before {
+	content: "";
+	content: none;
+}
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 html {
@@ -30,8 +68,28 @@ body {
 	align-items: flex-start;
 	font-family: "メイリオ","Meiryo",sans-serif;
 	font-size: 1rem;
+	line-height: 1.2;
 	color: #FFFFFF;
 	background-color: #000011;
+}
+
+body > input[type="checkbox"] {
+	display: none;
+}
+
+body > .content {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: calc(100% - 240px);
+	min-height: 100vh;
+	margin-left: 240px;
 }
 
 a {
@@ -46,51 +104,47 @@ a:hover {
 	color: #FFCC66;
 }
 
+b, strong, h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: "游ゴシック体","Yu Gothic","YuGothic","ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ","Meiryo","Osaka","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 1.75rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+h4 {
+	font-size: 1rem;
 }
 
 dl dd {
 	margin-left: 2rem;
 }
 
-ul {
+ol, ul {
 	list-style: none;
 }
 
-ul li:not(:first-child) {
+ol li:not(:first-child), ul li:not(:first-child) {
 	margin-top: 5px;
 }
 
-ul ul, ol {
+ol ul, ul ul, ol {
 	margin-left: 2rem;
 }
 
-ol li:not(:first-child) {
-	margin-top: 5px;
-}
-
-.mintyo {
-	font-family: "游明朝",YuMincho,"ヒラギノ明朝 ProN W3","Hiragino Mincho ProN","HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
-}
-
-.cation, .danger, .deprecated, .stub {
-	margin: 10px;
-	padding: 1rem;
-	border-width: 5px;
-	border-style: solid;
-}
-
-.cation h2, .danger h2, .deprecated h2, .stub h2 {
-	margin-bottom: 1rem;
-	padding: 0;
-}
-
-.cation p, .danger p, .deprecated p, .stub p {
-	padding: 0;
-}
-
-.stub {
+blockquote.stub {
 	border-color: #1164FF;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#000011), to(#1164FF)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
@@ -104,11 +158,7 @@ ol li:not(:first-child) {
 	background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011);
 }
 
-.stub, .cation {
-	border-width: 5px;
-}
-
-.cation {
+blockquote.cation {
 	border-color: #FFFF33;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#000011), to(#FFFF33)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
@@ -122,35 +172,36 @@ ol li:not(:first-child) {
 	background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011);
 }
 
-.danger {
+blockquote.danger {
 	border-color: #FF0F0F;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#000011), to(#FF0F0F)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
 	-o-border-image: -o-linear-gradient(bottom left, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#000011), to(#FF0F0F)) 1/5px 5px/0 stretch;
 	border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+	background-color: #330000;
 	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #330000), color-stop(80%, #330000), to(#000011));
 	background-image: -webkit-linear-gradient(bottom right, #000011, #330000 20%, #330000 80%, #000011);
 	background-image: -o-linear-gradient(bottom right, #000011, #330000 20%, #330000 80%, #000011);
 	background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011);
 }
 
-.danger, .deprecated {
-	border-width: 5px;
-	background-color: #330000;
-}
-
-.deprecated {
+blockquote.deprecated {
 	border-color: #1164FF;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0F0F), to(#1164FF)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
 	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0F0F), to(#1164FF)) 1/5px 5px/0 stretch;
 	border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
+	background-color: #330000;
 	background-image: -webkit-gradient(linear, right bottom, left top, from(#330000), color-stop(20%, #000033), color-stop(80%, #000033), to(#330000));
 	background-image: -webkit-linear-gradient(bottom right, #330000, #000033 20%, #000033 80%, #330000);
 	background-image: -o-linear-gradient(bottom right, #330000, #000033 20%, #000033 80%, #330000);
 	background-image: linear-gradient(to top left, #330000, #000033 20%, #000033 80%, #330000);
+}
+
+.mintyo {
+	font-family: "游明朝",YuMincho,"ヒラギノ明朝 ProN W3","Hiragino Mincho ProN","HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
 }
 
 ::-webkit-scrollbar {
@@ -158,7 +209,7 @@ ol li:not(:first-child) {
 	height: 10px;
 }
 
-::-webkit-scrollbar-track {
+::-webkit-scrollbar, ::-webkit-scrollbar-track {
 	background-color: transparent;
 }
 
@@ -234,7 +285,6 @@ code[class*="language-"], pre[class*="language-"] {
 	tab-size: 4;
 	font-family: "Migu 1M",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
 	line-height: 1.2;
-
 	-webkit-overflow-scrolling: touch;
 }
 
@@ -267,6 +317,91 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	-o-border-image: -o-linear-gradient(top, #000011, #1164FF) 1/0 3px 0 0/0 stretch;
 	border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 0 0/0 stretch;
 	border-image: linear-gradient(180deg, #000011, #1164FF) 1/0 3px 0 0/0 stretch;
+}
+
+.sidebar h2 {
+	font-size: 1.5rem;
+}
+
+.sidebar > ul > li {
+	margin-top: 15px;
+}
+
+.sidebar > ul > li h3 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	padding-top: 3px;
+	padding-left: 10px;
+	border-width: 3px 0 0;
+	border-style: solid;
+	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
+	-o-border-image: -o-linear-gradient(left, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
+	border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
+	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
+}
+
+.sidebar > ul > li h3, .sidebar > ul > li h3 a {
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-animation: flashString 10s linear infinite;
+	animation: flashString 10s linear infinite;
+}
+
+.sidebar > ul > li h3 a {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	margin: auto 0;
+	line-height: 1em;
+}
+
+.sidebar > ul > li input[type="checkbox"] {
+	display: none;
+	visibility: hidden;
+}
+
+.sidebar > ul > li input[type="checkbox"].panel-switch:not(:checked) + ul {
+	max-height: 0;
+	padding: 0;
+	border-width: 0;
+}
+
+.sidebar > ul > li input[type="checkbox"].panel-switch:not(:checked) + ul li {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.sidebar > ul > li input[type="checkbox"].panel-switch:not(:checked) + ul li a {
+	opacity: inherit;
+}
+
+.sidebar > ul > li ul {
+	margin-left: calc(1em + 12px);
+	padding-right: 2px;
+	text-indent: -1em;
+}
+
+.sidebar > ul > li ul, .sidebar > ul > li ul li, .sidebar > ul > li ul li:before {
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+}
+
+.sidebar > ul > li ul li:before {
+	content: "├";
+	padding-right: 2px;
+	-webkit-animation: flashString 10s linear infinite;
+	animation: flashString 10s linear infinite;
+}
+
+.sidebar > ul > li ul li:last-child:before {
+	content: "└";
 }
 
 .sidebar::-webkit-scrollbar {
@@ -318,7 +453,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 
 .nav-button button, .expand-box {
 	cursor: pointer;
-	font-size: 0.9rem;
+	font-size: 0.85rem;
 }
 
 .expand-box {
@@ -331,6 +466,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	width: 20px;
 	height: 20px;
 	margin: auto 5px auto 0;
+	line-height: 0.85rem;
 	border: 1px solid #FFFFFF;
 }
 
@@ -368,7 +504,6 @@ header {
 
 header h1 {
 	padding-left: 2.5rem;
-	font-size: 2.5rem;
 }
 
 header label {
@@ -379,6 +514,13 @@ header label {
  * コンテンツ
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
+
+main {
+	-webkit-box-flex: 2;
+	-webkit-flex-grow: 2;
+	-ms-flex-positive: 2;
+	flex-grow: 2;
+}
 
 section {
 	margin-top: 1.5rem;
@@ -407,21 +549,18 @@ section h1 + dl, section h1 + ol, section h1 + p, section h1 + ul, section h2 + 
 	margin-top: 1em;
 }
 
-section h2 {
-	font-size: 1.75rem;
-}
-
 section h3 {
-	margin-top: 5px;
-	margin-left: 5px;
 	padding-left: 5px;
-	font-size: 1.25rem;
 	border-left: 10px solid #1164FF;
 }
 
-section h4 {
+section h3, section h4 {
 	margin-top: 5px;
-	font-size: 1rem;
+	margin-left: 5px;
+}
+
+section h4 {
+	border-left: 5px solid #1164FF;
 }
 
 section ul {
@@ -534,10 +673,6 @@ footer p:last-child {
 
 @media only screen and (max-width: 992px) {
 	body {
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
 		-webkit-box-orient: vertical;
 		-webkit-box-direction: normal;
 		-webkit-flex-direction: column;
@@ -551,6 +686,19 @@ footer p:last-child {
 		-webkit-align-items: unset;
 		-ms-flex-align: unset;
 		align-items: unset;
+	}
+
+	body > input[type="checkbox"].panel-switch:not(:checked) + nav {
+		overflow: hidden;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		border: none;
+	}
+
+	body > .content {
+		width: 100%;
+		margin-left: 0;
 	}
 
 	.md-hide {
@@ -574,6 +722,33 @@ footer p:last-child {
 		-o-border-image: -o-linear-gradient(top, #000011, #1164FF) 1/0 3px 5px/0 stretch;
 		border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 5px/0 stretch;
 		border-image: linear-gradient(180deg, #000011, #1164FF) 1/0 3px 5px/0 stretch;
+	}
+
+	.sidebar > ul {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		padding: 0 5px 10px;
+	}
+
+	.sidebar > ul > li {
+		margin-top: 10px;
+	}
+
+	.sidebar > ul > li h3 {
+		padding-left: 0;
+	}
+
+	.sidebar > ul > li ul {
+		margin-left: calc(1em+ 2px);
 	}
 
 	.sidebar::-webkit-scrollbar {
@@ -609,6 +784,10 @@ footer p:last-child {
 }
 
 @media only screen and (max-width: 768px) {
+	.sidebar > ul > li {
+		margin-top: 5px;
+	}
+
 	header h1 {
 		font-size: 4.7vw;
 	}
@@ -638,32 +817,32 @@ footer p:last-child {
 		max-height: 80vh;
 	}
 
+	section p + h3 {
+		margin-top: 1.5rem;
+	}
+
 	footer p:last-child {
 		white-space: normal;
 	}
 }
 
 @media print {
+	blockquote.cation, blockquote.danger, blockquote.deprecated, blockquote.stub {
+		color: #FFFFFF;
+	}
+
 	body {
-		display: block;
-		display: none;
-		width: calc(100% - 240px);
-		margin-left: 240px;
 		color: #000000;
 		background-color: unset;
 	}
 
-	body[type="checkbox"] {
+	body > header {
 		display: none;
 	}
 
-	body {
+	body > .content {
 		width: 100%;
 		margin-left: 0;
-	}
-
-	.cation, .danger, .deprecated, .stub {
-		color: #FFFFFF;
 	}
 
 	.line-highlight, .sidebar {

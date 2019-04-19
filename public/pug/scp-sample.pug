@@ -2,6 +2,11 @@ extends ./_includes/_layout
 block title
 	- var title = 'サンプルデータ';
 	title #{title} - HTML Technical Manual
+block preloader
+	link(rel='preload', as='fetch', crossorigin='crossorigin', href='sass/sample.scss')
+	link(rel='preload', as='fetch', crossorigin='crossorigin', href='files/sample.sql')
+	link(rel='preload', as='fetch', crossorigin='crossorigin', href='js/nomodule/ajax-response.js')
+	link(rel='preload', as='fetch', crossorigin='crossorigin', href='js/ajax-response.js')
 block headTitle
 	h1 #{title}
 block content

@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>TRANSACTION(トランザクション) - HTML Technical Manual</title>
+	<title>AS(別名) - HTML Technical Manual</title>
 	<meta name="description" content="HTMLで纏められた主にHTML技術関連のマニュアルページ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
@@ -17,11 +17,41 @@
 	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" type="text/css" href="css/prism.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<style type="text/css">
+		table {
+			margin: 1rem auto;
+			border-collapse: collapse;
+		}
+
+		thead tr {
+			color: CaptionText;
+			background-color: ActiveCaption;
+		}
+
+		th,
+		td {
+			padding: 3px;
+			vertical-align: top;
+			font-family: "Tahoma", Arial, Helvetica, sans-serif;
+			font-size: 8pt;
+		}
+
+		table,
+		td {
+			border: 1px solid silver;
+		}
+
+		.col2,
+		.col3,
+		.col4 {
+			text-align: right;
+		}
+	</style>
 </head>
 
 <body>
 	<header class="md-show" id="top" role="banner">
-		<h1>TRANSACTION(トランザクション)</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+		<h1>AS(別名)</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu">
 		<h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
@@ -135,38 +165,186 @@
 	</nav>
 	<div class="content">
 		<header class="md-hide" role="banner">
-			<h1>TRANSACTION(トランザクション)</h1></header>
+			<h1>AS(別名)</h1></header>
 		<main role="main">
+			<blockquote class="stub">
+				<h2>書きかけのページ</h2>
+				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
+			</blockquote>
 			<section>
 				<h2>説明</h2>
-				<p><code class="language-sql"><span class="token keyword keyword-INSERT">INSERT</span></code>,&nbsp;<code class="language-sql"><span class="token keyword keyword-UPDATE">UPDATE</span></code>,&nbsp;<code class="language-sql"><span class="token keyword keyword-DELETE">DELETE</span></code>といったSQLコマンドはデータベースの変動を伴うため、正確に記述しなければならない。しかし、テスト環境を構築した上で、データを崩さずに確認したい場合がある。そのときに使えるコマンドである。<br>また、更新などで複数のデータテーブルの内容を更新を行う時、更新処理を行う途中でエラー等で処理を中断する際に発生するデータテーブルの一部は更新したが一部は更新しなかったことで起こるデータの不整合を防ぐ事にも使用できる。</p>
+				<p>SQLデータベースではデータテーブル単体参照するときは問題にならないが、式やテーブル同士の結合を行うとカラム名が不自然になることがある。この時、別名をつけることで参照しやすくすることができる</p>
 			</section>
 			<section>
 				<h2>使用方法と解説</h2>
-				<h3>COMMIT</h3>
-				<p><code class="language-sql"><span class="token keyword keyword-COMMIT">COMMIT</span></code>とは処理を確定させるために使う。使用方法は至って単純である。</p><pre class="language-sql line-numbers"><code>START TRANSACTION;
--- ~~~ SQL CODE ~~~
-COMMIT;</code></pre>
-				<p>トランザクションを挟むことで複数の処理で一つの処理として取り扱われる。</p>
-				<h3>ROLLBACK</h3>
-				<p><code class="language-sql"><span class="token keyword keyword-ROLLBACK">ROLLBACK</span></code>とは、データベースを更新前のデータに戻す時に使用される。こちらも使用方法は至って単純である。</p><pre class="language-sql line-numbers"><code>START TRANSACTION;
--- ~~~ SQL CODE ~~~
-ROLLBACK;</code></pre>
-				<p>尚、トランザクションを省略した時の通常動作は<code class="language-sql"><span class="token keyword keyword-COMMIT">COMMIT</span></code>で動作する。</p>
+				<h3>使用するデータベース</h3>
+				<p><s>解説にあたり以下のデータベースを利用する。コピーすることで簡単に利用できる。尚このSQLコードは<a href="https://www.mysql.com/jp/" target="_blank" rel="external noopener">MySQL</a>もしくは<a href="https://mariadb.org/" target="_blank" rel="external noopener">MariaDB</a>で使用することを想定している。</s>肥大化に伴い、<a href="scp-sample.html#sqlSample">サンプルデータに移行。</a></p>
+				<h3>使用方法</h3>
+				<p>今回以下のSQL文から説明を行う</p><pre class="language-sql line-numbers"><code>SELECT
+	`customer`.`name`,
+	`product`.`name`,
+	`price`,
+	`amount`,
+	`price` * `amount`
+FROM
+	`order`
+INNER JOIN
+	`customer`
+		ON `customer`.`id` = `order`.`customerID`
+INNER JOIN
+	`product`
+		ON `product`.`id` = `order`.`productID`
+;
+</code></pre>
+				<p>このまま使用してもエラーはなく実行できる。しかし出力結果は以下の通りである。<br>尚、このSQL出力結果のテーブルは<a href="https://www.heidisql.com/" target="_blank" rel="external noopener">HeidiSQL</a>で実行し、出力結果をHTML変換している。</p>
+				<table>
+					<caption>SQL Code Result 1 (7 rows)</caption>
+					<thead>
+						<tr>
+							<th class="col0">name</th>
+							<th class="col1">name</th>
+							<th class="col2">price</th>
+							<th class="col3">amount</th>
+							<th class="col4">`price` * `amount`</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">りんご</td>
+							<td class="col2">120</td>
+							<td class="col3">60</td>
+							<td class="col4">7200</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">みかん</td>
+							<td class="col2">120</td>
+							<td class="col3">120</td>
+							<td class="col4">14400</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">バナナ</td>
+							<td class="col2">90</td>
+							<td class="col3">25</td>
+							<td class="col4">2250</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">パイナップル</td>
+							<td class="col2">300</td>
+							<td class="col3">35</td>
+							<td class="col4">10500</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">ブドウ</td>
+							<td class="col2">400</td>
+							<td class="col3">20</td>
+							<td class="col4">8000</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">グレープフルーツ</td>
+							<td class="col2">100</td>
+							<td class="col3">50</td>
+							<td class="col4">5000</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">梨</td>
+							<td class="col2">190</td>
+							<td class="col3">35</td>
+							<td class="col4">6650</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>nameというカラムが2つもあり、何の名前を示しているのかわからない。<br>また、金額を示すカラムについては式がカラム名となっており、不自然である。<br>そこで<code class="language-sql"><span class="token keyword keyword-AS">AS</span></code>を使用することで別名をつけることができる</p><pre class="language-sql line-numbers"><code>SELECT
+	`customer`.`name` AS `customerName`,
+	`product`.`name` AS `productName`,
+	`price`,
+	`amount`,
+	`price` * `amount` AS `totalPrice`
+FROM
+	`order`
+INNER JOIN
+	`customer`
+		ON `customer`.`id` = `order`.`customerID`
+INNER JOIN
+	`product`
+		ON `product`.`id` = `order`.`productID`
+;
+</code></pre>
+				<table>
+					<caption>SQL Code Result 2 (7 rows)</caption>
+					<thead>
+						<tr>
+							<th class="col0">customerName</th>
+							<th class="col1">productName</th>
+							<th class="col2">price</th>
+							<th class="col3">amount</th>
+							<th class="col4">totalPrice</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">りんご</td>
+							<td class="col2">120</td>
+							<td class="col3">60</td>
+							<td class="col4">7200</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">みかん</td>
+							<td class="col2">120</td>
+							<td class="col3">120</td>
+							<td class="col4">14400</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">バナナ</td>
+							<td class="col2">90</td>
+							<td class="col3">25</td>
+							<td class="col4">2250</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">パイナップル</td>
+							<td class="col2">300</td>
+							<td class="col3">35</td>
+							<td class="col4">10500</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">ブドウ</td>
+							<td class="col2">400</td>
+							<td class="col3">20</td>
+							<td class="col4">8000</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">グレープフルーツ</td>
+							<td class="col2">100</td>
+							<td class="col3">50</td>
+							<td class="col4">5000</td>
+						</tr>
+						<tr>
+							<td class="col0">神崎商会</td>
+							<td class="col1">梨</td>
+							<td class="col2">190</td>
+							<td class="col3">35</td>
+							<td class="col4">6650</td>
+						</tr>
+					</tbody>
+				</table>
 			</section>
 			<section>
 				<h2>使用上の注意</h2>
 				<ul>
-					<li>ロールバックされるまでSQL実行結果は保持される。<code class="language-sql"><span class="token keyword keyword-INSERT">INSERT</span></code>や<code class="language-sql"><span class="token keyword keyword-UPDATE">UPDATE</span></code>、<code class="language-sql"><span class="token keyword keyword-DELETE">DELETE</span></code>を行った後に<code class="language-sql"><span class="token keyword keyword-SELECT">SELECT</span></code>文を実行することで反映されたデータテーブルを確認できる。</li>
-					<li>ロールバックされるからと言って間違っても本番環境で使用しないように注意。<code class="language-sql"><span class="token keyword keyword-START">START</span><span class="token keyword space">&nbsp;</span><span class="token keyword keyword-TRANSACTION">TRANSACTION;</span></code>を入力することを忘れた場合、効果がないためである。</li>
-					<li><code class="language-sql"><span class="token keyword keyword-AUTO_INCREMENT">AUTO_INCREMENT</span></code>はSQLの結果がロールバックされる場合でも通常通りカウントされ、元に戻ることはない。このためID番号にて不揃いが発生する可能性がある。</li>
-					<li>一部のSQLコマンドはトランザクションの影響を受けない。これは実行後自動的に<code class="language-sql"><span class="token keyword keyword-COMMIT">COMMIT</span></code>動作が実行されるためである。</li>
-					<li>PHPでSQLトランザクションを行う場合、PHP側にその処理に該当する関数が存在するのでそちらを使用すると良い。</li>
+					<li>別名には日本語が使用することができる。しかし、それを使うのはMicrosoft Office Access位だろう。通常はプログラム側で表題をやカラム名を用意するのが好ましい</li>
 				</ul>
-			</section>
-			<section>
-				<h2>参考リンク</h2>
-				<p><a href="https://dev.mysql.com/doc/refman/5.6/ja/commit.html" target="_blank" rel="external noopener">MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.3.1 START TRANSACTION、COMMIT、および ROLLBACK 構文</a></p>
 			</section>
 		</main>
 		<footer role="contentinfo">

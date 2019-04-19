@@ -21,10 +21,15 @@ block headSpace
 			align-items: center;
 		}
 
+		.form-area + p {
+			margin-top: 0.5rem;
+		}
+
+
 block headTitle
 	h1 #{title}
 block content
-	section.stub
+	blockquote.stub
 		h2 書きかけのページ
 		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
 
@@ -202,6 +207,7 @@ block content
 
 			dt: h3#input-range range
 			dd
+				p 数値の正確さが重要ではない数値の入力要素を作成する。
 				pre.language-html.line-numbers: code.
 					&lt;input type="range"&gt;
 
@@ -210,6 +216,7 @@ block content
 
 			dt: h3#input-reset reset
 			dd
+				p 入力されている項目を初期化する
 				pre.language-html.line-numbers: code.
 					&lt;input type="reset"&gt;
 
@@ -376,4 +383,4 @@ block content
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input' target='_blank') MDN Web Docs
+			a(href='https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input', target='_blank', rel='external noopener') MDN Web Docs

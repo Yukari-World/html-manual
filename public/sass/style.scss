@@ -231,8 +231,6 @@ dl {
 }
 
 ol, ul {
-	list-style: none;
-
 	li {
 		&:not(:first-child) {
 			margin-top: 5px;

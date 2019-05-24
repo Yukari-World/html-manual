@@ -12,6 +12,7 @@
 	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
 	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
 	<link rel="modulepreload" href="js/Main.min.js">
+	<link rel="modulepreload" href="js/common.min.js">
 	<link rel="modulepreload" href="js/ajax-response.min.js">
 	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
@@ -319,9 +320,8 @@
 				<h2>通常のCSSでは難しい点</h2>
 				<dl><dt><h3>グラデーションが独立していない</h3></dt>
 					<dd>各項目毎にグラデーションが連立しており、全体でまたがっている。</dd><dt><h3>項目毎に空白が均一ではない</h3></dt>
-					<dd>最初の項目程右に離れており、最後の項目程左に近い。</dd>
+					<dd>最初の項目程右に離れており、最後の項目程左に近い。<br>特に問題なのはグラデーションであり、マージン幅も考慮した上でポジションを決めなければならず、CSS単体で調整を行うのは非常に難しい。</dd>
 				</dl>
-				<p>特に問題なのはグラデーションであり、マージン幅も考慮した上でポジションを決めなければならず、CSS単体で調整を行うのは非常に難しい。</p>
 			</section>
 			<section>
 				<h2>コードの生成</h2>

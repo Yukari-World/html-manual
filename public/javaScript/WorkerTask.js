@@ -6,9 +6,11 @@
  * @version 1.0.2
  */
 
-// Init
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Initialize
+
 // SendAjax関数の呼び出し
-// import { SendAjax } from './ajax-response.js';
+// import { SendAjax } from './ajax-response.min.js';
 
 /**
  * ランダムワードマニア
@@ -23,6 +25,9 @@ let randomWordTags = [];
  * @type {Object}
  */
 let sendList;
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Function
 
 /**
  * HTTPステータスコードの確認
@@ -153,6 +158,9 @@ async function getrandomWord() {
 	});
 }
 
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Task
+
 /**
  * Worker Task
  */
@@ -179,7 +187,7 @@ self.addEventListener('message', async function (event) {
 				if (!randomWordTags.includes(searchTag, 0)) {
 					randomWordTags.push(searchTag);
 				}
-				tagText += '<li>' + searchTag + '</li>';
+				tagText += '<li><a data-tag="' + searchTag + '">' + searchTag + '</a></li>';
 				TagSQL += '"' + searchTag + '", ';
 			}
 			TagSQL = TagSQL.slice(0, TagSQL.length - 2);
@@ -187,7 +195,7 @@ self.addEventListener('message', async function (event) {
 			sendList = {
 				'mode':'listResult',
 				'post': '<dt id="wordID' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt><dd>' + dataTemp.summary + '<div class="boxTag"><ul class="tagList">' + tagText + '</ul></div></dd>',
-				'SQL': 'INSERT INTO `random_word` (`title`, `original`, `summary`, `tag`) VALUES (\'' + dataTemp.title.replace('\'', '\\\'') + '\', \'' + dataTemp.original.replace('\'', '\\\'') + '\', \'' + dataTemp.summary.replace('\'', '\\\'') + '\', \'' + TagSQL.replace('\'', '\\\'') + '\');'
+				// 'SQL': 'INSERT INTO `random_word` (`title`, `original`, `summary`, `tag`) VALUES (\'' + dataTemp.title.replace('\'', '\\\'') + '\', \'' + dataTemp.original.replace('\'', '\\\'') + '\', \'' + dataTemp.summary.replace('\'', '\\\'') + '\', \'' + TagSQL.replace('\'', '\\\'') + '\');'
 			};
 			postMessage(sendList);
 			// console.log(sendList.SQL);

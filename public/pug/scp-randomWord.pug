@@ -5,7 +5,8 @@ block title
 block headTitle
 	h1 #{title}
 block preloader
-	link(rel='modulepreload', href='js/WorkerTask.js')
+	link(rel='modulepreload', href='js/WorkerTask.min.js')
+
 block append headSpace
 	style(type='text/css').
 		#randomOutput h3, #randomOutput h4 {
@@ -78,10 +79,12 @@ block append headSpace
 		}
 
 		#randomOutput .tagList li {
-			margin-top: 0;
-			margin-bottom: 0;
+			margin: 0 0 0 10px;
 			padding-right: 0;
-			padding-left: 10px;
+		}
+
+		#randomOutput .tagList li a {
+			cursor: pointer
 		}
 
 		@media only screen and (max-width: 768px) {

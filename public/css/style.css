@@ -137,10 +137,6 @@ dl dd {
 	margin-left: 2rem;
 }
 
-ol, ul {
-	list-style: none;
-}
-
 ol li:not(:first-child), ul li:not(:first-child) {
 	margin-top: 5px;
 }
@@ -392,7 +388,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	text-indent: -1em;
 }
 
-.sidebar > ul > li ul, .sidebar > ul > li ul li, .sidebar > ul > li ul li:before {
+.sidebar > ul > li ul, .sidebar > ul > li ul li {
 	-webkit-transition: all 0.5s ease-out;
 	-o-transition: all 0.5s ease-out;
 	transition: all 0.5s ease-out;
@@ -401,6 +397,9 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 .sidebar > ul > li ul li:before {
 	content: "├";
 	padding-right: 2px;
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
 }

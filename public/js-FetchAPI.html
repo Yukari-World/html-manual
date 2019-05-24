@@ -12,6 +12,7 @@
 	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
 	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
 	<link rel="modulepreload" href="js/Main.min.js">
+	<link rel="modulepreload" href="js/common.min.js">
 	<link rel="modulepreload" href="js/ajax-response.min.js">
 	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
@@ -140,6 +141,17 @@
 				<h2>書きかけのページ</h2>
 				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
 			</blockquote>
+			<section>
+				<h2>互換性に関する注意事項</h2>
+				<ul>
+					<li>Internet Explorer全てのバージョンにおいてFetchAPIを使用することはできない。つまりInternet Explorerを対応に含む場合はこの方法を利用できない。</li>
+					<li><code class="language-javascript"><span class="token class-name">formData</span></code>はInternet ExplorerとMicrosoft Edge17までは殆どの機能が対応していない。</li>
+				</ul>
+			</section>
+			<section>
+				<h2>参考リンク</h2>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/API/Fetch_API" target="_blank" rel="external noopener">MDN Web Docs</a></p>
+			</section>
 		</main>
 		<footer role="contentinfo">
 			<p><a id="randomWord">Loading...</a></p>

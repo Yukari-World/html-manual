@@ -6,11 +6,16 @@
  * @version 1.4.0
  */
 
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Initialize
-// SendAjax関数の呼び出し
+
+// ----------------------------------------------------------------------------------------------------
+// Import
+import { storageAvailable } from './common.min.js';
 import { SendAjax } from './ajax-response.min.js';
 
-// const imdWidth = 992;
+// ----------------------------------------------------------------------------------------------------
+// Constant
 /**
  * メニューカテゴリリスト
  * @constant
@@ -35,6 +40,8 @@ const sideList = [
 
 const startTime = Date.now();
 
+// ----------------------------------------------------------------------------------------------------
+// Value
 let bWordDecide = false;
 // let cPopup;
 let sideToggle = [];
@@ -50,6 +57,9 @@ let sideToggle = [];
  */
 let randomWordList;
 let xorRand;
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Class
 
 /**
  * Xor Shift乱数
@@ -75,7 +85,7 @@ class XorShift {
 		 * 値は以下の何れかから大きい値を選択
 		 * <ul>
 		 * <li>Day ^ (Month / 4 + 2)</li>
-		 * <li>Month * Day * max(Seconds * 3, 31) * max(Minites * 7, 53)</li>
+		 * <li>Month * Day * max(Seconds ^ 2, 31) * max(Minites ^ 2, 53)</li>
 		 * </ul>
 		 *
 		 * @default max(Day ^ (Month / 4 + 2), Month * Day * max(Seconds ^ 2, 31) * max(Minites ^ 2, 53))
@@ -118,7 +128,7 @@ class XorShift {
 	 * ログ用10進数→4byte16進数出力
 	 *
 	 * @public
-	 * @param   {integer}   val 変換する10進数
+	 * @param   {number}    val 変換する10進数
 	 * @returns {string}        16進数
 	 * @since   1.3.7
 	 * @version 1.4.0
@@ -163,88 +173,8 @@ class XorShift {
 	}
 }
 
-/**
- * ポップアップクラス
- *
- * @type    {class}
- * @since   1.4.0
- * @version 1.4.0
- */
-class Popup {
-	/**
-	 * コンストラクタメソッド
-	 *
-	 * @constructs
-	 * @param {string}  name    Name
-	 */
-	constructor(name) {
-		/**
-		 * ポップアップ表示ID
-		 * @type {string}
-		 */
-		this.name = 'popup_' + name;
-
-		let nodeBody = document.body;
-		const div = document.createElement('div');
-		div.setAttribute('id', this.name);
-		div.style.position = 'absolute';
-
-		nodeBody.insertBefore(div, document.querySelector('header'));
-	}
-
-	show(text, top, left) {
-		const div = document.getElementById(this.name);
-		div.style.display = 'block';
-		div.style.top = top;
-		div.style.left = left;
-		div.textContent = text;
-	}
-
-	move(top, left) {
-		const div = document.getElementById(this.name);
-		div.style.top = top;
-		div.style.left = left;
-	}
-
-	hide() {
-		const div = document.getElementById(this.name);
-		div.style.display = 'none';
-		div.textContent = '';
-	}
-}
-
-/**
- * ローカルストレージの環境が利用可能か調べる関数
- *
- * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API MDN}より参照
- *
- * @param   {string}    type    調べる項目
- * @returns {boolean}           利用可能かのbool
- * @since   1.3.0
- * @version 1.4.0
- */
-function storageAvailable(type) {
-	let storage = window[type];
-	try {
-		let x = '__storage_test__';
-		storage.setItem(x, x);
-		storage.removeItem(x);
-		return true;
-	} catch (e) {
-		return e instanceof DOMException && (
-			// everything except Firefox
-			e.code === 22 ||
-			// Firefox
-			e.code === 1014 ||
-			// test name field too, because code might not be present
-			// everything except Firefox
-			e.name === 'QuotaExceededError' ||
-			// Firefox
-			e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
-			// acknowledge QuotaExceededError only if there's something already stored
-			storage.length !== 0;
-	}
-}
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Function
 
 /**
  * ランダムワード取得
@@ -317,7 +247,7 @@ async function randomOutput(jsonData) {
 		 * 相対パスで読み込む場合実行するHTMLからの相対パスなので要注意
 		 */
 		// const worker = new Worker('js/WorkerTask.js', { type: 'module' });
-		const worker = new Worker('js/WorkerTask.js');
+		const worker = new Worker('js/WorkerTask.min.js');
 
 		// Workerからデータを受け取る時の処理
 		// Switch文を利用することで処理分岐を作成している
@@ -368,18 +298,20 @@ function setrandomWord() {
 	// 乱数の生成
 	let wordNum = Math.floor(xorRand.randomFloat() * randomWordList.length);
 	const randomWord = document.getElementById('randomWord');
+
 	randomWord.setAttribute('href', 'scp-randomWord.html#wordID' + (wordNum + 1));
 	randomWord.textContent = '';
 	randomWord.insertAdjacentHTML('beforeend', randomWordList[wordNum].title);
 }
 
-/**
- * HTMLの読み込み完了時に行われれる処理
- */
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// DOM Content
+// HTMLの読み込み完了時に行われれる処理
 document.addEventListener('DOMContentLoaded', async function () {
 	// Initialize
 	// ローカルストレージサポートの確認
 	const isEnableStorage = storageAvailable('localStorage');
+
 	await getRandomWord()
 		.then(function (json) {
 			randomWordList = json;
@@ -395,6 +327,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 	// 	1;
 	// });
 
+	// ----------------------------------------------------------------------------------------------------
 	// 全て展開
 	// この作成方法はlet + constだからこそ成り立っており、varでは作成できない
 	document.getElementById('expandAll').addEventListener('click', function () {
@@ -413,6 +346,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		}
 	});
 
+	// ----------------------------------------------------------------------------------------------------
 	// 全て折りたたむ
 	// この作成方法はlet + constだからこそ成り立っており、varでは作成できない
 	document.getElementById('collapseAll').addEventListener('click', function () {
@@ -431,6 +365,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		}
 	});
 
+	// ----------------------------------------------------------------------------------------------------
 	// サイドバーの処理
 	for (let sideName of sideList) {
 		const btnElement = document.getElementById('btn' + sideName);
@@ -472,6 +407,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		});
 	}
 
+	// ----------------------------------------------------------------------------------------------------
 	/**
 	 * 現在の個数
 	 * @constant
@@ -482,6 +418,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		cntRandom.textContent = randomWordList.length;
 	}
 
+	// ----------------------------------------------------------------------------------------------------
 	/**
 	 * ランダムワードの出力位置
 	 * @constant
@@ -499,6 +436,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 	}, 50);
 });
 
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// load
+// 全ての読み込みが完了すると行われる処理
 window.addEventListener('load', function () {
 	document.getElementById('LoadTime').textContent =  Date.now() - startTime + 'ms';
 });

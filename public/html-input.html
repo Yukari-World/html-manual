@@ -9,6 +9,7 @@
 	<link rel="preload" as="style" type="text/css" href="css/prism.min.css">
 	<link rel="preload" as="style" type="text/css" href="css/style.min.css">
 	<link rel="preload" as="script" type="application/javascript" href="js/lazysizes.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="js/vue.js">
 	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
 	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
 	<link rel="modulepreload" href="js/Main.min.js">
@@ -17,305 +18,283 @@
 	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<script type="text/javascript" async="defer" src="js/vue.js"></script>
 	<style type="text/css">
 		label {
 			display: inline-flex;
 			align-items: center;
 		}
 
-		.form-area {
+		fieldset {
 			padding: 15px;
 			color: #000000;
 			border: 2px solid #FFFFFF;
 			background-color: #9999CC;
 		}
 
-		.form-area input[type="checkbox"] {
+		fieldset input[type="checkbox"] {
 			display: inline-flex;
 			align-items: center;
 		}
 
-		.form-area+p {
+		fieldset+p {
 			margin-top: 0.5rem;
 		}
 	</style>
 </head>
 
 <body>
-	<header class="md-show" id="top" role="banner">
-		<h1>input要素</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
-	<nav class="sidebar" id="menu">
-		<h2>HTML Manual Menu</h2>
+	<header class="md-show" id="top" role="banner"><h1>input要素</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+	<nav class="sidebar" id="menu"><h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
-		<ul id="navigation">
-			<li>
-				<h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="category-main.html" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
-				<ul id="listMain">
-					<li><a href="index.html" title="TOP Page">TOP Page</a></li>
-					<li><a href="scp-prismHighlight.html" title="Prismハイライトの例">Prismハイライトの例</a></li>
-					<li><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
-					<li><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
-					<li><a href="scp-randomWord.html" title="???">???</a></li>
+		<ul role="menu" id="navigation">
+			<li><h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="category-main.html" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox" role="switch">
+				<ul role="group" id="listMain">
+					<li role="menuitem"><a href="index.html" title="TOP Page">TOP Page</a></li>
+					<li role="menuitem"><a href="scp-prismHighlight.html" title="Prismハイライトの例">Prismハイライトの例</a></li>
+					<li role="menuitem"><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
+					<li role="menuitem"><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
+					<li role="menuitem"><a href="scp-randomWord.html" title="???">???</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnCSS" for="linkCSS">+</label><a href="category-css.html" title="CSS">CSS</a></h3><input class="panel-switch" id="linkCSS" type="checkbox">
-				<ul id="listCSS">
-					<li><a href="css-backgroundLayer.html" title="backgroundを重ねる">backgroundを重ねる</a></li>
-					<li><a href="css-disablebrTag.html" title="brタグによる改行を無効化">brタグによる改行を無効化</a></li>
-					<li><a href="css-beforeAfter.html" title="疑似要素 :before / :after">疑似要素 :before / :after</a></li>
-					<li><a href="css-gradation.html" title="グラデーション">グラデーション</a></li>
-					<li><a href="css-backgroundScrollLock.html" title="背景画像スクロールの固定">背景画像スクロールの固定</a></li>
-					<li><a href="css-fadeIn.html" title="フェードイン">フェードイン</a></li>
-					<li><a href="css-textShadow.html" title="文字装飾による可読性の向上">文字装飾による可読性の向上</a></li>
+			<li><h3><label class="expand-box" id="btnCSS" for="linkCSS">+</label><a href="category-css.html" title="CSS">CSS</a></h3><input class="panel-switch" id="linkCSS" type="checkbox" role="switch">
+				<ul role="group" id="listCSS">
+					<li role="menuitem"><a href="css-backgroundLayer.html" title="backgroundを重ねる">backgroundを重ねる</a></li>
+					<li role="menuitem"><a href="css-disablebrTag.html" title="brタグによる改行を無効化">brタグによる改行を無効化</a></li>
+					<li role="menuitem"><a href="css-beforeAfter.html" title="疑似要素 :before / :after">疑似要素 :before / :after</a></li>
+					<li role="menuitem"><a href="css-gradation.html" title="グラデーション">グラデーション</a></li>
+					<li role="menuitem"><a href="css-RangeLayout.html" title="スライダーレイアウト">スライダーレイアウト</a></li>
+					<li role="menuitem"><a href="css-backgroundScrollLock.html" title="背景画像スクロールの固定">背景画像スクロールの固定</a></li>
+					<li role="menuitem"><a href="css-fadeIn.html" title="フェードイン">フェードイン</a></li>
+					<li role="menuitem"><a href="css-textShadow.html" title="文字装飾による可読性の向上">文字装飾による可読性の向上</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnHTML" for="linkHTML">+</label><a href="category-html.html" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox">
-				<ul id="listHTML">
-					<li><a href="html-input.html" title="input要素">input要素</a></li>
-					<li><a href="html-fileDownload.html" title="ファイルダウンロード">ファイルダウンロード</a></li>
-					<li><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
+			<li><h3><label class="expand-box" id="btnHTML" for="linkHTML">+</label><a href="category-html.html" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox" role="switch">
+				<ul role="group" id="listHTML">
+					<li role="menuitem"><a href="html-input.html" title="input要素">input要素</a></li>
+					<li role="menuitem"><a href="html-fileDownload.html" title="ファイルダウンロード">ファイルダウンロード</a></li>
+					<li role="menuitem"><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="category-js.html" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
-				<ul id="listJavaScript">
-					<li><a href="js-localStorage.html" title="[WIP] localStorage">[WIP] localStorage</a></li>
-					<li><a href="js-Promise.html" title="[WIP] Promise">[WIP] Promise</a></li>
-					<li><a href="js-FetchAPI.html" title="[Ajax/WIP] Fetch API">[Ajax/WIP] Fetch API</a></li>
-					<li><a href="js-XMLHttpRequest.html" title="[Ajax/WIP] XMLHttpRequest">[Ajax/WIP] XMLHttpRequest</a></li>
+			<li><h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="category-js.html" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox" role="switch">
+				<ul role="group" id="listJavaScript">
+					<li role="menuitem"><a href="js-IndexedDBAPI.html" title="[WIP] IndexedDB">[WIP] IndexedDB</a></li>
+					<li role="menuitem"><a href="js-localStorage.html" title="[WIP] localStorage">[WIP] localStorage</a></li>
+					<li role="menuitem"><a href="js-Promise.html" title="[WIP] Promise">[WIP] Promise</a></li>
+					<li role="menuitem"><a href="js-FetchAPI.html" title="[Ajax/WIP] Fetch API">[Ajax/WIP] Fetch API</a></li>
+					<li role="menuitem"><a href="js-XMLHttpRequest.html" title="[Ajax/WIP] XMLHttpRequest">[Ajax/WIP] XMLHttpRequest</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnLanguage" for="linkLanguage">+</label><a href="category-language.html" title="Language">Language</a></h3><input class="panel-switch" id="linkLanguage" type="checkbox">
-				<ul id="listLanguage">
-					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
-					<li><a href="language-pug.html" title="Pug">Pug</a></li>
-					<li><a href="language-sass.html" title="Sass">Sass</a></li>
-					<li><a href="#" title="[WIP] SCSS">[WIP] SCSS</a></li>
+			<li><h3><label class="expand-box" id="btnLanguage" for="linkLanguage">+</label><a href="category-language.html" title="Language">Language</a></h3><input class="panel-switch" id="linkLanguage" type="checkbox" role="switch">
+				<ul role="group" id="listLanguage">
+					<li role="menuitem"><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
+					<li role="menuitem"><a href="language-pug.html" title="Pug">Pug</a></li>
+					<li role="menuitem"><a href="language-sass.html" title="Sass">Sass</a></li>
+					<li role="menuitem"><a href="#" title="[WIP] SCSS">[WIP] SCSS</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnNode" for="linkNode">+</label><a href="category-node.html" title="Node.js">Node.js</a></h3><input class="panel-switch" id="linkNode" type="checkbox">
-				<ul id="listNode">
-					<li><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
-					<li><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
-					<li><a href="node-npm.html" title="npm コマンド">npm コマンド</a></li>
-					<li><a href="#" title="[Gulp/WIP] Gulp導入マニュアル">[Gulp/WIP] Gulp導入マニュアル</a></li>
+			<li><h3><label class="expand-box" id="btnNode" for="linkNode">+</label><a href="category-node.html" title="Node.js">Node.js</a></h3><input class="panel-switch" id="linkNode" type="checkbox" role="switch">
+				<ul role="group" id="listNode">
+					<li role="menuitem"><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
+					<li role="menuitem"><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
+					<li role="menuitem"><a href="node-npm.html" title="npm コマンド">npm コマンド</a></li>
+					<li role="menuitem"><a href="#" title="[Gulp/WIP] Gulp導入マニュアル">[Gulp/WIP] Gulp導入マニュアル</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnPHP" for="linkPHP">+</label><a href="category-php.html" title="PHP">PHP</a></h3><input class="panel-switch" id="linkPHP" type="checkbox">
-				<ul id="listPHP">
-					<li><a href="php-pdo.html" title="PDO(PHP Data Objects)">PDO(PHP Data Objects)</a></li>
-					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
-					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
-					<li><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
-					<li><a href="php-CIDatabase.html" title="[CodeIgniter] データベース接続">[CodeIgniter] データベース接続</a></li>
+			<li><h3><label class="expand-box" id="btnPHP" for="linkPHP">+</label><a href="category-php.html" title="PHP">PHP</a></h3><input class="panel-switch" id="linkPHP" type="checkbox" role="switch">
+				<ul role="group" id="listPHP">
+					<li role="menuitem"><a href="php-pdo.html" title="PDO(PHP Data Objects)">PDO(PHP Data Objects)</a></li>
+					<li role="menuitem"><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
+					<li role="menuitem"><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
+					<li role="menuitem"><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
+					<li role="menuitem"><a href="php-CIDatabase.html" title="[CodeIgniter] データベース接続">[CodeIgniter] データベース接続</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnSCSS" for="linkSCSS">+</label><a href="category-scss.html" title="SCSS">SCSS</a></h3><input class="panel-switch" id="linkSCSS" type="checkbox">
-				<ul id="listSCSS">
-					<li><a href="scss-gradationList.html" title="特殊なグラデーションリスト">特殊なグラデーションリスト</a></li>
+			<li><h3><label class="expand-box" id="btnSCSS" for="linkSCSS">+</label><a href="category-scss.html" title="SCSS">SCSS</a></h3><input class="panel-switch" id="linkSCSS" type="checkbox" role="switch">
+				<ul role="group" id="listSCSS">
+					<li role="menuitem"><a href="scss-gradationList.html" title="特殊なグラデーションリスト">特殊なグラデーションリスト</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
-				<ul id="listSQL">
-					<li><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
-					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
-					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
-					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
-					<li><a href="sql-like.html" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
-					<li><a href="sql-transaction.html" title="TRANSACTION(トランザクション)">TRANSACTION(トランザクション)</a></li>
-					<li><a href="sql-truncate.html" title="TRUNCATE(テーブルを空にする)">TRUNCATE(テーブルを空にする)</a></li>
-					<li><a href="sql-deleteFlag.html" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
-					<li><a href="sql-MySQLinsertWhereExists.html" title="[MySQL] INSERT WHERE EXISTS">[MySQL] INSERT WHERE EXISTS</a></li>
-					<li><a href="sql-MySQLint.html" title="[MySQL] INT(11) の意味">[MySQL] INT(11) の意味</a></li>
-					<li><a href="sql-MySQLupdateSelect.html" title="[MySQL] UPDATE SELECT">[MySQL] UPDATE SELECT</a></li>
-					<li><a href="#" title="[MySQL/WIP] UTF-8のあれこれ">[MySQL/WIP] UTF-8のあれこれ</a></li>
+			<li><h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox" role="switch">
+				<ul role="group" id="listSQL">
+					<li role="menuitem"><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
+					<li role="menuitem"><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
+					<li role="menuitem"><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
+					<li role="menuitem"><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
+					<li role="menuitem"><a href="sql-like.html" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
+					<li role="menuitem"><a href="sql-transaction.html" title="TRANSACTION(トランザクション)">TRANSACTION(トランザクション)</a></li>
+					<li role="menuitem"><a href="sql-truncate.html" title="TRUNCATE(テーブルを空にする)">TRUNCATE(テーブルを空にする)</a></li>
+					<li role="menuitem"><a href="sql-deleteFlag.html" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
+					<li role="menuitem"><a href="sql-MySQLinsertWhereExists.html" title="[MySQL] INSERT WHERE EXISTS">[MySQL] INSERT WHERE EXISTS</a></li>
+					<li role="menuitem"><a href="sql-MySQLint.html" title="[MySQL] INT(11) の意味">[MySQL] INT(11) の意味</a></li>
+					<li role="menuitem"><a href="sql-MySQLupdateSelect.html" title="[MySQL] UPDATE SELECT">[MySQL] UPDATE SELECT</a></li>
+					<li role="menuitem"><a href="#" title="[MySQL/WIP] UTF-8のあれこれ">[MySQL/WIP] UTF-8のあれこれ</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnWordpress" for="linkWordpress">+</label><a href="category-wordpress.html" title="Wordpress">Wordpress</a></h3><input class="panel-switch" id="linkWordpress" type="checkbox">
-				<ul id="listWordpress"></ul>
+			<li><h3><label class="expand-box" id="btnWordpress" for="linkWordpress">+</label><a href="category-wordpress.html" title="Wordpress">Wordpress</a></h3><input class="panel-switch" id="linkWordpress" type="checkbox" role="switch">
+				<ul role="group" id="listWordpress"></ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="category-other.html" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox">
-				<ul id="listOther">
-					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
-					<li><a href="other-runPHPForHTML.html" title="[Apache] HTMLファイルでPHPを動かす">[Apache] HTMLファイルでPHPを動かす</a></li>
-					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
-					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
-					<li><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
-					<li><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
+			<li><h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="category-other.html" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox" role="switch">
+				<ul role="group" id="listOther">
+					<li role="menuitem"><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
+					<li role="menuitem"><a href="other-runPHPForHTML.html" title="[Apache] HTMLファイルでPHPを動かす">[Apache] HTMLファイルでPHPを動かす</a></li>
+					<li role="menuitem"><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
+					<li role="menuitem"><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
+					<li role="menuitem"><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
+					<li role="menuitem"><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
 				</ul>
 			</li>
 		</ul>
 	</nav>
 	<div class="content">
-		<header class="md-hide" role="banner">
-			<h1>input要素</h1></header>
-		<main role="main">
-			<blockquote class="stub">
-				<h2>書きかけのページ</h2>
+		<header class="md-hide" role="banner"><h1>input要素</h1>
+		</header>
+		<main>
+			<blockquote class="stub"><h2>書きかけのページ</h2>
 				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
 			</blockquote>
-			<section>
-				<h2>説明</h2>
+			<section><h2>説明</h2>
 				<p><code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">input</span><span class="token punctuation">&gt;</span></code>要素は<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">form</span><span class="token punctuation">&gt;</span></code>要素と一緒に使われることの多いホームページを訪れたユーザーがデータを入力する要素の一つである(ユーザーが入力するその他の要素は<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">textarea</span><span class="token punctuation">&gt;</span></code>、<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">button</span><span class="token punctuation">&gt;</span></code>等がある)。<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">input</span><span class="token punctuation">&gt;</span></code>は非常に種類が多く、利用頻度が高いがその全てを把握するのが難しいのでこのページで一通り纏めておく。</p>
 			</section>
-			<section>
-				<h2>inputの種類</h2>
+			<section><h2>inputの種類</h2>
 				<dl><dt><h3 id="input-button">button</h3></dt>
 					<dd>
 						<p>機能を持たないボタンを作成する。</p><pre class="language-html line-numbers"><code>&lt;input type="button" value="ボタン"&gt;
 </code></pre>
-						<div class="form-area"><input type="button" value="ボタン"></div>
+						<fieldset><input type="button" value="ボタン"></fieldset>
 					</dd><dt><h3 id="input-checkbox">checkbox</h3></dt>
 					<dd>
 						<p>チェックボックスを作成する。ラジオボタンと異なり複数選択することができる。</p><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="checkbox" value="1"&gt;内容1&lt;/label&gt;
 &lt;label&gt;&lt;input type="checkbox" value="2"&gt;内容2&lt;/label&gt;
 &lt;label&gt;&lt;input type="checkbox" value="3"&gt;内容3&lt;/label&gt;
 </code></pre>
-						<div class="form-area"><label><input type="checkbox" value="1">内容1</label><label><input type="checkbox" value="2">内容2</label><label><input type="checkbox" value="3">内容3</label></div>
+						<fieldset><label><input type="checkbox" value="1">内容1</label><label><input type="checkbox" value="2">内容2</label><label><input type="checkbox" value="3">内容3</label></fieldset>
 					</dd><dt><h3 id="input-color">color</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="color" value="#FFFFFF"&gt;
 </code></pre>
-						<div class="form-area"><input type="color" value="#FFFFFF"></div>
+						<fieldset><input type="color" value="#FFFFFF"></fieldset>
 					</dd><dt><h3 id="input-date">date</h3></dt>
 					<dd>
 						<p>日付入力フォームを作成する。ブラウザによってはカレンダーが表示されたりする。</p><pre class="language-html line-numbers"><code>&lt;input type="date"&gt;
 </code></pre>
-						<div class="form-area"><input type="date"></div>
+						<fieldset><input type="date"></fieldset>
 					</dd><dt><h3 id="input-datetime-local">datetime-local</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="datetime-local"&gt;
 </code></pre>
-						<div class="form-area"><input type="datetime-local"></div>
+						<fieldset><input type="datetime-local"></fieldset>
 					</dd><dt><h3 id="input-email">email</h3></dt>
 					<dd>
 						<p>メールアドレス入力フォームを作成する。ブラウザ毎にメールアドレスの検証機能が異なる。</p><pre class="language-html line-numbers"><code>&lt;input type="email"&gt;
 </code></pre>
-						<div class="form-area"><input type="email"></div>
+						<fieldset><input type="email"></fieldset>
 					</dd><dt><h3 id="input-file">file</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="file"&gt;
 </code></pre>
-						<div class="form-area"><input type="file"></div>
+						<fieldset><input type="file"></fieldset>
 					</dd><dt><h3 id="input-hidden">hidden</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="hidden"&gt;
 </code></pre>
-						<div class="form-area"><input type="hidden"></div>
+						<fieldset><input type="hidden"></fieldset>
 					</dd><dt><h3 id="input-image">image</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="image"&gt;
 </code></pre>
-						<div class="form-area"><input type="image"></div>
+						<fieldset><input type="image"></fieldset>
 					</dd><dt><h3 id="input-month">month</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="month"&gt;
 </code></pre>
-						<div class="form-area"><input type="month"></div>
+						<fieldset><input type="month"></fieldset>
 					</dd><dt><h3 id="input-number">number</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="number"&gt;
 </code></pre>
-						<div class="form-area"><input type="number"></div>
+						<fieldset><input type="number"></fieldset>
 					</dd><dt><h3 id="input-password">password</h3></dt>
 					<dd>
 						<p>パスワード入力フォームを作成する。パスワード入力時、文字は全て●で表示される。また、非SSLページ(暗号化されていないページ)ではブラウザによっては警告が表示される。</p><pre class="language-html line-numbers"><code>&lt;input type="password"&gt;
 </code></pre>
-						<div class="form-area"><input type="password"></div>
+						<fieldset><input type="password"></fieldset>
 					</dd><dt><h3 id="input-radio">radio</h3></dt>
 					<dd>
 						<p>複数の選択肢から1つを選ぶラジオボタンを作成する。</p><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="radio" value="1"&gt;内容1&lt;/label&gt;
 </code></pre>
-						<div class="form-area"><label><input type="radio" value="1">内容1</label></div>
+						<fieldset><label><input type="radio" value="1">内容1</label></fieldset>
 						<p>ラジオボタンはname属性に同じ名前を指定することで同一グループであると認識する。</p><pre class="language-html line-numbers"><code>&lt;label&gt;&lt;input type="radio" name="bread" value="1"&gt;内容1&lt;/label&gt;
 &lt;label&gt;&lt;input type="radio" name="bread" value="2"&gt;内容1&lt;/label&gt;
 &lt;label&gt;&lt;input type="radio" name="bread" value="3"&gt;内容1&lt;/label&gt;
 </code></pre>
-						<div class="form-area"><label><input type="radio" name="bread" value="1">内容1</label><label><input type="radio" name="bread" value="2">内容2</label><label><input type="radio" name="bread" value="3">内容3</label></div>
+						<fieldset><label><input type="radio" name="bread" value="1">内容1</label><label><input type="radio" name="bread" value="2">内容2</label><label><input type="radio" name="bread" value="3">内容3</label></fieldset>
 					</dd><dt><h3 id="input-range">range</h3></dt>
 					<dd>
 						<p>数値の正確さが重要ではない数値の入力要素を作成する。</p><pre class="language-html line-numbers"><code>&lt;input type="range"&gt;
 </code></pre>
-						<div class="form-area"><input type="range"></div>
+						<fieldset><input type="range"></fieldset>
 					</dd><dt><h3 id="input-reset">reset</h3></dt>
 					<dd>
 						<p>入力されている項目を初期化する</p><pre class="language-html line-numbers"><code>&lt;input type="reset"&gt;
 </code></pre>
-						<div class="form-area"><input type="reset"></div>
+						<fieldset><input type="reset"></fieldset>
 					</dd><dt><h3 id="input-search">search</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="search"&gt;
 </code></pre>
-						<div class="form-area"><input type="search"></div>
+						<fieldset><input type="search"></fieldset>
 					</dd><dt><h3 id="input-submit">submit</h3></dt>
 					<dd>
 						<p>フォームの入力を完了し送信するボタンを作成する。</p><pre class="language-html line-numbers"><code>&lt;input type="submit"&gt;
 </code></pre>
-						<div class="form-area"><input type="submit"></div>
+						<fieldset><input type="submit"></fieldset>
 					</dd><dt><h3 id="input-tel">tel</h3></dt>
 					<dd>
-						<p>電話番号入力フォームを作成する。</p><pre class="language-html line-numbers"><code>&lt;input type="tel"&gt;
+						<p>電話番号を入力フォームを作成する。</p><pre class="language-html line-numbers"><code>&lt;input type="tel"&gt;
 </code></pre>
-						<div class="form-area"><input type="tel"></div>
+						<fieldset><input type="tel"></fieldset>
 					</dd><dt><h3 id="input-text">text</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="text"&gt;
 </code></pre>
-						<div class="form-area"><input type="text"></div>
+						<fieldset><input type="text"></fieldset>
 					</dd><dt><h3 id="input-time">time</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="time"&gt;
 </code></pre>
-						<div class="form-area"><input type="time"></div>
+						<fieldset><input type="time"></fieldset>
 					</dd><dt><h3 id="input-url">url</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="url"&gt;
 </code></pre>
-						<div class="form-area"><input type="url"></div>
+						<fieldset><input type="url"></fieldset>
 					</dd><dt><h3 id="input-week">week</h3></dt>
 					<dd><pre class="language-html line-numbers"><code>&lt;input type="week"&gt;
 </code></pre>
-						<div class="form-area"><input type="week"></div>
+						<fieldset><input type="week"></fieldset>
 					</dd>
 				</dl>
 			</section>
-			<section>
-				<h2>使用可能な属性</h2>
-				<h3>autofocus</h3>
+			<section><h2>使用可能な属性</h2><h3>autofocus</h3>
 				<p>そのページに移行した時、自動的にそのフォームに入力カーソルが置かれる。<code class="language-html"><span class="token attr-name">autofocus</span></code>には内容が存在しないため<code class="language-html"><span class="token attr-name">autofocus</span></code>のみでも問題はない。尚サンプルは性質上ページこの位置まで勝手に移動してしまうので用意していない。</p><pre class="language-html line-numbers"><code>&lt;input type="text" name="your-name" autofocus="autofocus"&gt;
-</code></pre>
-				<h3>formaction</h3>
+</code></pre><h3>formaction</h3>
 				<p>フォームに入力された情報を処理するプログラムのURIを指定する。<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">form</span><span class="token punctuation">&gt;</span></code>要素に指定した<code class="language-html"><span class="token attr-name">action</span></code>属性よりも優先される。この属性はimageもしくはsubmitにのみ指定できる。</p><pre class="language-html line-numbers"><code>&lt;input type="submit" formaction="sample.php"&gt;
-</code></pre>
-				<h3>list</h3>
-				<h3>name</h3>
+</code></pre><h3>list</h3><h3>name</h3>
 				<p>フォーム項目の名前。ブラウザ上には表示されないため<code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">label</span><span class="token punctuation">&gt;</span></code>等を使用してどの様な項目なのか記入する必要がある。JavaScriptのパーツとして使用する場合を除きほぼ必須項目である。</p><pre class="language-html line-numbers"><code>&lt;input type="text" name="your-name"&gt;
 </code></pre>
-				<div class="form-area"><input type="text" name="your-name"></div>
-				<h3>required</h3>
-				<p>そのフォームの入力を必須にする。<code class="language-html"><span class="token attr-name">required</span></code>には内容が存在しないため<code class="language-html"><span class="token attr-name">required</span></code>のみでも問題はない。 checkboxに使用した場合、必ずその項目をチェックをつけなくてはならない。
-				</p>
-				<h3>value</h3>
-				<p>checkbox、hidden、submit、radioとそれ以外では扱いが異なる。</p>
-				<ul>
-					<li>checkboxとradioの場合<br>選択した時に送られる値。</li>
-					<li>hiddenの場合<br>フォームに送られる値。JavaScript等使わない限り編集することができない。</li>
-					<li>submitの場合<br>ボタンに表示される文字列。フォーム送信時にその文字列も一緒に送られる。<pre class="language-html line-numbers"><code>&lt;input type="submit" name="submit" value="送信確認"&gt;
+				<fieldset><input type="text" name="your-name"></fieldset><h3>required</h3>
+					<p>そのフォームの入力を必須にする。<code class="language-html"><span class="token attr-name">required</span></code>には内容が存在しないため<code class="language-html"><span class="token attr-name">required</span></code>のみでも問題はない。
+						checkboxに使用した場合、必ずその項目をチェックをつけなくてはならない。</p><h3>value</h3>
+					<p>checkbox、hidden、submit、radioとそれ以外では扱いが異なる。</p>
+					<ul>
+						<li>checkboxとradioの場合<br>選択した時に送られる値。</li>
+						<li>hiddenの場合<br>フォームに送られる値。JavaScript等使わない限り編集することができない。</li>
+						<li>submitの場合<br>ボタンに表示される文字列。フォーム送信時にその文字列も一緒に送られる。<pre class="language-html line-numbers"><code>&lt;input type="submit" name="submit" value="送信確認"&gt;
 </code></pre>
-						<div class="form-area"><input type="submit" name="submit" value="送信確認"></div>
-					</li>
-					<li>それ以外の項目の場合<br>フォーム項目の初期値。<pre class="language-html line-numbers"><code>&lt;input type="text" name="your-name" value="山田太郎"&gt;
+							<fieldset><input type="submit" name="submit" value="送信確認"></fieldset>
+						</li>
+						<li>それ以外の項目の場合<br>フォーム項目の初期値。<pre class="language-html line-numbers"><code>&lt;input type="text" name="your-name" value="山田太郎"&gt;
 </code></pre>
-						<div class="form-area"><input type="text" name="your-name" value="山田太郎"></div>
-					</li>
-				</ul>
+							<fieldset><input type="text" name="your-name" value="山田太郎"></fieldset>
+						</li>
+					</ul>
 			</section>
-			<section>
-				<h2>使用上の注意</h2>
+			<section><h2>使用上の注意</h2>
 				<ul>
 					<li><code class="language-html"><span class="token punctuation">&lt;</span><span class="token tag">form</span><span class="token punctuation">&gt;</span></code>要素上に存在しない入力フォームは基本的に送信されない。formから独立した位置に入力フォームを設置する場合は<code class="language-html"><span class="token attr-name">form</span></code>属性を忘れないようにすること。但し大抵これを使用する場合入力フォームの位置が通常より遠ざかる位置にあることが多いためフォームの形としては不適切になりやすいことには注意すること。またHTML5の要素故に旧バージョンのブラウザでは対応していないことが多いので注意が必要。</li>
 				</ul>
 			</section>
-			<section>
-				<h2>参考リンク</h2>
+			<section><h2>参考リンク</h2>
 				<p><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input" target="_blank" rel="external noopener">MDN Web Docs</a></p>
 			</section>
 		</main>

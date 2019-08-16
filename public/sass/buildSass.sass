@@ -9,7 +9,8 @@
 // ----------------------------------------------------------------------------------------------------
 // 変数の定義(Global)
 $global-font-size: 14px
-$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+$gradation-pattern1: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+$gradation-pattern2: linear-gradient(to right, #FFFFFF, #1164FF, #FFFF99)
 
 // Responsive Breakpoint
 $width-list: (xs: 576, sm: 768, md: 992, lg: 1200, lx: 1400, hd: 1920) !default
@@ -29,6 +30,10 @@ $width-list: (xs: 576, sm: 768, md: 992, lg: 1200, lx: 1400, hd: 1920) !default
 	color: #FFFFFF
 	text-shadow: 0 0 0 rgba(255, 255, 255, 0)
 
+@mixin defaultFlashLight()
+	color: #000011
+	text-shadow: 0 0 0 rgba(0, 0, 17, 0)
+
 // ----------------------------------------------------------------------------------------------------
 // Functionの定義
 
@@ -45,6 +50,9 @@ $width-list: (xs: 576, sm: 768, md: 992, lg: 1200, lx: 1400, hd: 1920) !default
 	padding: 1rem
 	border-width: 5px
 	border-style: solid
+
+	@media (prefers-color-scheme: light)
+		color: #FFFFFF
 
 	@media print
 		color: #FFFFFF
@@ -107,15 +115,22 @@ body
 	line-height: 1.2
 	color: #FFFFFF
 	background-color: #000011
+	background-image: linear-gradient(180deg, #000005, #000011 22%, #000011 70%, #00001C 85%)
 
 	@include max-screen(md)
 		flex-direction: column
 		justify-content: unset
 		align-items: unset
 
+	@media (prefers-color-scheme: light)
+		color: #000011
+		background-color: unset
+		background-image: unset
+
 	@media print
 		color: #000000
 		background-color: unset
+		background-image: unset
 
 	> header
 		@media print
@@ -176,7 +191,7 @@ h3
 	font-size: 1.25rem
 
 h4
-	font-size: 1rem
+	font-size: 1.1rem
 
 dl
 	dd
@@ -202,6 +217,10 @@ blockquote
 		background-color: #000033
 		background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011)
 
+		@media (prefers-color-scheme: light)
+			border-image: linear-gradient(to top right, #1164FF, #FFFFFF, #1164FF) 1/5px 5px/0 stretch
+			background-image: linear-gradient(to top left, #FFFFFF, #000033 20%, #000033 80%, #FFFFFF)
+
 	&.cation
 		@extend %blockquote
 
@@ -210,6 +229,10 @@ blockquote
 		background-color: #333300
 		background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011)
 
+		@media (prefers-color-scheme: light)
+			border-image: linear-gradient(to top right, #FFFF33, #FFFFFF, #FFFF33) 1/5px 5px/0 stretch
+			background-image: linear-gradient(to top left, #FFFFFF, #333300 20%, #333300 80%, #FFFFFF)
+
 	&.danger
 		@extend %blockquote
 
@@ -217,6 +240,10 @@ blockquote
 		border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch
 		background-color: #330000
 		background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011)
+
+		@media (prefers-color-scheme: light)
+			border-image: linear-gradient(to top right, #FF0F0F, #FFFFFF, #FF0F0F) 1/5px 5px/0 stretch
+			background-image: linear-gradient(to top left, #FFFFFF, #330000 20%, #330000 80%, #FFFFFF)
 
 	&.deprecated
 		@extend %blockquote
@@ -258,6 +285,10 @@ blockquote
 		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25))
 		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3)
 
+		@media (prefers-color-scheme: light)
+			background-image: linear-gradient(to bottom right, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25))
+			box-shadow: 0 0 0 1px rgba(102, 102, 102, 0.3)
+
 	&-corner
 		background-color: transparent
 
@@ -274,10 +305,26 @@ blockquote
 		$flash: #FFFF66
 
 		color: $flash
-		text-shadow: 0 0 10px $flash
+		text-shadow: 0 0 0.25rem $flash, 0 0 0.5rem $flash, 0 0 0.75rem $flash, 0 0 1rem $flash, 0 0 1.25rem $flash, 0 0 1.5rem $flash, 0 0 1.75rem $flash
 
 	100%
 		@include defaultFlash()
+
+@keyframes flashStringLight
+	0%
+		@include defaultFlashLight()
+
+	90%
+		@include defaultFlashLight()
+
+	95%
+		$flash: #FFFF66
+
+		color: $flash
+		text-shadow: 0 0 0.25rem $flash, 0 0 0.5rem $flash, 0 0 0.75rem $flash, 0 0 1rem $flash, 0 0 1.25rem $flash, 0 0 1.5rem $flash, 0 0 1.75rem $flash
+
+	100%
+		@include defaultFlashLight()
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * Prism Overwrite
@@ -349,6 +396,12 @@ code, pre
 		border-left-width: 3px
 		border-image: linear-gradient(to bottom, #000011, #1164FF) 1/0 3px 5px/0 stretch
 
+		@media (prefers-color-scheme: light)
+			border-image: linear-gradient(to bottom, #FFFFFF, #1164FF) 1/0 3px 5px/0 stretch
+
+	@media (prefers-color-scheme: light)
+		border-image: linear-gradient(to bottom, #FFFFFF, #1164FF) 1/0 3px 0 0/0 stretch
+
 	@media print
 		display: none
 
@@ -383,10 +436,14 @@ code, pre
 				border-width: 0
 				border-style: solid
 				border-top-width: 3px
-				border-image: linear-gradient(to right, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch
+				border-image: $gradation-pattern1 1/3px 0 0/0 stretch
 
 				@include max-screen(md)
 					padding-left: 0
+
+				@media (prefers-color-scheme: light)
+					animation-name: flashStringLight
+					border-image: $gradation-pattern2 1/3px 0 0/0 stretch
 
 				a
 					display: inline-flex
@@ -394,6 +451,9 @@ code, pre
 					margin: auto 0
 					animation: flashString 10s linear infinite
 					line-height: 1em
+
+					@media (prefers-color-scheme: light)
+						animation-name: flashStringLight
 
 			input
 				&[type="checkbox"]
@@ -429,7 +489,7 @@ code, pre
 				text-indent: -1em
 
 				@include max-screen(md)
-					margin-left: calc(1em+ 2px)
+					margin-left: calc(1em + 2px)
 
 				li
 					// overflow: hidden
@@ -440,6 +500,9 @@ code, pre
 						padding-right: 2px
 						transition: all 0.5s ease-out
 						animation: flashString 10s linear infinite
+
+						@media (prefers-color-scheme: light)
+							animation-name: flashStringLight
 
 					&:last-child
 						&:before
@@ -456,6 +519,9 @@ code, pre
 		&-track
 			border-radius: 10px
 			background-image: linear-gradient(to bottom, #000011, #1164FF)
+
+			@media (prefers-color-scheme: light)
+				background-image: linear-gradient(to bottom, #FFFFFF, #1164FF)
 
 		&-thumb
 			border-radius: 10px
@@ -495,6 +561,9 @@ code, pre
 	line-height: $font-size
 	border: 1px #FFFFFF solid
 
+	@media (prefers-color-scheme: light)
+		border-color: #000011
+
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  * ヘッダー
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -505,11 +574,14 @@ header
 	justify-content: space-between
 	align-items: center
 	margin-top: 1rem
-	margin-bottom: 3px
+	margin-bottom: 0.35rem
 	border-width: 0
 	border-style: solid
 	border-bottom-width: 5px
-	border-image: $gradation-pattern 1/0 0 5px/0 stretch
+	border-image: $gradation-pattern1 1/0 0 5px/0 stretch
+
+	@media (prefers-color-scheme: light)
+		border-image: $gradation-pattern2 1/0 0 5px/0 stretch
 
 	@media print
 		margin-top: 0
@@ -557,7 +629,13 @@ section
 		border-width: 0
 		border-style: solid
 		border-top-width: 2px
-		border-image: $gradation-pattern 1/2px 0 0/0 stretch
+		border-image: $gradation-pattern1 1/2px 0 0/0 stretch
+
+		@media (prefers-color-scheme: light)
+			border-image: $gradation-pattern2 1/2px 0 0/0 stretch
+
+	&:last-of-type
+		margin-bottom: 10rem
 
 	h1, h2, h3, h4, h5, h6, p
 		padding: 0 0.5rem
@@ -635,17 +713,20 @@ footer
 	display: flex
 	justify-content: space-between
 	align-items: center
-	margin-top: 3px
-	padding-top: 5px
-	padding-bottom: 5px
+	margin-top: 0.35rem
+	padding-top: 0.35rem
+	padding-bottom: 0.35rem
 	border-width: 0
 	border-style: solid
 	border-top-width: 5px
 	border-bottom-width: 20px
-	border-image: $gradation-pattern 1/5px 0 20px/0 stretch
+	border-image: $gradation-pattern1 1/5px 0 20px/0 stretch
 
 	@include max-screen(sm)
 		flex-direction: column-reverse
+
+	@media (prefers-color-scheme: light)
+		border-image: $gradation-pattern2 1/5px 0 20px/0 stretch
 
 	p
 		@include max-screen(sm)
@@ -658,6 +739,9 @@ footer
 				animation: flashString 10s linear infinite
 				text-decoration: line-through
 				color: unset
+
+				@media (prefers-color-scheme: light)
+					animation-name: flashStringLight
 
 				@media print
 					animation: unset

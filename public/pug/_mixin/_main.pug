@@ -1,7 +1,7 @@
 mixin menuSidebar(href, name)
-	li: a(href=href, title=name)= name
+	li(role='menuitem'): a(href=href, title=name)= name
 
-ul#listMain
+ul(role='group')#listMain
 	+menuSidebar('index.html', 'TOP Page')
 	+menuSidebar('scp-prismHighlight.html', 'Prismハイライトの例')
 	+menuSidebar('scp-sample.html', 'サンプルデータ')

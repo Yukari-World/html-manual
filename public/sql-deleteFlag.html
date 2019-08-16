@@ -9,6 +9,7 @@
 	<link rel="preload" as="style" type="text/css" href="css/prism.min.css">
 	<link rel="preload" as="style" type="text/css" href="css/style.min.css">
 	<link rel="preload" as="script" type="application/javascript" href="js/lazysizes.min.js">
+	<link rel="preload" as="script" type="application/javascript" href="js/vue.js">
 	<link rel="preload" as="script" type="application/javascript" href="js/prism.min.js">
 	<link rel="preload" as="script" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
 	<link rel="modulepreload" href="js/Main.min.js">
@@ -17,137 +18,124 @@
 	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" type="text/css" href="css/prism.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<script type="text/javascript" async="defer" src="js/vue.js"></script>
 </head>
 
 <body>
-	<header class="md-show" id="top" role="banner">
-		<h1>削除フラグ</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
-	<nav class="sidebar" id="menu">
-		<h2>HTML Manual Menu</h2>
+	<header class="md-show" id="top" role="banner"><h1>削除フラグ</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+	<nav class="sidebar" id="menu"><h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
-		<ul id="navigation">
-			<li>
-				<h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="category-main.html" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox">
-				<ul id="listMain">
-					<li><a href="index.html" title="TOP Page">TOP Page</a></li>
-					<li><a href="scp-prismHighlight.html" title="Prismハイライトの例">Prismハイライトの例</a></li>
-					<li><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
-					<li><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
-					<li><a href="scp-randomWord.html" title="???">???</a></li>
+		<ul role="menu" id="navigation">
+			<li><h3><label class="expand-box" id="btnMain" for="linkMain">+</label><a href="category-main.html" title="Main">Main</a></h3><input class="panel-switch" id="linkMain" type="checkbox" role="switch">
+				<ul role="group" id="listMain">
+					<li role="menuitem"><a href="index.html" title="TOP Page">TOP Page</a></li>
+					<li role="menuitem"><a href="scp-prismHighlight.html" title="Prismハイライトの例">Prismハイライトの例</a></li>
+					<li role="menuitem"><a href="scp-sample.html" title="サンプルデータ">サンプルデータ</a></li>
+					<li role="menuitem"><a href="scp-updateLog.html" title="更新履歴">更新履歴</a></li>
+					<li role="menuitem"><a href="scp-randomWord.html" title="???">???</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnCSS" for="linkCSS">+</label><a href="category-css.html" title="CSS">CSS</a></h3><input class="panel-switch" id="linkCSS" type="checkbox">
-				<ul id="listCSS">
-					<li><a href="css-backgroundLayer.html" title="backgroundを重ねる">backgroundを重ねる</a></li>
-					<li><a href="css-disablebrTag.html" title="brタグによる改行を無効化">brタグによる改行を無効化</a></li>
-					<li><a href="css-beforeAfter.html" title="疑似要素 :before / :after">疑似要素 :before / :after</a></li>
-					<li><a href="css-gradation.html" title="グラデーション">グラデーション</a></li>
-					<li><a href="css-backgroundScrollLock.html" title="背景画像スクロールの固定">背景画像スクロールの固定</a></li>
-					<li><a href="css-fadeIn.html" title="フェードイン">フェードイン</a></li>
-					<li><a href="css-textShadow.html" title="文字装飾による可読性の向上">文字装飾による可読性の向上</a></li>
+			<li><h3><label class="expand-box" id="btnCSS" for="linkCSS">+</label><a href="category-css.html" title="CSS">CSS</a></h3><input class="panel-switch" id="linkCSS" type="checkbox" role="switch">
+				<ul role="group" id="listCSS">
+					<li role="menuitem"><a href="css-backgroundLayer.html" title="backgroundを重ねる">backgroundを重ねる</a></li>
+					<li role="menuitem"><a href="css-disablebrTag.html" title="brタグによる改行を無効化">brタグによる改行を無効化</a></li>
+					<li role="menuitem"><a href="css-beforeAfter.html" title="疑似要素 :before / :after">疑似要素 :before / :after</a></li>
+					<li role="menuitem"><a href="css-gradation.html" title="グラデーション">グラデーション</a></li>
+					<li role="menuitem"><a href="css-RangeLayout.html" title="スライダーレイアウト">スライダーレイアウト</a></li>
+					<li role="menuitem"><a href="css-backgroundScrollLock.html" title="背景画像スクロールの固定">背景画像スクロールの固定</a></li>
+					<li role="menuitem"><a href="css-fadeIn.html" title="フェードイン">フェードイン</a></li>
+					<li role="menuitem"><a href="css-textShadow.html" title="文字装飾による可読性の向上">文字装飾による可読性の向上</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnHTML" for="linkHTML">+</label><a href="category-html.html" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox">
-				<ul id="listHTML">
-					<li><a href="html-input.html" title="input要素">input要素</a></li>
-					<li><a href="html-fileDownload.html" title="ファイルダウンロード">ファイルダウンロード</a></li>
-					<li><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
+			<li><h3><label class="expand-box" id="btnHTML" for="linkHTML">+</label><a href="category-html.html" title="HTML">HTML</a></h3><input class="panel-switch" id="linkHTML" type="checkbox" role="switch">
+				<ul role="group" id="listHTML">
+					<li role="menuitem"><a href="html-input.html" title="input要素">input要素</a></li>
+					<li role="menuitem"><a href="html-fileDownload.html" title="ファイルダウンロード">ファイルダウンロード</a></li>
+					<li role="menuitem"><a href="html-omitHttp.html" title="[Deprecated] httpの省略">[Deprecated] httpの省略</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="category-js.html" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox">
-				<ul id="listJavaScript">
-					<li><a href="js-localStorage.html" title="[WIP] localStorage">[WIP] localStorage</a></li>
-					<li><a href="js-Promise.html" title="[WIP] Promise">[WIP] Promise</a></li>
-					<li><a href="js-FetchAPI.html" title="[Ajax/WIP] Fetch API">[Ajax/WIP] Fetch API</a></li>
-					<li><a href="js-XMLHttpRequest.html" title="[Ajax/WIP] XMLHttpRequest">[Ajax/WIP] XMLHttpRequest</a></li>
+			<li><h3><label class="expand-box" id="btnJavaScript" for="linkJavaScript">+</label><a href="category-js.html" title="JavaScript">JavaScript</a></h3><input class="panel-switch" id="linkJavaScript" type="checkbox" role="switch">
+				<ul role="group" id="listJavaScript">
+					<li role="menuitem"><a href="js-IndexedDBAPI.html" title="[WIP] IndexedDB">[WIP] IndexedDB</a></li>
+					<li role="menuitem"><a href="js-localStorage.html" title="[WIP] localStorage">[WIP] localStorage</a></li>
+					<li role="menuitem"><a href="js-Promise.html" title="[WIP] Promise">[WIP] Promise</a></li>
+					<li role="menuitem"><a href="js-FetchAPI.html" title="[Ajax/WIP] Fetch API">[Ajax/WIP] Fetch API</a></li>
+					<li role="menuitem"><a href="js-XMLHttpRequest.html" title="[Ajax/WIP] XMLHttpRequest">[Ajax/WIP] XMLHttpRequest</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnLanguage" for="linkLanguage">+</label><a href="category-language.html" title="Language">Language</a></h3><input class="panel-switch" id="linkLanguage" type="checkbox">
-				<ul id="listLanguage">
-					<li><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
-					<li><a href="language-pug.html" title="Pug">Pug</a></li>
-					<li><a href="language-sass.html" title="Sass">Sass</a></li>
-					<li><a href="#" title="[WIP] SCSS">[WIP] SCSS</a></li>
+			<li><h3><label class="expand-box" id="btnLanguage" for="linkLanguage">+</label><a href="category-language.html" title="Language">Language</a></h3><input class="panel-switch" id="linkLanguage" type="checkbox" role="switch">
+				<ul role="group" id="listLanguage">
+					<li role="menuitem"><a href="#" title="[WIP] CSS">[WIP] CSS</a></li>
+					<li role="menuitem"><a href="language-pug.html" title="Pug">Pug</a></li>
+					<li role="menuitem"><a href="language-sass.html" title="Sass">Sass</a></li>
+					<li role="menuitem"><a href="#" title="[WIP] SCSS">[WIP] SCSS</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnNode" for="linkNode">+</label><a href="category-node.html" title="Node.js">Node.js</a></h3><input class="panel-switch" id="linkNode" type="checkbox">
-				<ul id="listNode">
-					<li><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
-					<li><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
-					<li><a href="node-npm.html" title="npm コマンド">npm コマンド</a></li>
-					<li><a href="#" title="[Gulp/WIP] Gulp導入マニュアル">[Gulp/WIP] Gulp導入マニュアル</a></li>
+			<li><h3><label class="expand-box" id="btnNode" for="linkNode">+</label><a href="category-node.html" title="Node.js">Node.js</a></h3><input class="panel-switch" id="linkNode" type="checkbox" role="switch">
+				<ul role="group" id="listNode">
+					<li role="menuitem"><a href="#" title="[WIP] Node.js導入マニュアル">[WIP] Node.js導入マニュアル</a></li>
+					<li role="menuitem"><a href="node-manualBrowsersync.html" title="Browsersync導入マニュアル">Browsersync導入マニュアル</a></li>
+					<li role="menuitem"><a href="node-npm.html" title="npm コマンド">npm コマンド</a></li>
+					<li role="menuitem"><a href="#" title="[Gulp/WIP] Gulp導入マニュアル">[Gulp/WIP] Gulp導入マニュアル</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnPHP" for="linkPHP">+</label><a href="category-php.html" title="PHP">PHP</a></h3><input class="panel-switch" id="linkPHP" type="checkbox">
-				<ul id="listPHP">
-					<li><a href="php-pdo.html" title="PDO(PHP Data Objects)">PDO(PHP Data Objects)</a></li>
-					<li><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
-					<li><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
-					<li><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
-					<li><a href="php-CIDatabase.html" title="[CodeIgniter] データベース接続">[CodeIgniter] データベース接続</a></li>
+			<li><h3><label class="expand-box" id="btnPHP" for="linkPHP">+</label><a href="category-php.html" title="PHP">PHP</a></h3><input class="panel-switch" id="linkPHP" type="checkbox" role="switch">
+				<ul role="group" id="listPHP">
+					<li role="menuitem"><a href="php-pdo.html" title="PDO(PHP Data Objects)">PDO(PHP Data Objects)</a></li>
+					<li role="menuitem"><a href="php-bind.html" title="バインドを利用したSQLの実行">バインドを利用したSQLの実行</a></li>
+					<li role="menuitem"><a href="php-date.html" title="日付時間 date()">日付時間 date()</a></li>
+					<li role="menuitem"><a href="php-fileProcessLock.html" title="ファイルを利用した二重起動防止">ファイルを利用した二重起動防止</a></li>
+					<li role="menuitem"><a href="php-CIDatabase.html" title="[CodeIgniter] データベース接続">[CodeIgniter] データベース接続</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnSCSS" for="linkSCSS">+</label><a href="category-scss.html" title="SCSS">SCSS</a></h3><input class="panel-switch" id="linkSCSS" type="checkbox">
-				<ul id="listSCSS">
-					<li><a href="scss-gradationList.html" title="特殊なグラデーションリスト">特殊なグラデーションリスト</a></li>
+			<li><h3><label class="expand-box" id="btnSCSS" for="linkSCSS">+</label><a href="category-scss.html" title="SCSS">SCSS</a></h3><input class="panel-switch" id="linkSCSS" type="checkbox" role="switch">
+				<ul role="group" id="listSCSS">
+					<li role="menuitem"><a href="scss-gradationList.html" title="特殊なグラデーションリスト">特殊なグラデーションリスト</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox">
-				<ul id="listSQL">
-					<li><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
-					<li><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
-					<li><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
-					<li><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
-					<li><a href="sql-like.html" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
-					<li><a href="sql-transaction.html" title="TRANSACTION(トランザクション)">TRANSACTION(トランザクション)</a></li>
-					<li><a href="sql-truncate.html" title="TRUNCATE(テーブルを空にする)">TRUNCATE(テーブルを空にする)</a></li>
-					<li><a href="sql-deleteFlag.html" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
-					<li><a href="sql-MySQLinsertWhereExists.html" title="[MySQL] INSERT WHERE EXISTS">[MySQL] INSERT WHERE EXISTS</a></li>
-					<li><a href="sql-MySQLint.html" title="[MySQL] INT(11) の意味">[MySQL] INT(11) の意味</a></li>
-					<li><a href="sql-MySQLupdateSelect.html" title="[MySQL] UPDATE SELECT">[MySQL] UPDATE SELECT</a></li>
-					<li><a href="#" title="[MySQL/WIP] UTF-8のあれこれ">[MySQL/WIP] UTF-8のあれこれ</a></li>
+			<li><h3><label class="expand-box" id="btnSQL" for="linkSQL">+</label><a href="category-sql.html" title="SQL">SQL</a></h3><input class="panel-switch" id="linkSQL" type="checkbox" role="switch">
+				<ul role="group" id="listSQL">
+					<li role="menuitem"><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
+					<li role="menuitem"><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
+					<li role="menuitem"><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
+					<li role="menuitem"><a href="sql-join.html" title="JOIN(テーブル結合)">JOIN(テーブル結合)</a></li>
+					<li role="menuitem"><a href="sql-like.html" title="[WIP] LIKE(あいまい検索)">[WIP] LIKE(あいまい検索)</a></li>
+					<li role="menuitem"><a href="sql-transaction.html" title="TRANSACTION(トランザクション)">TRANSACTION(トランザクション)</a></li>
+					<li role="menuitem"><a href="sql-truncate.html" title="TRUNCATE(テーブルを空にする)">TRUNCATE(テーブルを空にする)</a></li>
+					<li role="menuitem"><a href="sql-deleteFlag.html" title="[WIP] 削除フラグ">[WIP] 削除フラグ</a></li>
+					<li role="menuitem"><a href="sql-MySQLinsertWhereExists.html" title="[MySQL] INSERT WHERE EXISTS">[MySQL] INSERT WHERE EXISTS</a></li>
+					<li role="menuitem"><a href="sql-MySQLint.html" title="[MySQL] INT(11) の意味">[MySQL] INT(11) の意味</a></li>
+					<li role="menuitem"><a href="sql-MySQLupdateSelect.html" title="[MySQL] UPDATE SELECT">[MySQL] UPDATE SELECT</a></li>
+					<li role="menuitem"><a href="#" title="[MySQL/WIP] UTF-8のあれこれ">[MySQL/WIP] UTF-8のあれこれ</a></li>
 				</ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnWordpress" for="linkWordpress">+</label><a href="category-wordpress.html" title="Wordpress">Wordpress</a></h3><input class="panel-switch" id="linkWordpress" type="checkbox">
-				<ul id="listWordpress"></ul>
+			<li><h3><label class="expand-box" id="btnWordpress" for="linkWordpress">+</label><a href="category-wordpress.html" title="Wordpress">Wordpress</a></h3><input class="panel-switch" id="linkWordpress" type="checkbox" role="switch">
+				<ul role="group" id="listWordpress"></ul>
 			</li>
-			<li>
-				<h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="category-other.html" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox">
-				<ul id="listOther">
-					<li><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
-					<li><a href="other-runPHPForHTML.html" title="[Apache] HTMLファイルでPHPを動かす">[Apache] HTMLファイルでPHPを動かす</a></li>
-					<li><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
-					<li><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
-					<li><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
-					<li><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
+			<li><h3><label class="expand-box" id="btnOther" for="linkOther">+</label><a href="category-other.html" title="Other">Other</a></h3><input class="panel-switch" id="linkOther" type="checkbox" role="switch">
+				<ul role="group" id="listOther">
+					<li role="menuitem"><a href="other-editorConfig.html" title="EditorConfig">EditorConfig</a></li>
+					<li role="menuitem"><a href="other-runPHPForHTML.html" title="[Apache] HTMLファイルでPHPを動かす">[Apache] HTMLファイルでPHPを動かす</a></li>
+					<li role="menuitem"><a href="#" title="[Atom/WIP] Atom 導入マニュアル">[Atom/WIP] Atom 導入マニュアル</a></li>
+					<li role="menuitem"><a href="#" title="[Atom/WIP] apm Command">[Atom/WIP] apm Command</a></li>
+					<li role="menuitem"><a href="#" title="[Unix/WIP] Console Command">[Unix/WIP] Console Command</a></li>
+					<li role="menuitem"><a href="#" title="[XAMPP/WIP] ローカルネットワーク接続">[XAMPP/WIP] ローカルネットワーク接続</a></li>
 				</ul>
 			</li>
 		</ul>
 	</nav>
 	<div class="content">
-		<header class="md-hide" role="banner">
-			<h1>削除フラグ</h1></header>
-		<main role="main">
-			<blockquote class="stub">
-				<h2>書きかけのページ</h2>
+		<header class="md-hide" role="banner"><h1>削除フラグ</h1>
+		</header>
+		<main>
+			<blockquote class="stub"><h2>書きかけのページ</h2>
 				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
 			</blockquote>
-			<section>
-				<h2>説明</h2>
+			<section><h2>説明</h2>
 				<p>データベースのデータを削除する時、古いデータを保持しておきたい時、役に立つのが削除フラグである。削除フラグを使用しない(データの削除)場合、そのデータを利用していたデータベースリンクが消失してしまうが、削除フラグを使用する場合、データは残っているのでリンクは保持することができる。</p>
 			</section>
 			<section></section>
-			<section>
-				<h2>使用上の注意</h2>
+			<section><h2>使用上の注意</h2>
 				<ul>
 					<li>生成と削除を多く繰り返すデータベースの場合、この方法はあまり推奨されない。データベースに古いデータが残り続けるため、容量を圧迫するためである。</li>
 				</ul>

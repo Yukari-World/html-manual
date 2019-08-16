@@ -1,11 +1,12 @@
 mixin menuSidebar(href, name)
-	li: a(href=href, title=name)= name
+	li(role='menuitem'): a(href=href, title=name)= name
 
-ul#listCSS
+ul(role='group')#listCSS
 	+menuSidebar('css-backgroundLayer.html', 'backgroundを重ねる')
 	+menuSidebar('css-disablebrTag.html', 'brタグによる改行を無効化')
 	+menuSidebar('css-beforeAfter.html', '疑似要素 :before / :after')
 	+menuSidebar('css-gradation.html', 'グラデーション')
+	+menuSidebar('css-RangeLayout.html', 'スライダーレイアウト')
 	+menuSidebar('css-backgroundScrollLock.html', '背景画像スクロールの固定')
 	+menuSidebar('css-fadeIn.html', 'フェードイン')
 	+menuSidebar('css-textShadow.html', '文字装飾による可読性の向上')

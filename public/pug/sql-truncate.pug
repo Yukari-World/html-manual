@@ -8,11 +8,14 @@ block content
 	section
 		h2 説明
 		h3 まず最初に
-		p データテーブルに多大な影響を与える危険なコマンドです。悪用しないようにしてください。
+		p データテーブルに多大な影響を与える危険なコマンドであり、悪用しないように注意すること。
+
 		h3 改めて説明
 		p
 			code.language-sql: span.token.keyword.keyword-TRUNCATE TRUNCATE
-			| はテーブルにあるデータを白紙にするコマンドです。
+			| はテーブルにあるデータを白紙にするコマンドである。このコマンドは、
+			code.language-sql: span.token.keyword.keyword-DELETE DELETE
+			| 句では影響しない範囲も含めて白紙にする。
 
 	section
 		h2 使用方法と解説

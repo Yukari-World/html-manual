@@ -83,7 +83,7 @@ function SendAjax(sendURL, form, methodType) {
 				url = sendURL;
 				sendStruct = {
 					method: methodType,
-					body: form
+					body:   form
 				};
 			} else {
 				url = sendURL + '?';
@@ -144,7 +144,7 @@ function SendAjax(sendURL, form, methodType) {
  * @version 1.0.2
  */
 async function getrandomWord() {
-	return new Promise(function (resolve, reject)  {
+	return new Promise(function (resolve, reject) {
 		SendAjax('../json/randomWord.json', new FormData(), 'GET')
 			.then(function (json) {
 				// console.log(json);
@@ -193,7 +193,7 @@ self.addEventListener('message', async function (event) {
 			TagSQL = TagSQL.slice(0, TagSQL.length - 2);
 
 			sendList = {
-				'mode':'listResult',
+				'mode': 'listResult',
 				'post': '<dt id="wordID' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt><dd>' + dataTemp.summary + '<div class="boxTag"><ul class="tagList">' + tagText + '</ul></div></dd>',
 				// 'SQL': 'INSERT INTO `random_word` (`title`, `original`, `summary`, `tag`) VALUES (\'' + dataTemp.title.replace('\'', '\\\'') + '\', \'' + dataTemp.original.replace('\'', '\\\'') + '\', \'' + dataTemp.summary.replace('\'', '\\\'') + '\', \'' + TagSQL.replace('\'', '\\\'') + '\');'
 			};
@@ -205,7 +205,7 @@ self.addEventListener('message', async function (event) {
 		randomWordTags.sort();
 		console.log(randomWordTags);
 		sendList = {
-			'mode':'tagList',
+			'mode': 'tagList',
 			'post': randomWordTags
 		};
 		postMessage(sendList);

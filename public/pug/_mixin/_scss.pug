@@ -1,5 +1,5 @@
 mixin menuSidebar(href, name)
-	li: a(href=href, title=name)= name
+	li(role='menuitem'): a(href=href, title=name)= name
 
-ul#listSCSS
+ul(role='group')#listSCSS
 	+menuSidebar('scss-gradationList.html', '特殊なグラデーションリスト')

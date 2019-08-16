@@ -3,7 +3,7 @@
  *
  * @module  manual
  * @since   1.0.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@
 
 // ----------------------------------------------------------------------------------------------------
 // Import
-import { storageAvailable } from './common.min.js';
+import { storageAvailable, IndexedDBConnecter } from './common.min.js';
 import { SendAjax } from './ajax-response.min.js';
 
 // ----------------------------------------------------------------------------------------------------
@@ -20,9 +20,9 @@ import { SendAjax } from './ajax-response.min.js';
  * メニューカテゴリリスト
  * @constant
  * @default
- * @type {string[]}
+ * @type {Array.<string>}
  * @since   1.1.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 const sideList = [
 	'Main',
@@ -39,6 +39,8 @@ const sideList = [
 ];
 
 const startTime = Date.now();
+const dbName = 'Technical-Manual';
+const dbVersion = 1;
 
 // ----------------------------------------------------------------------------------------------------
 // Value
@@ -49,14 +51,14 @@ let sideToggle = [];
  * ランダムワードマニア
  *
  * @constant
- * @property {object[]} randomWordList          項目
- * @property {string}   randomWordList.title    タイトル
- * @property {string}   randomWordList.original 引用元
- * @property {string}   randomWordList.summary  概要
- * @type     {object[]}
+ * @property {string}   title       タイトル
+ * @property {string}   original    引用元
+ * @property {string}   summary     概要
+ * @type     {Array.<object>}
  */
 let randomWordList;
 let xorRand;
+let roopEvent;
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Class
@@ -66,7 +68,7 @@ let xorRand;
  *
  * @type    {class}
  * @since   1.1.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 class XorShift {
 	/**
@@ -117,11 +119,13 @@ class XorShift {
 		 * @type {number}
 		 */
 		this.w = w;
-		console.log('Seed Info:');
-		console.log('X: ' + this.toHex(this.x) + ' (' + this.x + ')');
-		console.log('Y: ' + this.toHex(this.y) + ' (' + this.y + ')');
-		console.log('Z: ' + this.toHex(this.z) + ' (' + this.z + ')');
-		console.log('W: ' + this.toHex(this.w) + ' (' + this.w + ')');
+
+		console.log('XorShift Seed Info:\n' +
+			'X: ' + this.toHex(this.x) + ' (' + this.x + ')\n' +
+			'Y: ' + this.toHex(this.y) + ' (' + this.y + ')\n' +
+			'Z: ' + this.toHex(this.z) + ' (' + this.z + ')\n' +
+			'W: ' + this.toHex(this.w) + ' (' + this.w + ')'
+		);
 	}
 
 	/**
@@ -131,7 +135,7 @@ class XorShift {
 	 * @param   {number}    val 変換する10進数
 	 * @returns {string}        16進数
 	 * @since   1.3.7
-	 * @version 1.4.0
+	 * @version 1.5.0
 	 */
 	toHex(val) {
 		return '0x' + ('00000000' + val.toString(16).toUpperCase()).substr(-8);
@@ -143,7 +147,7 @@ class XorShift {
 	 * @public
 	 * @returns {number}    乱数の結果
 	 * @since   1.1.0
-	 * @version 1.4.0
+	 * @version 1.5.0
 	 */
 	randomInt32() {
 		let t = this.x ^ this.x << 11;
@@ -162,7 +166,7 @@ class XorShift {
 	 * @public
 	 * @returns {number}    乱数の結果
 	 * @since   1.1.0
-	 * @version 1.4.0
+	 * @version 1.5.0
 	 */
 	randomFloat() {
 		let randNumber = this.randomInt32();
@@ -181,8 +185,8 @@ class XorShift {
  *
  * @returns  {Promise}  終了コード
  * @requires module:ajax-response
- * @since    1.2.0
- * @version  1.4.0
+ * @since   1.2.0
+ * @version 1.5.0
  */
 function getRandomWord() {
 	return new Promise(function (resolve, reject) {
@@ -204,7 +208,7 @@ function getRandomWord() {
  * @param   {number}    [seconds=5] 更新間隔(秒)
  * @returns {void}
  * @since   1.0.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 function secondsInterval(seconds = 5) {
 	// Initialize
@@ -225,7 +229,7 @@ function secondsInterval(seconds = 5) {
  * @param   {JSON}  jsonData    JSON Data
  * @returns {void}
  * @since   1.0.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 async function randomOutput(jsonData) {
 	// Initialize
@@ -246,8 +250,8 @@ async function randomOutput(jsonData) {
 		 * Workerの読み込み
 		 * 相対パスで読み込む場合実行するHTMLからの相対パスなので要注意
 		 */
-		// const worker = new Worker('js/WorkerTask.js', { type: 'module' });
-		const worker = new Worker('js/WorkerTask.min.js');
+		// const worker = new Worker('js/WorkerTask.js', { name: 'Worker Task', type: 'module' });
+		const worker = new Worker('js/WorkerTask.min.js', { name: 'Worker Task' });
 
 		// Workerからデータを受け取る時の処理
 		// Switch文を利用することで処理分岐を作成している
@@ -292,7 +296,7 @@ async function randomOutput(jsonData) {
  *
  * @returns {void}
  * @since   1.0.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 function setrandomWord() {
 	// 乱数の生成
@@ -311,6 +315,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 	// Initialize
 	// ローカルストレージサポートの確認
 	const isEnableStorage = storageAvailable('localStorage');
+	const dbTable = 'boxState';
+	let isIndexedDB = false;
 
 	await getRandomWord()
 		.then(function (json) {
@@ -328,6 +334,41 @@ document.addEventListener('DOMContentLoaded', async function () {
 	// });
 
 	// ----------------------------------------------------------------------------------------------------
+	// データベースの作成
+	// 更新等もここで行われる
+	/**
+	 * データベース更新処理
+	 *
+	 * @param   {object}    event   event value
+	 * @returns {void}
+	 * @since   1.5.0
+	 * @version 1.5.0
+	 */
+	function aa(event) {
+		let db = event.target.result;
+
+		let objectStore = db.createObjectStore(dbTable, {keyPath: 'id'});
+
+		// objectStore.createIndex('value', 'value', { unique: false });
+
+		// データを追加する前に objectStore の作成を完了させるため、transaction oncomplete を使用する
+		objectStore.transaction.addEventListener('complete', function () {
+			// 新たに作成した objectStore に値を保存する
+			let customerObjectStore = db.transaction(dbTable, 'readwrite').objectStore(dbTable);
+			for (let sideName of sideList) {
+				customerObjectStore.add({id: sideName, value: 'false'});
+			}
+		});
+	}
+
+	let dbConnection;
+	if ((dbConnection = new IndexedDBConnecter(dbName, dbVersion)) !== false) {
+		dbConnection.initializeConnection(aa);
+		dbConnection.dbTable = dbTable;
+		isIndexedDB = true;
+	}
+
+	// ----------------------------------------------------------------------------------------------------
 	// 全て展開
 	// この作成方法はlet + constだからこそ成り立っており、varでは作成できない
 	document.getElementById('expandAll').addEventListener('click', function () {
@@ -340,7 +381,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 			sideToggle[sideName] = 'true';
 			btnElement.textContent = '-';
 			// ローカルストレージサポートの確認
-			if (isEnableStorage) {
+			if (isIndexedDB) {
+				const data = {id: sideName, value: 'true'};
+				dbConnection.setValue(data);
+			} else if (isEnableStorage) {
 				localStorage.setItem(sideName + 'Toggle', 'true');
 			}
 		}
@@ -359,7 +403,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 			sideToggle[sideName] = 'false';
 			btnElement.textContent = '+';
 			// ローカルストレージサポートの確認
-			if (isEnableStorage) {
+			if (isIndexedDB) {
+				const data = {id: sideName, value: 'false'};
+				dbConnection.setValue(data);
+			} else if (isEnableStorage) {
 				localStorage.setItem(sideName + 'Toggle', 'false');
 			}
 		}
@@ -373,7 +420,20 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 		// ローカルストレージから情報を取得
 		// 対応していない場合、常に折りたたんだ状態にする
-		if (isEnableStorage) {
+		if (isIndexedDB) {
+			await dbConnection.getValue(sideName)
+				.then(function (dbValue) {
+					if (dbValue !== undefined) {
+						// console.log(dbValue);
+						sideToggle[sideName] = dbValue.value;
+					} else {
+						sideToggle[sideName] = 'false';
+					}
+				})
+				.catch(function (error) {
+					console.error(error);
+				});
+		} else if (isEnableStorage) {
 			sideToggle[sideName] = localStorage.getItem(sideName + 'Toggle');
 		} else {
 			sideToggle[sideName] = 'false';
@@ -381,6 +441,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 		// 初期フラグの設定
 		// フラグを基に隠すかの指定
+		// console.log(sideToggle[sideName]);
 		if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
 			// Null
 		} else {
@@ -393,13 +454,20 @@ document.addEventListener('DOMContentLoaded', async function () {
 			// フラグを基に隠すかの指定
 			if (sideToggle[sideName] === null || sideToggle[sideName] === 'false') {
 				sideToggle[sideName] = 'true';
-				if (isEnableStorage) {
+
+				if (isIndexedDB) {
+					const data = {id: sideName, value: 'true'};
+					dbConnection.setValue(data);
+				} else if (isEnableStorage) {
 					localStorage.setItem(sideName + 'Toggle', 'true');
 				}
 				btnElement.textContent = '-';
 			} else {
 				sideToggle[sideName] = 'false';
-				if (isEnableStorage) {
+				if (isIndexedDB) {
+					const data = {id: sideName, value: 'false'};
+					dbConnection.setValue(data);
+				} else if (isEnableStorage) {
 					localStorage.setItem(sideName + 'Toggle', 'false');
 				}
 				btnElement.textContent = '+';
@@ -431,14 +499,12 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 	setrandomWord();
 
-	setInterval(function () {
-		secondsInterval(10);
-	}, 50);
+	roopEvent = setInterval(secondsInterval, 50, 10);
 });
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // load
 // 全ての読み込みが完了すると行われる処理
 window.addEventListener('load', function () {
-	document.getElementById('LoadTime').textContent =  Date.now() - startTime + 'ms';
+	document.getElementById('LoadTime').textContent = Date.now() - startTime + ' ms';
 });

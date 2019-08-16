@@ -9,19 +9,19 @@ block headSpace
 			align-items: center;
 		}
 
-		.form-area {
+		fieldset {
 			padding: 15px;
 			color: #000000;
 			border: 2px solid #FFFFFF;
 			background-color: #9999CC;
 		}
 
-		.form-area input[type="checkbox"] {
+		fieldset input[type="checkbox"] {
 			display: inline-flex;
 			align-items: center;
 		}
 
-		.form-area + p {
+		fieldset + p {
 			margin-top: 0.5rem;
 		}
 
@@ -72,7 +72,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="button" value="ボタン"&gt;
 
-				.form-area
+				fieldset
 					input(type='button' value='ボタン')
 
 			dt: h3#input-checkbox checkbox
@@ -83,7 +83,7 @@ block content
 					&lt;label&gt;&lt;input type="checkbox" value="2"&gt;内容2&lt;/label&gt;
 					&lt;label&gt;&lt;input type="checkbox" value="3"&gt;内容3&lt;/label&gt;
 
-				.form-area
+				fieldset
 					label
 						input(type='checkbox' value='1')
 						| 内容1
@@ -99,7 +99,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="color" value="#FFFFFF"&gt;
 
-				.form-area
+				fieldset
 					input(type='color' value='#FFFFFF')
 
 			dt: h3#input-date date
@@ -108,7 +108,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="date"&gt;
 
-				.form-area
+				fieldset
 					input(type='date')
 
 			dt: h3#input-datetime-local datetime-local
@@ -116,7 +116,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="datetime-local"&gt;
 
-				.form-area
+				fieldset
 					input(type='datetime-local')
 
 			dt: h3#input-email email
@@ -125,7 +125,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="email"&gt;
 
-				.form-area
+				fieldset
 					input(type='email')
 
 			dt: h3#input-file file
@@ -133,7 +133,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="file"&gt;
 
-				.form-area
+				fieldset
 					input(type='file')
 
 			dt: h3#input-hidden hidden
@@ -141,7 +141,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="hidden"&gt;
 
-				.form-area
+				fieldset
 					input(type='hidden')
 
 			dt: h3#input-image image
@@ -149,7 +149,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="image"&gt;
 
-				.form-area
+				fieldset
 					input(type='image')
 
 			dt: h3#input-month month
@@ -157,7 +157,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="month"&gt;
 
-				.form-area
+				fieldset
 					input(type='month')
 
 			dt: h3#input-number number
@@ -165,7 +165,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="number"&gt;
 
-				.form-area
+				fieldset
 					input(type='number')
 
 			dt: h3#input-password password
@@ -174,7 +174,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="password"&gt;
 
-				.form-area
+				fieldset
 					input(type='password')
 
 			dt: h3#input-radio radio
@@ -183,7 +183,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;label&gt;&lt;input type="radio" value="1"&gt;内容1&lt;/label&gt;
 
-				.form-area
+				fieldset
 					label
 						input(type='radio' value='1')
 						| 内容1
@@ -194,7 +194,7 @@ block content
 					&lt;label&gt;&lt;input type="radio" name="bread" value="2"&gt;内容1&lt;/label&gt;
 					&lt;label&gt;&lt;input type="radio" name="bread" value="3"&gt;内容1&lt;/label&gt;
 
-				.form-area
+				fieldset
 					label
 						input(type='radio' name='bread' value='1')
 						| 内容1
@@ -211,7 +211,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="range"&gt;
 
-				.form-area
+				fieldset
 					input(type='range')
 
 			dt: h3#input-reset reset
@@ -220,7 +220,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="reset"&gt;
 
-				.form-area
+				fieldset
 					input(type='reset')
 
 			dt: h3#input-search search
@@ -228,7 +228,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="search"&gt;
 
-				.form-area
+				fieldset
 					input(type='search')
 
 			dt: h3#input-submit submit
@@ -237,16 +237,16 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="submit"&gt;
 
-				.form-area
+				fieldset
 					input(type='submit')
 
 			dt: h3#input-tel tel
 			dd
-				p 電話番号入力フォームを作成する。
+				p 電話番号を入力フォームを作成する。
 				pre.language-html.line-numbers: code.
 					&lt;input type="tel"&gt;
 
-				.form-area
+				fieldset
 					input(type='tel')
 
 			dt: h3#input-text text
@@ -254,7 +254,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="text"&gt;
 
-				.form-area
+				fieldset
 					input(type='text')
 
 			dt: h3#input-time time
@@ -262,7 +262,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="time"&gt;
 
-				.form-area
+				fieldset
 					input(type='time')
 
 			dt: h3#input-url url
@@ -270,7 +270,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="url"&gt;
 
-				.form-area
+				fieldset
 					input(type='url')
 
 			dt: h3#input-week week
@@ -278,7 +278,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="week"&gt;
 
-				.form-area
+				fieldset
 					input(type='week')
 
 	section
@@ -323,7 +323,7 @@ block content
 		pre.language-html.line-numbers: code.
 			&lt;input type="text" name="your-name"&gt;
 
-		.form-area
+		fieldset
 			input(type='text', name='your-name')
 
 		h3 required
@@ -355,7 +355,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="submit" name="submit" value="送信確認"&gt;
 
-				.form-area
+				fieldset
 					input(type='submit', name='submit',  value='送信確認')
 			li
 				| それ以外の項目の場合
@@ -364,7 +364,7 @@ block content
 				pre.language-html.line-numbers: code.
 					&lt;input type="text" name="your-name" value="山田太郎"&gt;
 
-				.form-area
+				fieldset
 					input(type='text', name='your-name',  value='山田太郎')
 
 	section

@@ -1,7 +1,7 @@
 mixin menuSidebar(href, name)
-	li: a(href=href, title=name)= name
+	li(role='menuitem'): a(href=href, title=name)= name
 
-ul#listSQL
+ul(role='group')#listSQL
 	+menuSidebar('sql-as.html', 'AS(別名)')
 	+menuSidebar('sql-in.html', 'IN()(複数選択)')
 	+menuSidebar('sql-insertSelect.html', 'INSERT SELECT')

@@ -61,21 +61,21 @@ html {
 body {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
-	-ms-flex-pack: justify;
 	justify-content: space-between;
 	-webkit-box-align: start;
 	-webkit-align-items: flex-start;
-	-ms-flex-align: start;
 	align-items: flex-start;
 	font-family: "メイリオ","Meiryo",sans-serif;
 	font-size: 1rem;
 	line-height: 1.2;
 	color: #FFFFFF;
 	background-color: #000011;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#000005), color-stop(22%, #000011), color-stop(70%, #000011), color-stop(85%, #00001C));
+	background-image: -webkit-linear-gradient(top, #000005, #000011 22%, #000011 70%, #00001C 85%);
+	background-image: linear-gradient(180deg, #000005, #000011 22%, #000011 70%, #00001C 85%);
 }
 
 body > input[type="checkbox"] {
@@ -85,12 +85,10 @@ body > input[type="checkbox"] {
 body > .content {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
 	flex-direction: column;
 	width: calc(100% - 240px);
 	min-height: 100vh;
@@ -99,7 +97,6 @@ body > .content {
 
 a {
 	-webkit-transition: all 0.25s ease-out;
-	-o-transition: all 0.25s ease-out;
 	transition: all 0.25s ease-out;
 	text-decoration: none;
 	color: #9999FF;
@@ -130,7 +127,7 @@ h3 {
 }
 
 h4 {
-	font-size: 1rem;
+	font-size: 1.1rem;
 }
 
 dl dd {
@@ -149,13 +146,12 @@ blockquote.stub {
 	border-color: #1164FF;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#000011), to(#1164FF)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
-	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
+	-o-border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#000011), to(#1164FF)) 1/5px 5px/0 stretch;
 	border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 	background-color: #000033;
 	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #000033), color-stop(80%, #000033), to(#000011));
 	background-image: -webkit-linear-gradient(bottom right, #000011, #000033 20%, #000033 80%, #000011);
-	background-image: -o-linear-gradient(bottom right, #000011, #000033 20%, #000033 80%, #000011);
 	background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011);
 }
 
@@ -163,13 +159,12 @@ blockquote.cation {
 	border-color: #FFFF33;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#000011), to(#FFFF33)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
-	-o-border-image: -o-linear-gradient(bottom left, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
+	-o-border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#000011), to(#FFFF33)) 1/5px 5px/0 stretch;
 	border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
 	background-color: #333300;
 	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #333300), color-stop(80%, #333300), to(#000011));
 	background-image: -webkit-linear-gradient(bottom right, #000011, #333300 20%, #333300 80%, #000011);
-	background-image: -o-linear-gradient(bottom right, #000011, #333300 20%, #333300 80%, #000011);
 	background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011);
 }
 
@@ -177,13 +172,12 @@ blockquote.danger {
 	border-color: #FF0F0F;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#000011), to(#FF0F0F)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
-	-o-border-image: -o-linear-gradient(bottom left, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+	-o-border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#000011), to(#FF0F0F)) 1/5px 5px/0 stretch;
 	border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
 	background-color: #330000;
 	background-image: -webkit-gradient(linear, right bottom, left top, from(#000011), color-stop(20%, #330000), color-stop(80%, #330000), to(#000011));
 	background-image: -webkit-linear-gradient(bottom right, #000011, #330000 20%, #330000 80%, #000011);
-	background-image: -o-linear-gradient(bottom right, #000011, #330000 20%, #330000 80%, #000011);
 	background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011);
 }
 
@@ -191,13 +185,12 @@ blockquote.deprecated {
 	border-color: #1164FF;
 	-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0F0F), to(#1164FF)) 1/5px 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
-	-o-border-image: -o-linear-gradient(bottom left, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
+	-o-border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FF0F0F), to(#1164FF)) 1/5px 5px/0 stretch;
 	border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
 	background-color: #330000;
 	background-image: -webkit-gradient(linear, right bottom, left top, from(#330000), color-stop(20%, #000033), color-stop(80%, #000033), to(#330000));
 	background-image: -webkit-linear-gradient(bottom right, #330000, #000033 20%, #000033 80%, #330000);
-	background-image: -o-linear-gradient(bottom right, #330000, #000033 20%, #000033 80%, #330000);
 	background-image: linear-gradient(to top left, #330000, #000033 20%, #000033 80%, #330000);
 }
 
@@ -216,13 +209,11 @@ blockquote.deprecated {
 
 ::-webkit-scrollbar-thumb {
 	-webkit-transition: all 0.1s ease;
-	-o-transition: all 0.1s ease;
 	transition: all 0.1s ease;
 	border-radius: 10px;
 	background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.75)), to(rgba(255, 255, 255, 0.25)));
 	background-image: -webkit-linear-gradient(top left, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
 	background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
-	-webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
 	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
@@ -243,7 +234,7 @@ blockquote.deprecated {
 
 	95% {
 		color: #FFFF66;
-		text-shadow: 0 0 10px #FFFF66;
+		text-shadow: 0 0 0.25rem #FFFF66, 0 0 0.5rem #FFFF66, 0 0 0.75rem #FFFF66, 0 0 1rem #FFFF66, 0 0 1.25rem #FFFF66, 0 0 1.5rem #FFFF66, 0 0 1.75rem #FFFF66;
 	}
 
 	100% {
@@ -265,12 +256,56 @@ blockquote.deprecated {
 
 	95% {
 		color: #FFFF66;
-		text-shadow: 0 0 10px #FFFF66;
+		text-shadow: 0 0 0.25rem #FFFF66, 0 0 0.5rem #FFFF66, 0 0 0.75rem #FFFF66, 0 0 1rem #FFFF66, 0 0 1.25rem #FFFF66, 0 0 1.5rem #FFFF66, 0 0 1.75rem #FFFF66;
 	}
 
 	100% {
 		color: #FFFFFF;
 		text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+	}
+}
+
+@-webkit-keyframes flashStringLight {
+	0% {
+		color: #000011;
+		text-shadow: 0 0 0 rgba(0, 0, 17, 0);
+	}
+
+	90% {
+		color: #000011;
+		text-shadow: 0 0 0 rgba(0, 0, 17, 0);
+	}
+
+	95% {
+		color: #FFFF66;
+		text-shadow: 0 0 0.25rem #FFFF66, 0 0 0.5rem #FFFF66, 0 0 0.75rem #FFFF66, 0 0 1rem #FFFF66, 0 0 1.25rem #FFFF66, 0 0 1.5rem #FFFF66, 0 0 1.75rem #FFFF66;
+	}
+
+	100% {
+		color: #000011;
+		text-shadow: 0 0 0 rgba(0, 0, 17, 0);
+	}
+}
+
+@keyframes flashStringLight {
+	0% {
+		color: #000011;
+		text-shadow: 0 0 0 rgba(0, 0, 17, 0);
+	}
+
+	90% {
+		color: #000011;
+		text-shadow: 0 0 0 rgba(0, 0, 17, 0);
+	}
+
+	95% {
+		color: #FFFF66;
+		text-shadow: 0 0 0.25rem #FFFF66, 0 0 0.5rem #FFFF66, 0 0 0.75rem #FFFF66, 0 0 1rem #FFFF66, 0 0 1.25rem #FFFF66, 0 0 1.5rem #FFFF66, 0 0 1.75rem #FFFF66;
+	}
+
+	100% {
+		color: #000011;
+		text-shadow: 0 0 0 rgba(0, 0, 17, 0);
 	}
 }
 
@@ -304,7 +339,6 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	top: 0;
 	left: 0;
 	overflow-y: scroll;
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 240px;
 	min-width: 240px;
@@ -315,7 +349,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	border-style: solid;
 	-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 0 0/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(top, #000011, #1164FF) 1/0 3px 0 0/0 stretch;
-	-o-border-image: -o-linear-gradient(top, #000011, #1164FF) 1/0 3px 0 0/0 stretch;
+	-o-border-image: linear-gradient(180deg, #000011, #1164FF) 1/0 3px 0 0/0 stretch;
 	border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 0 0/0 stretch;
 	border-image: linear-gradient(180deg, #000011, #1164FF) 1/0 3px 0 0/0 stretch;
 }
@@ -331,23 +365,21 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 .sidebar > ul > li h3 {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	padding-top: 3px;
 	padding-left: 10px;
 	border-width: 3px 0 0;
 	border-style: solid;
-	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
-	-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
-	-o-border-image: -o-linear-gradient(left, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
-	border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF66)) 1/3px 0 0/0 stretch;
-	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
+	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/3px 0 0/0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/3px 0 0/0 stretch;
+	-o-border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/3px 0 0/0 stretch;
+	border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/3px 0 0/0 stretch;
+	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/3px 0 0/0 stretch;
 }
 
 .sidebar > ul > li h3, .sidebar > ul > li h3 a {
 	-webkit-box-align: center;
 	-webkit-align-items: center;
-	-ms-flex-align: center;
 	align-items: center;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
@@ -356,7 +388,6 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 .sidebar > ul > li h3 a {
 	display: -webkit-inline-box;
 	display: -webkit-inline-flex;
-	display: -ms-inline-flexbox;
 	display: inline-flex;
 	margin: auto 0;
 	line-height: 1em;
@@ -390,7 +421,6 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 
 .sidebar > ul > li ul, .sidebar > ul > li ul li {
 	-webkit-transition: all 0.5s ease-out;
-	-o-transition: all 0.5s ease-out;
 	transition: all 0.5s ease-out;
 }
 
@@ -398,7 +428,6 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 	content: "├";
 	padding-right: 2px;
 	-webkit-transition: all 0.5s ease-out;
-	-o-transition: all 0.5s ease-out;
 	transition: all 0.5s ease-out;
 	-webkit-animation: flashString 10s linear infinite;
 	animation: flashString 10s linear infinite;
@@ -430,18 +459,15 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 .nav-button {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-pack: space-evenly;
 	-webkit-justify-content: space-evenly;
-	-ms-flex-pack: space-evenly;
 	justify-content: space-evenly;
 }
 
 @supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and ((-o-object-fit: fill) or (object-fit: fill))) {
 	.nav-button {
 		-webkit-justify-content: space-around;
-		-ms-flex-pack: distribute;
 		justify-content: space-around;
 	}
 }
@@ -463,9 +489,7 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 .expand-box {
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 20px;
 	height: 20px;
@@ -482,26 +506,23 @@ code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-sc
 .expand-box, header {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
-	-ms-flex-align: center;
 	align-items: center;
 }
 
 header {
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
-	-ms-flex-pack: justify;
 	justify-content: space-between;
 	margin-top: 1rem;
-	margin-bottom: 3px;
+	margin-bottom: 0.35rem;
 	border-width: 0 0 5px;
 	border-style: solid;
 	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/0 0 5px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/0 0 5px/0 stretch;
-	-o-border-image: -o-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/0 0 5px/0 stretch;
+	-o-border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/0 0 5px/0 stretch;
 	border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/0 0 5px/0 stretch;
 	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/0 0 5px/0 stretch;
 }
@@ -522,7 +543,6 @@ header label {
 main {
 	-webkit-box-flex: 2;
 	-webkit-flex-grow: 2;
-	-ms-flex-positive: 2;
 	flex-grow: 2;
 }
 
@@ -540,9 +560,13 @@ section:not(:first-child) {
 	border-style: solid;
 	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/2px 0 0/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/2px 0 0/0 stretch;
-	-o-border-image: -o-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/2px 0 0/0 stretch;
+	-o-border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/2px 0 0/0 stretch;
 	border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/2px 0 0/0 stretch;
 	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/2px 0 0/0 stretch;
+}
+
+section:last-of-type {
+	margin-bottom: 10rem;
 }
 
 section h1, section h2, section h3, section h4, section h5, section h6, section p {
@@ -624,24 +648,21 @@ section p + p {
 footer {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
-	-ms-flex-pack: justify;
 	justify-content: space-between;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
-	-ms-flex-align: center;
 	align-items: center;
-	margin-top: 3px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	margin-top: 0.35rem;
+	padding-top: 0.35rem;
+	padding-bottom: 0.35rem;
 	border-width: 5px 0 20px;
 	border-style: solid;
 	-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/5px 0 20px/0 stretch;
 	-webkit-border-image: -webkit-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
-	-o-border-image: -o-linear-gradient(left, #000011, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
+	-o-border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
 	border-image: -webkit-gradient(linear, left top, right top, from(#000011), color-stop(#1164FF), to(#FFFF99)) 1/5px 0 20px/0 stretch;
 	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
 }
@@ -680,15 +701,12 @@ footer p:last-child {
 		-webkit-box-orient: vertical;
 		-webkit-box-direction: normal;
 		-webkit-flex-direction: column;
-		-ms-flex-direction: column;
 		flex-direction: column;
 		-webkit-box-pack: unset;
 		-webkit-justify-content: unset;
-		-ms-flex-pack: unset;
 		justify-content: unset;
 		-webkit-box-align: unset;
 		-webkit-align-items: unset;
-		-ms-flex-align: unset;
 		align-items: unset;
 	}
 
@@ -717,13 +735,12 @@ footer p:last-child {
 		margin-bottom: 20px;
 		padding-left: 2px;
 		-webkit-transition: all 0.5s ease-out;
-		-o-transition: all 0.5s ease-out;
 		transition: all 0.5s ease-out;
 		border-bottom-width: 3px;
 		border-left-width: 3px;
 		-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 5px/0 stretch;
 		-webkit-border-image: -webkit-linear-gradient(top, #000011, #1164FF) 1/0 3px 5px/0 stretch;
-		-o-border-image: -o-linear-gradient(top, #000011, #1164FF) 1/0 3px 5px/0 stretch;
+		-o-border-image: linear-gradient(180deg, #000011, #1164FF) 1/0 3px 5px/0 stretch;
 		border-image: -webkit-gradient(linear, left top, left bottom, from(#000011), to(#1164FF)) 1/0 3px 5px/0 stretch;
 		border-image: linear-gradient(180deg, #000011, #1164FF) 1/0 3px 5px/0 stretch;
 	}
@@ -731,14 +748,11 @@ footer p:last-child {
 	.sidebar > ul {
 		display: -webkit-box;
 		display: -webkit-flex;
-		display: -ms-flexbox;
 		display: flex;
 		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		-webkit-box-pack: justify;
 		-webkit-justify-content: space-between;
-		-ms-flex-pack: justify;
 		justify-content: space-between;
 		padding: 0 5px 10px;
 	}
@@ -752,7 +766,7 @@ footer p:last-child {
 	}
 
 	.sidebar > ul > li ul {
-		margin-left: calc(1em+ 2px);
+		margin-left: calc(1em + 2px);
 	}
 
 	.sidebar::-webkit-scrollbar {
@@ -767,15 +781,12 @@ footer p:last-child {
 	header label {
 		display: -webkit-inline-box;
 		display: -webkit-inline-flex;
-		display: -ms-inline-flexbox;
 		display: inline-flex;
 		-webkit-box-pack: center;
 		-webkit-justify-content: center;
-		-ms-flex-pack: center;
 		justify-content: center;
 		-webkit-box-align: center;
 		-webkit-align-items: center;
-		-ms-flex-align: center;
 		align-items: center;
 		width: 160px;
 		height: 32px;
@@ -784,6 +795,16 @@ footer p:last-child {
 		font-size: 1.25rem;
 		border-radius: 5px;
 		background-color: #1164FF;
+	}
+}
+
+@media only screen and (max-width: 992px) and (prefers-color-scheme: light) {
+	.sidebar {
+		-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#1164FF)) 1/0 3px 5px/0 stretch;
+		-webkit-border-image: -webkit-linear-gradient(top, #FFFFFF, #1164FF) 1/0 3px 5px/0 stretch;
+		-o-border-image: linear-gradient(180deg, #FFFFFF, #1164FF) 1/0 3px 5px/0 stretch;
+		border-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#1164FF)) 1/0 3px 5px/0 stretch;
+		border-image: linear-gradient(180deg, #FFFFFF, #1164FF) 1/0 3px 5px/0 stretch;
 	}
 }
 
@@ -800,12 +821,10 @@ footer p:last-child {
 		-webkit-box-orient: vertical;
 		-webkit-box-direction: reverse;
 		-webkit-flex-direction: column-reverse;
-		-ms-flex-direction: column-reverse;
 		flex-direction: column-reverse;
 	}
 
 	footer p {
-		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 		width: 100%;
 	}
@@ -830,6 +849,118 @@ footer p:last-child {
 	}
 }
 
+@media (prefers-color-scheme: light) {
+	blockquote.cation, blockquote.danger, blockquote.deprecated, blockquote.stub {
+		color: #FFFFFF;
+	}
+
+	body {
+		color: #000011;
+		background-color: unset;
+		background-image: unset;
+	}
+
+	blockquote.stub {
+		-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FFFFFF), to(#1164FF)) 1/5px 5px/0 stretch;
+		-webkit-border-image: -webkit-linear-gradient(bottom left, #1164FF, #FFFFFF, #1164FF) 1/5px 5px/0 stretch;
+		-o-border-image: linear-gradient(to top right, #1164FF, #FFFFFF, #1164FF) 1/5px 5px/0 stretch;
+		border-image: -webkit-gradient(linear, left bottom, right top, from(#1164FF), color-stop(#FFFFFF), to(#1164FF)) 1/5px 5px/0 stretch;
+		border-image: linear-gradient(to top right, #1164FF, #FFFFFF, #1164FF) 1/5px 5px/0 stretch;
+		background-image: -webkit-gradient(linear, right bottom, left top, from(#FFFFFF), color-stop(20%, #000033), color-stop(80%, #000033), to(#FFFFFF));
+		background-image: -webkit-linear-gradient(bottom right, #FFFFFF, #000033 20%, #000033 80%, #FFFFFF);
+		background-image: linear-gradient(to top left, #FFFFFF, #000033 20%, #000033 80%, #FFFFFF);
+	}
+
+	blockquote.cation {
+		-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#FFFFFF), to(#FFFF33)) 1/5px 5px/0 stretch;
+		-webkit-border-image: -webkit-linear-gradient(bottom left, #FFFF33, #FFFFFF, #FFFF33) 1/5px 5px/0 stretch;
+		-o-border-image: linear-gradient(to top right, #FFFF33, #FFFFFF, #FFFF33) 1/5px 5px/0 stretch;
+		border-image: -webkit-gradient(linear, left bottom, right top, from(#FFFF33), color-stop(#FFFFFF), to(#FFFF33)) 1/5px 5px/0 stretch;
+		border-image: linear-gradient(to top right, #FFFF33, #FFFFFF, #FFFF33) 1/5px 5px/0 stretch;
+		background-image: -webkit-gradient(linear, right bottom, left top, from(#FFFFFF), color-stop(20%, #333300), color-stop(80%, #333300), to(#FFFFFF));
+		background-image: -webkit-linear-gradient(bottom right, #FFFFFF, #333300 20%, #333300 80%, #FFFFFF);
+		background-image: linear-gradient(to top left, #FFFFFF, #333300 20%, #333300 80%, #FFFFFF);
+	}
+
+	blockquote.danger {
+		-webkit-border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#FFFFFF), to(#FF0F0F)) 1/5px 5px/0 stretch;
+		-webkit-border-image: -webkit-linear-gradient(bottom left, #FF0F0F, #FFFFFF, #FF0F0F) 1/5px 5px/0 stretch;
+		-o-border-image: linear-gradient(to top right, #FF0F0F, #FFFFFF, #FF0F0F) 1/5px 5px/0 stretch;
+		border-image: -webkit-gradient(linear, left bottom, right top, from(#FF0F0F), color-stop(#FFFFFF), to(#FF0F0F)) 1/5px 5px/0 stretch;
+		border-image: linear-gradient(to top right, #FF0F0F, #FFFFFF, #FF0F0F) 1/5px 5px/0 stretch;
+		background-image: -webkit-gradient(linear, right bottom, left top, from(#FFFFFF), color-stop(20%, #330000), color-stop(80%, #330000), to(#FFFFFF));
+		background-image: -webkit-linear-gradient(bottom right, #FFFFFF, #330000 20%, #330000 80%, #FFFFFF);
+		background-image: linear-gradient(to top left, #FFFFFF, #330000 20%, #330000 80%, #FFFFFF);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(102, 102, 102, 0.75)), to(rgba(102, 102, 102, 0.25)));
+		background-image: -webkit-linear-gradient(top left, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25));
+		background-image: linear-gradient(to bottom right, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25));
+		box-shadow: 0 0 0 1px rgba(102, 102, 102, 0.3);
+	}
+
+	.sidebar {
+		-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#1164FF)) 1/0 3px 0 0/0 stretch;
+		-webkit-border-image: -webkit-linear-gradient(top, #FFFFFF, #1164FF) 1/0 3px 0 0/0 stretch;
+		-o-border-image: linear-gradient(180deg, #FFFFFF, #1164FF) 1/0 3px 0 0/0 stretch;
+		border-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#1164FF)) 1/0 3px 0 0/0 stretch;
+		border-image: linear-gradient(180deg, #FFFFFF, #1164FF) 1/0 3px 0 0/0 stretch;
+	}
+
+	.sidebar > ul > li h3 {
+		-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#FFFFFF), color-stop(#1164FF), to(#FFFF99)) 1/3px 0 0/0 stretch;
+		-webkit-border-image: -webkit-linear-gradient(left, #FFFFFF, #1164FF, #FFFF99) 1/3px 0 0/0 stretch;
+		-o-border-image: linear-gradient(90deg, #FFFFFF, #1164FF, #FFFF99) 1/3px 0 0/0 stretch;
+		border-image: -webkit-gradient(linear, left top, right top, from(#FFFFFF), color-stop(#1164FF), to(#FFFF99)) 1/3px 0 0/0 stretch;
+		border-image: linear-gradient(90deg, #FFFFFF, #1164FF, #FFFF99) 1/3px 0 0/0 stretch;
+	}
+
+	.sidebar > ul > li h3, .sidebar > ul > li h3 a, .sidebar > ul > li ul li:before {
+		-webkit-animation-name: flashStringLight;
+		animation-name: flashStringLight;
+	}
+
+	.sidebar::-webkit-scrollbar-track {
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#1164FF));
+		background-image: -webkit-linear-gradient(top, #FFFFFF, #1164FF);
+		background-image: linear-gradient(180deg, #FFFFFF, #1164FF);
+	}
+
+	.expand-box {
+		border-color: #000011;
+	}
+
+	header {
+		-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#FFFFFF), color-stop(#1164FF), to(#FFFF99)) 1/0 0 5px/0 stretch;
+		-webkit-border-image: -webkit-linear-gradient(left, #FFFFFF, #1164FF, #FFFF99) 1/0 0 5px/0 stretch;
+		-o-border-image: linear-gradient(90deg, #FFFFFF, #1164FF, #FFFF99) 1/0 0 5px/0 stretch;
+		border-image: -webkit-gradient(linear, left top, right top, from(#FFFFFF), color-stop(#1164FF), to(#FFFF99)) 1/0 0 5px/0 stretch;
+		border-image: linear-gradient(90deg, #FFFFFF, #1164FF, #FFFF99) 1/0 0 5px/0 stretch;
+	}
+
+	section:not(:first-child) {
+		-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#FFFFFF), color-stop(#1164FF), to(#FFFF99)) 1/2px 0 0/0 stretch;
+		-webkit-border-image: -webkit-linear-gradient(left, #FFFFFF, #1164FF, #FFFF99) 1/2px 0 0/0 stretch;
+		-o-border-image: linear-gradient(90deg, #FFFFFF, #1164FF, #FFFF99) 1/2px 0 0/0 stretch;
+		border-image: -webkit-gradient(linear, left top, right top, from(#FFFFFF), color-stop(#1164FF), to(#FFFF99)) 1/2px 0 0/0 stretch;
+		border-image: linear-gradient(90deg, #FFFFFF, #1164FF, #FFFF99) 1/2px 0 0/0 stretch;
+	}
+
+	footer {
+		-webkit-border-image: -webkit-gradient(linear, left top, right top, from(#FFFFFF), color-stop(#1164FF), to(#FFFF99)) 1/5px 0 20px/0 stretch;
+		-webkit-border-image: -webkit-linear-gradient(left, #FFFFFF, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
+		-o-border-image: linear-gradient(90deg, #FFFFFF, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
+		border-image: -webkit-gradient(linear, left top, right top, from(#FFFFFF), color-stop(#1164FF), to(#FFFF99)) 1/5px 0 20px/0 stretch;
+		border-image: linear-gradient(90deg, #FFFFFF, #1164FF, #FFFF99) 1/5px 0 20px/0 stretch;
+	}
+
+	footer p:first-child a {
+		-webkit-animation-name: flashStringLight;
+		animation-name: flashStringLight;
+	}
+}
+
 @media print {
 	blockquote.cation, blockquote.danger, blockquote.deprecated, blockquote.stub {
 		color: #FFFFFF;
@@ -838,6 +969,7 @@ footer p:last-child {
 	body {
 		color: #000000;
 		background-color: unset;
+		background-image: unset;
 	}
 
 	body > header {

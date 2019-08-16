@@ -9,7 +9,8 @@
 // ----------------------------------------------------------------------------------------------------
 // 変数の定義(Global)
 $global-font-size: 14px;
-$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
+$gradation-pattern1: linear-gradient(to right, #000011, #1164FF, #FFFF99);
+$gradation-pattern2: linear-gradient(to right, #FFFFFF, #1164FF, #FFFF99);
 
 // Responsive Breakpoint
 $width-list: (
@@ -40,6 +41,10 @@ $width-list: (
 	color: #FFFFFF;
 	text-shadow: 0 0 0 rgba(255, 255, 255, 0);
 }
+@mixin defaultFlashLight() {
+	color: #000011;
+	text-shadow: 0 0 0 rgba(0, 0, 17, 0);
+}
 
 // ----------------------------------------------------------------------------------------------------
 // Functionの定義
@@ -58,6 +63,10 @@ $width-list: (
 	padding: 1rem;
 	border-width: 5px;
 	border-style: solid;
+
+	@media (prefers-color-scheme: light) {
+		color: #FFFFFF;
+	}
 
 	@media print {
 		color: #FFFFFF;
@@ -131,6 +140,7 @@ body {
 	line-height: 1.2;
 	color: #FFFFFF;
 	background-color: #000011;
+	background-image: linear-gradient(180deg, #000005, #000011 22%, #000011 70%, #00001C 85%);
 
 	@include max-screen(md) {
 		flex-direction: column;
@@ -138,24 +148,31 @@ body {
 		align-items: unset;
 	}
 
+	@media (prefers-color-scheme: light) {
+		color: #000011;
+		background-color: unset;
+		background-image: unset;
+	}
+
 	@media print {
 		color: #000000;
 		background-color: unset;
+		background-image: unset;
 	}
 
-	 > header {
+	> header {
 		@media print {
 			display: none;
 		}
 	}
 
-	 > input {
+	> input {
 		&[type="checkbox"] {
 			display: none;
 
 			&.panel-switch {
 				&:not(:checked) {
-					 + nav {
+					+ nav {
 						@include max-screen(md) {
 							// display: none;
 							overflow: hidden;
@@ -170,7 +187,7 @@ body {
 		}
 	}
 
-	 > .content {
+	> .content {
 		display: flex;
 		flex-direction: column;
 		width: calc(100% - 240px);
@@ -254,6 +271,11 @@ blockquote {
 		border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 		background-color: #000033;
 		background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011);
+
+		@media (prefers-color-scheme: light) {
+			border-image: linear-gradient(to top right, #1164FF, #FFFFFF, #1164FF) 1/5px 5px/0 stretch;
+			background-image: linear-gradient(to top left, #FFFFFF, #000033 20%, #000033 80%, #FFFFFF);
+		}
 	}
 
 	&.cation {
@@ -263,6 +285,11 @@ blockquote {
 		border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
 		background-color: #333300;
 		background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011);
+
+		@media (prefers-color-scheme: light) {
+			border-image: linear-gradient(to top right, #FFFF33, #FFFFFF, #FFFF33) 1/5px 5px/0 stretch;
+			background-image: linear-gradient(to top left, #FFFFFF, #333300 20%, #333300 80%, #FFFFFF);
+		}
 	}
 
 	&.danger {
@@ -272,6 +299,11 @@ blockquote {
 		border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
 		background-color: #330000;
 		background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011);
+
+		@media (prefers-color-scheme: light) {
+			border-image: linear-gradient(to top right, #FF0F0F, #FFFFFF, #FF0F0F) 1/5px 5px/0 stretch;
+			background-image: linear-gradient(to top left, #FFFFFF, #330000 20%, #330000 80%, #FFFFFF);
+		}
 	}
 
 	&.deprecated {
@@ -322,6 +354,11 @@ blockquote {
 		border-radius: 10px;
 		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
 		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+
+		@media (prefers-color-scheme: light) {
+			background-image: linear-gradient(to bottom right, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25));
+			box-shadow: 0 0 0 1px rgba(102, 102, 102, 0.3);
+		}
 	}
 
 	&-corner {
@@ -344,11 +381,32 @@ blockquote {
 		$flash: #FFFF66;
 
 		color: $flash;
-		text-shadow: 0 0 0.75rem $flash;
+		text-shadow: 0 0 0.25rem $flash, 0 0 0.5rem $flash, 0 0 0.75rem $flash, 0 0 1rem $flash, 0 0 1.25rem $flash, 0 0 1.5rem $flash, 0 0 1.75rem $flash;
 	}
 
 	100% {
 		@include defaultFlash();
+	}
+}
+
+@keyframes flashStringLight {
+	0% {
+		@include defaultFlashLight();
+	}
+
+	90% {
+		@include defaultFlashLight();
+	}
+
+	95% {
+		$flash: #FFFF66;
+
+		color: $flash;
+		text-shadow: 0 0 0.25rem $flash, 0 0 0.5rem $flash, 0 0 0.75rem $flash, 0 0 1rem $flash, 0 0 1.25rem $flash, 0 0 1.5rem $flash, 0 0 1.75rem $flash;
+	}
+
+	100% {
+		@include defaultFlashLight();
 	}
 }
 
@@ -431,6 +489,14 @@ code, pre {
 		border-bottom-width: 3px;
 		border-left-width: 3px;
 		border-image: linear-gradient(to bottom, #000011, #1164FF) 1/0 3px 5px/0 stretch;
+
+		@media (prefers-color-scheme: light) {
+			border-image: linear-gradient(to bottom, #FFFFFF, #1164FF) 1/0 3px 5px/0 stretch;
+		}
+	}
+
+	@media (prefers-color-scheme: light) {
+		border-image: linear-gradient(to bottom, #FFFFFF, #1164FF) 1/0 3px 0 0/0 stretch;
 	}
 
 	@media print {
@@ -441,7 +507,7 @@ code, pre {
 		font-size: 1.5rem;
 	}
 
-	 > ul {
+	> ul {
 		$menu-margin: 10px;
 
 		@include max-screen(md) {
@@ -452,7 +518,7 @@ code, pre {
 			padding-bottom: 10px;
 		}
 
-		 > li {
+		> li {
 			margin-top: 15px;
 
 			@include max-screen(md) {
@@ -471,10 +537,15 @@ code, pre {
 				border-width: 0;
 				border-style: solid;
 				border-top-width: 3px;
-				border-image: linear-gradient(to right, #000011, #1164FF, #FFFF66) 1/3px 0 0/0 stretch;
+				border-image: $gradation-pattern1 1/3px 0 0/0 stretch;
 
 				@include max-screen(md) {
 					padding-left: 0;
+				}
+
+				@media (prefers-color-scheme: light) {
+					animation-name: flashStringLight;
+					border-image: $gradation-pattern2 1/3px 0 0/0 stretch;
 				}
 
 				a {
@@ -483,6 +554,10 @@ code, pre {
 					margin: auto 0;
 					animation: flashString 10s linear infinite;
 					line-height: 1em;
+
+					@media (prefers-color-scheme: light) {
+						animation-name: flashStringLight;
+					}
 				}
 			}
 
@@ -493,7 +568,7 @@ code, pre {
 
 					&.panel-switch {
 						&:not(:checked) {
-							 + ul {
+							+ ul {
 								max-height: 0;
 								// display: none;
 								// overflow: hidden;
@@ -540,6 +615,10 @@ code, pre {
 						padding-right: 2px;
 						transition: all 0.5s ease-out;
 						animation: flashString 10s linear infinite;
+
+						@media (prefers-color-scheme: light) {
+							animation-name: flashStringLight;
+						}
 					}
 
 					&:last-child {
@@ -564,6 +643,10 @@ code, pre {
 		&-track {
 			border-radius: 10px;
 			background-image: linear-gradient(to bottom, #000011, #1164FF);
+
+			@media (prefers-color-scheme: light) {
+				background-image: linear-gradient(to bottom, #FFFFFF, #1164FF);
+			}
 		}
 
 		&-thumb {
@@ -609,6 +692,10 @@ code, pre {
 	font-size: $font-size;
 	line-height: $font-size;
 	border: 1px #FFFFFF solid;
+
+	@media (prefers-color-scheme: light) {
+		border-color: #000011;
+	}
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -625,7 +712,11 @@ header {
 	border-width: 0;
 	border-style: solid;
 	border-bottom-width: 5px;
-	border-image: $gradation-pattern 1/0 0 5px/0 stretch;
+	border-image: $gradation-pattern1 1/0 0 5px/0 stretch;
+
+	@media (prefers-color-scheme: light) {
+		border-image: $gradation-pattern2 1/0 0 5px/0 stretch;
+	}
 
 	@media print {
 		margin-top: 0;
@@ -681,7 +772,15 @@ section {
 		border-width: 0;
 		border-style: solid;
 		border-top-width: 2px;
-		border-image: $gradation-pattern 1/2px 0 0/0 stretch;
+		border-image: $gradation-pattern1 1/2px 0 0/0 stretch;
+
+		@media (prefers-color-scheme: light) {
+			border-image: $gradation-pattern2 1/2px 0 0/0 stretch;
+		}
+	}
+
+	&:last-of-type {
+		margin-bottom: 10rem;
 	}
 
 	h1, h2, h3, h4, h5, h6, p {
@@ -689,7 +788,7 @@ section {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		 + p,  + ul,  + ol,  + dl {
+		+ p, + ul, + ol, + dl {
 			margin-top: 1em;
 		}
 	}
@@ -751,11 +850,11 @@ section {
 	}
 
 	p {
-		 + p {
+		+ p {
 			padding-top: 1rem;
 		}
 
-		 + h3 {
+		+ h3 {
 			@include max-screen(xs) {
 				margin-top: 1.5rem;
 			}
@@ -793,10 +892,14 @@ footer {
 	border-style: solid;
 	border-top-width: 5px;
 	border-bottom-width: 20px;
-	border-image: $gradation-pattern 1/5px 0 20px/0 stretch;
+	border-image: $gradation-pattern1 1/5px 0 20px/0 stretch;
 
 	@include max-screen(sm) {
 		flex-direction: column-reverse;
+	}
+
+	@media (prefers-color-scheme: light) {
+		border-image: $gradation-pattern2 1/5px 0 20px/0 stretch;
 	}
 
 	p {
@@ -811,6 +914,10 @@ footer {
 				animation: flashString 10s linear infinite;
 				text-decoration: line-through;
 				color: unset;
+
+				@media (prefers-color-scheme: light) {
+					animation-name: flashStringLight;
+				}
 
 				@media print {
 					animation: unset;

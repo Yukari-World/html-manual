@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>ファイルダウンロード - HTML Technical Manual</title>
+	<title>IndexedDB API - HTML Technical Manual</title>
 	<meta name="description" content="HTMLで纏められた主にHTML技術関連のマニュアルページ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#000011">
@@ -22,7 +22,7 @@
 </head>
 
 <body>
-	<header class="md-show" id="top" role="banner"><h1>ファイルダウンロード</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
+	<header class="md-show" id="top" role="banner"><h1>IndexedDB API</h1><label for="menuBtn">Menu</label></header><input class="panel-switch" id="menuBtn" type="checkbox">
 	<nav class="sidebar" id="menu"><h2>HTML Manual Menu</h2>
 		<div class="nav-button"><button id="expandAll">全て展開</button><button id="collapseAll">全て折りたたむ</button></div>
 		<ul role="menu" id="navigation">
@@ -125,24 +125,148 @@
 		</ul>
 	</nav>
 	<div class="content">
-		<header class="md-hide" role="banner"><h1>ファイルダウンロード</h1>
+		<header class="md-hide" role="banner"><h1>IndexedDB API</h1>
 		</header>
 		<main>
+			<blockquote class="stub"><h2>書きかけのページ</h2>
+				<p>このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。</p>
+			</blockquote>
 			<section><h2>説明</h2>
-				<p>メディアリンク等を作成した場合、再生ではなくダウンロードさせたい場合がある。HTML5を利用することでダウンロードさせることができるので説明する。</p>
+				<p>IndexedDBとはWeb Storageの一種である。Cookieと異なり長期間の保存が可能であり、Local Storageよりも更に大容量のデータを取り扱うことができる。</p>
 			</section>
-			<section><h2>使用方法と解説</h2>
-				<p>使い方は非常に単純でaタグにダウンロード要素を付与すれば良い。</p><pre class="language-html line-numbers"><code>&lt;a download="exsample.txt" href="saa/exsample.txt"&gt;ダウンロード&lt;/a&gt;
+			<section><h2>使用方法と解説</h2><h3>初回接続</h3>
+				<p>IndexedDBはSQLの様にデータベースとデータテーブルというものが存在している。データベースもデータテーブルはストレージに存在しない場合作成されるが、あらかじめ定義したうえで作成する必要がある。</p><pre class="language-javascript line-numbers"><code>// 各種定義。基本的にこの項目を何度も使いまわすのであらかじめ定義しておくと修正が楽になる
+// データベースの名前
+const dbName = 'Technical-Manual';
+// データベースのバージョン。バージョンの値が異なる場合、upgradeneededの処理を通る(初回などで存在しない場合、必ず通る)
+const dbVersion = 1;
+// データテーブル名
+const dbTable = 'tableTemp';
+
+// データベースに接続
+const dbSourse = indexedDB.open(dbName, dbVersion);
+
+// データベース更新処理
+// データテーブルの形式の更新はここでしか行えない
+dbSourse.addEventListener('upgradeneeded', function (event) {
+	let db = event.target.result;
+
+	// データテーブルの作成
+	// keyPathとはインデックスキーであり、指定する値は一意である必要がある
+	let objectStore = db.createObjectStore(dbTable, {keyPath : 'id'});
+});
+
+// データベースを開いた時の処理。あくまでデータベースの作成だけなので処理はない
+dbSourse.addEventListener('success', function (event) {
+	let db = event.target.result;
+	// 接続を解除する
+	db.close();
+});
+
+// 接続に失敗した時の処理
+dbSourse.addEventListener('error', function (event) {
+	console.error('Database Connection Error: ' + event.target.errorCode);
+});
+</code></pre><h3>データの入力</h3>
+				<p>入力するデータは構造体のような形式で入力する。</p><pre class="language-javascript line-numbers"><code>// データベースの名前
+const dbName = 'Technical-Manual';
+// データテーブル名
+const dbTable = 'tableTemp';
+// データの値
+let value = {'id': 22, 'name': 'Trident'};
+
+// データベースに接続
+const dbSourse = indexedDB.open(dbName);
+
+dbSourse.addEventListener('success', function (event) {
+	const db = event.target.result;
+	// トランザクションのモード
+	const trans = db.transaction(dbTable, 'readwrite');
+	// 参照するデータテーブル
+	const store = trans.objectStore(dbTable);
+	// 他にもaddを使った挿入方法があるが、putと異なり重複した場合、値の更新は行われない
+	const putReq = store.put(value);
+
+	putReq.addEventListener('success', function () {
+		console.log('put data success');
+	});
+
+	putReq.addEventListener('error', function (event) {
+		console.error('Database Error: ' + event.target.errorCode);
+	});
+
+	trans.addEventListener('complete', function () {
+		// トランザクション完了時(putReq.onsuccessの後)に実行
+		console.log('transaction complete');
+	});
+});
+
+// 接続に失敗した時の処理
+dbSourse.addEventListener('error', function (event) {
+	console.error('Database Connection Error: ' + event.target.errorCode);
+});
+</code></pre><h3>データの取得</h3>
+				<p>返ってくる値は構造体と同じである。</p><pre class="language-javascript line-numbers"><code>// データベースの名前
+const dbName = 'Technical-Manual';
+// データテーブル名
+const dbTable = 'tableTemp';
+// 取得するデータの値
+let value = 34;
+
+// データベースに接続
+const dbSourse = indexedDB.open(dbName);
+
+dbSourse.addEventListener('success', function (event) {
+	const db = event.target.result;
+	// トランザクションのモード
+	const trans = db.transaction(dbTable, 'readonly');
+	// 参照するデータテーブル
+	const store = trans.objectStore(dbTable);
+	const getReq = store.get(value);
+
+	getReq.addEventListener('success', function (event) {
+		console.log(event.target.result);
+	});
+
+	getReq.addEventListener('error', function (event) {
+		console.error('Database Error: ' + event.target.errorCode);
+	});
+});
+
+// 接続に失敗した時の処理
+dbSourse.addEventListener('error', function (event) {
+	console.error('Database Connection Error: ' + event.target.errorCode);
+});
+</code></pre><h3>データベースの削除</h3><pre class="language-javascript line-numbers"><code>// データベースの名前
+const dbName = 'Technical-Manual';
+
+// データベースを削除
+const dbSourse = indexedDB.deleteDatabase(dbName);
+
+// この処理はデータベースが存在しない場合でも実行される
+dbSourse.addEventListener('success', function (event) {
+	console.log('db delete success');
+});
+
+// 接続に失敗した時の処理
+dbSourse.addEventListener('error', function (event) {
+	console.error('Database Connection Error: ' + event.target.errorCode);
+});
 </code></pre>
 			</section>
 			<section><h2>使用上の注意</h2>
 				<ul>
-					<li>download属性を利用する場合、<a href="https://developer.mozilla.org/ja/docs/Web/Security/Same-origin_policy" target="_blank" rel="external noopener">同一オリジンのURL</a>を指定する必要がある。</li>
-					<li>Internet ExplorerとSafariはこの仕様に対応していない。</li>
+					<li>テーブル構造はSQLみたいなリレーショナルデータベースではなく、オブジェクト指向である。</li>
+					<li>ブラウザによってはIndexedDBが使用できないことがある。以下のソースを使用することで使用できるかどうかを調べることができる。<pre class="language-javascript line-numbers"><code>if (window.indexedDB) {
+	// 処理内容
+}
+
+</code></pre>
+					</li>
 				</ul>
 			</section>
 			<section><h2>参考リンク</h2>
-				<p><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/a" target="_blank" rel="external noopener">MDN Web Docs</a><br><a href="https://chaika.hatenablog.com/entry/2016/03/25/073203" target="_blank" rel="external noopener">HTML5 ファイルをダウンロードさせるリンクを作りたい。 - かもメモ</a></p>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/API/IndexedDB_API" target="_blank" rel="external noopener">MDN Web Docs</a></p>
 			</section>
 		</main>
 		<footer role="contentinfo">

@@ -1,7 +1,8 @@
 mixin menuSidebar(href, name)
-	li: a(href=href, title=name)= name
+	li(role='menuitem'): a(href=href, title=name)= name
 
-ul#listJavaScript
+ul(role='group')#listJavaScript
+	+menuSidebar('js-IndexedDBAPI.html', '[WIP] IndexedDB')
 	+menuSidebar('js-localStorage.html', '[WIP] localStorage')
 	+menuSidebar('js-Promise.html', '[WIP] Promise')
 	+menuSidebar('js-FetchAPI.html', '[Ajax/WIP] Fetch API')

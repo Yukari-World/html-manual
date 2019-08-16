@@ -66,7 +66,7 @@ export function SendAjax(sendURL, form, methodType) {
 				url = sendURL;
 				sendStruct = {
 					method: methodType,
-					body: form
+					body:   form
 				};
 			} else {
 				url = sendURL + '?';
@@ -97,7 +97,7 @@ export function SendAjax(sendURL, form, methodType) {
 		} else {
 			// Fetch API未対応時の処理
 			let xhr = new XMLHttpRequest();
-			xhr.open('POST', sendURL, true);
+			xhr.open(methodType, sendURL, true);
 			xhr.addEventListener('load', function () {
 				if (xhr.readyState === 4 && xhr.status === 200) {
 					resolve(xhr.response);
